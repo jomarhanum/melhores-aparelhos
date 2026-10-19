@@ -1,5 +1,5 @@
-// Links de afiliado: preencha amazonUrl e mercadoLivreUrl quando gerar os links.
-// Enquanto estiverem vazios, os botões levam para a busca do modelo na loja.
+// Links de afiliado (amazonUrl e mercadoLivreUrl) vêm da planilha "links afiliado.xlsx".
+// Se algum ficar vazio, o botão leva para a busca do modelo na loja.
 
 export interface Produto {
   slug: string;
@@ -78,8 +78,8 @@ export const produtos: Produto[] = [
       'É o mais pesado entre os 12.000 BTUs (30 kg)',
       'Não aquece: não serve para o inverno',
     ],
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B075uq2Gd',
+    mercadoLivreUrl: 'https://meli.la/25Q9SWn',
   },
   {
     slug: 'hisense-ap-12cwbrnps01',
@@ -129,8 +129,8 @@ export const produtos: Produto[] = [
       'No volume máximo chega a 56 dB',
       'Não aquece',
     ],
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B08NvaM7n',
+    mercadoLivreUrl: 'https://meli.la/2GSQTSt',
   },
   {
     slug: 'philco-pac12000f5',
@@ -171,8 +171,8 @@ export const produtos: Produto[] = [
       'Sem Wi-Fi informado',
       'Não aquece',
     ],
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B07jPirZw',
+    mercadoLivreUrl: 'https://meli.la/1YHf1PY',
   },
   {
     slug: 'philco-pac12000qf5',
@@ -210,8 +210,8 @@ export const produtos: Produto[] = [
     vantagens: ['Quente e frio com preço de modelo só frio', 'Autoevaporação'],
     pros: ['Aquece e refrigera', 'Autoevaporação', 'Bivolt', 'Bom preço'],
     contras: ['Sem Wi-Fi informado', 'Sem tecnologia inverter'],
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B0fhkN9r9',
+    mercadoLivreUrl: 'https://meli.la/1H7eKPf',
   },
   {
     slug: 'gree-aovia-gpc10ap',
@@ -249,8 +249,8 @@ export const produtos: Produto[] = [
     vantagens: ['Menor preço da lista', 'Mais leve da lista'],
     pros: ['Preço baixo', 'Leve e compacto', 'Gás R32', 'Resfriamento rápido'],
     contras: ['Só serve para ambientes pequenos', 'Apenas 127 V', 'Chega a 55 dB'],
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B0dB2BESc',
+    mercadoLivreUrl: 'https://meli.la/11xFpRT',
   },
   {
     slug: 'eos-eap14iqf',
@@ -288,8 +288,8 @@ export const produtos: Produto[] = [
     vantagens: ['Inverter + quente e frio + bivolt', 'Ruído máximo baixo para 14.000 BTUs'],
     pros: ['Inverter econômico', 'Aquece e refrigera', 'Bivolt', 'Kit de janela incluso'],
     contras: ['Marca com menos assistências que as grandes', 'Sem Wi-Fi informado'],
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B09gvsUCi',
+    mercadoLivreUrl: 'https://meli.la/2ewKzfZ',
   },
   {
     slug: 'lg-lp1419ivsm',
@@ -327,8 +327,8 @@ export const produtos: Produto[] = [
     vantagens: ['Compressor Dual Inverter da LG', 'Ecossistema de casa inteligente ThinQ'],
     pros: ['Muito econômico', 'App e comando de voz', 'Silencioso no modo dormir', 'Marca forte'],
     contras: ['Mais caro da lista', 'Mais pesado (32,2 kg)', 'Apenas 127 V', 'Não aquece'],
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B05HZP1Lz',
+    mercadoLivreUrl: 'https://meli.la/1y6VU7x',
   },
   {
     slug: 'rheem-rb1hp12k220',
@@ -365,8 +365,8 @@ export const produtos: Produto[] = [
     vantagens: ['Autolimpeza antibacteriana', 'Ruído máximo de apenas 51 dB'],
     pros: ['Quente e frio', 'Autolimpeza', 'Silencioso', 'Filtro lavável'],
     contras: ['Somente 220 V', 'Sem Wi-Fi informado'],
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B0bKfmVEl',
+    mercadoLivreUrl: 'https://meli.la/27mdTZn',
   },
   {
     slug: 'delonghi-pinguino-pact120ed',
@@ -404,8 +404,8 @@ export const produtos: Produto[] = [
     vantagens: ['Marca italiana especialista em portáteis', 'Vazão de ar alta'],
     pros: ['Bivolt', 'Fluxo de ar forte', 'Bom acabamento', 'Timer de 24 h'],
     contras: ['Classe B, não A', 'Sem Wi-Fi informado', 'Não aquece'],
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B0hrAz5cA',
+    mercadoLivreUrl: 'https://meli.la/1Z6YYcF',
   },
   {
     slug: 'rheem-rb1cc12k220',
@@ -442,8 +442,8 @@ export const produtos: Produto[] = [
     vantagens: ['Autolimpeza em um modelo de entrada', 'Ergonomia para transporte'],
     pros: ['Autolimpeza', 'Alças e rodinhas', 'Preço acessível', 'Filtro lavável'],
     contras: ['Somente 220 V', 'Não aquece', 'Sem Wi-Fi informado'],
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B0aEgZ1F0',
+    mercadoLivreUrl: 'https://meli.la/1kbJLVS',
   },
 ];
 

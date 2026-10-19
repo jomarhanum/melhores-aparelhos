@@ -5,3 +5,7 @@ dist/
 .env*
 
 .vercel
+
+# Planilhas locais e arquivos temporários do Office
+*.xlsx
+~$*
