@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
-import { produtos, brl, fotoProduto } from '../data/produtos';
+import { produtos, fotoProduto } from '../data/produtos';
 import { site, author } from '../data/site';
 
 const publicado = '2026-10-19T09:00:00-03:00';
@@ -51,7 +51,7 @@ const destaques = [
   { rotulo: 'Melhor no geral', p: produtos[0] },
   { rotulo: 'Melhor para dormir', p: produtos[1] },
   { rotulo: 'Melhor quente e frio', p: produtos[3] },
-  { rotulo: 'Mais barato', p: produtos[4] },
+  { rotulo: 'Mais em conta', p: produtos[4] },
   { rotulo: 'Mais tecnológico', p: produtos[6] },
 ];
 
@@ -137,7 +137,7 @@ const jsonLd = [
         </ol>
       </nav>
       <h1>Melhor Ar-Condicionado Portátil de 2026: 10 Modelos Comparados</h1>
-      <p class="subtitulo">Comparamos os 10 ar-condicionados portáteis mais bem avaliados do Brasil. Veja ficha técnica, prós e contras e descubra qual é o ideal para o seu cômodo e o seu bolso.</p>
+      <p class="subtitulo">Comparamos os 10 ar-condicionados portáteis mais bem posicionados nos principais rankings do Brasil. Veja ficha técnica, prós e contras e descubra qual é o ideal para o seu cômodo e o seu bolso.</p>
       <div class="autor-linha">
         <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
         <div>
@@ -159,7 +159,7 @@ const jsonLd = [
       <p class="caixa-tit">⚡ Resposta rápida: os melhores de 2026</p>
       <ol class="lista-destaques">
         {destaques.map((d) => (
-          <li><strong>{d.rotulo}:</strong> <a href={`#${d.p.slug}`}>{d.p.nome}</a> — a partir de {brl(d.p.precoRef)}</li>
+          <li><strong>{d.rotulo}:</strong> <a href={`#${d.p.slug}`}>{d.p.nome}</a></li>
         ))}
       </ol>
     </div>
@@ -187,7 +187,7 @@ const jsonLd = [
       <table>
         <caption class="sr">Comparativo dos 10 melhores ar-condicionados portáteis de 2026</caption>
         <thead>
-          <tr><th>#</th><th>Modelo</th><th>BTUs</th><th>Ciclo</th><th>Voltagem</th><th>Ruído</th><th>Wi-Fi</th><th>Preço ref.</th></tr>
+          <tr><th>#</th><th>Modelo</th><th>BTUs</th><th>Ciclo</th><th>Voltagem</th><th>Ruído</th><th>Wi-Fi</th></tr>
         </thead>
         <tbody>
           {produtos.map((p) => (
@@ -199,13 +199,12 @@ const jsonLd = [
               <td>{p.voltagem}</td>
               <td>{p.ruido}</td>
               <td>{p.wifi.startsWith('Sim') ? '✔' : '—'}</td>
-              <td>{brl(p.precoRef)}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-    <p class="nota-preco">Preços de referência pesquisados em outubro de 2026. Os valores mudam com frequência; confira o preço atual nos botões de cada produto.</p>
+    <p class="nota-preco">Os preços mudam com frequência. Confira o valor atualizado nos botões da Amazon e do Mercado Livre de cada produto.</p>
   </div>
 
   <div class="leitura artigo">
@@ -279,8 +278,8 @@ const jsonLd = [
     </ol>
 
     <h2 id="metodologia">Como fizemos este ranking</h2>
-    <p>Partimos dos modelos mais bem posicionados nos principais rankings e lojas do Brasil e cruzamos as fichas técnicas oficiais dos fabricantes com milhares de avaliações de compradores. Pesamos cinco critérios: <strong>capacidade de refrigeração</strong>, <strong>nível de ruído</strong>, <strong>eficiência e tecnologia</strong> (inverter, gás R32), <strong>praticidade</strong> (voltagem, peso, drenagem, Wi-Fi) e <strong>preço</strong>. A nota final de cada aparelho é a opinião editorial de {author.name}.</p>
-    <p>Nenhuma marca pagou para aparecer nesta lista. Revisamos o ranking periodicamente para incluir lançamentos e atualizar preços.</p>
+    <p>Este é um comparativo baseado em pesquisa, não em testes de laboratório: não medimos os aparelhos em ambiente controlado. Partimos dos modelos mais bem posicionados nos principais rankings especializados do Brasil e conferimos as especificações publicadas pelos fabricantes e pelas lojas. Depois, comparamos os modelos em cinco critérios: <strong>capacidade de refrigeração</strong>, <strong>nível de ruído</strong>, <strong>eficiência e tecnologia</strong> (inverter, gás R32), <strong>praticidade</strong> (voltagem, peso, drenagem, Wi-Fi) e <strong>custo-benefício</strong>. A nota final de cada aparelho é a opinião editorial de {author.name} com base nesses critérios.</p>
+    <p>A área indicada de cada modelo é uma estimativa a partir da capacidade em BTUs; confirme sempre com o fabricante. Nenhuma marca pagou para aparecer nesta lista, e revisamos o ranking periodicamente para incluir lançamentos.</p>
     </section>
 
     <section class="bloco">
@@ -295,7 +294,7 @@ const jsonLd = [
     </div>
 
     <h2 id="conclusao">Conclusão: qual ar-condicionado portátil comprar?</h2>
-    <p>Se você quer uma resposta direta: <strong>o {top3[0].nome}</strong> é a melhor compra para a maioria das pessoas. Tem Wi-Fi, é bivolt e custa pouco. Quem vai usar no quarto e tem sono leve deve olhar o <strong>{top3[1].nome}</strong>. E se você precisa de calor no inverno, o <strong>{produtos[3].nome}</strong> entrega quente e frio por um ótimo preço.</p>
+    <p>Se você quer uma resposta direta: <strong>o {top3[0].nome}</strong> é a melhor compra para a maioria das pessoas. Tem Wi-Fi, é bivolt e entrega ótimo custo-benefício. Quem vai usar no quarto e tem sono leve deve olhar o <strong>{top3[1].nome}</strong>. E se você precisa de calor no inverno, o <strong>{produtos[3].nome}</strong> entrega quente e frio com ótimo custo-benefício.</p>
     <p>Gostou do comparativo? Compartilhe com quem está sofrendo com o calor. 😉</p>
 
     <ShareButtons title={title} />

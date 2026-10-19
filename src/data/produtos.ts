@@ -9,7 +9,6 @@ export interface Produto {
   nome: string;
   selo?: string;
   nota: number;
-  precoRef: number;
   btu: number;
   area: string;
   funcoes: string[];
@@ -39,7 +38,6 @@ export const produtos: Produto[] = [
     nome: 'Electrolux SP12F 12.000 BTUs Frio com Wi-Fi',
     selo: 'Melhor escolha geral',
     nota: 9.6,
-    precoRef: 2599,
     btu: 12000,
     area: 'até 15 m²',
     funcoes: ['Refrigerar', 'Desumidificar', 'Ventilar', 'Timer', 'Modo dormir'],
@@ -49,9 +47,9 @@ export const produtos: Produto[] = [
     wifi: 'Sim (app + comando de voz)',
     controle: 'Sim',
     ciclo: 'Só frio',
-    idealPara: 'Quem quer o pacote mais completo pelo melhor preço, com controle pelo celular.',
+    idealPara: 'Quem quer o pacote mais completo com ótimo custo-benefício e controle pelo celular.',
     resumo:
-      'O Electrolux SP12F junta tudo o que a maioria das pessoas procura: 12.000 BTUs, Wi-Fi com app, comando de voz e ligação em qualquer tomada por ser bivolt. E ainda é um dos mais baratos da lista.',
+      'O Electrolux SP12F junta tudo o que a maioria das pessoas procura: 12.000 BTUs, Wi-Fi com app, comando de voz e ligação em qualquer tomada por ser bivolt. E ainda entrega um dos melhores custos-benefícios da lista.',
     caracteristicas: [
       '12.000 BTUs de capacidade de refrigeração',
       'Conexão Wi-Fi com aplicativo e compatível com assistentes de voz',
@@ -69,7 +67,7 @@ export const produtos: Produto[] = [
       'Marca com ampla rede de assistência técnica no Brasil',
     ],
     pros: [
-      'Preço baixo para um modelo com Wi-Fi',
+      'Ótimo custo-benefício para um modelo com Wi-Fi',
       'Bivolt, liga em qualquer tomada',
       'Comando de voz e aplicativo',
       'Filtro lavável, sem custo de reposição',
@@ -89,7 +87,6 @@ export const produtos: Produto[] = [
     nome: 'Hisense AP-12CWBRNPS01 12.000 BTUs Frio',
     selo: 'Mais silencioso no modo dormir',
     nota: 9.4,
-    precoRef: 3099,
     btu: 12000,
     area: 'até 15 m²',
     funcoes: ['Refrigerar', 'Desumidificar', 'Ventilar', 'Modo Smart', 'Modo dormir'],
@@ -97,7 +94,7 @@ export const produtos: Produto[] = [
     ruido: '19 dB (dormir) a 56 dB',
     peso: '25 kg',
     wifi: 'Sim (app ConnectLife)',
-    controle: 'Via app',
+    controle: 'Sim (físico e pelo app)',
     ciclo: 'Só frio',
     idealPara: 'Quem vai usar no quarto e tem sono leve.',
     resumo:
@@ -139,7 +136,6 @@ export const produtos: Produto[] = [
     modelo: 'PAC12000F5',
     nome: 'Philco PAC12000F5 12.000 BTUs Frio',
     nota: 9.1,
-    precoRef: 5200,
     btu: 12000,
     area: 'até 15 m²',
     funcoes: ['Refrigerar', 'Desumidificar', 'Automático', 'Timer', 'Oscilação', 'Modo dormir'],
@@ -167,7 +163,7 @@ export const produtos: Produto[] = [
     vantagens: ['Oscilação automática da saída de ar', 'Ruído constante e moderado (51 dB)'],
     pros: ['Bivolt', 'Oscilação de ar', 'Rodinhas e painel digital', 'Peso razoável (25 kg)'],
     contras: [
-      'Preço de referência alto para o que entrega',
+      'Costuma custar mais que concorrentes com recursos parecidos',
       'Sem Wi-Fi informado',
       'Não aquece',
     ],
@@ -180,9 +176,8 @@ export const produtos: Produto[] = [
     marca: 'Philco',
     modelo: 'PAC12000QF5',
     nome: 'Philco PAC12000QF5 12.000 BTUs Quente e Frio',
-    selo: 'Melhor quente e frio barato',
+    selo: 'Melhor quente e frio custo-benefício',
     nota: 9.0,
-    precoRef: 2999.9,
     btu: 12000,
     area: 'até 15 m²',
     funcoes: ['Refrigerar', 'Aquecer', 'Desumidificar', 'Ventilar', 'Automático', 'Modo dormir'],
@@ -207,8 +202,8 @@ export const produtos: Produto[] = [
       'A autoevaporação elimina a chatice de esvaziar água todo dia.',
       'Funciona em 127 V ou 220 V.',
     ],
-    vantagens: ['Quente e frio com preço de modelo só frio', 'Autoevaporação'],
-    pros: ['Aquece e refrigera', 'Autoevaporação', 'Bivolt', 'Bom preço'],
+    vantagens: ['Quente e frio com custo próximo ao de modelos só frio', 'Autoevaporação'],
+    pros: ['Aquece e refrigera', 'Autoevaporação', 'Bivolt', 'Bom custo-benefício'],
     contras: ['Sem Wi-Fi informado', 'Sem tecnologia inverter'],
     amazonUrl: 'https://link.amazon/B0fhkN9r9',
     mercadoLivreUrl: 'https://meli.la/1H7eKPf',
@@ -219,9 +214,8 @@ export const produtos: Produto[] = [
     marca: 'Gree',
     modelo: 'Aovia R32 GPC10AP-A6NNA1A',
     nome: 'Gree Aovia R32 10.000 BTUs Frio',
-    selo: 'Mais barato',
+    selo: 'Mais em conta',
     nota: 8.8,
-    precoRef: 1828,
     btu: 10000,
     area: 'até 12 m²',
     funcoes: ['Refrigerar', 'Desumidificar', 'Resfriamento rápido', 'Timer', 'Modo dormir'],
@@ -233,7 +227,7 @@ export const produtos: Produto[] = [
     ciclo: 'Só frio',
     idealPara: 'Quartos pequenos, escritórios e quem tem orçamento apertado.',
     resumo:
-      'O Gree Aovia é o mais leve e o mais barato da lista. Com 10.000 BTUs e gás R32, dá conta de cômodos pequenos e tem um modo de resfriamento rápido para os dias mais quentes.',
+      'O Gree Aovia é o mais leve e um dos mais em conta da lista. Com 10.000 BTUs e gás R32, dá conta de cômodos pequenos e tem um modo de resfriamento rápido para os dias mais quentes.',
     caracteristicas: [
       '10.000 BTUs com gás R32',
       'Função de resfriamento rápido',
@@ -243,11 +237,11 @@ export const produtos: Produto[] = [
     ],
     beneficios: [
       'Leve (20,5 kg): fácil de mudar de lugar até para uma pessoa só.',
-      'Preço de entrada para quem quer sair do ventilador.',
+      'Boa porta de entrada para quem quer sair do ventilador.',
       'Gás R32 com bom rendimento.',
     ],
-    vantagens: ['Menor preço da lista', 'Mais leve da lista'],
-    pros: ['Preço baixo', 'Leve e compacto', 'Gás R32', 'Resfriamento rápido'],
+    vantagens: ['Um dos mais em conta da lista', 'Mais leve da lista'],
+    pros: ['Mais em conta', 'Leve e compacto', 'Gás R32', 'Resfriamento rápido'],
     contras: ['Só serve para ambientes pequenos', 'Apenas 127 V', 'Chega a 55 dB'],
     amazonUrl: 'https://link.amazon/B0dB2BESc',
     mercadoLivreUrl: 'https://meli.la/11xFpRT',
@@ -260,7 +254,6 @@ export const produtos: Produto[] = [
     nome: 'EOS Slim Inverter EAP14IQF 14.000 BTUs Quente e Frio',
     selo: 'Melhor inverter custo-benefício',
     nota: 8.7,
-    precoRef: 3628.49,
     btu: 14000,
     area: 'até 18 m²',
     funcoes: ['Refrigerar', 'Aquecer', 'Ventilar', 'Desumidificar', 'Timer'],
@@ -299,7 +292,6 @@ export const produtos: Produto[] = [
     nome: 'LG Dual Inverter LP1419IVSM 14.000 BTUs Frio',
     selo: 'Mais tecnológico',
     nota: 8.6,
-    precoRef: 5654.99,
     btu: 14000,
     area: 'até 18 m²',
     funcoes: ['Refrigerar', 'Ventilar', 'Desumidificar', 'Modo dormir', 'Timer'],
@@ -337,7 +329,6 @@ export const produtos: Produto[] = [
     modelo: 'RB1HP12K220',
     nome: 'Rheem RB1HP12K220 12.000 BTUs Quente e Frio',
     nota: 8.4,
-    precoRef: 3099,
     btu: 12000,
     area: 'até 18 m²',
     funcoes: ['Refrigerar', 'Aquecer', 'Desumidificar', 'Ventilar', 'Timer'],
@@ -376,7 +367,6 @@ export const produtos: Produto[] = [
     nome: 'DeLonghi Pinguino PACT120ED 12.000 BTUs Frio',
     selo: 'Maior vazão de ar',
     nota: 8.3,
-    precoRef: 3662,
     btu: 12000,
     area: 'até 15 m²',
     funcoes: ['Refrigerar', 'Desumidificar', 'Ventilar', 'Timer 24 h'],
@@ -414,7 +404,6 @@ export const produtos: Produto[] = [
     modelo: 'RB1CC12K220',
     nome: 'Rheem RB1CC12K220 12.000 BTUs Frio',
     nota: 8.1,
-    precoRef: 2799,
     btu: 12000,
     area: 'até 18 m² (pouco sol)',
     funcoes: ['Refrigerar', 'Desumidificar', 'Ventilar'],
@@ -437,18 +426,15 @@ export const produtos: Produto[] = [
     beneficios: [
       'Alças e rodinhas facilitam o transporte.',
       'Autolimpeza reduz a manutenção.',
-      'Preço menor que a versão quente e frio.',
+      'Costuma custar menos que a versão quente e frio.',
     ],
     vantagens: ['Autolimpeza em um modelo de entrada', 'Ergonomia para transporte'],
-    pros: ['Autolimpeza', 'Alças e rodinhas', 'Preço acessível', 'Filtro lavável'],
+    pros: ['Autolimpeza', 'Alças e rodinhas', 'Bom custo-benefício', 'Filtro lavável'],
     contras: ['Somente 220 V', 'Não aquece', 'Sem Wi-Fi informado'],
     amazonUrl: 'https://link.amazon/B0aEgZ1F0',
     mercadoLivreUrl: 'https://meli.la/1kbJLVS',
   },
 ];
-
-export const brl = (v: number) =>
-  v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
 export const amazonLink = (p: Produto) =>
   p.amazonUrl ||

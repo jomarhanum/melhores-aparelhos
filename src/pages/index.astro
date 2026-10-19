@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import AuthorBox from '../components/AuthorBox.astro';
 import { site } from '../data/site';
-import { produtos, brl, fotoProduto } from '../data/produtos';
+import { produtos, fotoProduto } from '../data/produtos';
 
 const title = 'Melhores Aparelhos: Reviews e Comparativos Honestos de 2026';
 const description = site.description;
@@ -43,7 +43,6 @@ const top = produtos.slice(0, 3);
           <img src={fotoProduto(p)} alt={`Ar-condicionado portátil ${p.marca} ${p.modelo}`} width="600" height="600" loading="lazy" />
           <h3>{p.nome}</h3>
           <p>{p.selo ?? p.idealPara}</p>
-          <p class="card-preco">a partir de <strong>{brl(p.precoRef)}</strong></p>
         </a>
       ))}
     </div>
@@ -52,7 +51,7 @@ const top = produtos.slice(0, 3);
   <section class="wrap">
     <h2>Por que confiar no Melhores Aparelhos?</h2>
     <div class="motivos">
-      <div><p class="m-ico">🔍</p><h3>Pesquisa de verdade</h3><p>Cruzamos ficha técnica oficial, avaliações de compradores e os principais rankings do mercado.</p></div>
+      <div><p class="m-ico">🔍</p><h3>Pesquisa cuidadosa</h3><p>Conferimos as especificações oficiais dos fabricantes e comparamos os modelos mais bem posicionados nos principais rankings do mercado.</p></div>
       <div><p class="m-ico">⚖️</p><h3>Prós e contras sinceros</h3><p>Todo produto tem defeitos. Mostramos os pontos fracos com a mesma clareza dos pontos fortes.</p></div>
       <div><p class="m-ico">📖</p><h3>Leitura fácil</h3><p>Sem "tecniquês". Explicamos BTU, inverter e decibéis como se fosse para um amigo.</p></div>
     </div>
@@ -80,7 +79,6 @@ const top = produtos.slice(0, 3);
   .card h3 { font-size: 1.15rem; margin: 1rem 0 .4rem; }
   .card p { font-size: 1rem; margin-bottom: .5rem; color: var(--texto-2); }
   .card-rank { position: absolute; top: 14px; left: 14px; background: var(--azul); color: #fff; font-weight: 800; border-radius: 10px; padding: 2px 10px; }
-  .card-preco strong { color: var(--verde); }
   .motivos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .motivos > div { background: var(--gelo); border-radius: 18px; padding: 24px; }
   .motivos h3 { margin-top: 0; }

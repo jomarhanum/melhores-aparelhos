@@ -1,10 +1,10 @@
 ---
-import { brl, amazonLink, mercadoLivreLink, fotoProduto, type Produto } from '../data/produtos';
+import { amazonLink, mercadoLivreLink, fotoProduto, type Produto } from '../data/produtos';
 interface Props { p: Produto; }
 const { p } = Astro.props;
 const specs: [string, string][] = [
   ['Capacidade', `${p.btu.toLocaleString('pt-BR')} BTUs`],
-  ['Área indicada', p.area],
+  ['Área indicada (estimativa)', p.area],
   ['Ciclo', p.ciclo],
   ['Voltagem', p.voltagem],
   ['Ruído', p.ruido],
@@ -27,7 +27,6 @@ const specs: [string, string][] = [
   <div class="produto-grid">
     <figure class="produto-img">
       <img src={fotoProduto(p)} alt={`Ar-condicionado portátil ${p.marca} ${p.modelo} ${p.btu.toLocaleString('pt-BR')} BTUs`} width="600" height="600" loading={p.rank <= 1 ? 'eager' : 'lazy'} decoding="async" />
-      <figcaption>Preço de referência: <strong>a partir de {brl(p.precoRef)}</strong></figcaption>
     </figure>
     <div>
       <p>{p.resumo}</p>
