@@ -15,7 +15,10 @@ const ld = [
     '@type': 'CollectionPage',
     name: 'Guias e comparativos',
     url: `${site.url}/guias/`,
-    hasPart: artigos.map((a) => ({ '@type': 'Article', headline: a.titulo, url: `${site.url}${a.url}` })),
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: artigos.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: a.h1, url: `${site.url}${a.url}` })),
+    },
   },
   {
     '@context': 'https://schema.org',
