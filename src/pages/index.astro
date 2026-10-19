@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import AcIllustration from '../components/AcIllustration.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { site } from '../data/site';
+import { produtos, brl } from '../data/produtos';
+
+const title = 'Melhores Aparelhos: Reviews e Comparativos Honestos de 2026';
+const description = site.description;
+const top = produtos.slice(0, 3);
+---
+<Base title={title} description={description}>
+  <section class="home-hero">
+    <div class="wrap home-hero-in">
+      <div>
+        <p class="kicker">Reviews independentes · 2026</p>
+        <h1>Escolha o aparelho certo sem cair em propaganda</h1>
+        <p class="subtitulo">Comparativos detalhados, prós e contras sinceros e guias de compra em linguagem simples. Você lê em poucos minutos e compra com segurança.</p>
+        <a class="btn" href="/melhor-ar-condicionado-portatil/">Ver o melhor ar-condicionado portátil →</a>
+      </div>
+      <div class="home-ilu" aria-hidden="true"><AcIllustration marca="Top 10" btu={12000} /></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2>Review em destaque</h2>
+    <a class="destaque" href="/melhor-ar-condicionado-portatil/">
+      <div class="destaque-ilu"><AcIllustration marca="Portáteis" btu={14000} quente /></div>
+      <div>
+        <span class="tag">Climatização</span>
+        <h3>Melhor Ar-Condicionado Portátil de 2026: 10 Modelos Comparados</h3>
+        <p>Electrolux, LG, Philco, Hisense, Gree, Rheem, DeLonghi e EOS lado a lado: ficha técnica, prós e contras, tabela de BTUs e qual comprar para o seu cômodo.</p>
+        <span class="ler">Ler o comparativo completo →</span>
+      </div>
+    </a>
+  </section>
+
+  <section class="wrap">
+    <h2>Os 3 portáteis mais recomendados agora</h2>
+    <div class="cards">
+      {top.map((p) => (
+        <a class="card" href={`/melhor-ar-condicionado-portatil/#${p.slug}`}>
+          <span class="card-rank">{p.rank}º</span>
+          <AcIllustration marca={p.marca} btu={p.btu} quente={p.ciclo === 'Quente e frio'} />
+          <h3>{p.nome}</h3>
+          <p>{p.selo ?? p.idealPara}</p>
+          <p class="card-preco">a partir de <strong>{brl(p.precoRef)}</strong></p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2>Por que confiar no Melhores Aparelhos?</h2>
+    <div class="motivos">
+      <div><p class="m-ico">🔍</p><h3>Pesquisa de verdade</h3><p>Cruzamos ficha técnica oficial, avaliações de compradores e os principais rankings do mercado.</p></div>
+      <div><p class="m-ico">⚖️</p><h3>Prós e contras sinceros</h3><p>Todo produto tem defeitos. Mostramos os pontos fracos com a mesma clareza dos pontos fortes.</p></div>
+      <div><p class="m-ico">📖</p><h3>Leitura fácil</h3><p>Sem "tecniquês". Explicamos BTU, inverter e decibéis como se fosse para um amigo.</p></div>
+    </div>
+  </section>
+
+  <section class="leitura"><AuthorBox /></section>
+</Base>
+
+<style>
+  .home-hero { background: linear-gradient(160deg, var(--azul-claro), #fff 75%); padding: 56px 0 40px; }
+  .home-hero-in { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center; }
+  .kicker { font-weight: 700; color: var(--azul); text-transform: uppercase; letter-spacing: .08em; font-size: .9rem; }
+  .home-ilu { max-width: 260px; justify-self: center; }
+  .destaque { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; text-decoration: none; color: inherit; border: 1px solid var(--borda); border-radius: 20px; padding: 28px; box-shadow: var(--sombra); transition: transform .15s; }
+  .destaque:hover { transform: translateY(-3px); color: inherit; }
+  .destaque h3 { margin-top: .5rem; font-size: 1.6rem; }
+  .destaque-ilu { background: var(--gelo); border-radius: var(--raio); padding: 16px; }
+  .tag { background: var(--azul-claro); color: var(--azul); font-weight: 700; font-size: .85rem; padding: 4px 12px; border-radius: 999px; }
+  .ler { font-weight: 700; color: var(--azul); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { position: relative; display: block; text-decoration: none; color: inherit; border: 1px solid var(--borda); border-radius: 18px; padding: 22px; background: #fff; transition: transform .15s, box-shadow .15s; }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--sombra); color: inherit; }
+  .card h3 { font-size: 1.15rem; margin: 1rem 0 .4rem; }
+  .card p { font-size: 1rem; margin-bottom: .5rem; color: var(--texto-2); }
+  .card-rank { position: absolute; top: 14px; left: 14px; background: var(--azul); color: #fff; font-weight: 800; border-radius: 10px; padding: 2px 10px; }
+  .card-preco strong { color: var(--verde); }
+  .motivos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .motivos > div { background: var(--gelo); border-radius: 18px; padding: 24px; }
+  .motivos h3 { margin-top: 0; }
+  .motivos p { font-size: 1.02rem; }
+  .m-ico { font-size: 2rem; margin: 0; }
+  @media (max-width: 820px) {
+    .home-hero-in, .destaque, .cards, .motivos { grid-template-columns: 1fr; }
+    .home-ilu { display: none; }
+    .destaque-ilu { max-width: 220px; }
+  }
+</style>

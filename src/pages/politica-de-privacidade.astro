@@ -1,0 +1,58 @@
+---
+import Pagina from '../layouts/Pagina.astro';
+import { site } from '../data/site';
+---
+<Pagina
+  title="Política de Privacidade | Melhores Aparelhos"
+  h1="Política de Privacidade"
+  description="Saiba como o Melhores Aparelhos coleta, usa e protege seus dados pessoais, em conformidade com a LGPD (Lei nº 13.709/2018)."
+  atualizado="19 de outubro de 2026"
+>
+  <p>A sua privacidade é importante para nós. Esta política explica quais dados o <strong>{site.name}</strong> ({site.url}) coleta, por que coleta e quais são os seus direitos, de acordo com a <strong>Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018)</strong>.</p>
+
+  <h2>1. Quem é o responsável pelos dados</h2>
+  <p>O controlador dos dados é o {site.name}, editado por Jomar Hanum. Para qualquer assunto sobre privacidade, escreva para <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.</p>
+
+  <h2>2. Quais dados coletamos</h2>
+  <ul>
+    <li><strong>Dados que você nos envia:</strong> nome, e-mail e mensagem, quando você entra em contato.</li>
+    <li><strong>Dados de navegação:</strong> endereço IP, tipo de navegador, páginas visitadas e horário de acesso, registrados automaticamente pelo servidor de hospedagem (Vercel) para segurança e estatísticas.</li>
+    <li><strong>Cookies:</strong> pequenos arquivos salvos no seu navegador, explicados no item 4.</li>
+  </ul>
+
+  <h2>3. Para que usamos os dados</h2>
+  <ul>
+    <li>Responder às suas mensagens;</li>
+    <li>Entender quais conteúdos são mais úteis e melhorar o site;</li>
+    <li>Garantir a segurança e o funcionamento do site;</li>
+    <li>Cumprir obrigações legais.</li>
+  </ul>
+  <p>As bases legais são o seu <strong>consentimento</strong>, o <strong>legítimo interesse</strong> do site e o <strong>cumprimento de obrigação legal</strong> (art. 7º da LGPD). Não vendemos seus dados.</p>
+
+  <h2>4. Cookies</h2>
+  <p>Usamos cookies <strong>essenciais</strong> (por exemplo, para lembrar que você já viu o aviso de cookies). Quando você clica em um link para a Amazon ou o Mercado Livre, essas lojas podem gravar <strong>cookies de afiliado</strong> para identificar que a visita veio do nosso site. Esses cookies são controlados pelas próprias lojas e seguem as políticas delas:</p>
+  <ul>
+    <li><a href="https://www.amazon.com.br/gp/help/customer/display.html?nodeId=201909010" target="_blank" rel="noopener nofollow">Aviso de Privacidade da Amazon</a></li>
+    <li><a href="https://www.mercadolivre.com.br/privacidade" target="_blank" rel="noopener nofollow">Política de Privacidade do Mercado Livre</a></li>
+  </ul>
+  <p>Se no futuro usarmos ferramentas como Google Analytics ou Google AdSense, terceiros como o Google poderão usar cookies para exibir anúncios com base em visitas anteriores. Você poderá desativar a publicidade personalizada nas <a href="https://adssettings.google.com" target="_blank" rel="noopener nofollow">Configurações de anúncios do Google</a>. Esta política será atualizada antes de qualquer mudança desse tipo.</p>
+  <p>Você pode apagar ou bloquear cookies a qualquer momento nas configurações do seu navegador.</p>
+
+  <h2>5. Compartilhamento de dados</h2>
+  <p>Seus dados só são compartilhados com prestadores de serviço necessários para o funcionamento do site (como a hospedagem) ou quando exigido por lei ou ordem judicial.</p>
+
+  <h2>6. Por quanto tempo guardamos</h2>
+  <p>Mensagens de contato são guardadas pelo tempo necessário para responder e, depois, por até 12 meses. Registros de acesso são guardados por 6 meses, conforme o Marco Civil da Internet (Lei nº 12.965/2014).</p>
+
+  <h2>7. Seus direitos</h2>
+  <p>Pela LGPD, você pode a qualquer momento pedir: confirmação de que tratamos seus dados, acesso, correção, anonimização, exclusão, portabilidade, informação sobre compartilhamento e revogação do consentimento. Basta enviar um e-mail para <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>. Você também pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+  <h2>8. Segurança</h2>
+  <p>O site usa conexão criptografada (HTTPS) e adotamos medidas razoáveis para proteger as informações. Nenhum sistema é 100% seguro, mas trabalhamos para reduzir riscos.</p>
+
+  <h2>9. Menores de idade</h2>
+  <p>Este site não é direcionado a menores de 18 anos e não coleta intencionalmente dados de crianças.</p>
+
+  <h2>10. Alterações</h2>
+  <p>Esta política pode ser atualizada. A data da última revisão fica sempre no topo desta página.</p>
+</Pagina>

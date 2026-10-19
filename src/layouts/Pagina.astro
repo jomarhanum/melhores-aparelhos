@@ -1,0 +1,39 @@
+---
+import Base from './Base.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  h1: string;
+  description: string;
+  atualizado?: string;
+  jsonLd?: object[];
+}
+const { title, h1, description, atualizado, jsonLd = [] } = Astro.props;
+const url = new URL(Astro.url.pathname, site.url).href;
+const ld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: h1, item: url },
+    ],
+  },
+  ...jsonLd,
+];
+---
+<Base title={title} description={description} jsonLd={ld}>
+  <article class="leitura pagina">
+    <nav class="migalhas" aria-label="Você está em">
+      <ol><li><a href="/">Home</a></li><li aria-current="page">{h1}</li></ol>
+    </nav>
+    <h1>{h1}</h1>
+    {atualizado && <p class="atualizado">Última atualização: {atualizado}</p>}
+    <slot />
+  </article>
+</Base>
+
+<style>
+  .atualizado { color: var(--texto-2); font-size: .95rem; }
+</style>

@@ -1,0 +1,25 @@
+---
+// Ilustração leve (SVG) do aparelho. Substitua por foto real do produto quando tiver.
+interface Props { marca: string; btu: number; quente?: boolean; }
+const { marca, btu, quente = false } = Astro.props;
+---
+<svg class="ac-ilu" viewBox="0 0 220 260" role="img" aria-label={`Ilustração do ar-condicionado portátil ${marca} de ${btu.toLocaleString('pt-BR')} BTUs`}>
+  <defs>
+    <linearGradient id={`g-${marca}-${btu}`} x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" /><stop offset="1" stop-color="#dfe9f4" />
+    </linearGradient>
+  </defs>
+  <path d="M150 40 C190 40 200 20 212 8" stroke="#9fb3c8" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="3 4" />
+  <rect x="45" y="30" width="130" height="200" rx="18" fill={`url(#g-${marca}-${btu})`} stroke="#b9c9da" stroke-width="2" />
+  <rect x="60" y="45" width="100" height="34" rx="8" fill="#1b2430" />
+  <text x="110" y="67" text-anchor="middle" font-size="14" font-weight="700" fill="#6cb4ff" font-family="system-ui,sans-serif">{quente ? '22°C ☀❄' : '18°C ❄'}</text>
+  {[0, 1, 2, 3, 4, 5].map((i) => <rect x="62" y={95 + i * 12} width="96" height="5" rx="2.5" fill="#c7d5e4" />)}
+  <text x="110" y="185" text-anchor="middle" font-size="15" font-weight="800" fill="#0b5cab" font-family="system-ui,sans-serif">{marca}</text>
+  <text x="110" y="205" text-anchor="middle" font-size="12" font-weight="600" fill="#4a5768" font-family="system-ui,sans-serif">{(btu / 1000).toLocaleString('pt-BR')}k BTUs</text>
+  <circle cx="68" cy="238" r="9" fill="#4a5768" /><circle cx="152" cy="238" r="9" fill="#4a5768" />
+  <path d="M12 110 q14 -8 28 0 M8 128 q16 -8 32 0 M12 146 q14 -8 28 0" stroke="#6cb4ff" stroke-width="3" fill="none" stroke-linecap="round" />
+</svg>
+
+<style>
+  .ac-ilu { width: 100%; max-width: 200px; height: auto; margin: 0 auto; display: block; }
+</style>

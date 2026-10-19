@@ -1,0 +1,56 @@
+---
+import Pagina from '../layouts/Pagina.astro';
+import { site } from '../data/site';
+---
+<Pagina
+  title="Contato | Melhores Aparelhos"
+  h1="Contato"
+  description="Fale com o Melhores Aparelhos: dúvidas, sugestões de produtos, correções e propostas de parceria."
+  jsonLd={[{ '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Contato', url: `${site.url}/contato/` }]}
+>
+  <p>Quer tirar uma dúvida sobre um produto, sugerir um review, apontar uma correção ou propor uma parceria? Preencha o formulário ou envie um e-mail. Respondemos em até <strong>2 dias úteis</strong>.</p>
+
+  <div class="caixa">
+    <p class="caixa-tit">📧 E-mail</p>
+    <p><a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></p>
+  </div>
+
+  <form class="form" id="form-contato" data-email={site.contactEmail}>
+    <label>Seu nome<input name="nome" required autocomplete="name" /></label>
+    <label>Seu e-mail<input name="email" type="email" required autocomplete="email" /></label>
+    <label>Assunto
+      <select name="assunto">
+        <option>Dúvida sobre produto</option>
+        <option>Sugestão de review</option>
+        <option>Correção de informação</option>
+        <option>Parceria / publicidade</option>
+        <option>Outro</option>
+      </select>
+    </label>
+    <label>Mensagem<textarea name="mensagem" rows="6" required></textarea></label>
+    <label class="check"><input type="checkbox" required /> Li e concordo com a <a href="/politica-de-privacidade/">Política de Privacidade</a>.</label>
+    <button class="btn" type="submit">Enviar mensagem</button>
+  </form>
+
+  <p class="obs">Importante: não prestamos assistência técnica nem vendemos produtos. Para garantia, troca ou entrega, fale diretamente com a loja ou o fabricante.</p>
+</Pagina>
+
+<script>
+  const f = document.getElementById('form-contato') as HTMLFormElement | null;
+  f?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = new FormData(f);
+    const corpo = `Nome: ${d.get('nome')}\nE-mail: ${d.get('email')}\n\n${d.get('mensagem')}`;
+    location.href = `mailto:${f.dataset.email}?subject=${encodeURIComponent(`[Site] ${d.get('assunto')}`)}&body=${encodeURIComponent(corpo)}`;
+  });
+</script>
+
+<style>
+  .form { display: grid; gap: 16px; margin: 2rem 0; }
+  .form label { display: grid; gap: 6px; font-weight: 600; font-size: 1rem; }
+  .form input, .form select, .form textarea { font: inherit; font-size: 1.05rem; padding: 12px 14px; border: 1.5px solid var(--borda); border-radius: 10px; }
+  .form input:focus, .form textarea:focus, .form select:focus { border-color: var(--azul); outline: none; }
+  .form .check { display: flex; gap: 10px; align-items: center; font-weight: 400; }
+  .form button { justify-self: start; }
+  .obs { font-size: .95rem; color: var(--texto-2); }
+</style>

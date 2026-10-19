@@ -1,0 +1,165 @@
+---
+import { site, author, nav, legalLinks } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'article' | 'profile';
+  published?: string;
+  modified?: string;
+  noindex?: boolean;
+  jsonLd?: object[];
+}
+
+const {
+  title,
+  description,
+  image = site.ogImage,
+  imageAlt = site.name,
+  type = 'website',
+  published,
+  modified,
+  noindex = false,
+  jsonLd = [],
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImage = new URL(image, site.url).href;
+const path = Astro.url.pathname;
+
+const baseLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${site.url}/#website`,
+    url: `${site.url}/`,
+    name: site.name,
+    description: site.description,
+    inLanguage: site.lang,
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${site.url}/#org`,
+    name: site.name,
+    url: `${site.url}/`,
+    logo: { '@type': 'ImageObject', url: `${site.url}/favicon-512.png`, width: 512, height: 512 },
+    founder: { '@type': 'Person', name: author.name, url: new URL(author.url, site.url).href },
+  },
+];
+---
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+    <meta name="author" content={author.name} />
+    <meta name="theme-color" content="#0b5cab" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    {published && <meta property="article:published_time" content={published} />}
+    {modified && <meta property="article:modified_time" content={modified} />}
+    {type === 'article' && <meta property="article:author" content={author.name} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+    {[...baseLd, ...jsonLd].map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topo">
+      <div class="wrap topo-in">
+        <a href="/" class="logo" aria-label={`${site.name} - página inicial`}>
+          <img src="/favicon.svg" alt="" width="34" height="34" />
+          <span>Melhores<b>Aparelhos</b></span>
+        </a>
+        <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="menu" aria-label="Menu principal">
+          <ul>
+            {nav.map((n) => (
+              <li><a href={n.href} aria-current={path === n.href ? 'page' : undefined}>{n.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <slot />
+    </main>
+
+    <footer class="rodape">
+      <div class="wrap rodape-grid">
+        <div>
+          <p class="logo logo-rodape"><span>Melhores<b>Aparelhos</b></span></p>
+          <p>{site.tagline}. Conteúdo independente escrito por {author.name}.</p>
+          <p class="aviso">Como participante dos programas de afiliados da Amazon e do Mercado Livre, podemos receber comissão por compras qualificadas, sem custo extra para você.</p>
+        </div>
+        <nav aria-label="Links institucionais">
+          <p class="rodape-tit">Institucional</p>
+          <ul>{legalLinks.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+        </nav>
+        <nav aria-label="Reviews">
+          <p class="rodape-tit">Reviews</p>
+          <ul><li><a href="/melhor-ar-condicionado-portatil/">Melhor ar-condicionado portátil</a></li></ul>
+        </nav>
+      </div>
+      <div class="wrap rodape-base">
+        <p>© {new Date().getFullYear()} {site.name}. Todos os direitos reservados.</p>
+        <p>Desenvolvido por <a href={site.developer.url} target="_blank" rel="noopener">{site.developer.name}</a></p>
+      </div>
+    </footer>
+
+    <div class="cookie" id="cookie" hidden role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+      <p>Usamos cookies essenciais e de afiliados para melhorar sua experiência. Saiba mais na <a href="/politica-de-privacidade/">Política de Privacidade</a>.</p>
+      <button id="cookie-ok" class="btn btn-sm">Entendi</button>
+    </div>
+
+    <script>
+      const btn = document.querySelector('.menu-btn');
+      const menu = document.getElementById('menu');
+      btn?.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        menu?.classList.toggle('aberto', !open);
+      });
+      const c = document.getElementById('cookie');
+      let ok = false;
+      try { ok = localStorage.getItem('cookie-ok') === '1'; } catch {}
+      if (c && !ok) c.hidden = false;
+      document.getElementById('cookie-ok')?.addEventListener('click', () => {
+        try { localStorage.setItem('cookie-ok', '1'); } catch {}
+        if (c) c.hidden = true;
+      });
+    </script>
+  </body>
+</html>

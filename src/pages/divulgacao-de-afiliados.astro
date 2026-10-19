@@ -1,0 +1,29 @@
+---
+import Pagina from '../layouts/Pagina.astro';
+import { site } from '../data/site';
+---
+<Pagina
+  title="Divulgação de Afiliados | Melhores Aparelhos"
+  h1="Divulgação de Afiliados"
+  description="Entenda como o Melhores Aparelhos é financiado: participamos dos programas de afiliados da Amazon e do Mercado Livre, sem custo extra para você."
+  atualizado="19 de outubro de 2026"
+>
+  <p>Transparência é um dos nossos valores. Por isso, queremos que você saiba exatamente como o <strong>{site.name}</strong> se mantém.</p>
+
+  <h2>Como funciona</h2>
+  <p>Alguns links do site são <strong>links de afiliado</strong>. Quando você clica em um deles e compra algo na loja, recebemos uma pequena comissão. <strong>O preço para você é exatamente o mesmo</strong>, com ou sem o nosso link.</p>
+
+  <h2>Programas de que participamos</h2>
+  <ul>
+    <li><strong>Amazon Associados:</strong> o {site.name} participa do Programa de Associados da Amazon, um programa de publicidade de afiliados criado para que sites recebam comissões por anúncios e links para a Amazon.com.br. Como Associado da Amazon, ganhamos com compras qualificadas.</li>
+    <li><strong>Programa de Afiliados do Mercado Livre.</strong></li>
+  </ul>
+
+  <h2>Nossa independência</h2>
+  <p>As comissões não influenciam as notas, a ordem dos rankings nem os prós e contras. Recomendamos o que acreditamos ser melhor para o leitor, mesmo quando isso significa indicar um produto mais barato. Nenhuma marca paga para aparecer nas nossas listas.</p>
+
+  <h2>Identificação dos links</h2>
+  <p>Os botões "Ver preço na Amazon" e "Ver no Mercado Livre" são links de afiliado e usam o atributo <code>rel="sponsored"</code>, como recomenda o Google.</p>
+
+  <p>Dúvidas? <a href="/contato/">Entre em contato</a>.</p>
+</Pagina>

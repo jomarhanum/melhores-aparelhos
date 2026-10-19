@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import ShareButtons from '../../components/ShareButtons.astro';
+import { site, author } from '../../data/site';
+
+const title = `${author.name} – ${author.role} | ${site.name}`;
+const description = `Conheça ${author.name}, criador e editor-chefe do ${site.name}, responsável pelos reviews e comparativos de eletrodomésticos do blog.`;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    url: `${site.url}${author.url}`,
+    mainEntity: {
+      '@type': 'Person',
+      name: author.name,
+      url: `${site.url}${author.url}`,
+      image: `${site.url}${author.photo}`,
+      jobTitle: author.role,
+      description: author.bio,
+      worksFor: { '@id': `${site.url}/#org` },
+      sameAs: author.sameAs,
+    },
+  },
+];
+---
+<Base title={title} description={description} type="profile" jsonLd={jsonLd} image={author.photo} imageAlt={`Foto de ${author.name}`}>
+  <section class="leitura pagina perfil">
+    <nav class="migalhas" aria-label="Você está em">
+      <ol><li><a href="/">Home</a></li><li>Autor</li><li aria-current="page">{author.name}</li></ol>
+    </nav>
+    <img src={author.photo} alt={`Foto de ${author.name}`} width="200" height="200" />
+    <h1>{author.name}</h1>
+    <p class="cargo">{author.role}</p>
+    <p>{author.bio}</p>
+    <p>No {site.name}, Jomar é responsável pela pesquisa, redação e revisão de todos os reviews. O método é sempre o mesmo: conferir a ficha técnica oficial, ler o que os compradores reais estão dizendo e traduzir tudo isso em uma recomendação clara, com prós e contras honestos.</p>
+    <p>Além do blog, Jomar atua com projetos digitais pela <a href={site.developer.url} target="_blank" rel="noopener">{site.developer.name}</a>.</p>
+
+    <h2>Artigos de {author.name}</h2>
+    <ul>
+      <li><a href="/melhor-ar-condicionado-portatil/">Melhor Ar-Condicionado Portátil de 2026: 10 Modelos Comparados</a></li>
+    </ul>
+    <ShareButtons title={title} />
+  </section>
+</Base>
+
+<style>
+  .perfil > img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 6px solid #fff; box-shadow: var(--sombra); margin: 1rem 0 1.2rem; }
+  .cargo { color: var(--azul); font-weight: 700; font-size: 1.15rem; margin-top: -.6rem; }
+</style>

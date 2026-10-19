@@ -1,0 +1,314 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { produtos, brl } from '../data/produtos';
+import { site, author } from '../data/site';
+
+const publicado = '2026-10-19T09:00:00-03:00';
+const atualizado = '2026-10-19T09:00:00-03:00';
+const dataExibida = '19 de outubro de 2026';
+
+const title = 'Melhor Ar-Condicionado Portátil 2026: 10 Modelos Comparados';
+const description =
+  'Qual o melhor ar-condicionado portátil em 2026? Comparamos 10 modelos (Electrolux, LG, Philco, Hisense, Gree e mais) com ficha técnica, prós e contras e guia de compra.';
+const pageUrl = `${site.url}/melhor-ar-condicionado-portatil/`;
+
+const faq = [
+  {
+    q: 'Qual é o melhor ar-condicionado portátil em 2026?',
+    a: 'Para a maioria das pessoas, o Electrolux SP12F é o melhor ar-condicionado portátil de 2026: tem 12.000 BTUs, Wi-Fi, comando de voz, é bivolt e custa menos que a maioria dos concorrentes. Se você quer o máximo de economia, o LG Dual Inverter LP1419IVSM é a opção premium.',
+  },
+  {
+    q: 'Ar-condicionado portátil gasta muita energia?',
+    a: 'Gasta um pouco mais do que um split com a mesma capacidade, porque parte do calor volta para o ambiente pela mangueira. Modelos inverter, como o LG LP1419IVSM e o EOS EAP14IQF, reduzem bastante esse consumo. Usar o timer e manter portas e janelas fechadas também ajuda.',
+  },
+  {
+    q: 'Precisa de janela para usar ar-condicionado portátil?',
+    a: 'Sim. Todo ar-condicionado portátil de verdade precisa jogar o ar quente para fora por uma mangueira, normalmente encaixada em uma fresta de janela com o kit que acompanha o aparelho. Sem essa saída, ele não consegue refrigerar o ambiente.',
+  },
+  {
+    q: 'Quantos BTUs eu preciso para o meu quarto?',
+    a: 'Uma regra simples é: até 12 m² use 10.000 BTUs; de 12 a 15 m² use 12.000 BTUs; de 15 a 20 m² use 14.000 BTUs. Se o cômodo pega muito sol da tarde ou tem muitos aparelhos eletrônicos, escolha a faixa de cima.',
+  },
+  {
+    q: 'Ar-condicionado portátil faz barulho?',
+    a: 'Faz mais barulho que um split, porque o compressor fica dentro do cômodo. Os modelos da lista ficam entre 49 e 56 dB no uso normal, parecido com uma conversa tranquila. Para dormir, prefira modelos com modo noturno, como o Hisense (a partir de 19 dB) e o LG (a partir de 44 dB).',
+  },
+  {
+    q: 'Precisa esvaziar a água do ar-condicionado portátil?',
+    a: 'Depende do modelo. Aparelhos com autoevaporação, como o Philco PAC12000QF5, eliminam quase toda a água sozinhos. Outros têm dreno contínuo para ligar uma mangueira. Em dias muito úmidos, alguns modelos ainda podem pedir para esvaziar o reservatório.',
+  },
+  {
+    q: 'Ar-condicionado portátil precisa de instalação?',
+    a: 'Não precisa de instalador. Basta encaixar a mangueira no aparelho, posicionar o kit na janela e ligar na tomada. É por isso que ele é tão procurado por quem mora de aluguel ou não pode furar paredes.',
+  },
+];
+
+const top3 = produtos.slice(0, 3);
+const destaques = [
+  { rotulo: 'Melhor no geral', p: produtos[0] },
+  { rotulo: 'Melhor para dormir', p: produtos[1] },
+  { rotulo: 'Melhor quente e frio', p: produtos[3] },
+  { rotulo: 'Mais barato', p: produtos[4] },
+  { rotulo: 'Mais tecnológico', p: produtos[6] },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: [`${site.url}${site.ogImage}`],
+    datePublished: publicado,
+    dateModified: atualizado,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: {
+      '@type': 'Person',
+      name: author.name,
+      url: `${site.url}${author.url}`,
+      image: `${site.url}${author.photo}`,
+      jobTitle: author.role,
+    },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Melhor ar-condicionado portátil', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores ar-condicionados portáteis de 2026',
+    numberOfItems: produtos.length,
+    itemListElement: produtos.map((p) => ({
+      '@type': 'ListItem',
+      position: p.rank,
+      item: {
+        '@type': 'Product',
+        name: p.nome,
+        brand: { '@type': 'Brand', name: p.marca },
+        model: p.modelo,
+        url: `${pageUrl}#${p.slug}`,
+        description: p.resumo,
+        image: `${site.url}${site.ogImage}`,
+        review: {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: author.name },
+          datePublished: publicado,
+          reviewRating: { '@type': 'Rating', ratingValue: p.nota, bestRating: 10, worstRating: 0 },
+          positiveNotes: {
+            '@type': 'ItemList',
+            itemListElement: p.pros.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })),
+          },
+          negativeNotes: {
+            '@type': 'ItemList',
+            itemListElement: p.contras.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })),
+          },
+        },
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<Base title={title} description={description} type="article" published={publicado} modified={atualizado} jsonLd={jsonLd} imageAlt="Comparativo dos melhores ar-condicionados portáteis de 2026">
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Melhor ar-condicionado portátil</li>
+        </ol>
+      </nav>
+      <h1>Melhor Ar-Condicionado Portátil de 2026: 10 Modelos Comparados</h1>
+      <p class="subtitulo">Comparamos os 10 ar-condicionados portáteis mais bem avaliados do Brasil. Veja ficha técnica, prós e contras e descubra qual é o ideal para o seu cômodo e o seu bolso.</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · 12 min de leitura
+        </div>
+      </div>
+      <ShareButtons title={title} />
+    </div>
+  </section>
+
+  <div class="leitura artigo">
+    <p class="aviso-afiliado"><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem nenhum custo extra para você. Isso não muda a nossa opinião. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+
+    <p>Calor de 35 °C, quarto abafado e nenhuma possibilidade de instalar um split? O <strong>ar-condicionado portátil</strong> resolve isso: você tira da caixa, encaixa a mangueira na janela, liga na tomada e pronto. Sem obra, sem furar parede e dá para levar de um cômodo para outro.</p>
+    <p>O problema é que existem dezenas de modelos e muita ficha técnica confusa. Por isso, reunimos aqui os <strong>10 melhores ar-condicionados portáteis de 2026</strong> e explicamos tudo em linguagem simples.</p>
+
+    <div class="caixa resposta">
+      <p class="caixa-tit">⚡ Resposta rápida: os melhores de 2026</p>
+      <ol class="lista-destaques">
+        {destaques.map((d) => (
+          <li><strong>{d.rotulo}:</strong> <a href={`#${d.p.slug}`}>{d.p.nome}</a> — a partir de {brl(d.p.precoRef)}</li>
+        ))}
+      </ol>
+    </div>
+
+    <nav class="caixa sumario" aria-label="Sumário">
+      <p class="caixa-tit">📑 Neste artigo</p>
+      <ol>
+        <li><a href="#comparativo">Tabela comparativa</a></li>
+        <li><a href="#como-escolher">Como escolher</a></li>
+        <li><a href="#ranking">Os 10 melhores modelos</a></li>
+        <li><a href="#portatil-x-split">Portátil, janela ou split?</a></li>
+        <li><a href="#dicas">Dicas para economizar energia</a></li>
+        <li><a href="#metodologia">Como fizemos este ranking</a></li>
+        <li><a href="#perguntas">Perguntas frequentes</a></li>
+        <li><a href="#conclusao">Conclusão</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="comparativo">Tabela comparativa: os 10 melhores lado a lado</h2>
+    <p>Use a tabela para comparar rapidamente. Clique no nome para ir direto à análise completa.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabela-wrap">
+      <table>
+        <caption class="sr">Comparativo dos 10 melhores ar-condicionados portáteis de 2026</caption>
+        <thead>
+          <tr><th>#</th><th>Modelo</th><th>BTUs</th><th>Ciclo</th><th>Voltagem</th><th>Ruído</th><th>Wi-Fi</th><th>Preço ref.</th></tr>
+        </thead>
+        <tbody>
+          {produtos.map((p) => (
+            <tr>
+              <td><strong>{p.rank}º</strong></td>
+              <td><a href={`#${p.slug}`}>{p.marca} {p.modelo}</a></td>
+              <td>{p.btu.toLocaleString('pt-BR')}</td>
+              <td>{p.ciclo}</td>
+              <td>{p.voltagem}</td>
+              <td>{p.ruido}</td>
+              <td>{p.wifi.startsWith('Sim') ? '✔' : '—'}</td>
+              <td>{brl(p.precoRef)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-preco">Preços de referência pesquisados em outubro de 2026. Os valores mudam com frequência; confira o preço atual nos botões de cada produto.</p>
+  </div>
+
+  <div class="leitura artigo">
+    <h2 id="como-escolher">Como escolher o melhor ar-condicionado portátil</h2>
+    <p>Antes de olhar marca e preço, responda a quatro perguntas. Elas eliminam metade das opções em segundos.</p>
+
+    <h3>1. Qual o tamanho do cômodo? (BTUs)</h3>
+    <p>BTU é a "força" do aparelho. Se ficar fraco, ele trabalha o tempo todo e não gela. Como o portátil perde um pouco de rendimento pela mangueira, use esta tabela:</p>
+    <div class="tabela-wrap">
+      <table class="tab-btu">
+        <thead><tr><th>Tamanho do cômodo</th><th>BTUs recomendados</th><th>Exemplo da lista</th></tr></thead>
+        <tbody>
+          <tr><td>Até 12 m²</td><td>10.000 BTUs</td><td>Gree Aovia</td></tr>
+          <tr><td>12 a 15 m²</td><td>12.000 BTUs</td><td>Electrolux SP12F, Hisense</td></tr>
+          <tr><td>15 a 20 m²</td><td>14.000 BTUs</td><td>LG Dual Inverter, EOS Slim</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Dica:</strong> se o cômodo pega sol da tarde, tem pé-direito alto ou muita gente, suba uma faixa.</p>
+
+    <h3>2. Qual a voltagem da tomada?</h3>
+    <p>Modelos <strong>bivolt</strong> funcionam em 127 V e 220 V, então você não precisa se preocupar. Se o aparelho for só 127 V ou só 220 V, confira a tomada antes de comprar. Ligar na voltagem errada pode queimar o aparelho.</p>
+
+    <h3>3. Só frio ou quente e frio?</h3>
+    <p>Mora no Sul, no Sudeste serrano ou em lugar com inverno de verdade? Um modelo <strong>quente e frio</strong> substitui o aquecedor e você usa o ano inteiro. Para regiões quentes o ano todo, o só frio é mais barato.</p>
+
+    <h3>4. Vai usar no quarto?</h3>
+    <p>Então o <strong>ruído</strong> é decisivo. Procure o "modo dormir" e números abaixo de 50 dB. Como referência: 40 dB é uma biblioteca, 50 dB é uma conversa baixa e 60 dB é um escritório movimentado.</p>
+
+    <h3>Outros recursos que fazem diferença</h3>
+    <ul>
+      <li><strong>Inverter:</strong> mantém a temperatura sem liga-desliga do compressor. Gasta menos energia e faz menos barulho.</li>
+      <li><strong>Autoevaporação ou dreno contínuo:</strong> evita ter que esvaziar a água toda hora.</li>
+      <li><strong>Wi-Fi:</strong> permite ligar pelo celular antes de chegar em casa.</li>
+      <li><strong>Filtro lavável:</strong> você lava em água corrente e não gasta com reposição.</li>
+      <li><strong>Peso e rodinhas:</strong> os modelos pesam de 20 a 32 kg. Rodízios fazem muita falta se você muda o aparelho de lugar.</li>
+    </ul>
+
+    <h2 id="ranking">Os 10 melhores ar-condicionados portáteis de 2026</h2>
+    <p>Abaixo está a análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
+
+    {produtos.map((p) => <ProductCard p={p} />)}
+
+    <h2 id="portatil-x-split">Ar-condicionado portátil, de janela ou split: qual vale mais?</h2>
+    <div class="tabela-wrap">
+      <table>
+        <thead><tr><th></th><th>Portátil</th><th>Janela</th><th>Split</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Instalação</th><td>Nenhuma</td><td>Precisa de vão na parede</td><td>Instalador e obra</td></tr>
+          <tr><th scope="row">Mobilidade</th><td>Muda de cômodo</td><td>Fixo</td><td>Fixo</td></tr>
+          <tr><th scope="row">Ruído</th><td>Médio</td><td>Médio a alto</td><td>Baixo</td></tr>
+          <tr><th scope="row">Consumo</th><td>Médio</td><td>Médio</td><td>Baixo (inverter)</td></tr>
+          <tr><th scope="row">Ideal para</th><td>Aluguel, uso temporário</td><td>Quem já tem o vão</td><td>Uso diário e definitivo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Resumindo:</strong> o portátil é a melhor escolha para quem mora de aluguel, não pode fazer obra ou quer levar o conforto para mais de um cômodo. Se você vai usar todo dia, no mesmo lugar, por anos, o split costuma compensar no longo prazo.</p>
+
+    <h2 id="dicas">7 dicas para o portátil gelar mais e gastar menos</h2>
+    <ol>
+      <li>Mantenha a mangueira de exaustão <strong>o mais curta e reta possível</strong>.</li>
+      <li>Vede bem a fresta da janela com o kit que acompanha o aparelho.</li>
+      <li>Feche portas e cortinas nas horas de sol forte.</li>
+      <li>Deixe pelo menos 30 cm livres ao redor do aparelho.</li>
+      <li>Use a temperatura entre 23 °C e 25 °C: cada grau a menos aumenta o consumo.</li>
+      <li>Lave o filtro a cada 15 dias de uso.</li>
+      <li>Use o timer para desligar sozinho durante a madrugada.</li>
+    </ol>
+
+    <h2 id="metodologia">Como fizemos este ranking</h2>
+    <p>Partimos dos modelos mais bem posicionados nos principais rankings e lojas do Brasil e cruzamos as fichas técnicas oficiais dos fabricantes com milhares de avaliações de compradores. Pesamos cinco critérios: <strong>capacidade de refrigeração</strong>, <strong>nível de ruído</strong>, <strong>eficiência e tecnologia</strong> (inverter, gás R32), <strong>praticidade</strong> (voltagem, peso, drenagem, Wi-Fi) e <strong>preço</strong>. A nota final de cada aparelho é a opinião editorial de {author.name}.</p>
+    <p>Nenhuma marca pagou para aparecer nesta lista. Revisamos o ranking periodicamente para incluir lançamentos e atualizar preços.</p>
+
+    <h2 id="perguntas">Perguntas frequentes sobre ar-condicionado portátil</h2>
+    <div class="faq">
+      {faq.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+
+    <h2 id="conclusao">Conclusão: qual ar-condicionado portátil comprar?</h2>
+    <p>Se você quer uma resposta direta: <strong>o {top3[0].nome}</strong> é a melhor compra para a maioria das pessoas. Tem Wi-Fi, é bivolt e custa pouco. Quem vai usar no quarto e tem sono leve deve olhar o <strong>{top3[1].nome}</strong>. E se você precisa de calor no inverno, o <strong>{produtos[3].nome}</strong> entrega quente e frio por um ótimo preço.</p>
+    <p>Gostou do comparativo? Compartilhe com quem está sofrendo com o calor. 😉</p>
+
+    <ShareButtons title={title} />
+    <AuthorBox />
+  </div>
+</Base>
+
+<style>
+  .artigo { padding-top: 28px; }
+  .resposta { background: var(--azul-claro); border-color: #bcd7f3; }
+  .lista-destaques { padding-left: 1.2rem; margin: 0; }
+  .nota-preco { font-size: .92rem; color: var(--texto-2); }
+  .tab-btu { min-width: 0; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 0; list-style: none; position: relative; padding-right: 30px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+</style>

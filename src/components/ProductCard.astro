@@ -1,0 +1,124 @@
+---
+import AcIllustration from './AcIllustration.astro';
+import { brl, amazonLink, mercadoLivreLink, type Produto } from '../data/produtos';
+interface Props { p: Produto; }
+const { p } = Astro.props;
+const specs: [string, string][] = [
+  ['Capacidade', `${p.btu.toLocaleString('pt-BR')} BTUs`],
+  ['Área indicada', p.area],
+  ['Ciclo', p.ciclo],
+  ['Voltagem', p.voltagem],
+  ['Ruído', p.ruido],
+  ['Peso', p.peso],
+  ['Wi-Fi', p.wifi],
+  ['Controle remoto', p.controle],
+  ['Funções', p.funcoes.join(', ')],
+];
+---
+<article class="produto" id={p.slug}>
+  <header class="produto-topo">
+    <span class="rank" aria-label={`Posição ${p.rank}`}>{p.rank}º</span>
+    <div>
+      {p.selo && <span class="selo">{p.selo}</span>}
+      <h3>{p.nome}</h3>
+      <p class="nota">Nota do editor: <strong>{p.nota.toLocaleString('pt-BR')}</strong>/10</p>
+    </div>
+  </header>
+
+  <div class="produto-grid">
+    <figure class="produto-img">
+      <AcIllustration marca={p.marca} btu={p.btu} quente={p.ciclo === 'Quente e frio'} />
+      <figcaption>Preço de referência: <strong>a partir de {brl(p.precoRef)}</strong></figcaption>
+    </figure>
+    <div>
+      <p>{p.resumo}</p>
+      <p class="ideal"><strong>Ideal para:</strong> {p.idealPara}</p>
+      <div class="botoes">
+        <a class="btn btn-amazon" href={amazonLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>
+          Ver preço na Amazon
+        </a>
+        <a class="btn btn-ml" href={mercadoLivreLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>
+          Ver no Mercado Livre
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <h4>Ficha técnica</h4>
+  <div class="tabela-wrap">
+    <table class="ficha">
+      <tbody>
+        {specs.map(([k, v]) => <tr><th scope="row">{k}</th><td>{v}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tres">
+    <div>
+      <h4>Características</h4>
+      <ul>{p.caracteristicas.map((c) => <li>{c}</li>)}</ul>
+    </div>
+    <div>
+      <h4>Benefícios no dia a dia</h4>
+      <ul>{p.beneficios.map((c) => <li>{c}</li>)}</ul>
+    </div>
+  </div>
+
+  <div class="caixa vantagens">
+    <p class="caixa-tit">Diferenciais em relação aos concorrentes</p>
+    <ul>{p.vantagens.map((c) => <li>{c}</li>)}</ul>
+  </div>
+
+  <div class="pc" role="group" aria-label={`Prós e contras do ${p.nome}`}>
+    <div class="pc-col pros">
+      <p class="pc-tit">👍 Prós</p>
+      <ul>{p.pros.map((c) => <li>{c}</li>)}</ul>
+    </div>
+    <div class="pc-col contras">
+      <p class="pc-tit">👎 Contras</p>
+      <ul>{p.contras.map((c) => <li>{c}</li>)}</ul>
+    </div>
+  </div>
+
+  <div class="botoes botoes-fim">
+    <a class="btn btn-amazon" href={amazonLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Comprar na Amazon</a>
+    <a class="btn btn-ml" href={mercadoLivreLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Comprar no Mercado Livre</a>
+  </div>
+</article>
+
+<style>
+  .produto { border: 1px solid var(--borda); border-radius: 20px; padding: 28px; margin: 2.5rem 0; box-shadow: var(--sombra); background: #fff; scroll-margin-top: 90px; }
+  .produto-topo { display: flex; gap: 16px; align-items: flex-start; }
+  .produto-topo h3 { margin: .3rem 0 .2rem; font-size: clamp(1.3rem, 3vw, 1.6rem); }
+  .rank { flex-shrink: 0; width: 56px; height: 56px; border-radius: 16px; background: var(--azul); color: #fff; font-weight: 800; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; }
+  .selo { display: inline-block; background: #fff4d6; color: #7a4b00; font-weight: 700; font-size: .85rem; padding: 3px 12px; border-radius: 999px; }
+  .nota { margin: 0; color: var(--texto-2); font-size: 1rem; }
+  .nota strong { color: var(--verde); font-size: 1.2rem; }
+  .produto-grid { display: grid; grid-template-columns: 220px 1fr; gap: 28px; margin-top: 1.4rem; align-items: start; }
+  .produto-img { margin: 0; background: var(--gelo); border-radius: var(--raio); padding: 18px; text-align: center; }
+  .produto-img figcaption { font-size: .92rem; margin-top: 10px; color: var(--texto-2); line-height: 1.4; }
+  .ideal { background: var(--azul-claro); border-radius: 10px; padding: 12px 16px; }
+  .botoes { display: flex; flex-wrap: wrap; gap: 12px; }
+  .botoes .btn { flex: 1 1 200px; }
+  .botoes-fim { margin-top: 1.6rem; }
+  h4 { font-size: 1.15rem; margin: 1.8rem 0 .6rem; }
+  .ficha { min-width: 0; }
+  .ficha th { width: 38%; background: var(--gelo); font-weight: 700; }
+  .tres { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .tres ul { padding-left: 1.2rem; }
+  .vantagens { background: #f3f0ff; border-color: #ddd6fe; }
+  .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 1.5rem; }
+  .pc-col { border-radius: var(--raio); padding: 18px 20px; }
+  .pc-col ul { list-style: none; padding: 0; margin: 0; }
+  .pc-col li { padding-left: 28px; position: relative; font-size: 1.02rem; }
+  .pc-tit { font-weight: 800; font-size: 1.1rem; margin-bottom: .6rem; }
+  .pros { background: var(--verde-claro); border: 1px solid #b7e4c7; }
+  .pros li::before { content: '✔'; position: absolute; left: 0; color: var(--verde); font-weight: 800; }
+  .contras { background: var(--vermelho-claro); border: 1px solid #f5c2bd; }
+  .contras li::before { content: '✖'; position: absolute; left: 0; color: var(--vermelho); font-weight: 800; }
+  @media (max-width: 720px) {
+    .produto { padding: 20px 16px; }
+    .produto-grid, .tres, .pc { grid-template-columns: 1fr; }
+    .produto-img { max-width: 260px; margin: 0 auto; }
+  }
+</style>
