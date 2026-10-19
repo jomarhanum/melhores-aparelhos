@@ -40,6 +40,11 @@
       ],
       "destination": "https://melhoresaparelhos.com.br/$1",
       "permanent": true
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
     }
   ]
 }
