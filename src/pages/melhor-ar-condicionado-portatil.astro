@@ -18,11 +18,15 @@ const pageUrl = `${site.url}/melhor-ar-condicionado-portatil/`;
 const faq = [
   {
     q: 'Qual é o melhor ar-condicionado portátil em 2026?',
-    a: 'Para a maioria das pessoas, o Electrolux SP12F é o melhor ar-condicionado portátil de 2026: tem 12.000 BTUs, Wi-Fi, comando de voz, é bivolt e custa menos que a maioria dos concorrentes. Se você quer o máximo de economia, o LG Dual Inverter LP1419IVSM é a opção premium.',
+    a: 'Para a maioria das pessoas, o Electrolux SP12F é o melhor ar-condicionado portátil de 2026: tem 12.000 BTUs, Wi-Fi, comando de voz, eficiência nível A e ótimo custo-benefício. Se você quer o máximo de economia, o LG Dual Inverter LP1419IVSM é a opção premium.',
   },
   {
     q: 'Ar-condicionado portátil gasta muita energia?',
-    a: 'Gasta um pouco mais do que um split com a mesma capacidade, porque parte do calor volta para o ambiente pela mangueira. Modelos inverter, como o LG LP1419IVSM e o EOS EAP14IQF, reduzem bastante esse consumo. Usar o timer e manter portas e janelas fechadas também ajuda.',
+    a: 'Gasta mais do que um split com a mesma capacidade, porque parte do calor fica no cômodo. Um modelo de 1.200 W ligado 8 horas por dia consome até cerca de 288 kWh por mês. Modelos inverter, como o LG LP1419IVSM e o EOS EAP14IQF, reduzem esse consumo no uso diário.',
+  },
+  {
+    q: 'Existe ar-condicionado portátil bivolt?',
+    a: 'Nenhum dos 10 modelos deste ranking é bivolt. Eles são vendidos em versões de 127 V ou de 220 V, e alguns existem só em uma voltagem. Confira a tomada e escolha a versão certa na loja antes de finalizar a compra.',
   },
   {
     q: 'Precisa de janela para usar ar-condicionado portátil?',
@@ -142,7 +146,7 @@ const jsonLd = [
         <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
         <div>
           Por <a href={author.url} rel="author">{author.name}</a><br />
-          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · 12 min de leitura
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · 16 min de leitura
         </div>
       </div>
       <ShareButtons title={title} />
@@ -171,6 +175,9 @@ const jsonLd = [
         <li><a href="#como-escolher">Como escolher</a></li>
         <li><a href="#ranking">Os 10 melhores modelos</a></li>
         <li><a href="#portatil-x-split">Portátil, janela ou split?</a></li>
+        <li><a href="#climatizador">Climatizador ou portátil?</a></li>
+        <li><a href="#energia">Quanto gasta de energia</a></li>
+        <li><a href="#instalacao">Instalação e limpeza</a></li>
         <li><a href="#dicas">Dicas para economizar energia</a></li>
         <li><a href="#metodologia">Como fizemos este ranking</a></li>
         <li><a href="#perguntas">Perguntas frequentes</a></li>
@@ -196,7 +203,7 @@ const jsonLd = [
               <td><a href={`#${p.slug}`}>{p.marca} {p.modelo}</a></td>
               <td>{p.btu.toLocaleString('pt-BR')}</td>
               <td>{p.ciclo}</td>
-              <td>{p.voltagem}</td>
+              <td>{p.voltagem.split(' (')[0]}</td>
               <td>{p.ruido}</td>
               <td>{p.wifi.startsWith('Sim') ? '✔' : '—'}</td>
             </tr>
@@ -224,16 +231,22 @@ const jsonLd = [
         </tbody>
       </table>
     </div>
-    <p><strong>Dica:</strong> se o cômodo pega sol da tarde, tem pé-direito alto ou muita gente, suba uma faixa.</p>
+    <p><strong>Dica:</strong> se o cômodo pega sol da tarde, tem pé-direito alto ou muita gente, suba uma faixa. Para um cálculo sob medida, use a nossa <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</p>
 
-    <h3>2. Qual a voltagem da tomada?</h3>
-    <p>Modelos <strong>bivolt</strong> funcionam em 127 V e 220 V, então você não precisa se preocupar. Se o aparelho for só 127 V ou só 220 V, confira a tomada antes de comprar. Ligar na voltagem errada pode queimar o aparelho.</p>
+    <h3>2. 127 V ou 220 V?</h3>
+    <p><strong>Atenção: nenhum dos 10 modelos deste ranking é bivolt.</strong> Eles são vendidos em versões separadas, e a mesma página da loja pode oferecer as duas. Ligar na voltagem errada pode queimar o aparelho e não é coberto pela garantia.</p>
+    <ul>
+      <li><strong>Existem em 127 V e 220 V:</strong> Electrolux SP12F, Philco PAC12000F5 e PAC12000QF5, EOS Slim, DeLonghi Pinguino e Rheem só frio (com códigos diferentes).</li>
+      <li><strong>Só 127 V:</strong> Hisense AP-12CW, Gree Aovia e LG Dual Inverter.</li>
+      <li><strong>Só 220 V:</strong> Rheem RB1HP12K220 (quente e frio).</li>
+    </ul>
+    <p>Em 127 V, um portátil de 12.000 BTUs puxa bastante corrente, por isso muitos vêm com <strong>plugue de 20 A</strong>, de pino mais grosso. Use tomada exclusiva, sem extensão ou benjamim. Se o seu circuito já sofre com chuveiro e micro-ondas, a versão 220 V costuma ser mais tranquila para a instalação elétrica. Veja mais em <a href="/guias/como-instalar-ar-condicionado-portatil/#tomada">tomada e voltagem</a>.</p>
 
     <h3>3. Só frio ou quente e frio?</h3>
-    <p>Mora no Sul, no Sudeste serrano ou em lugar com inverno de verdade? Um modelo <strong>quente e frio</strong> substitui o aquecedor e você usa o ano inteiro. Para regiões quentes o ano todo, o só frio é mais barato.</p>
+    <p>Mora no Sul, no Sudeste serrano ou em lugar com inverno de verdade? Um modelo <strong>quente e frio</strong> substitui o aquecedor e você usa o ano inteiro. Para regiões quentes o ano todo, o só frio é mais barato. Compare os <a href="/melhor-ar-condicionado-portatil-quente-e-frio/">melhores portáteis quente e frio</a>.</p>
 
     <h3>4. Vai usar no quarto?</h3>
-    <p>Então o <strong>ruído</strong> é decisivo. Procure o "modo dormir" e números abaixo de 50 dB. Como referência: 40 dB é uma biblioteca, 50 dB é uma conversa baixa e 60 dB é um escritório movimentado.</p>
+    <p>Então o <strong>ruído</strong> é decisivo. Procure o "modo dormir" e números abaixo de 50 dB. Como referência: 40 dB é uma biblioteca, 50 dB é uma conversa baixa e 60 dB é um escritório movimentado. Veja os <a href="/melhor-ar-condicionado-portatil-silencioso/">portáteis mais silenciosos para dormir</a>.</p>
 
     <h3>Outros recursos que fazem diferença</h3>
     <ul>
@@ -266,6 +279,47 @@ const jsonLd = [
     </div>
     <p><strong>Resumindo:</strong> o portátil é a melhor escolha para quem mora de aluguel, não pode fazer obra ou quer levar o conforto para mais de um cômodo. Se você vai usar todo dia, no mesmo lugar, por anos, o split costuma compensar no longo prazo.</p>
 
+    <h2 id="climatizador">Climatizador ou ar-condicionado portátil?</h2>
+    <p>Muita gente confunde os dois, mas eles funcionam de jeitos diferentes. O <strong>climatizador</strong> esfria o ar evaporando água: gasta pouca energia, não precisa de mangueira na janela, mas só alivia o calor em poucos graus e funciona bem apenas em <strong>clima seco</strong>, porque aumenta a umidade do ar. O <strong>ar-condicionado portátil</strong> tem compressor e gás refrigerante: baixa a temperatura de verdade, também tira umidade do ar e funciona em qualquer clima, mas consome bem mais energia.</p>
+    <div class="tabela-wrap">
+      <table class="tab-btu">
+        <thead><tr><th></th><th>Climatizador</th><th>Ar-condicionado portátil</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Esfria de verdade?</th><td>Pouco</td><td>Sim</td></tr>
+          <tr><th scope="row">Clima ideal</th><td>Seco</td><td>Qualquer um</td></tr>
+          <tr><th scope="row">Umidade</th><td>Aumenta</td><td>Diminui</td></tr>
+          <tr><th scope="row">Consumo</th><td>Baixo</td><td>Alto</td></tr>
+          <tr><th scope="row">Mangueira na janela</th><td>Não</td><td>Sim</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Mora no litoral ou em cidade abafada? Vá de ar-condicionado. Veja a comparação completa em <a href="/guias/climatizador-ou-ar-condicionado-portatil/">climatizador ou ar-condicionado portátil</a>.</p>
+
+    <h2 id="energia">Quanto o ar-condicionado portátil gasta de energia?</h2>
+    <p>A conta é: <strong>potência (W) × horas por dia × 30 ÷ 1.000 = kWh por mês</strong>. Um portátil de 12.000 BTUs com 1.200 W, ligado 8 horas por dia, consome até <strong>288 kWh por mês</strong>. Com tarifa de R$ 0,90 por kWh (valor de exemplo), isso dá até cerca de <strong>R$ 259</strong>. É o teto, com o compressor ligado direto; com boa vedação e capacidade certa, o gasto real fica abaixo.</p>
+    <div class="tabela-wrap">
+      <table class="tab-btu">
+        <thead><tr><th>Modelo</th><th>Potência</th><th>Inverter</th><th>kWh/mês (máx., 8 h/dia)</th></tr></thead>
+        <tbody>
+          <tr><td>Hisense AP-12CW</td><td>1.100 W</td><td>Não</td><td>264</td></tr>
+          <tr><td>Philco PAC12000F5 / QF5</td><td>1.200 W</td><td>Não</td><td>288</td></tr>
+          <tr><td>EOS Slim EAP14IQF</td><td>1.100 W</td><td>Sim</td><td>264</td></tr>
+          <tr><td>LG LP1419IVSM</td><td>1.370 W</td><td>Sim</td><td>329</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Nos modelos inverter, o consumo real tende a ficar bem abaixo do teto. Calcule o seu gasto com a calculadora do guia <a href="/guias/ar-condicionado-portatil-gasta-muita-energia/">ar-condicionado portátil gasta muita energia?</a></p>
+
+    <h2 id="instalacao">Instalação e limpeza: o básico</h2>
+    <p>Nas avaliações de compradores, as reclamações de que o aparelho "não gela" quase sempre envolvem a instalação. O essencial:</p>
+    <ul>
+      <li><strong>Mangueira curta, reta e sem emendas</strong>, com a ponta para fora da janela.</li>
+      <li><strong>Janela bem vedada.</strong> As réguas que acompanham os aparelhos costumam ter cerca de 1 m; em janelas maiores, basculantes ou maxim-ar, use um kit de vedação de tecido ou um painel sob medida.</li>
+      <li><strong>Drenagem resolvida:</strong> autoevaporação, dreno contínuo ou reservatório, conforme o modelo.</li>
+      <li><strong>Filtro lavado a cada 15 dias</strong> e água drenada antes de guardar o aparelho, para evitar mofo e mau cheiro.</li>
+    </ul>
+    <p>Passo a passo completo: <a href="/guias/como-instalar-ar-condicionado-portatil/">como instalar o ar-condicionado portátil na janela</a> e <a href="/guias/como-limpar-ar-condicionado-portatil/">como limpar o ar-condicionado portátil</a>.</p>
+
     <h2 id="dicas">7 dicas para o portátil gelar mais e gastar menos</h2>
     <ol>
       <li>Mantenha a mangueira de exaustão <strong>o mais curta e reta possível</strong>.</li>
@@ -278,7 +332,7 @@ const jsonLd = [
     </ol>
 
     <h2 id="metodologia">Como fizemos este ranking</h2>
-    <p>Este é um comparativo baseado em pesquisa, não em testes de laboratório: não medimos os aparelhos em ambiente controlado. Partimos dos modelos mais bem posicionados nos principais rankings especializados do Brasil e conferimos as especificações publicadas pelos fabricantes e pelas lojas. Depois, comparamos os modelos em cinco critérios: <strong>capacidade de refrigeração</strong>, <strong>nível de ruído</strong>, <strong>eficiência e tecnologia</strong> (inverter, gás R32), <strong>praticidade</strong> (voltagem, peso, drenagem, Wi-Fi) e <strong>custo-benefício</strong>. A nota final de cada aparelho é a opinião editorial de {author.name} com base nesses critérios.</p>
+    <p>Este é um comparativo baseado em pesquisa, não em testes de laboratório: não medimos os aparelhos em ambiente controlado. Partimos dos modelos mais bem posicionados nos principais rankings especializados do Brasil e conferimos as especificações publicadas pelos fabricantes e nos anúncios oficiais das lojas. Também lemos as avaliações publicadas por compradores nas lojas e resumimos, com nossas palavras, os temas mais citados em cada modelo. Depois, comparamos os modelos em cinco critérios: <strong>capacidade de refrigeração</strong>, <strong>nível de ruído</strong>, <strong>eficiência e tecnologia</strong> (inverter, gás R32), <strong>praticidade</strong> (voltagem, peso, drenagem, Wi-Fi) e <strong>custo-benefício</strong>. A nota final de cada aparelho é a opinião editorial de {author.name} com base nesses critérios.</p>
     <p>A área indicada de cada modelo é uma estimativa a partir da capacidade em BTUs; confirme sempre com o fabricante. Nenhuma marca pagou para aparecer nesta lista, e revisamos o ranking periodicamente para incluir lançamentos.</p>
     </section>
 
@@ -294,7 +348,7 @@ const jsonLd = [
     </div>
 
     <h2 id="conclusao">Conclusão: qual ar-condicionado portátil comprar?</h2>
-    <p>Se você quer uma resposta direta: <strong>o {top3[0].nome}</strong> é a melhor compra para a maioria das pessoas. Tem Wi-Fi, é bivolt e entrega ótimo custo-benefício. Quem vai usar no quarto e tem sono leve deve olhar o <strong>{top3[1].nome}</strong>. E se você precisa de calor no inverno, o <strong>{produtos[3].nome}</strong> entrega quente e frio com ótimo custo-benefício.</p>
+    <p>Se você quer uma resposta direta: <strong>o {top3[0].nome}</strong> é a melhor compra para a maioria das pessoas. Tem Wi-Fi, eficiência nível A e entrega ótimo custo-benefício. Quem vai usar no quarto e tem sono leve deve olhar o <strong>{top3[1].nome}</strong>. E se você precisa de calor no inverno, o <strong>{produtos[3].nome}</strong> entrega quente e frio com ótimo custo-benefício.</p>
     <p>Gostou do comparativo? Compartilhe com quem está sofrendo com o calor. 😉</p>
 
     <ShareButtons title={title} />

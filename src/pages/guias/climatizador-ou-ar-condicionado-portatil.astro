@@ -1,0 +1,68 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Climatizador gela como ar-condicionado?', a: 'Não. O climatizador resfria o ar pela evaporação da água e reduz a sensação de calor em poucos graus, principalmente em clima seco. O ar-condicionado usa um compressor e consegue baixar a temperatura do cômodo de verdade, mesmo em clima úmido.' },
+  { q: 'Climatizador funciona em cidade úmida?', a: 'Funciona mal. Em lugares abafados e úmidos, como boa parte do litoral, o ar já tem muita umidade e a água evapora pouco. O efeito de resfriamento cai e o ambiente pode ficar ainda mais abafado.' },
+  { q: 'Climatizador precisa de janela aberta?', a: 'Sim, o ideal é manter alguma ventilação. Em ambiente totalmente fechado a umidade sobe e o climatizador perde eficiência. Já o ar-condicionado portátil funciona com o cômodo fechado, com a mangueira na janela.' },
+  { q: 'Qual gasta menos energia?', a: 'O climatizador gasta bem menos, geralmente algo próximo de um ventilador potente. O ar-condicionado portátil consome cerca de 1.100 a 1.400 W, mas entrega frio de verdade.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-portatil/', '/guias/ar-condicionado-portatil-gasta-muita-energia/', '/guias/como-funciona-ar-condicionado-portatil/', '/guias/quantos-btus-preciso/']}>
+  <p>Na loja, os dois parecem parecidos: ficam no chão, têm rodinhas e prometem refrescar o ambiente. Mas <strong>climatizador e ar-condicionado portátil funcionam de jeitos completamente diferentes</strong>, e escolher o errado é dinheiro jogado fora.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> o climatizador é bom e barato para <strong>clima seco</strong> e para quem quer só aliviar o calor. O ar-condicionado portátil é para quem quer <strong>frio de verdade</strong>, inclusive em clima úmido, e aceita gastar mais energia.</p>
+  </div>
+
+  <h2>Como funciona o climatizador</h2>
+  <p>O climatizador puxa o ar do ambiente e o faz passar por um painel molhado. A água evapora e, ao evaporar, absorve calor do ar. É o mesmo efeito que você sente ao sair da piscina num dia de vento. O resultado é um ar mais fresco e mais úmido.</p>
+  <p>Ele não tem compressor nem gás refrigerante. Por isso <strong>gasta pouca energia</strong> e não precisa de mangueira na janela, mas precisa que você reponha água no reservatório.</p>
+
+  <h2>Como funciona o ar-condicionado portátil</h2>
+  <p>O portátil é um ar-condicionado completo dentro de uma caixa: tem compressor e gás refrigerante, que retiram o calor do cômodo. Esse calor sai por uma <strong>mangueira encaixada na janela</strong>. Além de esfriar, ele <strong>tira umidade do ar</strong>. Entenda os detalhes em <a href="/guias/como-funciona-ar-condicionado-portatil/">como funciona o ar-condicionado portátil</a>.</p>
+
+  <h2 id="comparacao">Comparação lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Climatizador</th><th>Ar-condicionado portátil</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Como esfria</th><td>Evaporação da água</td><td>Compressor e gás refrigerante</td></tr>
+        <tr><th scope="row">Quanto esfria</th><td>Alivia a sensação de calor em poucos graus</td><td>Baixa a temperatura do cômodo de verdade</td></tr>
+        <tr><th scope="row">Umidade do ar</th><td>Aumenta</td><td>Diminui</td></tr>
+        <tr><th scope="row">Melhor clima</th><td>Seco (interior, Centro-Oeste, cerrado)</td><td>Qualquer um, inclusive úmido</td></tr>
+        <tr><th scope="row">Consumo de energia</th><td>Baixo</td><td>Alto (cerca de 1.100 a 1.400 W)</td></tr>
+        <tr><th scope="row">Mangueira na janela</th><td>Não precisa</td><td>Precisa</td></tr>
+        <tr><th scope="row">Ambiente</th><td>Com ventilação</td><td>Fechado</td></tr>
+        <tr><th scope="row">Manutenção</th><td>Repor água e limpar o painel</td><td>Lavar filtro e drenar água</td></tr>
+        <tr><th scope="row">Preço</th><td>Bem mais baixo</td><td>Mais alto</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Qual escolher para a sua cidade?</h2>
+  <h3>Escolha o climatizador se...</h3>
+  <ul>
+    <li>Você mora em região de <strong>clima seco</strong>, como Goiás, Distrito Federal, Mato Grosso e boa parte do interior, principalmente na estação seca.</li>
+    <li>Quer apenas aliviar o calor, sem precisar de frio intenso.</li>
+    <li>O orçamento e a conta de luz são prioridade.</li>
+    <li>O ambiente é ventilado ou semiaberto, como varanda, área gourmet ou loja.</li>
+  </ul>
+  <h3>Escolha o ar-condicionado portátil se...</h3>
+  <ul>
+    <li>Você mora em lugar <strong>quente e úmido</strong>, como boa parte do litoral e das capitais do Norte e Nordeste.</li>
+    <li>Quer dormir em um quarto realmente fresco.</li>
+    <li>Não pode instalar split (aluguel, condomínio, prédio tombado).</li>
+    <li>Precisa de um aparelho que também <strong>desumidifica</strong> ou até <strong>aquece</strong> no inverno.</li>
+  </ul>
+
+  <h2>Erros comuns</h2>
+  <ul>
+    <li><strong>Comprar climatizador para cidade úmida</strong> e achar que ele "não funciona". Ele funciona, mas o clima não ajuda.</li>
+    <li><strong>Usar climatizador com tudo fechado:</strong> a umidade sobe e o ar fica pesado.</li>
+    <li><strong>Usar o portátil sem a mangueira na janela:</strong> o calor volta para o próprio cômodo e ele não esfria.</li>
+  </ul>
+
+  <h2>Decidiu pelo portátil?</h2>
+  <p>Veja o <a href="/melhor-ar-condicionado-portatil/">comparativo dos 10 melhores ar-condicionados portáteis de 2026</a>, descubra <a href="/guias/quantos-btus-preciso/">quantos BTUs você precisa</a> e saiba <a href="/guias/ar-condicionado-portatil-gasta-muita-energia/">quanto ele vai gastar de energia</a>.</p>
+</Artigo>

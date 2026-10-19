@@ -1,0 +1,86 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'De quanto em quanto tempo limpar o filtro?', a: 'Com uso frequente, a cada 15 dias. Em casas com animais, poeira ou fumaça, toda semana. Filtro sujo reduz o rendimento, aumenta o consumo e espalha mau cheiro.' },
+  { q: 'Posso lavar o filtro com água sanitária?', a: 'Não é recomendado. Use água corrente e, se necessário, sabão neutro. Produtos fortes podem danificar a tela do filtro. Deixe secar completamente à sombra antes de recolocar.' },
+  { q: 'Por que o ar-condicionado portátil está com cheiro ruim?', a: 'Geralmente é filtro sujo ou água parada acumulada no aparelho, que favorece mofo e bactérias. Lave o filtro, drene toda a água e deixe o aparelho no modo ventilar por cerca de uma hora para secar por dentro. Se o cheiro continuar, procure uma assistência para higienização.' },
+  { q: 'Precisa de limpeza profissional?', a: 'Uma higienização interna por técnico uma vez por ano, ou quando o cheiro persistir, ajuda a manter o desempenho. A limpeza do filtro e a drenagem você mesmo faz em casa.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-portatil/', '/guias/como-instalar-ar-condicionado-portatil/', '/guias/ar-condicionado-portatil-gasta-muita-energia/', '/guias/como-funciona-ar-condicionado-portatil/']}>
+  <p>Um ar-condicionado portátil limpo gela mais, gasta menos e não espalha mau cheiro pela casa. A boa notícia é que a manutenção do dia a dia é simples e leva poucos minutos.</p>
+
+  <div class="destaque-box">
+    <p><strong>Rotina básica:</strong> lave o filtro a cada 15 dias, drene a água acumulada sempre que o aparelho avisar (ou ao fim da estação), limpe o gabinete com pano úmido e faça uma higienização profissional por ano.</p>
+  </div>
+
+  <h2 id="filtro">1. Como limpar o filtro (a cada 15 dias)</h2>
+  <ol>
+    <li><strong>Desligue e tire da tomada.</strong> Sempre.</li>
+    <li><strong>Retire o filtro.</strong> Fica normalmente na parte de trás ou na lateral, atrás de uma tampa ou grade. Consulte o manual.</li>
+    <li><strong>Aspire ou bata levemente</strong> para tirar o excesso de poeira.</li>
+    <li><strong>Lave em água corrente</strong>, de preferência no sentido contrário ao da passagem do ar. Se estiver engordurado, use sabão neutro.</li>
+    <li><strong>Seque à sombra.</strong> Nada de secador ou sol forte, que deformam a tela.</li>
+    <li><strong>Recoloque só quando estiver totalmente seco.</strong> Nunca use o aparelho sem filtro.</li>
+  </ol>
+  <p>Alguns modelos, como o <a href="/melhor-ar-condicionado-portatil/#electrolux-sp12f">Electrolux SP12F</a>, têm filtro ionizador lavável. Outros, como os da <a href="/melhor-ar-condicionado-portatil/#rheem-rb1cc12k220">Rheem</a>, contam com sistema de autolimpeza, que ajuda, mas não substitui a lavagem do filtro.</p>
+
+  <h2 id="agua">2. Como drenar a água</h2>
+  <p>O ar-condicionado retira umidade do ar, e essa água precisa sair. Depende do sistema do seu modelo:</p>
+  <ul>
+    <li><strong>Reservatório:</strong> quando o aviso de "tanque cheio" acender, desligue, coloque uma vasilha baixa sob o bujão de dreno e retire a tampa.</li>
+    <li><strong>Dreno contínuo:</strong> confira se a mangueira está sem dobras e com caimento para o ralo.</li>
+    <li><strong>Autoevaporação:</strong> raramente precisa esvaziar, mas ao fim da estação drene o que restar pelo bujão inferior.</li>
+  </ul>
+  <p><strong>Dica:</strong> água parada é a principal causa de mau cheiro. Nunca guarde o aparelho com água dentro.</p>
+
+  <h2 id="gabinete">3. Limpeza do gabinete e das saídas de ar</h2>
+  <ul>
+    <li>Use pano macio levemente úmido com água e, se precisar, uma gota de detergente neutro.</li>
+    <li>Não use álcool, solventes ou produtos abrasivos no painel e no plástico.</li>
+    <li>Limpe a grade de saída de ar e as aletas com um pincel macio.</li>
+    <li>Não jogue água diretamente no aparelho.</li>
+  </ul>
+
+  <h2 id="mangueira">4. A mangueira de exaustão</h2>
+  <p>Uma vez por mês, retire a mangueira, sacuda a poeira e confira se não há rasgos ou encaixes frouxos. Vazamento de ar quente na mangueira faz o aparelho render menos.</p>
+
+  <h2 id="mau-cheiro">Ar-condicionado com cheiro de mofo: o que fazer</h2>
+  <ol>
+    <li>Lave o filtro.</li>
+    <li>Drene toda a água acumulada.</li>
+    <li>Deixe o aparelho no <strong>modo ventilar por cerca de 1 hora</strong>, com a mangueira encaixada, para secar a parte interna.</li>
+    <li>Se o cheiro persistir, procure uma assistência para higienizar a serpentina.</li>
+  </ol>
+
+  <h2 id="guardar">Como guardar o aparelho no inverno</h2>
+  <ol>
+    <li>Drene toda a água pelo bujão inferior.</li>
+    <li>Ligue no modo ventilar por 1 a 2 horas para secar por dentro.</li>
+    <li>Lave e seque o filtro.</li>
+    <li>Enrole o cabo, guarde a mangueira e a régua juntas.</li>
+    <li>Cubra o aparelho e guarde <strong>sempre em pé</strong>, em local seco.</li>
+  </ol>
+  <p>Ao tirar do armário na próxima estação, deixe o aparelho em pé por algumas horas antes de ligar, conforme o manual.</p>
+
+  <h2>Tabela de manutenção</h2>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>O quê</th><th>Quando</th></tr></thead>
+      <tbody>
+        <tr><td>Lavar o filtro</td><td>A cada 15 dias de uso (semanal com pets ou poeira)</td></tr>
+        <tr><td>Drenar a água</td><td>Quando o aparelho avisar e ao fim da estação</td></tr>
+        <tr><td>Limpar o gabinete e as saídas</td><td>Mensal</td></tr>
+        <tr><td>Conferir a mangueira</td><td>Mensal</td></tr>
+        <tr><td>Higienização profissional</td><td>Anual, ou se o mau cheiro persistir</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Quer um modelo que dê menos trabalho? Veja no <a href="/melhor-ar-condicionado-portatil/">comparativo dos 10 melhores</a> os aparelhos com autoevaporação e autolimpeza.</p>
+</Artigo>
+
+<style>
+  .tab-curta { min-width: 0; }
+</style>

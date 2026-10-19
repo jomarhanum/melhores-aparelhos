@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { SITE_URL } from './src/data/url.mjs';
+import { artigos } from './src/data/artigos.mjs';
 
 const produtos = [
   ['electrolux-sp12f', 'Electrolux SP12F 12.000 BTUs Frio com Wi-Fi'],
@@ -16,15 +17,12 @@ const produtos = [
 ];
 const img = (path, caption) => ({ url: `${SITE_URL}${path}`, caption });
 const fotoAutor = img('/images/autor-jomar-hanum-400.jpg', 'Jomar Hanum, editor-chefe do Melhores Aparelhos');
+const ultimaAtualizacao = artigos.map((a) => a.atualizado).sort().at(-1);
 
-// Prioridade, frequência, data da última alteração real e imagens de cada página.
+// Páginas fixas: prioridade, frequência, data da última alteração real e imagens.
 const paginas = {
-  '/': { priority: 1.0, changefreq: 'weekly', lastmod: '2026-10-19', img: [img('/images/produtos/electrolux-sp12f.webp', 'Melhor ar-condicionado portátil de 2026')] },
-  '/melhor-ar-condicionado-portatil/': {
-    priority: 0.9, changefreq: 'weekly', lastmod: '2026-10-19',
-    img: [img('/images/og-melhores-aparelhos.jpg', 'Melhor ar-condicionado portátil de 2026'),
-      ...produtos.map(([slug, nome]) => img(`/images/produtos/${slug}.webp`, `Ar-condicionado portátil ${nome}`))],
-  },
+  '/': { priority: 1.0, changefreq: 'weekly', lastmod: ultimaAtualizacao, img: [img('/images/produtos/electrolux-sp12f.webp', 'Melhor ar-condicionado portátil de 2026')] },
+  '/guias/': { priority: 0.7, changefreq: 'weekly', lastmod: ultimaAtualizacao },
   '/autor/jomar-hanum/': { priority: 0.6, changefreq: 'monthly', lastmod: '2026-10-19', img: [fotoAutor] },
   '/sobre/': { priority: 0.5, changefreq: 'monthly', lastmod: '2026-10-19', img: [fotoAutor] },
   '/contato/': { priority: 0.5, changefreq: 'yearly', lastmod: '2026-10-19' },
@@ -32,6 +30,19 @@ const paginas = {
   '/termos-de-uso/': { priority: 0.3, changefreq: 'yearly', lastmod: '2026-10-19' },
   '/divulgacao-de-afiliados/': { priority: 0.3, changefreq: 'yearly', lastmod: '2026-10-19' },
 };
+
+// Artigos: dados vêm do registro em src/data/artigos.mjs.
+for (const a of artigos) {
+  const hub = a.url === '/melhor-ar-condicionado-portatil/';
+  paginas[a.url] = {
+    priority: hub ? 0.9 : a.categoria === 'Guia' ? 0.7 : 0.8,
+    changefreq: hub ? 'weekly' : 'monthly',
+    lastmod: a.atualizado,
+    img: hub
+      ? [img('/images/og-melhores-aparelhos.jpg', a.h1), ...produtos.map(([slug, nome]) => img(`/images/produtos/${slug}.webp`, `Ar-condicionado portátil ${nome}`))]
+      : [img(a.imagem, a.h1)],
+  };
+}
 
 export default defineConfig({
   site: SITE_URL,

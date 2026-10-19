@@ -1,0 +1,135 @@
+---
+import Base from './Base.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { site, author } from '../data/site';
+import { artigos, artigoPorUrl } from '../data/artigos.mjs';
+
+interface Props {
+  faq?: { q: string; a: string }[];
+  jsonLd?: object[];
+  relacionados?: string[];
+}
+const { faq = [], jsonLd = [], relacionados } = Astro.props;
+const a = artigoPorUrl(Astro.url.pathname);
+if (!a) throw new Error(`Artigo não registrado em artigos.mjs: ${Astro.url.pathname}`);
+
+const pageUrl = `${site.url}${a.url}`;
+const dataBr = (d: string) => new Date(`${d}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const hub = '/melhor-ar-condicionado-portatil/';
+const lista = (relacionados ?? artigos.map((x) => x.url))
+  .filter((u) => u !== a.url)
+  .map((u) => artigoPorUrl(u)!)
+  .filter(Boolean);
+// O comparativo principal sempre aparece primeiro nos relacionados.
+const leiaTambem = [...lista.filter((x) => x.url === hub), ...lista.filter((x) => x.url !== hub)].slice(0, 4);
+
+const ld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: a.titulo,
+    description: a.descricao,
+    image: [`${site.url}${a.imagem}`],
+    datePublished: `${a.publicado}T09:00:00-03:00`,
+    dateModified: `${a.atualizado}T09:00:00-03:00`,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: { '@type': 'Person', name: author.name, url: `${site.url}${author.url}`, image: `${site.url}${author.photo}`, jobTitle: author.role },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Guias', item: `${site.url}/guias/` },
+      { '@type': 'ListItem', position: 3, name: a.h1, item: pageUrl },
+    ],
+  },
+  ...(faq.length
+    ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
+    : []),
+  ...jsonLd,
+];
+---
+<Base title={a.titulo} description={a.descricao} type="article" published={`${a.publicado}T09:00:00-03:00`} modified={`${a.atualizado}T09:00:00-03:00`} image={a.imagem} imageAlt={a.h1} jsonLd={ld}>
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guias/">Guias</a></li>
+          <li aria-current="page">{a.h1}</li>
+        </ol>
+      </nav>
+      <span class="tag-cat">{a.categoria}</span>
+      <h1>{a.h1}</h1>
+      <p class="subtitulo">{a.resumo}</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={a.atualizado}>{dataBr(a.atualizado)}</time> · {a.minutos} min de leitura
+        </div>
+      </div>
+      <ShareButtons title={a.titulo} />
+    </div>
+  </section>
+
+  <article class="leitura artigo">
+    {a.categoria !== 'Guia' && (
+      <p class="aviso-afiliado"><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem custo extra para você. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+    )}
+
+    <slot />
+
+    {faq.length > 0 && (
+      <section class="bloco">
+        <h2 id="perguntas">Perguntas frequentes</h2>
+        <div class="faq">
+          {faq.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="bloco">
+      <h2>Leia também</h2>
+      <div class="leia">
+        {leiaTambem.map((r) => (
+          <a href={r.url} class="leia-card">
+            <img src={r.imagem} alt="" width="80" height="80" loading="lazy" decoding="async" />
+            <span><small>{r.categoria}</small>{r.h1}</span>
+          </a>
+        ))}
+      </div>
+
+      <ShareButtons title={a.titulo} />
+      <AuthorBox />
+    </section>
+  </article>
+</Base>
+
+<style is:global>
+  .artigo { padding-top: 28px; }
+  .tag-cat { display: inline-block; background: #fff; border: 1px solid #bcd7f3; color: var(--azul); font-weight: 700; font-size: .85rem; padding: 3px 12px; border-radius: 999px; margin-bottom: .6rem; }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 30px 14px 0; list-style: none; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+  .leia { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .leia-card { display: flex; gap: 14px; align-items: center; border: 1px solid var(--borda); border-radius: 14px; padding: 12px; text-decoration: none; color: var(--texto); font-weight: 700; font-size: 1rem; line-height: 1.35; }
+  .leia-card:hover { border-color: var(--azul); color: var(--azul); }
+  .leia-card img { width: 64px; height: 64px; object-fit: contain; flex-shrink: 0; }
+  .leia-card small { display: block; font-weight: 600; color: var(--texto-2); font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; }
+  .destaque-box { background: var(--azul-claro); border: 1px solid #bcd7f3; border-radius: var(--raio); padding: 20px 24px; margin: 1.8rem 0; }
+  .destaque-box > :last-child { margin-bottom: 0; }
+  @media (max-width: 640px) { .leia { grid-template-columns: 1fr; } }
+</style>

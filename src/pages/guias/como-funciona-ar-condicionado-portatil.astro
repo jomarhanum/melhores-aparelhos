@@ -1,0 +1,70 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Ar-condicionado portátil precisa de gás?', a: 'Sim. Ele tem gás refrigerante em circuito fechado, como qualquer ar-condicionado. Em uso normal não é preciso recarregar. Modelos mais novos usam o gás R32, mais eficiente.' },
+  { q: 'Por que o ar-condicionado portátil faz mais barulho que o split?', a: 'Porque o compressor, a peça mais barulhenta, fica dentro do aparelho, no próprio cômodo. No split ele fica na unidade externa, do lado de fora.' },
+  { q: 'O ar-condicionado portátil esquenta o ambiente?', a: 'Só se a mangueira de exaustão não estiver na janela ou estiver mal vedada. Nesse caso o ar quente volta para dentro e o aparelho não consegue esfriar.' },
+  { q: 'Ar-condicionado portátil tira a umidade do ar?', a: 'Sim. Ao esfriar o ar, ele condensa parte da umidade, e é dessa água que vem a necessidade de drenagem. Muitos modelos também têm um modo só de desumidificar.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-portatil/', '/guias/climatizador-ou-ar-condicionado-portatil/', '/guias/como-instalar-ar-condicionado-portatil/', '/guias/quantos-btus-preciso/']}>
+  <p>O ar-condicionado portátil é, basicamente, <strong>um ar-condicionado inteiro dentro de uma única caixa com rodinhas</strong>. Entender como ele funciona ajuda a instalar direito, usar melhor e não se frustrar com expectativas erradas.</p>
+
+  <h2>O princípio: tirar calor de um lugar e levar para outro</h2>
+  <p>Todo ar-condicionado funciona como uma geladeira: ele não "cria frio", ele <strong>retira o calor</strong> de dentro e joga para fora. Quem faz isso é o gás refrigerante, que circula por um circuito fechado:</p>
+  <ol>
+    <li><strong>Evaporador (a parte fria):</strong> o ar do cômodo passa por ele, perde calor para o gás e volta mais frio.</li>
+    <li><strong>Compressor:</strong> comprime o gás, que fica muito quente.</li>
+    <li><strong>Condensador (a parte quente):</strong> o gás quente libera o calor, que é soprado para fora.</li>
+  </ol>
+
+  <h2>Por que precisa da mangueira na janela?</h2>
+  <p>No split, o condensador fica do lado de fora da casa. No portátil, <strong>tudo está na mesma caixa, dentro do cômodo</strong>. O calor retirado precisa sair de alguma forma, e é para isso que serve a mangueira (duto) de exaustão encaixada na janela.</p>
+  <p>Sem a mangueira para fora, o aparelho esfria o ar de um lado e devolve o mesmo calor (e um pouco mais) do outro. O resultado é um cômodo mais quente. Veja <a href="/guias/como-instalar-ar-condicionado-portatil/">como instalar corretamente</a>.</p>
+
+  <h2>De onde vem a água?</h2>
+  <p>Quando o ar quente e úmido passa pelo evaporador frio, a umidade condensa, como as gotinhas que se formam num copo gelado. Por isso o portátil também <strong>desumidifica</strong>. Essa água pode:</p>
+  <ul>
+    <li>ficar num <strong>reservatório</strong> que você esvazia;</li>
+    <li>sair por uma <strong>mangueira de dreno</strong>;</li>
+    <li>ser <strong>evaporada</strong> pelo próprio aparelho e expulsa junto com o ar quente (autoevaporação).</li>
+  </ul>
+
+  <h2>Por que ele rende menos que um split?</h2>
+  <ul>
+    <li><strong>Calor do próprio aparelho:</strong> o compressor e o gabinete esquentam dentro do cômodo.</li>
+    <li><strong>Pressão negativa:</strong> nos modelos de uma mangueira só (a maioria no Brasil), o aparelho usa ar do cômodo para resfriar o condensador e o joga fora. Esse ar é reposto por ar quente que entra pelas frestas de portas e janelas.</li>
+    <li><strong>Vedação imperfeita</strong> ao redor da régua da janela.</li>
+  </ul>
+  <p>Por isso recomendamos uma <a href="/guias/quantos-btus-preciso/">margem de BTUs um pouco maior</a> no portátil.</p>
+
+  <h2>Por que ele faz barulho?</h2>
+  <p>No split, o compressor fica do lado de fora. No portátil, ele está a poucos metros de você. Os modelos da nossa lista ficam entre cerca de 49 e 56 dB no uso normal, parecido com um ventilador forte. Alguns têm modo dormir bem mais silencioso. Veja os <a href="/melhor-ar-condicionado-portatil-silencioso/">portáteis mais silenciosos</a>.</p>
+
+  <h2>E o modo aquecer?</h2>
+  <p>Nos modelos quente e frio, o circuito inverte o caminho do gás: a parte que esfriava passa a esquentar o cômodo, e o frio vai para fora pela mangueira. É uma bomba de calor, mais eficiente que um aquecedor de resistência. Veja os <a href="/melhor-ar-condicionado-portatil-quente-e-frio/">melhores portáteis quente e frio</a>.</p>
+
+  <h2>Inverter: o que muda?</h2>
+  <p>Num aparelho convencional, o compressor liga em potência máxima e desliga quando atinge a temperatura, num ciclo de liga e desliga. No <strong>inverter</strong>, ele reduz e aumenta a velocidade aos poucos, mantendo a temperatura estável, com menos barulho e menos consumo. Na nossa lista, o <a href="/melhor-ar-condicionado-portatil/#lg-lp1419ivsm">LG Dual Inverter</a> e o <a href="/melhor-ar-condicionado-portatil/#eos-eap14iqf">EOS Slim Inverter</a> têm essa tecnologia.</p>
+
+  <h2>Resumo</h2>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>Peça</th><th>O que faz</th></tr></thead>
+      <tbody>
+        <tr><td>Evaporador</td><td>Esfria o ar do cômodo</td></tr>
+        <tr><td>Compressor</td><td>Faz o gás circular (e faz barulho)</td></tr>
+        <tr><td>Condensador</td><td>Libera o calor retirado</td></tr>
+        <tr><td>Mangueira de exaustão</td><td>Leva o ar quente para fora</td></tr>
+        <tr><td>Dreno ou reservatório</td><td>Lida com a água retirada do ar</td></tr>
+        <tr><td>Filtro</td><td>Segura poeira e protege o evaporador</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Agora que você entende como ele funciona, veja <a href="/melhor-ar-condicionado-portatil/">os 10 melhores ar-condicionados portáteis de 2026</a>.</p>
+</Artigo>
+
+<style>
+  .tab-curta { min-width: 0; }
+</style>

@@ -1,0 +1,90 @@
+---
+import Artigo from '../layouts/Artigo.astro';
+import ProdutoMini from '../components/ProdutoMini.astro';
+import { produtos } from '../data/produtos';
+import { site, author } from '../data/site';
+
+const faq = [
+  { q: 'Existe ar-condicionado portátil silencioso?', a: 'Existe portátil mais silencioso, mas nenhum é tão quieto quanto um split, porque o compressor fica dentro do cômodo. Os melhores têm modo dormir que reduz bastante o ruído, como o Hisense AP-12CW e o LG Dual Inverter.' },
+  { q: 'Quantos decibéis é um ar-condicionado portátil silencioso?', a: 'No uso normal, abaixo de 50 dB já é considerado bom para um portátil. No modo dormir, quanto mais perto de 40 dB, melhor. Como referência, 40 dB lembra uma biblioteca e 50 dB uma conversa em tom baixo.' },
+  { q: 'Dá para dormir com ar-condicionado portátil ligado?', a: 'Dá. Muitos compradores relatam que se acostumam com o som constante, parecido com um ventilador. Usar o modo dormir, posicionar o aparelho longe da cabeceira e gelar o quarto antes de deitar ajuda bastante.' },
+  { q: 'Inverter é mais silencioso?', a: 'Em geral, sim. O compressor inverter trabalha em velocidade variável, sem os picos de liga e desliga, o que deixa o som mais constante e mais baixo depois que o quarto atinge a temperatura.' },
+];
+
+const ordem = ['hisense-ap-12cwbrnps01', 'lg-lp1419ivsm', 'eos-eap14iqf', 'rheem-rb1hp12k220', 'electrolux-sp12f'];
+const porRuido = [...produtos].sort((a, b) => parseFloat(a.ruido.match(/(\d+)\s*dB(?![\s\S]*dB)/)?.[1] ?? '99') - parseFloat(b.ruido.match(/(\d+)\s*dB(?![\s\S]*dB)/)?.[1] ?? '99'));
+const pageUrl = `${site.url}/melhor-ar-condicionado-portatil-silencioso/`;
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Ar-condicionados portáteis mais silenciosos de 2026',
+  itemListElement: ordem.map((slug, i) => ({ '@type': 'ListItem', position: i + 1, url: `${pageUrl}#mini-${slug}`, name: produtos.find((p) => p.slug === slug)!.nome })),
+}];
+---
+<Artigo faq={faq} jsonLd={jsonLd} relacionados={['/melhor-ar-condicionado-portatil/', '/melhor-ar-condicionado-portatil-quente-e-frio/', '/guias/como-funciona-ar-condicionado-portatil/', '/guias/como-instalar-ar-condicionado-portatil/']}>
+  <p>O barulho é a reclamação número um de quem compra ar-condicionado portátil. Não tem jeito: o compressor fica dentro do quarto. Mas a diferença entre um modelo e outro é grande, principalmente <strong>no modo dormir</strong>. Selecionamos os 5 portáteis mais silenciosos do nosso <a href="/melhor-ar-condicionado-portatil/">ranking geral</a>.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resposta rápida:</strong> o mais silencioso para dormir é o <a href="#mini-hisense-ap-12cwbrnps01">Hisense AP-12CWBRNPS01</a>, com modo noturno a partir de 19 dB. Para quartos maiores, o <a href="#mini-lg-lp1419ivsm">LG Dual Inverter</a> combina 14.000 BTUs com modo dormir a partir de 44 dB.</p>
+  </div>
+
+  <h2 id="decibeis">Entenda os decibéis em 30 segundos</h2>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>Nível</th><th>Parecido com</th></tr></thead>
+      <tbody>
+        <tr><td>20 a 30 dB</td><td>Sussurro, quarto silencioso à noite</td></tr>
+        <tr><td>40 dB</td><td>Biblioteca, geladeira silenciosa</td></tr>
+        <tr><td>50 dB</td><td>Conversa em tom baixo, chuva fraca</td></tr>
+        <tr><td>55 a 60 dB</td><td>Conversa normal, escritório movimentado</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A escala de decibéis não é linear: <strong>cada 10 dB a mais soam aproximadamente duas vezes mais alto</strong> para o ouvido. Por isso, 44 dB e 54 dB parecem muito diferentes na prática.</p>
+  <p class="nota">Os valores abaixo são os informados pelos fabricantes. Cada marca mede de um jeito e a percepção real depende do cômodo, então use os números para comparar, não como garantia.</p>
+
+  <h2 id="ranking">Os 5 portáteis mais silenciosos</h2>
+
+  <ProdutoMini slug="hisense-ap-12cwbrnps01" posicao={1} titulo="Hisense AP-12CWBRNPS01: o mais silencioso para dormir" destaque="O modo dormir do Hisense é o mais silencioso da nossa lista, a partir de 19 dB segundo o fabricante. No modo normal ele chega a 56 dB, então a dica é gelar bem o quarto antes de deitar e depois deixar no modo noturno. Tem Wi-Fi, controle remoto e gás R32." specs={[['Ruído', '19 dB (dormir) a 56 dB'], ['Capacidade', '12.000 BTUs'], ['Voltagem', '127 V'], ['Wi-Fi', 'Sim']]} />
+
+  <ProdutoMini slug="lg-lp1419ivsm" posicao={2} titulo="LG Dual Inverter LP1419IVSM: silencioso e potente" destaque="O compressor Dual Inverter evita os picos de liga e desliga, e o modo dormir trabalha a partir de 44 dB. É a melhor escolha silenciosa para quartos grandes e salas de até 18 m², com app LG ThinQ e comando de voz." specs={[['Ruído', '44 dB (dormir) a 53 dB'], ['Capacidade', '14.000 BTUs'], ['Voltagem', '127 V'], ['Inverter', 'Sim']]} />
+
+  <ProdutoMini slug="eos-eap14iqf" posicao={3} titulo="EOS Slim Inverter EAP14IQF: menor ruído máximo" destaque="Tem o menor ruído máximo entre os modelos da lista: até 50 dB, mesmo com 14.000 BTUs. O inverter ajuda a manter o som constante, e vários compradores relatam que não acharam o aparelho barulhento. Ainda aquece no inverno." specs={[['Ruído', 'até 50 dB'], ['Capacidade', '14.000 BTUs'], ['Ciclo', 'Quente e frio'], ['Inverter', 'Sim']]} />
+
+  <ProdutoMini slug="rheem-rb1hp12k220" posicao={4} titulo="Rheem RB1HP12K220: ruído estável" destaque="Com variação pequena entre 49 e 51 dB, o Rheem quente e frio tem som estável, bom para home office. Atenção: só existe em 220 V, e parte dos compradores ainda o considera barulhento." specs={[['Ruído', '49 a 51 dB'], ['Capacidade', '12.000 BTUs'], ['Voltagem', '220 V'], ['Ciclo', 'Quente e frio']]} />
+
+  <ProdutoMini slug="electrolux-sp12f" posicao={5} titulo="Electrolux SP12F: modo Dormir Bem" destaque="O campeão do nosso ranking geral também vai bem no quesito ruído: de 49 a 52 dB, com o modo Dormir Bem, que reduz a ventilação e ajusta a temperatura durante a noite. Compradores dizem que o modo dormir deixa o barulho aceitável." specs={[['Ruído', '49 a 52 dB'], ['Capacidade', '12.000 BTUs'], ['Voltagem', '127 V ou 220 V'], ['Wi-Fi', 'Sim']]} />
+
+  <h2 id="tabela">Todos os 10 modelos do ranking, do mais silencioso ao mais barulhento</h2>
+  <p>Ordenados pelo ruído máximo informado:</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Modelo</th><th>Ruído informado</th><th>Modo dormir</th></tr></thead>
+      <tbody>
+        {porRuido.map((p) => (
+          <tr><td><a href={`/melhor-ar-condicionado-portatil/#${p.slug}`}>{p.marca} {p.modelo}</a></td><td>{p.ruido}</td><td>{p.funcoes.some((f) => /dormir/i.test(f)) ? 'Sim' : '—'}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="dicas">7 dicas para o portátil fazer menos barulho</h2>
+  <ol>
+    <li><strong>Gele o quarto antes de dormir</strong> e então mude para o modo dormir ou para a ventilação mais baixa.</li>
+    <li><strong>Afaste da cabeceira:</strong> cada metro de distância faz diferença.</li>
+    <li><strong>Coloque sobre piso firme e nivelado.</strong> Piso solto ou inclinado vibra.</li>
+    <li><strong>Use um tapete de borracha</strong> sob as rodinhas para reduzir a vibração.</li>
+    <li><strong>Trave as rodinhas</strong>, se o modelo tiver trava.</li>
+    <li><strong>Mantenha o filtro limpo</strong>: filtro sujo faz o ventilador trabalhar mais. Veja <a href="/guias/como-limpar-ar-condicionado-portatil/">como limpar</a>.</li>
+    <li><strong>Capacidade certa:</strong> aparelho fraco trabalha no máximo o tempo todo. Use a <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</li>
+  </ol>
+
+  <h2>Conclusão</h2>
+  <p>Se o silêncio é a sua prioridade e o quarto tem até 15 m², vá de <strong>Hisense AP-12CWBRNPS01</strong>. Para ambientes maiores ou se você quer o máximo de economia, o <strong>LG Dual Inverter</strong> é o mais completo. E se precisa de aquecimento no inverno, o <strong>EOS Slim Inverter</strong> é o mais silencioso entre os quente e frio. Quer ver todos os critérios? Confira o <a href="/melhor-ar-condicionado-portatil/">comparativo completo dos 10 melhores</a>.</p>
+  <p class="nota">Ranking e notas: opinião editorial de {author.name}, com base nas especificações oficiais e no resumo de avaliações de compradores.</p>
+</Artigo>
+
+<style>
+  .tab-curta { min-width: 0; }
+  .nota { font-size: .95rem; color: var(--texto-2); }
+</style>

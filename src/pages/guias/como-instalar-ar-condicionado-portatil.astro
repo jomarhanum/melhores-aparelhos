@@ -1,0 +1,96 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Dá para usar ar-condicionado portátil sem janela?', a: 'Não da forma correta. O portátil precisa jogar o ar quente para fora. Sem janela, a alternativa é passar a mangueira por um furo na parede ou na porta com um adaptador, mas isso exige pequena obra. Usar sem saída de ar faz o calor voltar para o próprio cômodo.' },
+  { q: 'Posso aumentar a mangueira do ar-condicionado portátil?', a: 'Não é recomendado. A mangueira original foi dimensionada para o aparelho. Emendas e mangueiras mais longas dificultam a saída do ar quente, reduzem o rendimento e podem fazer o aparelho desligar por superaquecimento.' },
+  { q: 'Precisa de tomada especial?', a: 'Muitos portáteis vêm com plugue de 20 A, de pino mais grosso, que só encaixa em tomada de 20 A. Use uma tomada exclusiva, sem extensão, benjamim ou adaptador, e confira se a voltagem da tomada é a mesma do aparelho.' },
+  { q: 'Quanto tempo esperar para ligar depois de transportar?', a: 'Siga o manual do seu modelo. Em geral, recomenda-se deixar o aparelho em pé por algumas horas antes de ligar, e por mais tempo se ele foi transportado deitado, para o óleo do compressor voltar ao lugar.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-portatil/', '/guias/como-limpar-ar-condicionado-portatil/', '/guias/ar-condicionado-portatil-gasta-muita-energia/', '/guias/como-funciona-ar-condicionado-portatil/']}>
+  <p>A grande vantagem do ar-condicionado portátil é dispensar instalador. Mas "sem instalação" não quer dizer "sem cuidado": nas avaliações de compradores, a maior parte das reclamações de que o aparelho <strong>"não gela"</strong> tem a ver com mangueira mal posicionada ou janela mal vedada.</p>
+
+  <div class="destaque-box">
+    <p><strong>O essencial:</strong> deixe o aparelho perto da janela, com a mangueira curta e sem dobras; vede toda a fresta ao redor da saída; ligue em tomada exclusiva com a voltagem certa; e resolva a água (autoevaporação, mangueira de dreno ou reservatório).</p>
+  </div>
+
+  <h2>O que vem na caixa</h2>
+  <p>Quase todos os modelos trazem:</p>
+  <ul>
+    <li><strong>Mangueira (duto) de exaustão</strong>, sanfonada, normalmente com 1 a 1,5 m;</li>
+    <li><strong>Conectores</strong> para encaixar a mangueira no aparelho e na régua;</li>
+    <li><strong>Régua de janela</strong> (kit de vedação), às vezes com partes que deslizam para ajustar a largura;</li>
+    <li><strong>Mangueira de dreno</strong> em alguns modelos, e controle remoto.</li>
+  </ul>
+  <p>Um ponto de atenção que aparece muito nas avaliações: <strong>a régua costuma ter cerca de 1 m</strong>. Em janelas maiores, você vai precisar completar o espaço com um material de vedação.</p>
+
+  <h2 id="passo-a-passo">Passo a passo da instalação</h2>
+  <ol>
+    <li><strong>Escolha o lugar.</strong> Perto da janela e de uma tomada, sobre piso firme e nivelado, com pelo menos 30 a 50 cm livres ao redor (confira o manual).</li>
+    <li><strong>Encaixe a mangueira no aparelho.</strong> Atenção: em alguns modelos a rosca é invertida (gira no sentido contrário).</li>
+    <li><strong>Monte a régua na janela.</strong> Ajuste a largura e encaixe o bocal da mangueira.</li>
+    <li><strong>Vede as frestas.</strong> Feche toda abertura que sobrar ao redor da régua e entre as folhas da janela.</li>
+    <li><strong>Resolva a drenagem.</strong> Veja abaixo como cada sistema funciona.</li>
+    <li><strong>Ligue na tomada certa.</strong> Exclusiva, sem extensão e com a mesma voltagem do aparelho.</li>
+    <li><strong>Teste no modo refrigerar</strong> com portas e janelas fechadas e a temperatura em 23 °C a 24 °C.</li>
+  </ol>
+
+  <h2 id="janelas">Como instalar em cada tipo de janela</h2>
+  <h3>Janela de correr</h3>
+  <p>É a mais fácil. Abra uma folha, encaixe a régua na vertical ou na horizontal (conforme o modelo) e feche a folha encostando na régua. Vede o vão que fica entre as duas folhas de vidro com espuma ou fita de vedação.</p>
+  <h3>Janela basculante</h3>
+  <p>A régua não encaixa bem. A solução mais usada é um <strong>painel sob medida</strong> (acrílico, policarbonato ou MDF) com um furo do diâmetro da mangueira, ou um <strong>kit de vedação universal em tecido</strong>, que se prende ao redor da janela com velcro e tem uma abertura com zíper para a mangueira.</p>
+  <h3>Janela maxim-ar</h3>
+  <p>Também pede o kit de tecido com velcro, que fecha o vão lateral criado quando a janela abre para fora. Sem ele, o ar quente que sai volta para dentro.</p>
+  <h3>Sem janela</h3>
+  <p>A alternativa é um furo na parede ou em uma porta com um adaptador de saída. Em imóvel alugado, combine antes com o proprietário.</p>
+
+  <h2 id="mangueira">Regras de ouro da mangueira</h2>
+  <ul>
+    <li><strong>Curta e o mais reta possível.</strong> Cada curva dificulta a saída do ar quente.</li>
+    <li><strong>Nunca emende ou aumente.</strong> Reduz o rendimento e pode superaquecer o aparelho.</li>
+    <li><strong>Não deixe a ponta solta dentro do cômodo.</strong> O ar que sai dela é quente.</li>
+    <li><strong>Saída acima ou na altura do aparelho</strong>, evitando que a mangueira faça "barriga" e acumule água.</li>
+  </ul>
+
+  <h2 id="agua">E a água? Três sistemas de drenagem</h2>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>Sistema</th><th>Como funciona</th><th>Exemplo da nossa lista</th></tr></thead>
+      <tbody>
+        <tr><td>Autoevaporação</td><td>O aparelho evapora a água e a expulsa junto com o ar quente. Quase nunca é preciso esvaziar.</td><td><a href="/melhor-ar-condicionado-portatil/#philco-pac12000qf5">Philco PAC12000QF5</a>, <a href="/melhor-ar-condicionado-portatil/#hisense-ap-12cwbrnps01">Hisense</a></td></tr>
+        <tr><td>Dreno contínuo</td><td>Você liga uma mangueira de dreno e leva a água para um ralo ou balde.</td><td><a href="/melhor-ar-condicionado-portatil/#eos-eap14iqf">EOS Slim</a>, Rheem</td></tr>
+        <tr><td>Reservatório</td><td>A água fica num depósito interno; o aparelho avisa ou desliga quando enche.</td><td>Modelos mais simples</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Em dias muito úmidos, mesmo modelos com autoevaporação podem acumular água. No modo aquecer, a drenagem costuma ser obrigatória em vários modelos.</p>
+
+  <h2 id="tomada">Tomada e voltagem: cuidado redobrado</h2>
+  <ul>
+    <li><strong>Nenhum modelo do nosso ranking é bivolt.</strong> Eles são vendidos em versões de 127 V ou de 220 V. Ligar na voltagem errada pode queimar o aparelho.</li>
+    <li>Muitos portáteis vêm com <strong>plugue de 20 A</strong> (pino mais grosso). Ele só encaixa em tomada de 20 A, e isso é proposital, porque o aparelho puxa muita corrente.</li>
+    <li><strong>Não use extensão, benjamim ou adaptador.</strong> Eles esquentam e podem derreter.</li>
+    <li>Se o disjuntor cai quando o aparelho liga junto com chuveiro ou micro-ondas, o circuito está sobrecarregado: consulte um eletricista.</li>
+  </ul>
+
+  <h2>Checklist final</h2>
+  <ul class="check-lista">
+    <li>Aparelho em pé, nivelado e com espaço livre ao redor</li>
+    <li>Mangueira curta, sem dobras, bem encaixada nas duas pontas</li>
+    <li>Janela vedada, sem frestas ao redor da régua</li>
+    <li>Drenagem resolvida</li>
+    <li>Tomada exclusiva, com a voltagem certa</li>
+    <li>Portas e cortinas fechadas durante o uso</li>
+  </ul>
+
+  <p>Ainda escolhendo o aparelho? Veja o <a href="/melhor-ar-condicionado-portatil/">comparativo dos 10 melhores portáteis</a> e, depois de instalado, aprenda a <a href="/guias/como-limpar-ar-condicionado-portatil/">fazer a limpeza</a> para ele durar mais.</p>
+</Artigo>
+
+<style>
+  .tab-curta { min-width: 0; }
+  .check-lista { list-style: none; padding: 0; }
+  .check-lista li { padding-left: 32px; position: relative; }
+  .check-lista li::before { content: '☑'; position: absolute; left: 0; color: var(--verde); font-size: 1.2rem; }
+</style>

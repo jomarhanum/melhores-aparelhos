@@ -2,6 +2,9 @@
 import { amazonLink, mercadoLivreLink, fotoProduto, type Produto } from '../data/produtos';
 interface Props { p: Produto; }
 const { p } = Astro.props;
+// Reviews individuais publicados (slug do produto → URL)
+const reviews: Record<string, string> = { 'electrolux-sp12f': '/review/electrolux-sp12f/' };
+const reviewUrl = reviews[p.slug];
 const specs: [string, string][] = [
   ['Capacidade', `${p.btu.toLocaleString('pt-BR')} BTUs`],
   ['Área indicada (estimativa)', p.area],
@@ -9,6 +12,8 @@ const specs: [string, string][] = [
   ['Voltagem', p.voltagem],
   ['Ruído', p.ruido],
   ['Peso', p.peso],
+  ...(p.dimensoes ? [['Dimensões', p.dimensoes] as [string, string]] : []),
+  ...(p.potencia ? [['Potência elétrica', p.potencia] as [string, string]] : []),
   ['Wi-Fi', p.wifi],
   ['Controle remoto', p.controle],
   ['Funções', p.funcoes.join(', ')],
@@ -31,6 +36,7 @@ const specs: [string, string][] = [
     <div>
       <p>{p.resumo}</p>
       <p class="ideal"><strong>Ideal para:</strong> {p.idealPara}</p>
+      {reviewUrl && <p><a href={reviewUrl}><strong>Leia o review completo do {p.marca} {p.modelo} →</strong></a></p>}
       <div class="botoes">
         <a class="btn btn-amazon" href={amazonLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>
           Ver preço na Amazon
@@ -78,6 +84,27 @@ const specs: [string, string][] = [
     </div>
   </div>
 
+  <div class="compradores">
+    <p class="caixa-tit">💬 O que dizem os compradores</p>
+    <div class="pc">
+      <div>
+        <p class="sub">Mais elogiado</p>
+        <ul>{p.opiniao.elogios.map((c) => <li>{c}</li>)}</ul>
+      </div>
+      {p.opiniao.criticas.length > 0 && (
+        <div>
+          <p class="sub">Reclamações mais comuns</p>
+          <ul>{p.opiniao.criticas.map((c) => <li>{c}</li>)}</ul>
+        </div>
+      )}
+    </div>
+    <p class="fonte">{p.opiniao.observacao ? `${p.opiniao.observacao} ` : ''}Resumo nosso das avaliações publicadas por compradores em lojas online (outubro de 2026).</p>
+  </div>
+
+  {p.versoes && (
+    <p class="aviso-volt">⚡ <strong>Atenção à voltagem:</strong> este modelo não é bivolt. Ele é vendido em versões separadas de 127 V e 220 V. Na loja, escolha a versão da sua tomada antes de finalizar a compra.</p>
+  )}
+
   <div class="botoes botoes-fim">
     <a class="btn btn-amazon" href={amazonLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Comprar na Amazon</a>
     <a class="btn btn-ml" href={mercadoLivreLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Comprar no Mercado Livre</a>
@@ -113,6 +140,13 @@ const specs: [string, string][] = [
   .pc-col ul { list-style: none; padding: 0; margin: 0; }
   .pc-col li { padding-left: 28px; position: relative; font-size: 1.02rem; }
   .pc-tit { font-weight: 800; font-size: 1.1rem; margin-bottom: .6rem; }
+  .compradores { border: 1px solid var(--borda); border-radius: var(--raio); padding: 20px 22px; margin-top: 1.5rem; }
+  .compradores .pc { margin-top: .4rem; }
+  .compradores ul { padding-left: 1.2rem; margin: 0; }
+  .compradores li { font-size: 1.02rem; }
+  .compradores .sub { font-weight: 700; margin-bottom: .3rem; color: var(--texto-2); font-size: .95rem; text-transform: uppercase; letter-spacing: .04em; }
+  .compradores .fonte { font-size: .88rem; color: var(--texto-2); margin: 1rem 0 0; }
+  .aviso-volt { background: #fff7e6; border: 1px solid #f6d58b; border-radius: 10px; padding: 12px 16px; font-size: 1rem; margin: 1.5rem 0 0; }
   .pros { background: var(--verde-claro); border: 1px solid #b7e4c7; }
   .pros li::before { content: '✔'; position: absolute; left: 0; color: var(--verde); font-weight: 800; }
   .contras { background: var(--vermelho-claro); border: 1px solid #f5c2bd; }

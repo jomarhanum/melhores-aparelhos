@@ -1,0 +1,71 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site } from '../../data/site';
+import { artigos } from '../../data/artigos.mjs';
+
+const title = 'Guias e Comparativos de Ar-Condicionado Portátil | Melhores Aparelhos';
+const description = 'Todos os guias, reviews e comparativos do Melhores Aparelhos: como escolher, instalar, limpar e economizar com o seu ar-condicionado portátil.';
+const grupos = [
+  { nome: 'Comparativos e reviews', itens: artigos.filter((a) => a.categoria !== 'Guia') },
+  { nome: 'Guias práticos', itens: artigos.filter((a) => a.categoria === 'Guia') },
+];
+const ld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Guias e comparativos',
+    url: `${site.url}/guias/`,
+    hasPart: artigos.map((a) => ({ '@type': 'Article', headline: a.titulo, url: `${site.url}${a.url}` })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Guias', item: `${site.url}/guias/` },
+    ],
+  },
+];
+---
+<Base title={title} description={description} jsonLd={ld}>
+  <section class="hero">
+    <div class="wrap">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol><li><a href="/">Home</a></li><li aria-current="page">Guias</li></ol>
+      </nav>
+      <h1>Guias e comparativos</h1>
+      <p class="subtitulo">Tudo o que você precisa para escolher, instalar e usar bem o seu ar-condicionado portátil, explicado em linguagem simples.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    {grupos.map((g) => (
+      <section>
+        <h2>{g.nome}</h2>
+        <div class="lista">
+          {g.itens.map((a) => (
+            <a class="item" href={a.url}>
+              <img src={a.imagem} alt="" width="120" height="120" loading="lazy" decoding="async" />
+              <div>
+                <span class="cat">{a.categoria} · {a.minutos} min</span>
+                <h3>{a.h1}</h3>
+                <p>{a.resumo}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .lista { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .item { display: flex; gap: 18px; align-items: center; border: 1px solid var(--borda); border-radius: 18px; padding: 18px; text-decoration: none; color: inherit; background: #fff; transition: transform .15s, box-shadow .15s; }
+  .item:hover { transform: translateY(-2px); box-shadow: var(--sombra); color: inherit; }
+  .item img { width: 96px; height: 96px; object-fit: contain; flex-shrink: 0; }
+  .item h3 { margin: .2rem 0 .3rem; font-size: 1.15rem; }
+  .item p { margin: 0; font-size: 1rem; color: var(--texto-2); line-height: 1.5; }
+  .cat { font-size: .8rem; font-weight: 700; color: var(--azul); text-transform: uppercase; letter-spacing: .05em; }
+  @media (max-width: 760px) { .lista { grid-template-columns: 1fr; } .item img { width: 72px; height: 72px; } }
+</style>

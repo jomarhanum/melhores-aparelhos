@@ -1,0 +1,107 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Ar-condicionado portátil gasta mais que split?', a: 'Sim. Com a mesma capacidade, o portátil costuma gastar mais que um split, principalmente um split inverter, porque parte do calor fica dentro do cômodo e ele precisa trabalhar mais para manter a temperatura.' },
+  { q: 'Quanto gasta um ar-condicionado portátil de 12.000 BTUs por mês?', a: 'Um modelo de 1.200 W ligado 8 horas por dia, com o compressor funcionando direto, consome cerca de 288 kWh por mês. Com tarifa de R$ 0,90 por kWh, isso dá cerca de R$ 259. Na prática o valor costuma ser menor, porque o compressor desliga quando o cômodo atinge a temperatura.' },
+  { q: 'Deixar o ar-condicionado portátil ligado a noite toda gasta muito?', a: 'Depende da temperatura escolhida e da vedação. Usar o modo dormir, programar o timer e manter a temperatura entre 23 °C e 25 °C reduz bastante o consumo noturno.' },
+  { q: 'Ar-condicionado portátil inverter economiza?', a: 'Sim. O inverter ajusta a velocidade do compressor em vez de ligar e desligar o tempo todo, o que reduz o consumo no uso diário. Na nossa lista, o LG Dual Inverter e o EOS Slim Inverter têm essa tecnologia.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-portatil/', '/guias/quantos-btus-preciso/', '/guias/como-instalar-ar-condicionado-portatil/', '/guias/climatizador-ou-ar-condicionado-portatil/']}>
+  <p>Essa é a dúvida de quase todo mundo que pensa em comprar um ar-condicionado portátil. A resposta curta: <strong>gasta, sim, mais que um ventilador e um pouco mais que um split</strong>. Mas dá para saber exatamente quanto e pagar bem menos com alguns cuidados.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> um portátil de 12.000 BTUs com cerca de 1.200 W, ligado 8 horas por dia durante um mês, consome até <strong>288 kWh</strong>. Com tarifa de R$ 0,90 por kWh, isso dá <strong>até cerca de R$ 259 por mês</strong>. Esse é o pior cenário, com o compressor ligado direto.</p>
+  </div>
+
+  <h2 id="calculo">Como calcular o consumo (passo a passo)</h2>
+  <p>A conta é simples. Você só precisa de três números:</p>
+  <ol>
+    <li><strong>Potência do aparelho em watts (W):</strong> está na etiqueta ou no manual. Não confunda com BTUs.</li>
+    <li><strong>Horas de uso por dia.</strong></li>
+    <li><strong>Valor do kWh na sua conta de luz</strong>, com impostos. Ele aparece na fatura da sua distribuidora.</li>
+  </ol>
+  <p class="formula">Consumo (kWh/mês) = potência (W) × horas por dia × 30 ÷ 1.000</p>
+  <p><strong>Exemplo:</strong> 1.200 W × 8 h × 30 dias ÷ 1.000 = <strong>288 kWh</strong>. Multiplicando por R$ 0,90: <strong>R$ 259,20</strong>.</p>
+
+  <h2>Calcule o seu gasto</h2>
+  <form class="calc" onsubmit="return false">
+    <label>Potência (W)<input type="number" id="e-w" min="100" max="4000" value="1200" inputmode="numeric" /></label>
+    <label>Horas por dia<input type="number" id="e-h" min="1" max="24" value="8" inputmode="numeric" /></label>
+    <label>Dias de uso no mês<input type="number" id="e-d" min="1" max="31" value="30" inputmode="numeric" /></label>
+    <label>Tarifa (R$ por kWh)<input type="number" id="e-t" min="0.1" max="3" step="0.01" value="0.90" inputmode="decimal" /></label>
+    <output id="e-res" class="calc-res" aria-live="polite"></output>
+  </form>
+  <script is:inline>
+    (function () {
+      function v(id) { var x = parseFloat(document.getElementById(id).value); return isNaN(x) ? 0 : x; }
+      function calc() {
+        var kwh = (v('e-w') * v('e-h') * v('e-d')) / 1000;
+        var custo = kwh * v('e-t');
+        document.getElementById('e-res').innerHTML = '<span>Consumo máximo: <strong>' + kwh.toLocaleString('pt-BR', { maximumFractionDigits: 0 }) + ' kWh/mês</strong></span><span>Custo máximo estimado: <strong>' + custo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) + '</strong></span>';
+      }
+      ['e-w', 'e-h', 'e-d', 'e-t'].forEach(function (id) { document.getElementById(id).addEventListener('input', calc); });
+      calc();
+    })();
+  </script>
+  <p class="nota">O resultado é o teto: considera o compressor ligado o tempo todo. Com o cômodo bem vedado e a capacidade correta, o compressor desliga ao atingir a temperatura e o gasto real fica abaixo disso.</p>
+
+  <h2 id="modelos">Consumo dos modelos do nosso ranking</h2>
+  <p>Potência informada pelos fabricantes nos anúncios oficiais. Custo calculado para 8 horas por dia, 30 dias, R$ 0,90/kWh e compressor ligado direto:</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Modelo</th><th>BTUs</th><th>Potência</th><th>Inverter</th><th>kWh/mês (máx.)</th><th>Custo (máx.)</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/melhor-ar-condicionado-portatil/#hisense-ap-12cwbrnps01">Hisense AP-12CW</a></td><td>12.000</td><td>1.100 W</td><td>Não</td><td>264</td><td>R$ 237,60</td></tr>
+        <tr><td><a href="/melhor-ar-condicionado-portatil/#philco-pac12000f5">Philco PAC12000F5</a></td><td>12.000</td><td>1.200 W</td><td>Não</td><td>288</td><td>R$ 259,20</td></tr>
+        <tr><td><a href="/melhor-ar-condicionado-portatil/#philco-pac12000qf5">Philco PAC12000QF5</a></td><td>12.000</td><td>1.200 W</td><td>Não</td><td>288</td><td>R$ 259,20</td></tr>
+        <tr><td><a href="/melhor-ar-condicionado-portatil/#eos-eap14iqf">EOS Slim EAP14IQF</a></td><td>14.000</td><td>1.100 W</td><td>Sim</td><td>264</td><td>R$ 237,60</td></tr>
+        <tr><td><a href="/melhor-ar-condicionado-portatil/#lg-lp1419ivsm">LG LP1419IVSM</a></td><td>14.000</td><td>1.370 W</td><td>Sim</td><td>329</td><td>R$ 295,92</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Nos modelos inverter, o compressor reduz a velocidade em vez de ficar ligando e desligando. Por isso, no uso real, eles tendem a gastar bem menos que o teto da tabela. Os demais modelos da lista não informam a potência de forma confiável nos anúncios; confira na etiqueta antes de comprar.</p>
+
+  <h2>O que dizem os compradores sobre a conta de luz</h2>
+  <p>Nas avaliações de compradores em lojas online, o aumento da conta é um dos temas mais citados. Há relatos de conta praticamente dobrando com uso diário, principalmente em cômodos grandes ou mal vedados. Quem respeita a faixa de temperatura recomendada pelo fabricante costuma relatar um aumento mais moderado.</p>
+
+  <h2 id="economizar">9 dicas para gastar menos</h2>
+  <ol>
+    <li><strong>Escolha a capacidade certa.</strong> Aparelho fraco trabalha sem parar. Use a <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</li>
+    <li><strong>Vede bem a janela.</strong> Fresta aberta deixa o calor entrar. Veja <a href="/guias/como-instalar-ar-condicionado-portatil/">como instalar e vedar</a>.</li>
+    <li><strong>Mangueira curta e reta.</strong> Dobras e emendas atrapalham a saída do ar quente.</li>
+    <li><strong>Use entre 23 °C e 25 °C.</strong> Cada grau a menos faz o compressor trabalhar mais.</li>
+    <li><strong>Feche portas e cortinas</strong> nas horas de sol forte.</li>
+    <li><strong>Ligue antes do calor apertar.</strong> Manter o cômodo fresco gasta menos que resfriar um cômodo já quente.</li>
+    <li><strong>Use o timer e o modo dormir</strong> para desligar ou suavizar de madrugada.</li>
+    <li><strong>Lave o filtro a cada 15 dias.</strong> Filtro sujo reduz o rendimento. Veja <a href="/guias/como-limpar-ar-condicionado-portatil/">como limpar</a>.</li>
+    <li><strong>Prefira inverter</strong> se você vai usar o aparelho todos os dias.</li>
+  </ol>
+
+  <h2>Portátil, split ou climatizador: quem gasta menos?</h2>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>Aparelho</th><th>Consumo típico</th><th>Esfria de verdade?</th></tr></thead>
+      <tbody>
+        <tr><td>Climatizador evaporativo</td><td>Baixo (dezenas a poucas centenas de W)</td><td>Pouco, e só em clima seco</td></tr>
+        <tr><td>Split inverter</td><td>O mais eficiente entre os ar-condicionados</td><td>Sim</td></tr>
+        <tr><td>Ar-condicionado portátil</td><td>Cerca de 1.100 a 1.400 W</td><td>Sim</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Se o seu objetivo é gastar pouco e você mora em região seca, o climatizador pode resolver. Compare em <a href="/guias/climatizador-ou-ar-condicionado-portatil/">climatizador ou ar-condicionado portátil</a>. Se precisa de frio de verdade sem obra, o portátil continua sendo a melhor opção: veja os <a href="/melhor-ar-condicionado-portatil/">10 melhores de 2026</a>.</p>
+  <p class="nota">A tarifa de R$ 0,90 por kWh é apenas um exemplo. O valor real varia por distribuidora, faixa de consumo e bandeira tarifária.</p>
+</Artigo>
+
+<style>
+  .formula { background: var(--gelo); border-left: 4px solid var(--azul); padding: 12px 16px; border-radius: 8px; font-weight: 700; }
+  .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; background: var(--gelo); border: 1px solid var(--borda); border-radius: var(--raio); padding: 22px; margin: 1rem 0 1.2rem; }
+  .calc label { display: grid; gap: 6px; font-weight: 600; font-size: .98rem; }
+  .calc input { font: inherit; font-size: 1.1rem; padding: 10px 12px; border: 1.5px solid var(--borda); border-radius: 10px; background: #fff; }
+  .calc input:focus { border-color: var(--azul); outline: none; }
+  .calc-res { grid-column: 1 / -1; display: grid; gap: 4px; background: #fff; border: 2px solid var(--azul); border-radius: 12px; padding: 14px 16px; font-size: 1.05rem; }
+  .nota { font-size: .95rem; color: var(--texto-2); }
+  .tab-curta { min-width: 0; }
+  @media (max-width: 560px) { .calc { grid-template-columns: 1fr; } }
+</style>
