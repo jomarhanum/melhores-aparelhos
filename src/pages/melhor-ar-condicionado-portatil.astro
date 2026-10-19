@@ -209,6 +209,7 @@ const jsonLd = [
   </div>
 
   <div class="leitura artigo">
+    <section class="bloco">
     <h2 id="como-escolher">Como escolher o melhor ar-condicionado portátil</h2>
     <p>Antes de olhar marca e preço, responda a quatro perguntas. Elas eliminam metade das opções em segundos.</p>
 
@@ -243,12 +244,14 @@ const jsonLd = [
       <li><strong>Filtro lavável:</strong> você lava em água corrente e não gasta com reposição.</li>
       <li><strong>Peso e rodinhas:</strong> os modelos pesam de 20 a 32 kg. Rodízios fazem muita falta se você muda o aparelho de lugar.</li>
     </ul>
+    </section>
 
     <h2 id="ranking">Os 10 melhores ar-condicionados portáteis de 2026</h2>
     <p>Abaixo está a análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
 
     {produtos.map((p) => <ProductCard p={p} />)}
 
+    <section class="bloco">
     <h2 id="portatil-x-split">Ar-condicionado portátil, de janela ou split: qual vale mais?</h2>
     <div class="tabela-wrap">
       <table>
@@ -278,7 +281,9 @@ const jsonLd = [
     <h2 id="metodologia">Como fizemos este ranking</h2>
     <p>Partimos dos modelos mais bem posicionados nos principais rankings e lojas do Brasil e cruzamos as fichas técnicas oficiais dos fabricantes com milhares de avaliações de compradores. Pesamos cinco critérios: <strong>capacidade de refrigeração</strong>, <strong>nível de ruído</strong>, <strong>eficiência e tecnologia</strong> (inverter, gás R32), <strong>praticidade</strong> (voltagem, peso, drenagem, Wi-Fi) e <strong>preço</strong>. A nota final de cada aparelho é a opinião editorial de {author.name}.</p>
     <p>Nenhuma marca pagou para aparecer nesta lista. Revisamos o ranking periodicamente para incluir lançamentos e atualizar preços.</p>
+    </section>
 
+    <section class="bloco">
     <h2 id="perguntas">Perguntas frequentes sobre ar-condicionado portátil</h2>
     <div class="faq">
       {faq.map((f) => (
@@ -295,6 +300,7 @@ const jsonLd = [
 
     <ShareButtons title={title} />
     <AuthorBox />
+    </section>
   </div>
 </Base>
 

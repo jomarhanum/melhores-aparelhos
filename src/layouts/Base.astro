@@ -141,6 +141,11 @@ const baseLd = [
       <p>Usamos cookies essenciais e de afiliados para melhorar sua experiência. Saiba mais na <a href="/politica-de-privacidade/">Política de Privacidade</a>.</p>
       <button id="cookie-ok" class="btn btn-sm">Entendi</button>
     </div>
+    <script is:inline>
+      // Decide já na leitura do HTML, para o aviso não surgir no fim do carregamento.
+      try { if (localStorage.getItem('cookie-ok') !== '1') document.getElementById('cookie').hidden = false; }
+      catch (e) { document.getElementById('cookie').hidden = false; }
+    </script>
 
     <script>
       const btn = document.querySelector('.menu-btn');
@@ -151,9 +156,6 @@ const baseLd = [
         menu?.classList.toggle('aberto', !open);
       });
       const c = document.getElementById('cookie');
-      let ok = false;
-      try { ok = localStorage.getItem('cookie-ok') === '1'; } catch {}
-      if (c && !ok) c.hidden = false;
       document.getElementById('cookie-ok')?.addEventListener('click', () => {
         try { localStorage.setItem('cookie-ok', '1'); } catch {}
         if (c) c.hidden = true;
