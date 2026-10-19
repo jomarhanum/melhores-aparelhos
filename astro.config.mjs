@@ -36,7 +36,8 @@ const paginas = {
 export default defineConfig({
   site: SITE_URL,
   trailingSlash: 'always',
-  build: { format: 'directory' },
+  // CSS embutido no HTML: nenhuma folha de estilo bloqueando a primeira pintura.
+  build: { format: 'directory', inlineStylesheets: 'always' },
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/404'),

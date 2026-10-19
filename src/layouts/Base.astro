@@ -86,9 +86,7 @@ const baseLd = [
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     {[...baseLd, ...jsonLd].map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
   </head>
