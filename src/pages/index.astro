@@ -1,9 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import AcIllustration from '../components/AcIllustration.astro';
 import AuthorBox from '../components/AuthorBox.astro';
 import { site } from '../data/site';
-import { produtos, brl } from '../data/produtos';
+import { produtos, brl, fotoProduto } from '../data/produtos';
 
 const title = 'Melhores Aparelhos: Reviews e Comparativos Honestos de 2026';
 const description = site.description;
@@ -18,14 +17,14 @@ const top = produtos.slice(0, 3);
         <p class="subtitulo">Comparativos detalhados, prós e contras sinceros e guias de compra em linguagem simples. Você lê em poucos minutos e compra com segurança.</p>
         <a class="btn" href="/melhor-ar-condicionado-portatil/">Ver o melhor ar-condicionado portátil →</a>
       </div>
-      <div class="home-ilu" aria-hidden="true"><AcIllustration marca="Top 10" btu={12000} /></div>
+      <div class="home-ilu"><img src={fotoProduto(produtos[0])} alt={`${produtos[0].nome}, o melhor ar-condicionado portátil de 2026`} width="600" height="600" fetchpriority="high" /></div>
     </div>
   </section>
 
   <section class="wrap">
     <h2>Review em destaque</h2>
     <a class="destaque" href="/melhor-ar-condicionado-portatil/">
-      <div class="destaque-ilu"><AcIllustration marca="Portáteis" btu={14000} quente /></div>
+      <div class="destaque-ilu"><img src={fotoProduto(produtos[6])} alt="Ar-condicionado portátil LG Dual Inverter" width="600" height="600" loading="lazy" /></div>
       <div>
         <span class="tag">Climatização</span>
         <h3>Melhor Ar-Condicionado Portátil de 2026: 10 Modelos Comparados</h3>
@@ -41,7 +40,7 @@ const top = produtos.slice(0, 3);
       {top.map((p) => (
         <a class="card" href={`/melhor-ar-condicionado-portatil/#${p.slug}`}>
           <span class="card-rank">{p.rank}º</span>
-          <AcIllustration marca={p.marca} btu={p.btu} quente={p.ciclo === 'Quente e frio'} />
+          <img src={fotoProduto(p)} alt={`Ar-condicionado portátil ${p.marca} ${p.modelo}`} width="600" height="600" loading="lazy" />
           <h3>{p.nome}</h3>
           <p>{p.selo ?? p.idealPara}</p>
           <p class="card-preco">a partir de <strong>{brl(p.precoRef)}</strong></p>
@@ -70,7 +69,9 @@ const top = produtos.slice(0, 3);
   .destaque { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; text-decoration: none; color: inherit; border: 1px solid var(--borda); border-radius: 20px; padding: 28px; box-shadow: var(--sombra); transition: transform .15s; }
   .destaque:hover { transform: translateY(-3px); color: inherit; }
   .destaque h3 { margin-top: .5rem; font-size: 1.6rem; }
-  .destaque-ilu { background: var(--gelo); border-radius: var(--raio); padding: 16px; }
+  .destaque-ilu { background: #fff; border: 1px solid var(--borda); border-radius: var(--raio); padding: 12px; }
+  .home-ilu img { border-radius: 24px; box-shadow: var(--sombra); }
+  .card img { max-width: 200px; margin: 0 auto; aspect-ratio: 1; object-fit: contain; }
   .tag { background: var(--azul-claro); color: var(--azul); font-weight: 700; font-size: .85rem; padding: 4px 12px; border-radius: 999px; }
   .ler { font-weight: 700; color: var(--azul); }
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }

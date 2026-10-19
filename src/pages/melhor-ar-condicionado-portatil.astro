@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
-import { produtos, brl } from '../data/produtos';
+import { produtos, brl, fotoProduto } from '../data/produtos';
 import { site, author } from '../data/site';
 
 const publicado = '2026-10-19T09:00:00-03:00';
@@ -98,7 +98,7 @@ const jsonLd = [
         model: p.modelo,
         url: `${pageUrl}#${p.slug}`,
         description: p.resumo,
-        image: `${site.url}${site.ogImage}`,
+        image: `${site.url}${fotoProduto(p)}`,
         review: {
           '@type': 'Review',
           author: { '@type': 'Person', name: author.name },

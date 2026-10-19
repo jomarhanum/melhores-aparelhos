@@ -9,7 +9,7 @@ export const site = {
   locale: 'pt_BR',
   lang: 'pt-BR',
   // E-mail exibido na página de contato. Troque pelo e-mail oficial do blog.
-  contactEmail: 'contato@melhoresaparelhos.com.br',
+  contactEmail: 'contato@jhonlinesolutions.com.br',
   developer: { name: 'JH Online Solutions', url: 'https://jhonlinesolutions.com.br' },
   ogImage: '/images/og-melhores-aparelhos.jpg',
 };

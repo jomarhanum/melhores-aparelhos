@@ -457,3 +457,5 @@ export const amazonLink = (p: Produto) =>
 export const mercadoLivreLink = (p: Produto) =>
   p.mercadoLivreUrl ||
   `https://lista.mercadolivre.com.br/${encodeURIComponent(`ar condicionado portatil ${p.marca} ${p.modelo}`.toLowerCase().replace(/\s+/g, '-'))}`;
+
+export const fotoProduto = (p: Produto) => `/images/produtos/${p.slug}.webp`;
