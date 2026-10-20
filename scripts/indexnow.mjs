@@ -55,7 +55,19 @@ for (const u of enviar) {
 
 const corpoArq = join(mkdtempSync(join(tmpdir(), 'indexnow-')), 'corpo.json');
 writeFileSync(corpoArq, JSON.stringify({ host, key: KEY, keyLocation: `${SITE_URL}/${KEY}.txt`, urlList: enviar }));
-const r = curl(['-X', 'POST', '-H', 'Content-Type: application/json; charset=utf-8', '--data-binary', `@${corpoArq}`, 'https://api.indexnow.org/indexnow']);
+// Os buscadores do IndexNow compartilham os avisos entre si; o endpoint do Bing é o principal e o
+// api.indexnow.org fica de reserva.
+const ENDPOINTS = ['https://www.bing.com/indexnow', 'https://api.indexnow.org/indexnow'];
+let r;
+for (const endpoint of ENDPOINTS) {
+  try {
+    r = curl(['-X', 'POST', '-H', 'Content-Type: application/json; charset=utf-8', '--data-binary', `@${corpoArq}`, endpoint]);
+    if (r.status === 200 || r.status === 202) { console.log(`Enviado via ${endpoint}`); break; }
+  } catch {
+    console.error(`Falha de conexão com ${endpoint}; tentando o próximo.`);
+  }
+}
+if (!r) { console.error('Nenhum endpoint do IndexNow respondeu.'); process.exit(1); }
 console.log(`IndexNow respondeu ${r.status} para ${enviar.length} página(s):`);
 enviar.forEach((u) => console.log(`  ${u}`));
 
