@@ -1,0 +1,86 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Posso instalar o ar-condicionado split sozinho?', a: 'Não é recomendado. A instalação envolve tubulação de cobre, vácuo, carga de gás e parte elétrica. Erros causam vazamentos, baixo rendimento e podem anular a garantia, principalmente a garantia estendida do compressor.' },
+  { q: 'Qual a distância máxima entre a evaporadora e a condensadora?', a: 'Depende do modelo e está no manual. Os aparelhos saem de fábrica com gás suficiente para um certo comprimento de tubulação; acima disso, o instalador precisa completar a carga. Respeitar os limites de comprimento e de desnível é essencial para o rendimento.' },
+  { q: 'Precisa de tomada ou circuito exclusivo?', a: 'Sim. O ideal é um circuito exclusivo, com disjuntor e fiação dimensionados para o aparelho. Nunca use extensão ou benjamim.' },
+  { q: 'O que é o vácuo na instalação?', a: 'É a retirada do ar e da umidade da tubulação com uma bomba de vácuo antes de liberar o gás. Pular essa etapa compromete o compressor e o rendimento do aparelho.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-inverter/', '/guias/ar-condicionado-inverter-vale-a-pena/', '/melhores-marcas-de-ar-condicionado/', '/guias/quantos-btus-preciso/']}>
+  <p>Um ar-condicionado split é tão bom quanto a sua instalação. Um aparelho excelente mal instalado gela pouco, gasta mais, vaza água e pode perder a garantia. Este guia mostra o que você precisa saber para acompanhar o serviço e cobrar o que é certo.</p>
+
+  <div class="destaque-box">
+    <p><strong>O essencial:</strong> contrate técnico credenciado pela marca, exija vácuo na tubulação, circuito elétrico exclusivo e dreno com caimento, e guarde a nota fiscal do serviço para a garantia.</p>
+  </div>
+
+  <h2 id="partes">As partes de um split</h2>
+  <ul>
+    <li><strong>Evaporadora (unidade interna):</strong> fica na parede do cômodo e sopra o ar frio.</li>
+    <li><strong>Condensadora (unidade externa):</strong> fica do lado de fora e libera o calor. É onde está o compressor.</li>
+    <li><strong>Tubulação de cobre:</strong> leva o gás refrigerante entre as unidades, com isolamento térmico.</li>
+    <li><strong>Cabos elétricos</strong> de interligação e de alimentação.</li>
+    <li><strong>Dreno:</strong> mangueira que leva a água retirada do ar para fora.</li>
+  </ul>
+
+  <h2 id="local">Onde colocar cada unidade</h2>
+  <h3>Evaporadora</h3>
+  <ul>
+    <li>Em parede firme, longe de fontes de calor e de luz solar direta.</li>
+    <li>Com espaço livre acima e nas laterais, conforme o manual, para o ar circular.</li>
+    <li>De preferência sem soprar direto sobre a cama ou o sofá.</li>
+    <li>Perto de onde a tubulação e o dreno vão sair, para encurtar o caminho.</li>
+  </ul>
+  <h3>Condensadora</h3>
+  <ul>
+    <li>Em local ventilado, sem obstáculos na frente e atrás.</li>
+    <li>Se possível, protegida do sol forte da tarde, o que melhora o rendimento.</li>
+    <li>Sobre suporte firme, com acesso para manutenção.</li>
+    <li>Confira as regras do condomínio: muitos prédios definem o local da unidade externa.</li>
+  </ul>
+
+  <h2 id="tubulacao">Tubulação e gás</h2>
+  <p>Os aparelhos saem de fábrica com gás para um comprimento padrão de tubulação, informado no manual. Distâncias maiores exigem complemento de carga, e cada modelo tem um limite máximo de comprimento e de desnível entre as unidades. Por isso, <strong>planeje a posição das unidades antes de comprar</strong> e leve as medidas ao instalador.</p>
+  <p>Antes de liberar o gás, o técnico deve fazer o <strong>vácuo</strong> na tubulação com bomba própria e, idealmente, um teste de estanqueidade (vazamento). São etapas que protegem o compressor.</p>
+
+  <h2 id="eletrica">Parte elétrica</h2>
+  <ul>
+    <li><strong>Circuito exclusivo</strong> com disjuntor dimensionado para o aparelho.</li>
+    <li><strong>Voltagem certa:</strong> a maioria dos splits é 220 V. Confira antes de comprar.</li>
+    <li><strong>Aterramento</strong> adequado.</li>
+    <li>Nada de extensões, benjamins ou emendas improvisadas.</li>
+  </ul>
+
+  <h2 id="dreno">Dreno</h2>
+  <p>A mangueira de dreno precisa de <strong>caimento constante</strong> até a saída, sem barrigas onde a água possa acumular. Dreno mal feito é a principal causa de gotejamento na parede.</p>
+
+  <h2 id="garantia">Instalação e garantia</h2>
+  <p>Vários fabricantes condicionam a garantia, especialmente a estendida do compressor (como os 10 anos de Midea, LG e Gree), à <strong>instalação por técnico credenciado</strong>. Antes de contratar:</p>
+  <ul>
+    <li>Confira no site da marca se o técnico ou a empresa é credenciado.</li>
+    <li>Peça orçamento detalhado, separando material (tubulação, suporte, cabos) e mão de obra.</li>
+    <li>Exija nota fiscal do serviço e guarde junto com a nota do aparelho.</li>
+  </ul>
+
+  <h2 id="checklist">Checklist do dia da instalação</h2>
+  <ul class="check-lista">
+    <li>Posição das unidades conferida antes de furar a parede</li>
+    <li>Tubulação com isolamento térmico em todo o trajeto</li>
+    <li>Vácuo feito com bomba de vácuo</li>
+    <li>Teste de vazamento</li>
+    <li>Circuito elétrico exclusivo e aterrado</li>
+    <li>Dreno com caimento e saída correta</li>
+    <li>Aparelho testado em funcionamento, com o ar saindo frio</li>
+    <li>Nota fiscal do serviço em mãos</li>
+  </ul>
+
+  <h2>Depois da instalação</h2>
+  <p>Limpe os filtros a cada 15 dias de uso e faça uma higienização completa por técnico uma vez por ano. Ainda escolhendo o aparelho? Veja os <a href="/melhor-ar-condicionado-inverter/">10 melhores ar-condicionados inverter de 2026</a>. Se não puder instalar um split, os <a href="/melhor-ar-condicionado-portatil/">ar-condicionados portáteis</a> dispensam obra.</p>
+</Artigo>
+
+<style>
+  .check-lista { list-style: none; padding: 0; }
+  .check-lista li { padding-left: 32px; position: relative; }
+  .check-lista li::before { content: '☑'; position: absolute; left: 0; color: var(--verde); font-size: 1.2rem; }
+</style>

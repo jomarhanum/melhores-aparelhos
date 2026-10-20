@@ -1,14 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { site } from '../../data/site';
-import { artigos } from '../../data/artigos.mjs';
+import { artigos, artigosDaSecao } from '../../data/artigos.mjs';
+import { categorias } from '../../data/categorias.mjs';
 
-const title = 'Guias e Comparativos de Ar-Condicionado Portátil | Melhores Aparelhos';
-const description = 'Todos os guias, reviews e comparativos do Melhores Aparelhos: como escolher, instalar, limpar e economizar com o seu ar-condicionado portátil.';
-const grupos = [
-  { nome: 'Comparativos e reviews', itens: artigos.filter((a) => a.categoria !== 'Guia') },
-  { nome: 'Guias práticos', itens: artigos.filter((a) => a.categoria === 'Guia') },
-];
+const title = 'Guias e Comparativos de Ar-Condicionado | Melhores Aparelhos';
+const description = 'Todos os guias, reviews e comparativos do Melhores Aparelhos: como escolher, instalar, limpar e economizar com o seu ar-condicionado portátil ou split inverter.';
+const grupos = categorias.map((c) => ({ nome: c.nome, itens: artigosDaSecao(c.id) }));
 const ld = [
   {
     '@context': 'https://schema.org',
@@ -37,7 +35,7 @@ const ld = [
         <ol><li><a href="/">Home</a></li><li aria-current="page">Guias</li></ol>
       </nav>
       <h1>Guias e comparativos</h1>
-      <p class="subtitulo">Tudo o que você precisa para escolher, instalar e usar bem o seu ar-condicionado portátil, explicado em linguagem simples.</p>
+      <p class="subtitulo">Tudo o que você precisa para escolher, instalar e usar bem os seus aparelhos, explicado em linguagem simples.</p>
     </div>
   </section>
 

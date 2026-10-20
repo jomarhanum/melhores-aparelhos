@@ -1,5 +1,6 @@
 ---
 import { site, author, nav, legalLinks } from '../data/site';
+import { artigos } from '../data/artigos.mjs';
 import '../styles/global.css';
 
 interface Props {
@@ -127,11 +128,9 @@ const baseLd = [
           <ul>{legalLinks.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
         </nav>
         <nav aria-label="Reviews">
-          <p class="rodape-tit">Reviews e guias</p>
+          <p class="rodape-tit">Comparativos</p>
           <ul>
-            <li><a href="/melhor-ar-condicionado-portatil/">Melhor ar-condicionado portátil</a></li>
-            <li><a href="/melhor-ar-condicionado-portatil-silencioso/">Portátil silencioso</a></li>
-            <li><a href="/melhor-ar-condicionado-portatil-quente-e-frio/">Portátil quente e frio</a></li>
+            {artigos.filter((a) => a.categoria === 'Comparativo').map((a) => <li><a href={a.url}>{a.h1.replace(/ de 2026.*$| em 2026$/, '')}</a></li>)}
             <li><a href="/guias/quantos-btus-preciso/">Calculadora de BTUs</a></li>
             <li><a href="/guias/">Todos os guias</a></li>
           </ul>

@@ -1,0 +1,305 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { inverters } from '../data/inverter';
+import { fotoProduto } from '../data/tipos';
+import { site, author } from '../data/site';
+import { artigoPorUrl } from '../data/artigos.mjs';
+
+const meta = artigoPorUrl('/melhor-ar-condicionado-inverter/')!;
+const publicado = `${meta.publicado}T09:00:00-03:00`;
+const atualizado = `${meta.atualizado}T09:00:00-03:00`;
+const dataExibida = new Date(`${meta.atualizado}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const title = meta.titulo;
+const description = meta.descricao;
+const pageUrl = `${site.url}${meta.url}`;
+const p = (slug: string) => inverters.find((x) => x.slug === slug)!;
+
+const faq = [
+  { q: 'Qual o melhor ar-condicionado inverter de 2026?', a: 'Para a maioria das pessoas, o Midea AI Ecomaster é a melhor escolha: tem Wi-Fi, comando de voz, consumo anual baixo e 10 anos de garantia no compressor. Para quem precisa de 12.000 BTUs, o LG Dual Inverter AI Voice é o mais completo.' },
+  { q: 'Ar-condicionado inverter economiza quanto?', a: 'Os fabricantes falam em economia de 30% a 70% em relação ao convencional, dependendo do modelo e do uso. A economia é maior quando o aparelho fica ligado muitas horas por dia, porque o compressor inverter reduz a velocidade em vez de ficar ligando e desligando.' },
+  { q: 'Quantos BTUs eu preciso?', a: 'Como regra geral, use 600 BTUs por m² e some 600 para cada pessoa a mais e cada aparelho que esquenta. Na prática: até 12 m² → 9.000 BTUs; até 18 m² → 12.000 BTUs; até 25 m² → 18.000 BTUs. Sol forte à tarde pede a faixa de cima.' },
+  { q: 'Ar-condicionado inverter pode ser instalado por qualquer pessoa?', a: 'Não é recomendado. A instalação de um split envolve tubulação de cobre, vácuo, carga de gás e parte elétrica. Vários fabricantes só mantêm a garantia, principalmente a estendida do compressor, se a instalação for feita por técnico credenciado.' },
+  { q: 'Qual a diferença entre gás R-32 e R-410A?', a: 'O R-32 é mais moderno: tem menor impacto no aquecimento global e melhor eficiência de troca de calor. Todos os modelos deste ranking usam R-32.' },
+  { q: 'Ar-condicionado inverter faz barulho?', a: 'Faz bem pouco. Como o compressor fica na unidade externa e trabalha em velocidade variável, a unidade interna fica entre cerca de 19 e 40 dB nos modelos que informam o dado, parecido com um sussurro ou uma biblioteca.' },
+  { q: 'Inverter ou portátil: qual escolher?', a: 'O split inverter gela mais, gasta menos e faz menos barulho, mas precisa de instalação com furo na parede e unidade externa. O portátil dispensa obra e pode mudar de cômodo, ideal para quem mora de aluguel.' },
+];
+
+const destaques = [
+  { rotulo: 'Melhor no geral', x: p('midea-ai-ecomaster-9000') },
+  { rotulo: 'Melhor 12.000 BTUs', x: p('lg-dual-inverter-ai-voice-12000') },
+  { rotulo: 'Mais confortável (sem vento direto)', x: p('samsung-windfree-ai-12000') },
+  { rotulo: 'Melhor garantia', x: p('gree-g-side-auto-12000') },
+  { rotulo: 'Mais em conta', x: p('elgin-eco-inverter-9000') },
+  { rotulo: 'Melhor quente e frio', x: p('hisense-hi-connect-12000') },
+  { rotulo: 'Premium', x: p('daikin-ecoswing-gold-12000') },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: [`${site.url}${meta.imagem}`],
+    datePublished: publicado,
+    dateModified: atualizado,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: { '@type': 'Person', name: author.name, url: `${site.url}${author.url}`, image: `${site.url}${author.photo}`, jobTitle: author.role },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Melhor ar-condicionado inverter', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores ar-condicionados inverter de 2026',
+    numberOfItems: inverters.length,
+    itemListElement: inverters.map((x) => ({
+      '@type': 'ListItem',
+      position: x.rank,
+      item: {
+        '@type': 'Product',
+        name: x.nome,
+        brand: { '@type': 'Brand', name: x.marca },
+        model: x.modelo,
+        url: `${pageUrl}#${x.slug}`,
+        description: x.resumo,
+        image: `${site.url}${fotoProduto(x)}`,
+        review: {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: author.name },
+          datePublished: publicado,
+          reviewRating: { '@type': 'Rating', ratingValue: x.nota, bestRating: 10, worstRating: 0 },
+          positiveNotes: { '@type': 'ItemList', itemListElement: x.pros.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+          negativeNotes: { '@type': 'ItemList', itemListElement: x.contras.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+        },
+      },
+    })),
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Base title={title} description={description} type="article" published={publicado} modified={atualizado} jsonLd={jsonLd} image={meta.imagem} imageAlt="Comparativo dos melhores ar-condicionados inverter de 2026">
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol><li><a href="/">Home</a></li><li aria-current="page">Melhor ar-condicionado inverter</li></ol>
+      </nav>
+      <h1>{meta.h1}</h1>
+      <p class="subtitulo">Comparamos os 10 splits inverter mais bem posicionados nos principais rankings do Brasil. Veja consumo, ruído, garantia, prós e contras e descubra qual é o ideal para o seu cômodo.</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · {meta.minutos} min de leitura
+        </div>
+      </div>
+      <ShareButtons title={title} />
+    </div>
+  </section>
+
+  <div class="leitura artigo">
+    <p class="aviso-afiliado"><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem nenhum custo extra para você. Isso não muda a nossa opinião. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+
+    <p>Se você vai instalar um ar-condicionado em casa para usar todos os dias, o <strong>split inverter</strong> é a escolha certa em 2026. Ele gela mais rápido, faz menos barulho e, principalmente, <strong>gasta bem menos energia</strong> que os modelos convencionais.</p>
+    <p>Mas com dezenas de marcas e siglas como IDRS, R-32 e Procel, escolher não é simples. Reunimos aqui os <strong>10 melhores ar-condicionados inverter de 2026</strong>, com a ficha técnica de cada um explicada em linguagem simples.</p>
+
+    <div class="caixa resposta">
+      <p class="caixa-tit">⚡ Resposta rápida: os melhores de 2026</p>
+      <ol class="lista-destaques">
+        {destaques.map((d) => <li><strong>{d.rotulo}:</strong> <a href={`#${d.x.slug}`}>{d.x.nome}</a></li>)}
+      </ol>
+    </div>
+
+    <nav class="caixa sumario" aria-label="Sumário">
+      <p class="caixa-tit">📑 Neste artigo</p>
+      <ol>
+        <li><a href="#comparativo">Tabela comparativa</a></li>
+        <li><a href="#como-escolher">Como escolher</a></li>
+        <li><a href="#ranking">Os 10 melhores modelos</a></li>
+        <li><a href="#consumo">Consumo e eficiência</a></li>
+        <li><a href="#split-x-portatil">Split inverter ou portátil?</a></li>
+        <li><a href="#instalacao">Instalação</a></li>
+        <li><a href="#metodologia">Como fizemos este ranking</a></li>
+        <li><a href="#perguntas">Perguntas frequentes</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="comparativo">Tabela comparativa: os 10 melhores lado a lado</h2>
+    <p>Clique no nome para ir direto à análise completa.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabela-wrap">
+      <table>
+        <caption class="sr-only">Comparativo dos 10 melhores ar-condicionados inverter de 2026</caption>
+        <thead><tr><th>#</th><th>Modelo</th><th>BTUs</th><th>Ciclo</th><th>Wi-Fi</th><th>Gás</th><th>Eficiência</th><th>Garantia do compressor</th></tr></thead>
+        <tbody>
+          {inverters.map((x) => (
+            <tr>
+              <td><strong>{x.rank}º</strong></td>
+              <td><a href={`#${x.slug}`}>{x.marca} {x.modelo.split(' ').slice(0, 3).join(' ')}</a></td>
+              <td>{x.btu.toLocaleString('pt-BR')}</td>
+              <td>{x.ciclo}</td>
+              <td>{x.wifi.startsWith('Sim') ? '✔' : '—'}</td>
+              <td>{x.gas}</td>
+              <td>{x.eficiencia.split(' (')[0]}</td>
+              <td>{x.garantia?.match(/10 anos/) ? '10 anos' : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-preco">"—" na garantia significa que não encontramos o prazo estendido do compressor nas fontes oficiais consultadas. Os preços mudam com frequência: confira o valor atualizado nos botões de cada produto.</p>
+  </div>
+
+  <div class="leitura artigo">
+    <h2 id="como-escolher">Como escolher o melhor ar-condicionado inverter</h2>
+    <p>Seis perguntas resolvem 90% da escolha.</p>
+
+    <h3>1. Quantos BTUs?</h3>
+    <p>A regra usada por instaladores é <strong>600 BTUs por m²</strong>, somando 600 BTUs para cada pessoa a mais e para cada aparelho que esquenta (TV, computador). Considerando duas pessoas e uma TV:</p>
+    <div class="tabela-wrap">
+      <table class="tab-curta">
+        <thead><tr><th>Tamanho do cômodo</th><th>Capacidade</th><th>Exemplos da lista</th></tr></thead>
+        <tbody>
+          <tr><td>Até 12 m²</td><td>9.000 BTUs</td><td>Midea AI Ecomaster, Elgin Eco Inverter</td></tr>
+          <tr><td>12 a 18 m²</td><td>12.000 BTUs</td><td>LG, Samsung, Gree, Hisense, Daikin</td></tr>
+          <tr><td>18 a 25 m²</td><td>18.000 BTUs</td><td>Versões de 18.000 BTUs das mesmas linhas</td></tr>
+          <tr><td>25 a 35 m²</td><td>24.000 BTUs</td><td>Versões de 24.000 BTUs das mesmas linhas</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Sol forte à tarde, pé-direito alto ou cozinha integrada pedem a faixa de cima. Faça a conta exata na <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>. Para os tamanhos mais procurados, veja os <a href="/melhor-ar-condicionado-9000-btus/">melhores de 9.000 BTUs</a> e os <a href="/melhor-ar-condicionado-12000-btus/">melhores de 12.000 BTUs</a>.</p>
+
+    <h3>2. Inverter ou convencional?</h3>
+    <p>No convencional, o compressor liga no máximo e desliga quando atinge a temperatura, num ciclo de liga e desliga. No <strong>inverter</strong>, ele reduz e aumenta a velocidade aos poucos: a temperatura fica estável, o barulho diminui e o consumo cai bastante. Para uso diário, o inverter compensa. Veja a conta completa em <a href="/guias/ar-condicionado-inverter-vale-a-pena/">ar-condicionado inverter vale a pena?</a></p>
+
+    <h3>3. Eficiência: selo Procel e consumo</h3>
+    <p>Desde as novas regras do Inmetro, a eficiência é medida pelo <strong>IDRS</strong>, que simula o uso real ao longo do ano. A etiqueta mostra a classe (de A a E) e o consumo anual em kWh. Prefira <strong>classe A com selo Procel</strong>. Aprenda a ler a etiqueta em <a href="/guias/selo-procel-e-consumo-ar-condicionado/">selo Procel, IDRS e consumo</a>.</p>
+
+    <h3>4. Só frio ou quente e frio?</h3>
+    <p>Em cidades com inverno de verdade, o <strong>quente e frio</strong> funciona como aquecedor eficiente (bomba de calor). Na lista, o <a href="#hisense-hi-connect-12000">Hisense Hi-Connect</a> e o <a href="#electrolux-color-adapt-9000-qf">Electrolux Color Adapt 9.000</a> aquecem.</p>
+
+    <h3>5. Voltagem e parte elétrica</h3>
+    <p>Todos os modelos deste ranking estão listados em <strong>220 V</strong>, a voltagem mais comum para split. Algumas linhas têm versão 127 V com outro código. Em ambos os casos, o ideal é um <strong>circuito exclusivo</strong> com disjuntor dimensionado pelo eletricista ou instalador.</p>
+
+    <h3>6. Recursos que fazem diferença</h3>
+    <ul>
+      <li><strong>Wi-Fi e comando de voz:</strong> ligar antes de chegar, programar horários e acompanhar o consumo.</li>
+      <li><strong>Gás R-32:</strong> mais eficiente e com menor impacto ambiental. Todos da lista usam.</li>
+      <li><strong>Garantia do compressor:</strong> Midea, LG e Gree oferecem 10 anos, normalmente condicionados à instalação credenciada.</li>
+      <li><strong>Proteção anticorrosão:</strong> importante perto do mar (Electrolux BlueTech, Midea Gold Fin).</li>
+      <li><strong>Filtragem e autolimpeza:</strong> ajudam quem tem alergia e evitam mau cheiro.</li>
+      <li><strong>Sem vento direto:</strong> o WindFree da Samsung é o diferencial para quem não suporta vento gelado no corpo.</li>
+    </ul>
+
+    <h2 id="ranking">Os 10 melhores ar-condicionados inverter de 2026</h2>
+    <p>Análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
+
+    {inverters.map((x) => <ProductCard p={x} tipo="Ar-condicionado split inverter" />)}
+
+    <section>
+      <h2 id="consumo">Consumo e eficiência: o que os números mostram</h2>
+      <p>Quando a ficha informa o consumo anual medido pela metodologia do Inmetro, dá para comparar modelos de forma justa. Veja a diferença entre os extremos da nossa lista:</p>
+      <div class="tabela-wrap">
+        <table class="tab-curta">
+          <thead><tr><th>Modelo</th><th>BTUs</th><th>Eficiência</th><th>Consumo anual</th></tr></thead>
+          <tbody>
+            <tr><td><a href="#midea-ai-ecomaster-9000">Midea AI Ecomaster</a></td><td>9.000</td><td>Classe A</td><td>276,3 kWh</td></tr>
+            <tr><td><a href="#elgin-eco-inverter-9000">Elgin Eco Inverter II</a></td><td>9.000</td><td>Classe A</td><td>cerca de 287 kWh</td></tr>
+            <tr><td><a href="#tcl-elite-gv-12000">TCL Elite GV</a></td><td>12.000</td><td>Classe C (ficha de loja)</td><td>cerca de 637 kWh</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Mesmo descontando a diferença de capacidade, um aparelho classe C pode gastar bem mais ao longo dos anos de uso. O preço mais baixo na compra nem sempre compensa. Os demais modelos não informam o consumo anual nas fichas que consultamos: confira a etiqueta do Inmetro na página da loja antes de comprar.</p>
+
+      <h2 id="split-x-portatil">Split inverter ou ar-condicionado portátil?</h2>
+      <div class="tabela-wrap">
+        <table>
+          <thead><tr><th></th><th>Split inverter</th><th>Portátil</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Instalação</th><td>Técnico, furo na parede e unidade externa</td><td>Nenhuma (mangueira na janela)</td></tr>
+            <tr><th scope="row">Consumo</th><td>O mais baixo</td><td>Alto</td></tr>
+            <tr><th scope="row">Ruído</th><td>Muito baixo</td><td>Médio</td></tr>
+            <tr><th scope="row">Rendimento</th><td>Alto</td><td>Menor que o split</td></tr>
+            <tr><th scope="row">Mobilidade</th><td>Fixo</td><td>Muda de cômodo</td></tr>
+            <tr><th scope="row">Ideal para</th><td>Uso diário e definitivo</td><td>Aluguel e uso temporário</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Mora de aluguel ou o condomínio não permite unidade externa? Veja os <a href="/melhor-ar-condicionado-portatil/">10 melhores ar-condicionados portáteis de 2026</a>.</p>
+
+      <h2 id="marcas">E qual a melhor marca?</h2>
+      <p>Não existe uma única resposta. A Daikin é referência em durabilidade, a LG e a Samsung em tecnologia, a Gree em garantia, a Midea em custo-benefício e a Elgin em preço e peças. Compare todas em <a href="/melhores-marcas-de-ar-condicionado/">melhores marcas de ar-condicionado</a>.</p>
+
+      <h2 id="instalacao">Instalação: não economize aqui</h2>
+      <p>Um split mal instalado gasta mais, gela menos e pode perder a garantia. Pontos essenciais:</p>
+      <ul>
+        <li>Instalação por <strong>técnico credenciado</strong> pela marca, principalmente para manter a garantia estendida do compressor.</li>
+        <li><strong>Vácuo na tubulação</strong> antes de liberar o gás. Desconfie de quem pula essa etapa.</li>
+        <li><strong>Circuito elétrico exclusivo</strong> com disjuntor adequado.</li>
+        <li>Unidade externa em local ventilado, à sombra se possível, e com dreno bem direcionado.</li>
+      </ul>
+      <p>Guia completo: <a href="/guias/instalacao-ar-condicionado-split/">instalação de ar-condicionado split</a>.</p>
+
+      <h2 id="dicas">7 dicas para gastar menos com o inverter</h2>
+      <ol>
+        <li>Escolha a <a href="/guias/quantos-btus-preciso/">capacidade certa</a>: aparelho fraco trabalha no máximo o tempo todo.</li>
+        <li>Use entre 23 °C e 25 °C. Cada grau a menos aumenta o consumo.</li>
+        <li>Deixe ligado em vez de ligar e desligar várias vezes ao dia: o inverter é mais eficiente mantendo a temperatura.</li>
+        <li>Feche portas, janelas e cortinas nas horas de sol forte.</li>
+        <li>Limpe os filtros a cada 15 dias e faça higienização anual.</li>
+        <li>Mantenha a condensadora livre, sem objetos ao redor.</li>
+        <li>Use o modo dormir e o timer de madrugada.</li>
+      </ol>
+
+      <h2 id="metodologia">Como fizemos este ranking</h2>
+      <p>Este é um comparativo baseado em pesquisa, não em testes de laboratório. Partimos dos modelos mais bem posicionados nos principais rankings especializados do Brasil e conferimos as especificações publicadas pelos fabricantes e pelas fichas técnicas das lojas e comparadores. Quando um dado (como consumo anual, ruído ou garantia) não aparece em fonte confiável, deixamos isso claro em vez de estimar.</p>
+      <p>Comparamos os modelos em cinco critérios: <strong>eficiência</strong> (classe, consumo e tecnologia), <strong>conforto</strong> (ruído, sem vento direto, quente e frio), <strong>recursos</strong> (Wi-Fi, filtragem, autolimpeza), <strong>garantia e confiabilidade da marca</strong> e <strong>custo-benefício</strong>. A nota de cada aparelho é a opinião editorial de {author.name}. Nenhuma marca pagou para aparecer nesta lista.</p>
+    </section>
+
+    <section>
+      <h2 id="perguntas">Perguntas frequentes sobre ar-condicionado inverter</h2>
+      <div class="faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2 id="conclusao">Conclusão: qual ar-condicionado inverter comprar?</h2>
+      <p>Para quartos de até 12 m², o <strong>{inverters[0].nome}</strong> é a melhor compra: econômico, conectado e com 10 anos de garantia no compressor. Para cômodos maiores, o <strong>{inverters[1].nome}</strong> é o 12.000 BTUs mais completo. Quem não suporta vento direto deve ir de <strong>Samsung WindFree AI</strong>, e quem precisa de aquecimento tem no <strong>Hisense Hi-Connect</strong> o melhor custo-benefício.</p>
+      <p>Gostou do comparativo? Compartilhe com quem está pensando em comprar um ar-condicionado. 😉</p>
+
+      <ShareButtons title={title} />
+      <AuthorBox />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .artigo { padding-top: 28px; }
+  .resposta { background: var(--azul-claro); border-color: #bcd7f3; }
+  .lista-destaques { padding-left: 1.2rem; margin: 0; }
+  .nota-preco { font-size: .92rem; color: var(--texto-2); }
+  .tab-curta { min-width: 0; }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 30px 14px 0; list-style: none; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+</style>

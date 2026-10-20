@@ -5,7 +5,10 @@
 // Voltagem: nenhum destes modelos é bivolt; "versoes" indica venda em 127 V e 220 V separadas.
 // "opiniao" resume, com palavras nossas, os temas mais citados por compradores em lojas online.
 
-export interface Produto {
+import { type Produto, amazonLink, mercadoLivreLink, fotoProduto } from './tipos';
+export { amazonLink, mercadoLivreLink, fotoProduto };
+
+interface PortatilDados {
   slug: string;
   rank: number;
   marca: string;
@@ -37,7 +40,7 @@ export interface Produto {
   mercadoLivreUrl: string;
 }
 
-export const produtos: Produto[] = [
+const dados: PortatilDados[] = [
   {
     slug: 'electrolux-sp12f',
     rank: 1,
@@ -557,14 +560,27 @@ export const produtos: Produto[] = [
   },
 ];
 
-export const amazonLink = (p: Produto) =>
-  p.amazonUrl ||
-  `https://www.amazon.com.br/s?k=${encodeURIComponent(`ar condicionado portátil ${p.marca} ${p.modelo}`)}`;
+export type ProdutoPortatil = PortatilDados & Produto;
 
-export const mercadoLivreLink = (p: Produto) =>
-  p.mercadoLivreUrl ||
-  `https://lista.mercadolivre.com.br/${encodeURIComponent(`ar condicionado portatil ${p.marca} ${p.modelo}`.toLowerCase().replace(/\s+/g, '-'))}`;
+const fichaPortatil = (p: PortatilDados): [string, string][] => [
+  ['Capacidade', `${p.btu.toLocaleString('pt-BR')} BTUs`],
+  ['Área indicada (estimativa)', p.area],
+  ['Ciclo', p.ciclo],
+  ['Voltagem', p.voltagem],
+  ['Ruído', p.ruido],
+  ['Peso', p.peso],
+  ...(p.dimensoes ? [['Dimensões', p.dimensoes] as [string, string]] : []),
+  ...(p.potencia ? [['Potência elétrica', p.potencia] as [string, string]] : []),
+  ['Wi-Fi', p.wifi],
+  ['Controle remoto', p.controle],
+  ['Funções', p.funcoes.join(', ')],
+];
 
-export const fotoProduto = (p: Produto) => `/images/produtos/${p.slug}.webp`;
+export const produtos: ProdutoPortatil[] = dados.map((p) => ({
+  ...p,
+  ficha: fichaPortatil(p),
+  busca: `ar condicionado portátil ${p.marca} ${p.modelo}`,
+  hub: '/melhor-ar-condicionado-portatil/',
+}));
 
 export const produtoPorSlug = (slug: string) => produtos.find((p) => p.slug === slug)!;

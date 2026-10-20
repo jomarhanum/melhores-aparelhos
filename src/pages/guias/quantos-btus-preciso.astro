@@ -2,23 +2,33 @@
 import Artigo from '../../layouts/Artigo.astro';
 
 const faq = [
-  { q: 'Quantos BTUs para um quarto de 12 m²?', a: 'Para um quarto de 12 m² com duas pessoas e uma TV, sem sol forte à tarde, um ar-condicionado portátil de 10.000 BTUs costuma ser suficiente. Se o quarto pega sol da tarde, prefira 12.000 BTUs.' },
-  { q: 'Quantos BTUs para uma sala de 20 m²?', a: 'Uma sala de 20 m² pede cerca de 14.000 BTUs em um portátil. Acima disso, o portátil começa a trabalhar no limite e um split costuma ser a melhor escolha.' },
+  { q: 'Quantos BTUs para um quarto de 12 m²?', a: 'Para um quarto de 12 m² com duas pessoas e uma TV, sem sol forte à tarde, um split inverter de 9.000 BTUs ou um portátil de 10.000 BTUs costumam ser suficientes. Se o quarto pega sol da tarde, suba uma faixa (12.000 BTUs).' },
+  { q: 'Quantos BTUs para uma sala de 20 m²?', a: 'Uma sala de 20 m² pede um split de 18.000 BTUs ou, no limite, um portátil de 14.000 BTUs. Acima disso, o portátil trabalha no limite e o split é a melhor escolha.' },
   { q: 'Por que o portátil precisa de mais BTUs que o split?', a: 'Porque parte do calor gerado pelo próprio aparelho fica dentro do cômodo e a mangueira de exaustão puxa um pouco de ar quente de fora pelas frestas. Por isso acrescentamos uma margem de cerca de 10% no cálculo.' },
   { q: 'Comprar BTUs a mais é problema?', a: 'Um pouco a mais não é problema: o aparelho atinge a temperatura mais rápido e desliga o compressor. Exagerar muito, porém, gasta mais energia e pode deixar o ar úmido, porque o aparelho liga e desliga em ciclos curtos.' },
 ];
 ---
-<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-portatil/', '/guias/ar-condicionado-portatil-gasta-muita-energia/', '/guias/como-instalar-ar-condicionado-portatil/', '/melhor-ar-condicionado-portatil-silencioso/']}>
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-inverter/', '/melhor-ar-condicionado-portatil/', '/melhor-ar-condicionado-12000-btus/', '/melhor-ar-condicionado-9000-btus/']}>
   <p>Escolher a capacidade certa é a decisão mais importante na compra de um ar-condicionado. Se ficar fraco, ele trabalha o tempo todo e não gela. Se for forte demais, você paga mais caro sem necessidade. A boa notícia: dá para acertar em poucos segundos.</p>
 
   <div class="destaque-box">
-    <p><strong>Resposta rápida:</strong> para ar-condicionado portátil, use cerca de <strong>600 BTUs por m²</strong>, some <strong>600 BTUs para cada pessoa a mais</strong> e para cada aparelho que esquenta (TV, computador), e acrescente uma margem de 10%. Na prática: até 12 m² → 10.000 BTUs; 12 a 15 m² → 12.000 BTUs; 15 a 20 m² → 14.000 BTUs.</p>
+    <p><strong>Resposta rápida:</strong> use cerca de <strong>600 BTUs por m²</strong> e some <strong>600 BTUs para cada pessoa a mais</strong> e para cada aparelho que esquenta (TV, computador).</p>
+    <ul>
+      <li><strong>Split inverter:</strong> até 12 m² → 9.000 BTUs; 12 a 18 m² → 12.000 BTUs; 18 a 25 m² → 18.000 BTUs.</li>
+      <li><strong>Portátil</strong> (acrescente 10% de margem): até 12 m² → 10.000 BTUs; 12 a 15 m² → 12.000 BTUs; 15 a 20 m² → 14.000 BTUs.</li>
+    </ul>
   </div>
 
   <h2 id="calculadora">Calculadora de BTUs</h2>
-  <p>Preencha os campos e veja a capacidade recomendada para um ar-condicionado portátil:</p>
+  <p>Escolha o tipo de aparelho, preencha os campos e veja a capacidade recomendada:</p>
 
   <form class="calc" id="calc" onsubmit="return false">
+    <label class="largo">Tipo de aparelho
+      <select id="c-tipo">
+        <option value="split">Split inverter (instalado na parede)</option>
+        <option value="portatil">Ar-condicionado portátil</option>
+      </select>
+    </label>
     <label>Área do cômodo (m²)<input type="number" id="c-area" min="4" max="60" step="0.5" value="12" inputmode="decimal" /></label>
     <label>Pessoas no ambiente<input type="number" id="c-pessoas" min="1" max="10" value="2" inputmode="numeric" /></label>
     <label>Aparelhos que esquentam (TV, PC, geladeira)<input type="number" id="c-eletro" min="0" max="10" value="1" inputmode="numeric" /></label>
@@ -28,37 +38,65 @@ const faq = [
 
   <script is:inline>
     (function () {
-      var ids = ['c-area', 'c-pessoas', 'c-eletro', 'c-sol'];
-      var faixas = [
-        { btu: 10000, link: '/melhor-ar-condicionado-portatil/#gree-aovia-gpc10ap', nome: 'Gree Aovia 10.000 BTUs' },
-        { btu: 12000, link: '/melhor-ar-condicionado-portatil/#electrolux-sp12f', nome: 'Electrolux SP12F ou Hisense 12.000 BTUs' },
-        { btu: 14000, link: '/melhor-ar-condicionado-portatil/#lg-lp1419ivsm', nome: 'LG Dual Inverter ou EOS Slim 14.000 BTUs' },
-      ];
+      var ids = ['c-tipo', 'c-area', 'c-pessoas', 'c-eletro', 'c-sol'];
+      var faixas = {
+        portatil: [
+          { btu: 10000, link: '/melhor-ar-condicionado-portatil/#gree-aovia-gpc10ap', nome: 'Gree Aovia 10.000 BTUs' },
+          { btu: 12000, link: '/melhor-ar-condicionado-portatil/#electrolux-sp12f', nome: 'Electrolux SP12F ou Hisense 12.000 BTUs' },
+          { btu: 14000, link: '/melhor-ar-condicionado-portatil/#lg-lp1419ivsm', nome: 'LG Dual Inverter ou EOS Slim 14.000 BTUs' },
+        ],
+        split: [
+          { btu: 9000, link: '/melhor-ar-condicionado-9000-btus/', nome: 'Midea AI Ecomaster ou Elgin Eco Inverter 9.000 BTUs' },
+          { btu: 12000, link: '/melhor-ar-condicionado-12000-btus/', nome: 'LG Dual Inverter ou Samsung WindFree 12.000 BTUs' },
+          { btu: 18000, link: '/melhor-ar-condicionado-inverter/', nome: 'versões de 18.000 BTUs das linhas do nosso ranking' },
+          { btu: 24000, link: '/melhor-ar-condicionado-inverter/', nome: 'versões de 24.000 BTUs das linhas do nosso ranking' },
+        ],
+      };
       function n(id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; }
       function calc() {
+        var tipo = document.getElementById('c-tipo').value;
         var area = n('c-area'), pessoas = Math.max(1, n('c-pessoas')), eletro = n('c-eletro');
         var total = area * 600 + (pessoas - 1) * 600 + eletro * 600;
         if (document.getElementById('c-sol').checked) total *= 1.15;
-        total = Math.round((total * 1.1) / 100) * 100;
+        if (tipo === 'portatil') total *= 1.1;
+        total = Math.round(total / 100) * 100;
         var out = document.getElementById('c-res');
-        var f = faixas.find(function (x) { return x.btu >= total; });
+        var lista = faixas[tipo];
+        var f = lista.find(function (x) { return x.btu >= total; });
         var fmt = function (v) { return v.toLocaleString('pt-BR'); };
+        var nomeTipo = tipo === 'portatil' ? 'portátil' : 'split inverter';
         if (!area) { out.innerHTML = 'Informe a área do cômodo.'; return; }
         if (f) {
-          out.innerHTML = '<span>Você precisa de cerca de <strong>' + fmt(total) + ' BTUs</strong>.</span><span>Recomendação: portátil de <strong>' + fmt(f.btu) + ' BTUs</strong>, como o <a href="' + f.link + '">' + f.nome + '</a>.</span>';
+          out.innerHTML = '<span>Você precisa de cerca de <strong>' + fmt(total) + ' BTUs</strong>.</span><span>Recomendação: ' + nomeTipo + ' de <strong>' + fmt(f.btu) + ' BTUs</strong>, como o <a href="' + f.link + '">' + f.nome + '</a>.</span>';
+        } else if (tipo === 'portatil') {
+          out.innerHTML = '<span>Você precisa de cerca de <strong>' + fmt(total) + ' BTUs</strong>.</span><span>Isso está acima do que um portátil entrega bem (14.000 BTUs). Considere um <a href="/melhor-ar-condicionado-inverter/">split inverter</a> ou dois aparelhos.</span>';
         } else {
-          out.innerHTML = '<span>Você precisa de cerca de <strong>' + fmt(total) + ' BTUs</strong>.</span><span>Isso está acima do que um portátil entrega bem (14.000 BTUs). Considere um split ou dois aparelhos.</span>';
+          out.innerHTML = '<span>Você precisa de cerca de <strong>' + fmt(total) + ' BTUs</strong>.</span><span>Acima de 24.000 BTUs, consulte um instalador: pode valer usar dois aparelhos ou um modelo de maior capacidade.</span>';
         }
       }
-      ids.forEach(function (id) { document.getElementById(id).addEventListener('input', calc); });
+      ids.forEach(function (id) { document.getElementById(id).addEventListener('input', calc); document.getElementById(id).addEventListener('change', calc); });
       calc();
     })();
   </script>
 
   <p class="nota">A calculadora dá uma estimativa. Pé-direito alto, paredes que esquentam muito ou cozinha integrada pedem uma margem maior.</p>
 
-  <h2 id="tabela">Tabela de BTUs por m² (ar-condicionado portátil)</h2>
+  <h2 id="tabela-split">Tabela de BTUs por m² (split inverter)</h2>
   <p>Valores considerando duas pessoas e uma TV, sem sol forte à tarde:</p>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>Tamanho do cômodo</th><th>Capacidade do split</th></tr></thead>
+      <tbody>
+        <tr><td>Até 12 m²</td><td>9.000 BTUs</td></tr>
+        <tr><td>12 a 18 m²</td><td>12.000 BTUs</td></tr>
+        <tr><td>18 a 25 m²</td><td>18.000 BTUs</td></tr>
+        <tr><td>25 a 35 m²</td><td>24.000 BTUs</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="tabela">Tabela de BTUs por m² (ar-condicionado portátil)</h2>
+  <p>No portátil, acrescentamos 10% de margem. Valores considerando duas pessoas e uma TV, sem sol forte à tarde:</p>
   <div class="tabela-wrap">
     <table class="tab-curta">
       <thead><tr><th>Tamanho do cômodo</th><th>Capacidade do portátil</th></tr></thead>
@@ -80,14 +118,22 @@ const faq = [
     <li><strong>Some as pessoas extras:</strong> a primeira pessoa já está na conta; cada pessoa a mais soma 600 BTUs.</li>
     <li><strong>Some os aparelhos:</strong> TV, computador ou geladeira no cômodo somam 600 BTUs cada.</li>
     <li><strong>Sol da tarde:</strong> acrescente 15%.</li>
-    <li><strong>Margem do portátil:</strong> acrescente 10% e arredonde para a capacidade comercial mais próxima acima.</li>
+    <li><strong>Só no portátil:</strong> acrescente 10% de margem.</li>
+    <li><strong>Arredonde</strong> para a capacidade comercial mais próxima acima.</li>
   </ol>
-  <p><strong>Exemplo:</strong> quarto de 12 m², duas pessoas e uma TV, sem sol forte: 7.200 + 600 + 600 = 8.400 BTUs. Com a margem de 10%: cerca de 9.200 BTUs. A capacidade comercial acima é <strong>10.000 BTUs</strong>.</p>
+  <p><strong>Exemplo:</strong> quarto de 12 m², duas pessoas e uma TV, sem sol forte: 7.200 + 600 + 600 = 8.400 BTUs. Para split, a capacidade comercial acima é <strong>9.000 BTUs</strong>. Para portátil, com a margem de 10% (cerca de 9.200 BTUs), é <strong>10.000 BTUs</strong>.</p>
 
   <h2>Por que o portátil precisa de uma margem a mais?</h2>
   <p>No split, a parte que esquenta (o condensador) fica do lado de fora. No portátil, tudo fica dentro do cômodo, e o calor é jogado para fora por uma mangueira. Parte desse calor escapa pelo corpo do aparelho, e a mangueira cria uma leve sucção que puxa ar quente de outros cômodos pelas frestas. Por isso o portátil rende um pouco menos que um split da mesma capacidade. Entenda melhor em <a href="/guias/como-funciona-ar-condicionado-portatil/">como funciona o ar-condicionado portátil</a>.</p>
 
   <h2>Já sabe a capacidade? Veja os melhores modelos</h2>
+  <h3>Split inverter</h3>
+  <ul>
+    <li><strong>9.000 BTUs:</strong> <a href="/melhor-ar-condicionado-9000-btus/">Midea AI Ecomaster, Elgin Eco Inverter e Electrolux quente e frio</a>.</li>
+    <li><strong>12.000 BTUs:</strong> <a href="/melhor-ar-condicionado-12000-btus/">LG Dual Inverter, Samsung WindFree, Gree G-Side e mais</a>.</li>
+    <li><strong>Todos:</strong> <a href="/melhor-ar-condicionado-inverter/">os 10 melhores ar-condicionados inverter de 2026</a>.</li>
+  </ul>
+  <h3>Portátil</h3>
   <ul>
     <li><strong>10.000 BTUs:</strong> <a href="/melhor-ar-condicionado-portatil/#gree-aovia-gpc10ap">Gree Aovia R32</a>, leve e um dos mais em conta.</li>
     <li><strong>12.000 BTUs:</strong> <a href="/melhor-ar-condicionado-portatil/#electrolux-sp12f">Electrolux SP12F</a> (melhor geral), <a href="/melhor-ar-condicionado-portatil/#hisense-ap-12cwbrnps01">Hisense</a> (mais silencioso) e <a href="/melhor-ar-condicionado-portatil/#philco-pac12000qf5">Philco quente e frio</a>.</li>
@@ -99,6 +145,8 @@ const faq = [
 <style>
   .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; background: var(--gelo); border: 1px solid var(--borda); border-radius: var(--raio); padding: 22px; margin: 1rem 0 1.2rem; }
   .calc label { display: grid; gap: 6px; font-weight: 600; font-size: .98rem; }
+  .calc .largo { grid-column: 1 / -1; }
+  .calc select { font: inherit; font-size: 1.05rem; padding: 10px 12px; border: 1.5px solid var(--borda); border-radius: 10px; background: #fff; }
   .calc input[type='number'] { font: inherit; font-size: 1.1rem; padding: 10px 12px; border: 1.5px solid var(--borda); border-radius: 10px; background: #fff; }
   .calc input:focus { border-color: var(--azul); outline: none; }
   .calc .check { display: flex; align-items: center; gap: 10px; grid-column: 1 / -1; font-weight: 400; }

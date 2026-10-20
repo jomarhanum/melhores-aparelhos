@@ -1,0 +1,83 @@
+---
+import Artigo from '../layouts/Artigo.astro';
+import ProdutoMini from '../components/ProdutoMini.astro';
+import { inverters } from '../data/inverter';
+import { site, author } from '../data/site';
+
+const faq = [
+  { q: 'Ar-condicionado de 12.000 BTUs serve para quantos m²?', a: 'Em geral, para cômodos de 12 a 18 m² com duas pessoas e uma TV. Sem sol forte e com pouca gente, pode atender até cerca de 20 m². Com sol da tarde ou muitos eletrônicos, considere 18.000 BTUs.' },
+  { q: 'Quanto gasta um ar-condicionado de 12.000 BTUs inverter?', a: 'Depende da eficiência do modelo e das horas de uso. Compare o consumo anual na etiqueta do Inmetro: entre aparelhos de mesma capacidade, um classe A pode gastar bem menos que um classe C ao longo do ano.' },
+  { q: '12.000 BTUs é melhor que 9.000 para quarto?', a: 'Só se o quarto tiver mais de 12 m², pegar sol forte ou tiver muitos aparelhos ligados. Para quartos pequenos, o 9.000 BTUs atende e gasta menos.' },
+  { q: 'Qual o melhor 12.000 BTUs inverter de 2026?', a: 'Pelo nosso ranking, o LG Dual Inverter AI Voice é o mais completo. O Samsung WindFree AI é o mais confortável e silencioso, e o Gree G-Side tem a melhor garantia.' },
+];
+
+const de12 = inverters.filter((p) => p.btu === 12000);
+const pageUrl = `${site.url}/melhor-ar-condicionado-12000-btus/`;
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Melhores ar-condicionados 12.000 BTUs de 2026',
+  itemListElement: de12.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${pageUrl}#mini-${p.slug}`, name: p.nome })),
+}];
+const destaques: Record<string, string> = {
+  'lg-dual-inverter-ai-voice-12000': 'O mais completo: IA que aprende suas preferências, controle de consumo em 4 níveis, Wi-Fi com voz, proteção contra picos e 10 anos de garantia no compressor.',
+  'samsung-windfree-ai-12000': 'O mais confortável: climatiza sem vento direto pelos microfuros WindFree e é muito silencioso, a partir de 21 dB segundo a marca.',
+  'gree-g-side-auto-12000': 'A melhor garantia: 5 anos no aparelho e 10 no compressor, com ruído declarado de 29 dB e função iFeel.',
+  'hisense-hi-connect-12000': 'O quente e frio mais em conta: aquece no inverno, tem Wi-Fi e modo dormir de 19 dB, segundo a marca.',
+  'electrolux-color-adapt-12000': 'Para alérgicos e litoral: tripla filtragem e acabamento anticorrosão BlueTech.',
+  'tcl-elite-gv-12000': 'O de entrada: modo Eco e função Potência para tensão instável, mas com eficiência menor.',
+  'daikin-ecoswing-gold-12000': 'O premium: compressor Daikin, Procel A, Wi-Fi e ionizador, para quem prioriza durabilidade.',
+};
+---
+<Artigo faq={faq} jsonLd={jsonLd} relacionados={['/melhor-ar-condicionado-inverter/', '/melhor-ar-condicionado-9000-btus/', '/melhores-marcas-de-ar-condicionado/', '/guias/quantos-btus-preciso/']}>
+  <p>O ar-condicionado de <strong>12.000 BTUs</strong> é o mais vendido do Brasil: atende a maioria dos quartos de casal, salas pequenas e escritórios. Separamos os {de12.length} melhores modelos inverter dessa capacidade, todos do nosso <a href="/melhor-ar-condicionado-inverter/">ranking geral de 2026</a>.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resposta rápida:</strong> o mais completo é o <a href="#mini-lg-dual-inverter-ai-voice-12000">LG Dual Inverter AI Voice</a>. Se você não gosta de vento no corpo, vá de <a href="#mini-samsung-windfree-ai-12000">Samsung WindFree AI</a>. Precisa de aquecimento? <a href="#mini-hisense-hi-connect-12000">Hisense Hi-Connect</a>.</p>
+  </div>
+
+  <h2 id="m2">12.000 BTUs serve para quantos m²?</h2>
+  <p>Pela regra de 600 BTUs por m², somando 600 BTUs por pessoa a mais e por aparelho que esquenta, um 12.000 BTUs atende bem <strong>cômodos de 12 a 18 m²</strong> com duas pessoas e uma TV. Em cômodo sem sol forte e com pouca gente, chega a cerca de 20 m².</p>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>Situação</th><th>Até quantos m²</th></tr></thead>
+      <tbody>
+        <tr><td>1 pessoa, sem sol forte</td><td>cerca de 20 m²</td></tr>
+        <tr><td>2 pessoas + TV</td><td>cerca de 18 m²</td></tr>
+        <tr><td>2 pessoas + TV + sol da tarde</td><td>cerca de 15 m²</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Quer a conta exata? Use a <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>. Se o cômodo é menor que 12 m², veja os <a href="/melhor-ar-condicionado-9000-btus/">melhores de 9.000 BTUs</a>.</p>
+
+  <h2 id="ranking">Os melhores ar-condicionados de 12.000 BTUs</h2>
+  {de12.map((p, i) => (
+    <ProdutoMini tipo="Ar-condicionado split inverter" slug={p.slug} posicao={i + 1} destaque={destaques[p.slug]} specs={[['Ciclo', p.ciclo], ['Eficiência', p.eficiencia.split(' (')[0]], ['Wi-Fi', p.wifi.startsWith('Sim') ? 'Sim' : 'Não'], ['Gás', p.gas]]} />
+  ))}
+
+  <h2 id="tabela">Comparativo rápido</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Modelo</th><th>Ciclo</th><th>Ruído</th><th>Garantia</th><th>Wi-Fi</th></tr></thead>
+      <tbody>
+        {de12.map((p) => (
+          <tr><td><a href={`#mini-${p.slug}`}>{p.marca} {p.modelo.split(' ').slice(0, 2).join(' ')}</a></td><td>{p.ciclo}</td><td>{p.ruido ?? '—'}</td><td>{p.garantia ?? '—'}</td><td>{p.wifi.startsWith('Sim') ? '✔' : '—'}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">"—" indica dado não encontrado em fonte oficial. Confira a etiqueta do Inmetro e o manual na página da loja.</p>
+
+  <h2>Dicas antes de comprar</h2>
+  <ul>
+    <li><strong>Confira a voltagem:</strong> a maioria é 220 V; algumas linhas têm versão 127 V com outro código.</li>
+    <li><strong>Prefira classe A e selo Procel.</strong> Veja <a href="/guias/selo-procel-e-consumo-ar-condicionado/">como ler a etiqueta</a>.</li>
+    <li><strong>Planeje a instalação:</strong> distância entre as unidades, local da condensadora e circuito elétrico. Veja o <a href="/guias/instalacao-ar-condicionado-split/">guia de instalação</a>.</li>
+  </ul>
+  <p class="nota">Ranking e notas: opinião editorial de {author.name}, com base nas especificações oficiais dos fabricantes.</p>
+</Artigo>
+
+<style>
+  .tab-curta { min-width: 0; }
+  .nota { font-size: .95rem; color: var(--texto-2); }
+</style>

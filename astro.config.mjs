@@ -15,6 +15,22 @@ const produtos = [
   ['delonghi-pinguino-pact120ed', 'DeLonghi Pinguino PACT120ED 12.000 BTUs Frio'],
   ['rheem-rb1cc12k220', 'Rheem RB1CC12K220 12.000 BTUs Frio'],
 ];
+const inverters = [
+  ['midea-ai-ecomaster-9000', 'Midea AI Ecomaster 9.000 BTUs'],
+  ['lg-dual-inverter-ai-voice-12000', 'LG Dual Inverter AI Voice 12.000 BTUs'],
+  ['samsung-windfree-ai-12000', 'Samsung WindFree AI 12.000 BTUs'],
+  ['gree-g-side-auto-12000', 'Gree G-Side Auto Inverter 12.000 BTUs'],
+  ['elgin-eco-inverter-9000', 'Elgin Eco Inverter II 9.000 BTUs'],
+  ['hisense-hi-connect-12000', 'Hisense Hi-Connect 12.000 BTUs quente e frio'],
+  ['electrolux-color-adapt-12000', 'Electrolux Color Adapt 12.000 BTUs'],
+  ['tcl-elite-gv-12000', 'TCL Elite GV 12.000 BTUs'],
+  ['electrolux-color-adapt-9000-qf', 'Electrolux Color Adapt 9.000 BTUs quente e frio'],
+  ['daikin-ecoswing-gold-12000', 'Daikin EcoSwing Gold 12.000 BTUs'],
+];
+const fotosDoHub = {
+  '/melhor-ar-condicionado-portatil/': produtos.map(([s, n]) => [s, `Ar-condicionado portátil ${n}`]),
+  '/melhor-ar-condicionado-inverter/': inverters.map(([s, n]) => [s, `Ar-condicionado split inverter ${n}`]),
+};
 const img = (path, caption) => ({ url: `${SITE_URL}${path}`, caption });
 const fotoAutor = img('/images/autor-jomar-hanum-400.jpg', 'Jomar Hanum, editor-chefe do Melhores Aparelhos');
 const ultimaAtualizacao = artigos.map((a) => a.atualizado).sort().at(-1);
@@ -33,14 +49,12 @@ const paginas = {
 
 // Artigos: dados vêm do registro em src/data/artigos.mjs.
 for (const a of artigos) {
-  const hub = a.url === '/melhor-ar-condicionado-portatil/';
+  const fotos = fotosDoHub[a.url];
   paginas[a.url] = {
-    priority: hub ? 0.9 : a.categoria === 'Guia' ? 0.7 : 0.8,
-    changefreq: hub ? 'weekly' : 'monthly',
+    priority: fotos ? 0.9 : a.categoria === 'Guia' ? 0.7 : 0.8,
+    changefreq: fotos ? 'weekly' : 'monthly',
     lastmod: a.atualizado,
-    img: hub
-      ? [img('/images/og-melhores-aparelhos.jpg', a.h1), ...produtos.map(([slug, nome]) => img(`/images/produtos/${slug}.webp`, `Ar-condicionado portátil ${nome}`))]
-      : [img(a.imagem, a.h1)],
+    img: fotos ? fotos.map(([slug, nome]) => img(`/images/produtos/${slug}.webp`, nome)) : [img(a.imagem, a.h1)],
   };
 }
 

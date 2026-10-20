@@ -27,7 +27,8 @@ export const author = {
 
 export const nav = [
   { label: 'Home', href: '/' },
-  { label: 'Melhor Ar Portátil', href: '/melhor-ar-condicionado-portatil/' },
+  { label: 'Ar Portátil', href: '/melhor-ar-condicionado-portatil/' },
+  { label: 'Ar Inverter', href: '/melhor-ar-condicionado-inverter/' },
   { label: 'Guias', href: '/guias/' },
   { label: 'Sobre', href: '/sobre/' },
   { label: 'Contato', href: '/contato/' },

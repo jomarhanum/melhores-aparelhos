@@ -1,0 +1,68 @@
+---
+import Artigo from '../layouts/Artigo.astro';
+import ProdutoMini from '../components/ProdutoMini.astro';
+import { inverters } from '../data/inverter';
+import { site, author } from '../data/site';
+
+const faq = [
+  { q: 'Ar-condicionado de 9.000 BTUs serve para quantos m²?', a: 'Para cômodos de até cerca de 12 m² com duas pessoas e uma TV, como a maioria dos quartos. Sem sol forte e com uma pessoa, pode atender até cerca de 15 m².' },
+  { q: '9.000 BTUs gela bem?', a: 'Gela bem quando o cômodo está dentro da faixa recomendada. Em quartos maiores ou muito ensolarados, o aparelho trabalha no limite e gasta mais. Nesse caso, prefira 12.000 BTUs.' },
+  { q: 'Qual o melhor ar-condicionado 9.000 BTUs de 2026?', a: 'O Midea AI Ecomaster é o melhor do nosso ranking: Wi-Fi, comando de voz, consumo anual de 276,3 kWh e 10 anos de garantia no compressor. O Elgin Eco Inverter II é o mais em conta.' },
+  { q: 'Existe 9.000 BTUs quente e frio?', a: 'Sim. Na nossa lista, o Electrolux Color Adapt 9.000 BTUs é quente e frio, com Wi-Fi e tripla filtragem.' },
+];
+
+const de9 = inverters.filter((p) => p.btu === 9000);
+const pageUrl = `${site.url}/melhor-ar-condicionado-9000-btus/`;
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Melhores ar-condicionados 9.000 BTUs de 2026',
+  itemListElement: de9.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${pageUrl}#mini-${p.slug}`, name: p.nome })),
+}];
+const destaques: Record<string, string> = {
+  'midea-ai-ecomaster-9000': 'O melhor no geral: inteligência artificial para economizar, Wi-Fi com Alexa, Google e Siri, consumo anual de 276,3 kWh e 10 anos de garantia no compressor.',
+  'elgin-eco-inverter-9000': 'O mais em conta: inverter com Wi-Fi, gás R-32, filtro com íons de prata e consumo anual de cerca de 287 kWh.',
+  'electrolux-color-adapt-9000-qf': 'O quente e frio: aquece o quarto no inverno, tem tripla filtragem, anticorrosão e Wi-Fi com comando de voz.',
+};
+---
+<Artigo faq={faq} jsonLd={jsonLd} relacionados={['/melhor-ar-condicionado-inverter/', '/melhor-ar-condicionado-12000-btus/', '/guias/quantos-btus-preciso/', '/guias/selo-procel-e-consumo-ar-condicionado/']}>
+  <p>Para a maioria dos quartos, o ar-condicionado de <strong>9.000 BTUs</strong> é a medida certa: gela bem, ocupa pouco espaço e gasta menos que os modelos maiores. Estes são os melhores modelos inverter dessa capacidade no nosso <a href="/melhor-ar-condicionado-inverter/">ranking de 2026</a>.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resposta rápida:</strong> o melhor é o <a href="#mini-midea-ai-ecomaster-9000">Midea AI Ecomaster</a>; o mais em conta, o <a href="#mini-elgin-eco-inverter-9000">Elgin Eco Inverter II</a>; e para quem precisa de aquecimento, o <a href="#mini-electrolux-color-adapt-9000-qf">Electrolux Color Adapt quente e frio</a>.</p>
+  </div>
+
+  <h2 id="m2">9.000 BTUs serve para quantos m²?</h2>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>Situação</th><th>Até quantos m²</th></tr></thead>
+      <tbody>
+        <tr><td>1 pessoa, sem sol forte</td><td>cerca de 15 m²</td></tr>
+        <tr><td>2 pessoas + TV</td><td>cerca de 12 m²</td></tr>
+        <tr><td>2 pessoas + TV + sol da tarde</td><td>cerca de 10 m²</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Passou disso? Veja os <a href="/melhor-ar-condicionado-12000-btus/">melhores de 12.000 BTUs</a> ou calcule na <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</p>
+
+  <h2 id="ranking">Os melhores ar-condicionados de 9.000 BTUs</h2>
+  {de9.map((p, i) => (
+    <ProdutoMini tipo="Ar-condicionado split inverter" slug={p.slug} posicao={i + 1} destaque={destaques[p.slug]} specs={[['Ciclo', p.ciclo], ['Eficiência', p.eficiencia.split(' (')[0]], ['Consumo', p.consumo ?? 'confira a etiqueta'], ['Wi-Fi', p.wifi.startsWith('Sim') ? 'Sim' : 'Não']]} />
+  ))}
+
+  <h2>9.000 BTUs split ou portátil?</h2>
+  <p>Se você não pode instalar um split (aluguel, condomínio, fachada), o portátil de 10.000 BTUs é a alternativa sem obra para quartos pequenos. Ele gasta mais e faz mais barulho, mas dispensa instalador. Veja o <a href="/melhor-ar-condicionado-portatil/#gree-aovia-gpc10ap">Gree Aovia 10.000 BTUs</a> e os <a href="/melhor-ar-condicionado-portatil/">melhores portáteis de 2026</a>.</p>
+
+  <h2>Dicas para o quarto</h2>
+  <ul>
+    <li><strong>Posição:</strong> evite a evaporadora soprando direto sobre a cama.</li>
+    <li><strong>Use o modo dormir:</strong> ajusta a temperatura durante a noite e economiza.</li>
+    <li><strong>Temperatura entre 23 °C e 25 °C</strong> para dormir bem e gastar menos.</li>
+  </ul>
+  <p class="nota">Ranking e notas: opinião editorial de {author.name}, com base nas especificações oficiais dos fabricantes.</p>
+</Artigo>
+
+<style>
+  .tab-curta { min-width: 0; }
+  .nota { font-size: .95rem; color: var(--texto-2); }
+</style>

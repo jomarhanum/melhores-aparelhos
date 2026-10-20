@@ -1,23 +1,11 @@
 ---
-import { amazonLink, mercadoLivreLink, fotoProduto, type Produto } from '../data/produtos';
-interface Props { p: Produto; }
-const { p } = Astro.props;
+import { amazonLink, mercadoLivreLink, fotoProduto, type Produto } from '../data/tipos';
+interface Props { p: Produto; tipo?: string; }
+const { p, tipo = 'Ar-condicionado' } = Astro.props;
 // Reviews individuais publicados (slug do produto → URL)
 const reviews: Record<string, string> = { 'electrolux-sp12f': '/review/electrolux-sp12f/' };
 const reviewUrl = reviews[p.slug];
-const specs: [string, string][] = [
-  ['Capacidade', `${p.btu.toLocaleString('pt-BR')} BTUs`],
-  ['Área indicada (estimativa)', p.area],
-  ['Ciclo', p.ciclo],
-  ['Voltagem', p.voltagem],
-  ['Ruído', p.ruido],
-  ['Peso', p.peso],
-  ...(p.dimensoes ? [['Dimensões', p.dimensoes] as [string, string]] : []),
-  ...(p.potencia ? [['Potência elétrica', p.potencia] as [string, string]] : []),
-  ['Wi-Fi', p.wifi],
-  ['Controle remoto', p.controle],
-  ['Funções', p.funcoes.join(', ')],
-];
+const specs = p.ficha;
 ---
 <article class="produto" id={p.slug}>
   <header class="produto-topo">
@@ -31,7 +19,7 @@ const specs: [string, string][] = [
 
   <div class="produto-grid">
     <figure class="produto-img">
-      <img src={fotoProduto(p)} alt={`Ar-condicionado portátil ${p.marca} ${p.modelo} ${p.btu.toLocaleString('pt-BR')} BTUs`} width="600" height="600" loading={p.rank <= 1 ? 'eager' : 'lazy'} decoding="async" />
+      <img src={fotoProduto(p)} alt={`${tipo} ${p.marca} ${p.modelo}`} width="600" height="600" loading={p.rank <= 1 ? 'eager' : 'lazy'} decoding="async" />
     </figure>
     <div>
       <p>{p.resumo}</p>
@@ -84,22 +72,24 @@ const specs: [string, string][] = [
     </div>
   </div>
 
-  <div class="compradores">
-    <p class="caixa-tit">💬 O que dizem os compradores</p>
-    <div class="pc">
-      <div>
-        <p class="sub">Mais elogiado</p>
-        <ul>{p.opiniao.elogios.map((c) => <li>{c}</li>)}</ul>
-      </div>
-      {p.opiniao.criticas.length > 0 && (
+  {p.opiniao && (
+    <div class="compradores">
+      <p class="caixa-tit">💬 O que dizem os compradores</p>
+      <div class="pc">
         <div>
-          <p class="sub">Reclamações mais comuns</p>
-          <ul>{p.opiniao.criticas.map((c) => <li>{c}</li>)}</ul>
+          <p class="sub">Mais elogiado</p>
+          <ul>{p.opiniao.elogios.map((c) => <li>{c}</li>)}</ul>
         </div>
-      )}
+        {p.opiniao.criticas.length > 0 && (
+          <div>
+            <p class="sub">Reclamações mais comuns</p>
+            <ul>{p.opiniao.criticas.map((c) => <li>{c}</li>)}</ul>
+          </div>
+        )}
+      </div>
+      <p class="fonte">{p.opiniao.observacao ? `${p.opiniao.observacao} ` : ''}Resumo nosso das avaliações publicadas por compradores em lojas online (outubro de 2026).</p>
     </div>
-    <p class="fonte">{p.opiniao.observacao ? `${p.opiniao.observacao} ` : ''}Resumo nosso das avaliações publicadas por compradores em lojas online (outubro de 2026).</p>
-  </div>
+  )}
 
   {p.versoes && (
     <p class="aviso-volt">⚡ <strong>Atenção à voltagem:</strong> este modelo não é bivolt. Ele é vendido em versões separadas de 127 V e 220 V. Na loja, escolha a versão da sua tomada antes de finalizar a compra.</p>

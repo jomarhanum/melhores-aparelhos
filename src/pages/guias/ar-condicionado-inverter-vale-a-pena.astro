@@ -1,0 +1,73 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Ar-condicionado inverter vale mais a pena que o convencional?', a: 'Para quem usa o aparelho várias horas por dia, sim. A economia de energia costuma pagar a diferença de preço em pouco tempo. Para uso raro, poucas semanas por ano, o convencional ainda pode fazer sentido.' },
+  { q: 'Quanto o inverter economiza?', a: 'Os fabricantes divulgam economias de 30% a 70% em relação ao convencional, conforme o modelo e as condições de uso. A economia real depende das horas de uso, da temperatura escolhida e da instalação.' },
+  { q: 'Ar-condicionado inverter é mais frágil?', a: 'A placa eletrônica do inverter é mais sensível a picos e quedas de energia, e o conserto costuma ser mais caro. Modelos com proteção contra picos e uma instalação elétrica adequada reduzem esse risco.' },
+  { q: 'Posso desligar o inverter várias vezes ao dia?', a: 'Pode, mas ele é mais eficiente mantendo a temperatura. Ligar e desligar muitas vezes faz o compressor trabalhar no máximo a cada partida, o que reduz a economia.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-inverter/', '/guias/selo-procel-e-consumo-ar-condicionado/', '/melhores-marcas-de-ar-condicionado/', '/guias/instalacao-ar-condicionado-split/']}>
+  <p>"Inverter" virou quase sinônimo de ar-condicionado moderno. Mas o que muda na prática, quanto ele realmente economiza e quando a diferença de preço se paga? Explicamos sem complicação.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resposta curta:</strong> sim, o inverter vale a pena para quem usa o ar-condicionado com frequência. Ele gasta menos energia, faz menos barulho e mantém a temperatura estável. O convencional só faz sentido para uso esporádico.</p>
+  </div>
+
+  <h2 id="diferenca">Qual a diferença entre inverter e convencional?</h2>
+  <p>A diferença está no <strong>compressor</strong>, o "motor" do ar-condicionado:</p>
+  <ul>
+    <li><strong>Convencional:</strong> o compressor funciona em uma única velocidade. Liga no máximo, gela até a temperatura escolhida, desliga, o cômodo esquenta e ele liga de novo no máximo. Esse liga e desliga gasta mais energia e faz a temperatura oscilar.</li>
+    <li><strong>Inverter:</strong> o compressor varia a velocidade. Começa forte para gelar rápido e depois reduz o ritmo só para manter a temperatura, sem desligar e religar o tempo todo.</li>
+  </ul>
+  <p>É como dirigir na estrada: manter 80 km/h constantes gasta menos combustível do que acelerar até 120 e frear até parar, várias vezes.</p>
+
+  <h2 id="comparativo">Inverter x convencional lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Inverter</th><th>Convencional</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Consumo de energia</th><td>Menor</td><td>Maior</td></tr>
+        <tr><th scope="row">Temperatura</th><td>Estável</td><td>Oscila</td></tr>
+        <tr><th scope="row">Ruído</th><td>Mais baixo e constante</td><td>Picos a cada partida</td></tr>
+        <tr><th scope="row">Tempo para gelar</th><td>Rápido</td><td>Normal</td></tr>
+        <tr><th scope="row">Preço do aparelho</th><td>Maior</td><td>Menor</td></tr>
+        <tr><th scope="row">Conserto da placa</th><td>Mais caro</td><td>Mais barato</td></tr>
+        <tr><th scope="row">Ideal para</th><td>Uso diário</td><td>Uso esporádico</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="economia">Em quanto tempo o inverter se paga?</h2>
+  <p>Vamos a um <strong>exemplo ilustrativo</strong>, só para entender a lógica. Considere um aparelho de 12.000 BTUs usado 8 horas por dia, 30 dias por mês, com tarifa de R$ 0,90 por kWh:</p>
+  <ul>
+    <li>Um convencional que consome em média 1.100 W gasta cerca de <strong>264 kWh por mês</strong> (R$ 237,60).</li>
+    <li>Se o inverter economizar 40% (dentro da faixa que os fabricantes divulgam), ele gasta cerca de <strong>158 kWh</strong> (R$ 142,56).</li>
+    <li>Diferença: cerca de <strong>R$ 95 por mês</strong> de uso intenso.</li>
+  </ul>
+  <p>Se o inverter custar algumas centenas de reais a mais, a diferença se paga em poucos meses de uso diário. Já para quem liga o ar só em algumas noites do ano, a conta demora muito mais. Para fazer a sua própria conta, use a potência da etiqueta e as suas horas de uso, como explicamos em <a href="/guias/selo-procel-e-consumo-ar-condicionado/">como ler a etiqueta e calcular o consumo</a>.</p>
+  <p class="nota">Os números acima são uma simulação. A economia real depende do modelo, da instalação, da vedação do cômodo e da temperatura escolhida.</p>
+
+  <h2 id="quando">Quando o convencional ainda faz sentido</h2>
+  <ul>
+    <li>Uso muito esporádico, poucas semanas por ano.</li>
+    <li>Ambientes usados por pouco tempo, como um quarto de hóspedes.</li>
+    <li>Regiões com rede elétrica muito instável, em que você não quer arriscar a placa eletrônica (ou prefira um inverter com proteção contra picos).</li>
+  </ul>
+
+  <h2 id="cuidados">Cuidados para o inverter render o que promete</h2>
+  <ul>
+    <li><strong>Capacidade certa:</strong> um inverter subdimensionado trabalha sempre no máximo e perde a vantagem. Use a <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</li>
+    <li><strong>Instalação correta:</strong> vácuo na tubulação, carga de gás certa e circuito elétrico exclusivo. Veja o <a href="/guias/instalacao-ar-condicionado-split/">guia de instalação</a>.</li>
+    <li><strong>Prefira classe A e selo Procel</strong> e, se possível, proteção contra picos de energia.</li>
+    <li><strong>Deixe trabalhar:</strong> o inverter é mais eficiente mantendo a temperatura do que sendo ligado e desligado o tempo todo.</li>
+  </ul>
+
+  <h2>Conclusão</h2>
+  <p>Para a grande maioria das casas, o inverter é a escolha certa em 2026: economiza na conta de luz, é mais silencioso e mais confortável. Veja os <a href="/melhor-ar-condicionado-inverter/">10 melhores ar-condicionados inverter de 2026</a> e compare as <a href="/melhores-marcas-de-ar-condicionado/">melhores marcas</a>.</p>
+</Artigo>
+
+<style>
+  .nota { font-size: .95rem; color: var(--texto-2); }
+</style>

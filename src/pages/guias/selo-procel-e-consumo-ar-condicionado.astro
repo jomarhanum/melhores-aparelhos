@@ -1,0 +1,59 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'O que é IDRS no ar-condicionado?', a: 'IDRS é o Índice de Desempenho de Resfriamento Sazonal. Ele mede a eficiência do aparelho considerando o funcionamento ao longo de um ano típico, com diferentes temperaturas e cargas, e não só em uma condição fixa de teste. Quanto maior o IDRS, mais eficiente o aparelho.' },
+  { q: 'Qual a diferença entre a etiqueta do Inmetro e o selo Procel?', a: 'A etiqueta do Inmetro é obrigatória e mostra a classe de eficiência e o consumo do aparelho. O selo Procel é um reconhecimento adicional, dado aos modelos mais eficientes da categoria.' },
+  { q: 'Ar-condicionado classe A gasta pouco?', a: 'Gasta menos que um aparelho de classe inferior com a mesma capacidade. Mas o gasto real depende das horas de uso, da temperatura escolhida e do tamanho do cômodo.' },
+  { q: 'Como saber quanto o ar-condicionado vai gastar por mês?', a: 'Multiplique a potência elétrica (W) pelas horas de uso por dia e pelos dias do mês e divida por 1.000. O resultado é o consumo em kWh; multiplicando pela tarifa da sua conta, você tem o valor em reais. Esse é o teto: um inverter costuma gastar menos.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-inverter/', '/guias/ar-condicionado-inverter-vale-a-pena/', '/melhor-ar-condicionado-9000-btus/', '/melhor-ar-condicionado-12000-btus/']}>
+  <p>Na hora de comprar um ar-condicionado, a etiqueta colorida do Inmetro é a melhor ferramenta para comparar consumo. O problema é que ela vem cheia de siglas. Vamos traduzir.</p>
+
+  <div class="destaque-box">
+    <p><strong>O essencial:</strong> prefira <strong>classe A com selo Procel</strong>, compare o <strong>consumo anual em kWh</strong> entre modelos da mesma capacidade e lembre que o <strong>IDRS</strong> maior significa aparelho mais eficiente.</p>
+  </div>
+
+  <h2 id="etiqueta">A etiqueta do Inmetro</h2>
+  <p>Todo ar-condicionado vendido no Brasil precisa exibir a Etiqueta Nacional de Conservação de Energia, do Programa Brasileiro de Etiquetagem do Inmetro. Nela você encontra:</p>
+  <ul>
+    <li><strong>Classe de eficiência:</strong> de A (mais eficiente) a E (menos eficiente).</li>
+    <li><strong>Índice de eficiência (IDRS):</strong> quanto maior, melhor.</li>
+    <li><strong>Consumo de energia:</strong> em kWh, calculado com um perfil de uso padrão. Serve para comparar modelos entre si.</li>
+    <li><strong>Capacidade de refrigeração</strong> e, nos quente e frio, de aquecimento.</li>
+  </ul>
+
+  <h2 id="idrs">O que é IDRS?</h2>
+  <p>O <strong>IDRS (Índice de Desempenho de Resfriamento Sazonal)</strong> substituiu a forma antiga de medir a eficiência. Antes, o aparelho era testado em uma única condição fixa, o que favorecia pouco os modelos inverter. O IDRS simula o uso ao longo de um ano, com dias mais quentes e mais amenos e o aparelho trabalhando em diferentes cargas.</p>
+  <p>Na prática, ele reflete melhor o seu uso real e <strong>mostra a vantagem do inverter</strong>, que economiza justamente quando trabalha em carga parcial.</p>
+
+  <h2 id="procel">E o selo Procel?</h2>
+  <p>O <strong>selo Procel</strong> é um reconhecimento extra, dado aos produtos mais eficientes de cada categoria. Ele não é obrigatório: um aparelho pode ter etiqueta do Inmetro sem ter o selo. Quando os dois aparecem juntos com classe A, você está diante de um dos modelos mais econômicos do mercado.</p>
+
+  <h2 id="comparar">Como comparar dois aparelhos</h2>
+  <ol>
+    <li><strong>Mesma capacidade:</strong> compare 12.000 com 12.000, nunca 9.000 com 12.000.</li>
+    <li><strong>Classe:</strong> A primeiro.</li>
+    <li><strong>Consumo:</strong> entre dois classe A, o que tem menor consumo em kWh gasta menos.</li>
+    <li><strong>IDRS:</strong> o maior é o mais eficiente.</li>
+  </ol>
+  <p>Um exemplo do nosso ranking: o <a href="/melhor-ar-condicionado-inverter/#midea-ai-ecomaster-9000">Midea AI Ecomaster 9.000</a> informa 276,3 kWh por ano, e o <a href="/melhor-ar-condicionado-inverter/#elgin-eco-inverter-9000">Elgin Eco Inverter II 9.000</a>, cerca de 287 kWh. Ambos são classe A, com consumo bem próximo.</p>
+
+  <h2 id="calculo">Quanto vai custar na sua conta de luz</h2>
+  <p>O consumo da etiqueta usa um padrão de uso que pode ser diferente do seu. Para estimar o seu gasto, use a potência elétrica (em watts) informada no manual ou na ficha:</p>
+  <p class="formula">kWh por mês = potência (W) × horas por dia × dias ÷ 1.000</p>
+  <p>Depois multiplique pelo valor do kWh na sua conta. Esse cálculo dá o <strong>teto</strong>; um inverter bem dimensionado passa boa parte do tempo em potência reduzida e gasta menos. Há uma calculadora pronta no guia <a href="/guias/ar-condicionado-portatil-gasta-muita-energia/#calculo">quanto gasta um ar-condicionado</a>.</p>
+
+  <h2>Dicas finais</h2>
+  <ul>
+    <li>Fotografe a etiqueta na loja ou procure a imagem dela no anúncio antes de comprar.</li>
+    <li>Desconfie de anúncios que não mostram a etiqueta nem a classe de eficiência.</li>
+    <li>Um aparelho mais barato, mas de classe inferior, pode sair mais caro ao longo dos anos.</li>
+  </ul>
+  <p>Veja os modelos mais eficientes no <a href="/melhor-ar-condicionado-inverter/">comparativo dos 10 melhores inverters de 2026</a>.</p>
+</Artigo>
+
+<style>
+  .formula { background: var(--gelo); border-left: 4px solid var(--azul); padding: 12px 16px; border-radius: 8px; font-weight: 700; }
+</style>

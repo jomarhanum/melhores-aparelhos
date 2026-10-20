@@ -1,6 +1,7 @@
 ---
 // Card compacto de produto para artigos de apoio: foto, destaque, specs-chave e botões de compra.
-import { amazonLink, mercadoLivreLink, fotoProduto, produtoPorSlug } from '../data/produtos';
+import { amazonLink, mercadoLivreLink, fotoProduto } from '../data/tipos';
+import { buscarProduto } from '../data/catalogo';
 
 interface Props {
   slug: string;
@@ -8,9 +9,10 @@ interface Props {
   titulo?: string;
   destaque: string;
   specs: [string, string][];
+  tipo?: string;
 }
-const { slug, posicao, titulo, destaque, specs } = Astro.props;
-const p = produtoPorSlug(slug);
+const { slug, posicao, titulo, destaque, specs, tipo = 'Ar-condicionado' } = Astro.props;
+const p = buscarProduto(slug);
 ---
 <div class="mini" id={`mini-${p.slug}`}>
   <div class="mini-topo">
@@ -18,7 +20,7 @@ const p = produtoPorSlug(slug);
     <h3>{titulo ?? p.nome}</h3>
   </div>
   <div class="mini-grid">
-    <img src={fotoProduto(p)} alt={`Ar-condicionado portátil ${p.marca} ${p.modelo}`} width="600" height="600" loading="lazy" decoding="async" />
+    <img src={fotoProduto(p)} alt={`${tipo} ${p.marca} ${p.modelo}`} width="600" height="600" loading="lazy" decoding="async" />
     <div>
       <p>{destaque}</p>
       <ul class="mini-specs">{specs.map(([k, v]) => <li><span>{k}</span><strong>{v}</strong></li>)}</ul>
@@ -31,7 +33,7 @@ const p = produtoPorSlug(slug);
         <a class="btn btn-amazon btn-sm" href={amazonLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Ver preço na Amazon</a>
         <a class="btn btn-ml btn-sm" href={mercadoLivreLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Ver no Mercado Livre</a>
       </div>
-      <a class="mini-review" href={`/melhor-ar-condicionado-portatil/#${p.slug}`}>Análise completa no comparativo →</a>
+      <a class="mini-review" href={`${p.hub}#${p.slug}`}>Análise completa no comparativo →</a>
     </div>
   </div>
 </div>
