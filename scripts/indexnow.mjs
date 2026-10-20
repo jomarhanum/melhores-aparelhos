@@ -6,6 +6,18 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { SITE_URL } from '../src/data/url.mjs';
 
 const KEY = 'b91e1d15e2ba5213d81a223b233ac0aa';
+
+// Conexões às vezes são resetadas no Windows: tenta até 3 vezes.
+const fetchTentando = async (url, opcoes, tentativas = 3) => {
+  for (let i = 1; ; i++) {
+    try {
+      return await fetch(url, opcoes);
+    } catch (e) {
+      if (i >= tentativas) throw e;
+      await new Promise((r) => setTimeout(r, 2000 * i));
+    }
+  }
+};
 const ESTADO = 'indexnow-estado.json';
 const host = new URL(SITE_URL).host;
 
@@ -21,13 +33,13 @@ if (!enviar.length) {
 }
 
 // Confere se o arquivo da chave já está publicado antes de enviar.
-const chave = await fetch(`${SITE_URL}/${KEY}.txt`);
+const chave = await fetchTentando(`${SITE_URL}/${KEY}.txt`);
 if (!chave.ok || (await chave.text()).trim() !== KEY) {
   console.error(`Arquivo da chave não encontrado em ${SITE_URL}/${KEY}.txt. Publique o site antes.`);
   process.exit(1);
 }
 
-const r = await fetch('https://api.indexnow.org/indexnow', {
+const r = await fetchTentando('https://api.indexnow.org/indexnow', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json; charset=utf-8' },
   body: JSON.stringify({ host, key: KEY, keyLocation: `${SITE_URL}/${KEY}.txt`, urlList: enviar }),
