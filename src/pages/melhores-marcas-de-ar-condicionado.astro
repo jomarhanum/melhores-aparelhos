@@ -6,7 +6,7 @@ import { site, author } from '../data/site';
 const faq = [
   { q: 'Qual a melhor marca de ar-condicionado em 2026?', a: 'Depende do que você prioriza. Daikin é referência em durabilidade, LG e Samsung em tecnologia e conectividade, Gree em garantia, Midea em custo-benefício e Elgin em preço e facilidade de peças.' },
   { q: 'Qual marca de ar-condicionado dá menos defeito?', a: 'Daikin, LG e Gree são as mais citadas por instaladores pela robustez. Mas, na prática, a qualidade da instalação pesa tanto quanto a marca: um aparelho bom mal instalado dá mais problema que um aparelho simples bem instalado.' },
-  { q: 'Qual marca tem a maior garantia?', a: 'Nos modelos deste comparativo, Midea, LG e Gree oferecem 10 anos de garantia no compressor, e a Gree declara 5 anos no aparelho inteiro na linha G-Side. As garantias estendidas normalmente exigem instalação por técnico credenciado.' },
+  { q: 'Qual marca tem a maior garantia?', a: 'Nos modelos deste comparativo, Midea, LG, Gree e Elgin oferecem 10 anos de garantia no compressor, e a Gree declara 5 anos no aparelho inteiro na linha G-Side. As garantias estendidas normalmente exigem instalação por técnico credenciado.' },
   { q: 'Marca chinesa de ar-condicionado é boa?', a: 'Sim. Gree e Midea estão entre as maiores fabricantes de ar-condicionado do mundo e fornecem tecnologia e componentes para várias outras marcas. O que importa é a linha, a eficiência e a rede de assistência no Brasil.' },
 ];
 ---
@@ -22,14 +22,14 @@ const faq = [
     <table>
       <thead><tr><th>Marca</th><th>Origem</th><th>Ponto forte</th><th>Ponto fraco</th><th>Melhor modelo</th></tr></thead>
       <tbody>
-        <tr><td>Daikin</td><td>Japão</td><td>Durabilidade, compressor próprio</td><td>Preço e peças caras</td><td><a href="#mini-daikin-ecoswing-gold-12000">EcoSwing Gold</a></td></tr>
+        <tr><td>Daikin</td><td>Japão</td><td>Durabilidade, compressor próprio</td><td>Preço e peças caras</td><td><a href="#mini-daikin-full-inverter-12000">Full Inverter</a></td></tr>
         <tr><td>LG</td><td>Coreia do Sul</td><td>Dual Inverter, app, garantia do compressor</td><td>Linhas de entrada simples</td><td><a href="#mini-lg-dual-inverter-ai-voice-12000">Dual Inverter AI Voice</a></td></tr>
         <tr><td>Samsung</td><td>Coreia do Sul</td><td>WindFree, silêncio, design</td><td>Preço acima da média</td><td><a href="#mini-samsung-windfree-ai-12000">WindFree AI</a></td></tr>
         <tr><td>Gree</td><td>China</td><td>Garantia longa, uso intenso</td><td>Design mais tradicional</td><td><a href="#mini-gree-g-side-auto-12000">G-Side Auto</a></td></tr>
         <tr><td>Midea</td><td>China</td><td>Custo-benefício, IA e assistência</td><td>Linhas básicas mais ruidosas</td><td><a href="#mini-midea-ai-ecomaster-9000">AI Ecomaster</a></td></tr>
-        <tr><td>Elgin</td><td>Brasil</td><td>Preço e peças baratas</td><td>Menos recursos</td><td><a href="#mini-elgin-eco-inverter-9000">Eco Inverter II</a></td></tr>
+        <tr><td>Elgin</td><td>Brasil</td><td>Preço e peças baratas</td><td>Menos recursos</td><td><a href="#mini-elgin-eco-inverter-ii-9000-qf">Eco Inverter II</a></td></tr>
         <tr><td>Electrolux</td><td>Suécia</td><td>Filtragem, anticorrosão</td><td>Evaporadora grande</td><td><a href="#mini-electrolux-color-adapt-12000">Color Adapt</a></td></tr>
-        <tr><td>Hisense</td><td>China</td><td>Quente e frio acessível</td><td>Rede de assistência menor</td><td><a href="#mini-hisense-hi-connect-12000">Hi-Connect</a></td></tr>
+        <tr><td>Hisense</td><td>China</td><td>Quente e frio acessível</td><td>Rede de assistência menor</td><td><a href="#mini-hisense-hi-efficiency-12000-qf">Hi-Efficiency</a></td></tr>
         <tr><td>TCL</td><td>China</td><td>Inverter de entrada</td><td>Eficiência menor, histórico curto</td><td><a href="#mini-tcl-elite-gv-12000">Elite GV</a></td></tr>
       </tbody>
     </table>
@@ -48,7 +48,7 @@ const faq = [
 
   <h3>1. Daikin: a especialista</h3>
   <p>Japonesa e dedicada exclusivamente à climatização, a Daikin fabrica os próprios compressores e é a marca mais lembrada por instaladores quando o assunto é durabilidade e baixa vibração. O preço do aparelho e das peças é mais alto que a média.</p>
-  <ProdutoMini tipo="Ar-condicionado split inverter" slug="daikin-ecoswing-gold-12000" destaque="Inverter com gás R-32, selo Procel A, Wi-Fi com assistentes de voz e ionizador." specs={[['Capacidade', '12.000 BTUs'], ['Eficiência', 'Classe A'], ['Gás', 'R-32'], ['Wi-Fi', 'Sim']]} />
+  <ProdutoMini tipo="Ar-condicionado split inverter" slug="daikin-full-inverter-12000" destaque="A linha premium mais recente da marca: compressor Daikin de 4ª geração, gás R-32 e unidade interna silenciosa (40 dB informados)." specs={[['Capacidade', '12.000 BTUs'], ['Compressor', 'Daikin 4ª geração'], ['Gás', 'R-32'], ['Ruído', '40 dB']]} />
 
   <h3>2. LG: tecnologia e garantia</h3>
   <p>A LG popularizou o compressor Dual Inverter no Brasil e tem uma das redes de assistência mais amplas. Os modelos da linha AI Voice trazem Wi-Fi com o app LG ThinQ, comando de voz e 10 anos de garantia no compressor.</p>
@@ -68,7 +68,7 @@ const faq = [
 
   <h3>6. Elgin: preço e peças acessíveis</h3>
   <p>Marca brasileira fundada em 1952, a Elgin aposta em mecânica simples, peças baratas e preço de entrada. A linha Eco Inverter já traz gás R-32 e Wi-Fi.</p>
-  <ProdutoMini tipo="Ar-condicionado split inverter" slug="elgin-eco-inverter-9000" destaque="Inverter com Wi-Fi, filtro com íons de prata e consumo anual baixo, por preço de entrada." specs={[['Capacidade', '9.000 BTUs'], ['Consumo', 'cerca de 287 kWh/ano'], ['Gás', 'R-32'], ['Wi-Fi', 'Sim']]} />
+  <ProdutoMini tipo="Ar-condicionado split inverter" slug="elgin-eco-inverter-ii-9000-qf" destaque="Inverter quente e frio com Wi-Fi, selo Procel A e 3 anos de garantia mais 10 no compressor, por preço de entrada." specs={[['Capacidade', '9.000 BTUs'], ['Ciclo', 'Quente e frio'], ['Garantia', '3 + 10 anos'], ['Wi-Fi', 'Sim']]} />
 
   <h3>7. Electrolux: ar limpo e anticorrosão</h3>
   <p>A Electrolux foca em qualidade do ar, com tripla filtragem, e em durabilidade em regiões litorâneas, com o acabamento anticorrosão BlueTech. As evaporadoras são mais largas que a média.</p>
@@ -76,7 +76,7 @@ const faq = [
 
   <h3>8. Hisense: quente e frio acessível</h3>
   <p>A Hisense ganhou espaço com modelos completos a preços competitivos, especialmente na versão quente e frio. A rede de assistência ainda é menor que a das líderes.</p>
-  <ProdutoMini tipo="Ar-condicionado split inverter" slug="hisense-hi-connect-12000" destaque="Aquece e refrigera, tem Wi-Fi com o app ConnectLife e modo dormir de 19 dB, segundo a marca." specs={[['Capacidade', '12.000 BTUs'], ['Ciclo', 'Quente e frio'], ['Eficiência', 'Classe A'], ['Wi-Fi', 'Sim']]} />
+  <ProdutoMini tipo="Ar-condicionado split inverter" slug="hisense-hi-efficiency-12000-qf" destaque="Aquece e refrigera com consumo anual informado de 337 kWh, um dos menores entre os 12.000 BTUs que divulgam o dado." specs={[['Capacidade', '12.000 BTUs'], ['Ciclo', 'Quente e frio'], ['Consumo', '337 kWh/ano'], ['Gás', 'R-32']]} />
 
   <h3>9. TCL: a porta de entrada</h3>
   <p>A TCL é a marca mais recente no segmento por aqui e briga por preço. A linha Elite GV funciona bem com tensão instável, mas tem eficiência menor que a dos líderes.</p>

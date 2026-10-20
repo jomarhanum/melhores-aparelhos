@@ -20,12 +20,12 @@ const inverters = [
   ['lg-dual-inverter-ai-voice-12000', 'LG Dual Inverter AI Voice 12.000 BTUs'],
   ['samsung-windfree-ai-12000', 'Samsung WindFree AI 12.000 BTUs'],
   ['gree-g-side-auto-12000', 'Gree G-Side Auto Inverter 12.000 BTUs'],
-  ['elgin-eco-inverter-9000', 'Elgin Eco Inverter II 9.000 BTUs'],
-  ['hisense-hi-connect-12000', 'Hisense Hi-Connect 12.000 BTUs quente e frio'],
+  ['elgin-eco-inverter-ii-9000-qf', 'Elgin Eco Inverter II 9.000 BTUs quente e frio'],
+  ['hisense-hi-efficiency-12000-qf', 'Hisense Hi-Efficiency 12.000 BTUs quente e frio'],
   ['electrolux-color-adapt-12000', 'Electrolux Color Adapt 12.000 BTUs'],
   ['tcl-elite-gv-12000', 'TCL Elite GV 12.000 BTUs'],
   ['electrolux-color-adapt-9000-qf', 'Electrolux Color Adapt 9.000 BTUs quente e frio'],
-  ['daikin-ecoswing-gold-12000', 'Daikin EcoSwing Gold 12.000 BTUs'],
+  ['daikin-full-inverter-12000', 'Daikin Full Inverter 12.000 BTUs'],
 ];
 const fotosDoHub = {
   '/melhor-ar-condicionado-portatil/': produtos.map(([s, n]) => [s, `Ar-condicionado portátil ${n}`]),
