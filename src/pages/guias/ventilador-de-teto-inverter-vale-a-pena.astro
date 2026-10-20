@@ -1,0 +1,61 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Ventilador de teto inverter economiza quanto?', a: 'Os modelos inverter do nosso ranking consomem cerca de 30 W, contra 130 W a 150 W dos modelos comuns. Ligado 8 horas por dia durante um mês, isso dá cerca de 7 kWh no inverter contra até 36 kWh no comum.' },
+  { q: 'Ventilador de teto inverter venta menos?', a: 'Não necessariamente. O motor inverter é mais eficiente e costuma oferecer mais velocidades (até 6), mantendo boa vazão de ar. Compare a vazão e o diâmetro na ficha de cada modelo.' },
+  { q: 'Ventilador de teto inverter é mais silencioso?', a: 'Em geral, sim: o motor trabalha de forma mais suave, principalmente nas velocidades baixas, o que ajuda para dormir.' },
+  { q: 'Todo ventilador inverter é bivolt?', a: 'Vários modelos inverter são bivolt, como os da Ventisol do nosso comparativo, mas confirme na ficha do modelo antes de comprar.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ventilador-de-teto/', '/guias/ventilador-de-teto-ou-ar-condicionado/', '/guias/como-instalar-ventilador-de-teto/', '/melhor-ar-condicionado-inverter/']}>
+  <p>O ventilador de teto inverter chegou com uma promessa forte: ventilar bem gastando muito menos energia. Mas a diferença na conta compensa o preço mais alto? Fizemos as contas.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resposta curta:</strong> vale a pena para quem usa o ventilador muitas horas por dia, principalmente à noite. Os modelos inverter consomem cerca de <strong>30 W</strong>, contra <strong>130 W a 150 W</strong> dos comuns, e ainda são mais silenciosos e costumam vir com controle remoto.</p>
+  </div>
+
+  <h2 id="consumo">Quanto cada um gasta</h2>
+  <p>Exemplo com 8 horas de uso por dia, 30 dias por mês e tarifa de R$ 0,90 por kWh (valor ilustrativo):</p>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>Tipo</th><th>Potência</th><th>kWh por mês</th><th>Custo por mês</th></tr></thead>
+      <tbody>
+        <tr><td>Inverter</td><td>30 W</td><td>7,2 kWh</td><td>R$ 6,48</td></tr>
+        <tr><td>Comum</td><td>130 W</td><td>31,2 kWh</td><td>R$ 28,08</td></tr>
+        <tr><td>Comum</td><td>150 W</td><td>36 kWh</td><td>R$ 32,40</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A diferença fica em torno de <strong>R$ 20 a R$ 26 por mês</strong> com uso intenso. Nos meses quentes, em que o ventilador fica ligado a noite toda, o inverter tende a compensar a diferença de preço em poucos verões.</p>
+  <p class="nota">A potência considerada é a informada nos anúncios. Em modelos com luminária, a potência das lâmpadas pode estar somada ao número divulgado.</p>
+
+  <h2 id="vantagens">Vantagens do inverter</h2>
+  <ul>
+    <li><strong>Consumo baixo:</strong> cerca de um quinto do consumo de um modelo comum.</li>
+    <li><strong>Mais velocidades:</strong> até 6, contra 3 na maioria dos comuns.</li>
+    <li><strong>Mais silêncio:</strong> motor mais suave, bom para o quarto.</li>
+    <li><strong>Controle remoto e timer</strong> na maioria dos modelos.</li>
+    <li><strong>Bivolt</strong> em vários modelos.</li>
+  </ul>
+
+  <h2 id="desvantagens">Desvantagens</h2>
+  <ul>
+    <li><strong>Preço mais alto</strong> na compra.</li>
+    <li><strong>Eletrônica mais sensível</strong> a picos de energia.</li>
+    <li><strong>Pás menores</strong> em alguns modelos compactos, que rendem melhor em cômodos médios.</li>
+  </ul>
+
+  <h2 id="quando">Quando vale a pena</h2>
+  <ul>
+    <li>Você usa o ventilador todas as noites no verão.</li>
+    <li>Quer silêncio para dormir.</li>
+    <li>Gosta de controle remoto e timer.</li>
+  </ul>
+  <p>Se o ventilador é usado poucas horas por semana, um modelo comum pode atender bem e custar menos. Veja os modelos inverter e comuns no <a href="/melhor-ventilador-de-teto/">comparativo dos 10 melhores ventiladores de teto de 2026</a>.</p>
+</Artigo>
+
+<style>
+  .tab-curta { min-width: 0; }
+  .nota { font-size: .95rem; color: var(--texto-2); }
+</style>

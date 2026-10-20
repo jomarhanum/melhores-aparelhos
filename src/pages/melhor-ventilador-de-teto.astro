@@ -1,0 +1,239 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { ventiladores } from '../data/ventilador';
+import { fotoProduto } from '../data/tipos';
+import { site, author } from '../data/site';
+import { artigoPorUrl } from '../data/artigos.mjs';
+
+const meta = artigoPorUrl('/melhor-ventilador-de-teto/')!;
+const publicado = `${meta.publicado}T09:00:00-03:00`;
+const atualizado = `${meta.atualizado}T09:00:00-03:00`;
+const dataExibida = new Date(`${meta.atualizado}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const title = meta.titulo;
+const description = meta.descricao;
+const pageUrl = `${site.url}${meta.url}`;
+const v = (slug: string) => ventiladores.find((x) => x.slug === slug)!;
+
+const faq = [
+  { q: 'Qual o melhor ventilador de teto de 2026?', a: 'Para a maioria das pessoas, o Arno Ultimate VX13: 6 velocidades, controle remoto com timer, modo exaustor, bivolt e indicado para até 25 m². Para gastar o mínimo de energia, o Ventisol Aires Inverter consome só 30 W.' },
+  { q: 'Ventilador de teto inverter vale a pena?', a: 'Para quem usa muitas horas por dia, sim: os modelos inverter da lista consomem cerca de 30 W, contra 130 W a 150 W dos comuns, e costumam ser mais silenciosos.' },
+  { q: 'Qual o tamanho ideal de ventilador de teto?', a: 'Siga a área indicada pelo fabricante. Modelos com cerca de 100 cm de diâmetro atendem cômodos de até 20 a 25 m²; modelos menores, de cerca de 90 cm, ficam melhor em quartos.' },
+  { q: 'Ventilador de teto com 3 ou 4 pás?', a: 'O número de pás importa menos que o diâmetro, a potência e o desenho das pás. Modelos de 3 pás costumam girar mais rápido; os de 4 pás, como o Venti-Delta New Zeta, priorizam o visual decorativo.' },
+  { q: 'Ventilador de teto pode ser instalado em forro de gesso?', a: 'Não diretamente no gesso. Ele deve ser fixado na laje acima do forro ou em uma estrutura de reforço.' },
+  { q: 'Ventilador de teto gasta muita energia?', a: 'Pouco. Um modelo de 150 W ligado 8 horas por dia consome cerca de 36 kWh por mês; um inverter de 30 W, cerca de 7 kWh. Um ar-condicionado de 12.000 BTUs consome várias vezes mais.' },
+];
+
+const destaques = [
+  { rotulo: 'Melhor no geral', x: v('arno-vx13') },
+  { rotulo: 'Melhor custo-benefício inverter', x: v('ventisol-aires-inverter') },
+  { rotulo: 'Mais vendido e barato', x: v('ventisol-fenix-370') },
+  { rotulo: 'Menor consumo com luz LED', x: v('ventisol-fenix-led-inverter') },
+  { rotulo: 'Para ambientes grandes', x: v('aliseu-terral') },
+  { rotulo: 'Decorativo com 4 pás', x: v('venti-delta-new-zeta') },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: [`${site.url}${meta.imagem}`],
+    datePublished: publicado,
+    dateModified: atualizado,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: { '@type': 'Person', name: author.name, url: `${site.url}${author.url}`, image: `${site.url}${author.photo}`, jobTitle: author.role },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Climatização', item: `${site.url}/climatizacao/` },
+      { '@type': 'ListItem', position: 3, name: 'Melhor ventilador de teto', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores ventiladores de teto de 2026',
+    numberOfItems: ventiladores.length,
+    itemListElement: ventiladores.map((x) => ({
+      '@type': 'ListItem',
+      position: x.rank,
+      item: {
+        '@type': 'Product',
+        name: x.nome,
+        brand: { '@type': 'Brand', name: x.marca },
+        model: x.modelo,
+        url: `${pageUrl}#${x.slug}`,
+        description: x.resumo,
+        image: `${site.url}${fotoProduto(x)}`,
+        review: {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: author.name },
+          datePublished: publicado,
+          reviewRating: { '@type': 'Rating', ratingValue: x.nota, bestRating: 10, worstRating: 0 },
+          positiveNotes: { '@type': 'ItemList', itemListElement: x.pros.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+          negativeNotes: { '@type': 'ItemList', itemListElement: x.contras.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+        },
+      },
+    })),
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) },
+];
+---
+<Base title={title} description={description} type="article" published={publicado} modified={atualizado} jsonLd={jsonLd} image={meta.imagem} imageAlt="Comparativo dos melhores ventiladores de teto de 2026">
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol><li><a href="/">Home</a></li><li><a href="/climatizacao/">Climatização</a></li><li aria-current="page">Melhor ventilador de teto</li></ol>
+      </nav>
+      <h1>{meta.h1}</h1>
+      <p class="subtitulo">Comparamos os 10 ventiladores de teto mais recomendados do Brasil, do clássico de pás de madeira ao inverter de 30 W. Veja consumo, velocidades, luz, controle, prós e contras e descubra qual combina com a sua casa.</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · {meta.minutos} min de leitura
+        </div>
+      </div>
+      <ShareButtons title={title} />
+    </div>
+  </section>
+
+  <div class="leitura artigo">
+    <p class="aviso-afiliado"><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem nenhum custo extra para você. Isso não muda a nossa opinião. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+
+    <p>O ventilador de teto é o jeito mais barato de enfrentar o calor: custa pouco, gasta pouquíssima energia e ventila o cômodo inteiro sem ocupar espaço. Os modelos <strong>inverter</strong> de 2026 consomem só <strong>30 W</strong>, menos que muitas lâmpadas antigas.</p>
+    <p>Mas há muita diferença entre os modelos: potência, número de velocidades, controle remoto, tipo de luz e tamanho do cômodo. Reunimos os <strong>10 melhores de 2026</strong> e explicamos tudo em linguagem simples.</p>
+
+    <div class="caixa resposta">
+      <p class="caixa-tit">⚡ Resposta rápida: os melhores de 2026</p>
+      <ol class="lista-destaques">
+        {destaques.map((d) => <li><strong>{d.rotulo}:</strong> <a href={`#${d.x.slug}`}>{d.x.nome}</a></li>)}
+      </ol>
+    </div>
+
+    <nav class="caixa sumario" aria-label="Sumário">
+      <p class="caixa-tit">📑 Neste artigo</p>
+      <ol>
+        <li><a href="#comparativo">Tabela comparativa</a></li>
+        <li><a href="#como-escolher">Como escolher</a></li>
+        <li><a href="#ranking">Os 10 melhores modelos</a></li>
+        <li><a href="#consumo">Consumo de energia</a></li>
+        <li><a href="#instalacao">Instalação</a></li>
+        <li><a href="#metodologia">Como fizemos este ranking</a></li>
+        <li><a href="#perguntas">Perguntas frequentes</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="comparativo">Tabela comparativa: os 10 melhores lado a lado</h2>
+    <p>Clique no nome para ir direto à análise completa.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabela-wrap">
+      <table>
+        <caption class="sr-only">Comparativo dos 10 melhores ventiladores de teto de 2026</caption>
+        <thead><tr><th>#</th><th>Modelo</th><th>Motor</th><th>Potência</th><th>Velocidades</th><th>Controle remoto</th><th>Voltagem</th></tr></thead>
+        <tbody>
+          {ventiladores.map((x) => (
+            <tr>
+              <td><strong>{x.rank}º</strong></td>
+              <td><a href={`#${x.slug}`}>{x.marca} {x.modelo}</a></td>
+              <td>{x.motor}</td>
+              <td>{x.potencia.split(' (')[0]}</td>
+              <td>{x.velocidades.split(' (')[0]}</td>
+              <td>{/remoto/i.test(x.controle) && !/sem controle remoto/i.test(x.controle) ? '✔' : '—'}</td>
+              <td>{x.voltagem.split(' (')[0]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-preco">Potência conforme os anúncios; em modelos com luminária, ela pode incluir as lâmpadas. Os preços mudam com frequência: confira o valor atualizado nos botões de cada produto.</p>
+  </div>
+
+  <div class="leitura artigo">
+    <h2 id="como-escolher">Como escolher o melhor ventilador de teto</h2>
+
+    <h3>1. Tamanho do cômodo</h3>
+    <p>Siga a área indicada pelo fabricante. Como referência, modelos com cerca de <strong>100 cm de diâmetro</strong> atendem salas e quartos de até 20 a 25 m²; os de cerca de <strong>90 cm</strong> são ideais para quartos.</p>
+
+    <h3>2. Inverter ou convencional</h3>
+    <p>O motor <strong>inverter</strong> consome cerca de 30 W, contra 130 W a 150 W dos convencionais, e costuma ter 6 velocidades e funcionamento mais silencioso. Veja a conta completa em <a href="/guias/ventilador-de-teto-inverter-vale-a-pena/">ventilador de teto inverter vale a pena?</a></p>
+
+    <h3>3. Controle: remoto ou de parede</h3>
+    <p>O <strong>controle remoto</strong> permite ajustar da cama e geralmente traz timer. O <strong>controle de parede</strong> é mais simples e substitui o interruptor. Alguns modelos, como o Aliseu Terral, trazem os dois.</p>
+
+    <h3>4. Iluminação</h3>
+    <ul>
+      <li><strong>LED integrado:</strong> luz pronta de fábrica e econômica (Ventisol Fênix LED Inverter).</li>
+      <li><strong>Soquetes:</strong> você escolhe e troca as lâmpadas (a maioria dos modelos).</li>
+    </ul>
+
+    <h3>5. Voltagem e extras</h3>
+    <p>Vários modelos são <strong>bivolt</strong>; outros vêm em versões separadas de 127 V e 220 V. Extras que fazem diferença: <strong>modo exaustor</strong> (inverte o giro para renovar o ar), <strong>timer</strong> e <strong>modo dormir</strong>.</p>
+
+    <h2 id="ranking">Os 10 melhores ventiladores de teto de 2026</h2>
+    <p>Análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
+
+    {ventiladores.map((x) => <ProductCard p={x} tipo="Ventilador de teto" />)}
+
+    <section>
+      <h2 id="consumo">Quanto o ventilador de teto gasta</h2>
+      <p>Exemplo com 8 horas por dia, 30 dias e tarifa de R$ 0,90 por kWh (valor ilustrativo): um modelo de 150 W gasta cerca de 36 kWh (R$ 32,40) por mês; um inverter de 30 W, cerca de 7,2 kWh (R$ 6,48). Mesmo o mais gastão consome várias vezes menos que um ar-condicionado. Compare em <a href="/guias/ventilador-de-teto-ou-ar-condicionado/">ventilador de teto ou ar-condicionado</a>.</p>
+
+      <h2 id="instalacao">Instalação: segurança em primeiro lugar</h2>
+      <ul>
+        <li>Fixe na <strong>laje</strong>; em forro de gesso, use estrutura de reforço presa à laje.</li>
+        <li>Respeite a <strong>altura mínima</strong> entre as pás e o chão indicada no manual.</li>
+        <li>Faça a ligação conforme o esquema do fabricante, com o disjuntor desligado. Na dúvida, chame um eletricista.</li>
+        <li>Aperte bem as pás e confira o balanceamento antes de usar.</li>
+      </ul>
+      <p>Passo a passo: <a href="/guias/como-instalar-ventilador-de-teto/">como instalar ventilador de teto</a>.</p>
+
+      <h2 id="metodologia">Como fizemos este ranking</h2>
+      <p>Este é um comparativo baseado em pesquisa, não em testes de laboratório. Partimos dos modelos mais recomendados pelos três principais guias de compra do Brasil, consideramos o interesse de busca no Google Trends e conferimos as especificações nas fichas técnicas das lojas, dos comparadores e dos fabricantes. Quando as fontes divergem, deixamos o dado de fora.</p>
+      <p>Comparamos os modelos em cinco critérios: <strong>desempenho</strong> (potência, diâmetro, área), <strong>consumo</strong>, <strong>praticidade</strong> (velocidades, controle, timer), <strong>iluminação e design</strong> e <strong>custo-benefício</strong>. A nota de cada ventilador é a opinião editorial de {author.name}. Nenhuma marca pagou para aparecer nesta lista.</p>
+    </section>
+
+    <section>
+      <h2 id="perguntas">Perguntas frequentes sobre ventilador de teto</h2>
+      <div class="faq">
+        {faq.map((q) => (
+          <details>
+            <summary>{q.q}</summary>
+            <p>{q.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2 id="conclusao">Conclusão: qual ventilador de teto comprar?</h2>
+      <p>Para a maioria das casas, o <strong>{ventiladores[0].nome}</strong> é a melhor compra: completo, bivolt e com controle remoto. Para gastar o mínimo de energia, vá de <strong>Ventisol Aires Inverter</strong>. Quem quer o mais barato tem no <strong>Ventisol Fênix</strong> o clássico mais vendido, e quem quer um ventilador decorativo, com 4 pás e 3 tulipas, deve olhar o <strong>Venti-Delta New Zeta</strong>.</p>
+      <p>Precisa de mais frio? Veja os <a href="/melhor-ar-condicionado-inverter/">melhores ar-condicionados inverter</a> e os <a href="/melhor-ar-condicionado-portatil/">portáteis</a>.</p>
+
+      <ShareButtons title={title} />
+      <AuthorBox />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .artigo { padding-top: 28px; }
+  .resposta { background: var(--azul-claro); border-color: #bcd7f3; }
+  .lista-destaques { padding-left: 1.2rem; margin: 0; }
+  .nota-preco { font-size: .92rem; color: var(--texto-2); }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 30px 14px 0; list-style: none; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+</style>

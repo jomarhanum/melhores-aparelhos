@@ -1,0 +1,71 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Qual a altura mínima para ventilador de teto?', a: 'O manual de cada modelo indica a distância mínima entre as pás e o chão. Em geral, recomenda-se que as pás fiquem a pelo menos cerca de 2,3 m do piso, longe do alcance das mãos. Em pé-direito baixo, prefira modelos compactos, sem haste longa.' },
+  { q: 'Posso instalar ventilador de teto no forro de gesso?', a: 'Não diretamente no gesso, que não aguenta o peso e a vibração. O ventilador deve ser fixado na laje acima do forro, com uma haste ou estrutura de reforço adequada.' },
+  { q: 'Preciso de eletricista para instalar ventilador de teto?', a: 'É o recomendado. A instalação envolve fiação, fixação firme no teto e, em muitos casos, um controle de parede. Uma ligação errada pode queimar o motor ou causar choque.' },
+  { q: 'Por que o ventilador de teto balança?', a: 'Geralmente por pás desalinhadas, parafusos frouxos ou fixação fraca. Aperte as pás, confira o suporte e use o kit de balanceamento quando o fabricante fornecer.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ventilador-de-teto/', '/guias/ventilador-de-teto-inverter-vale-a-pena/', '/guias/ventilador-de-teto-ou-ar-condicionado/', '/guias/instalacao-ar-condicionado-split/']}>
+  <p>Ventilador de teto parece simples, mas fica girando acima da cabeça de todo mundo. Uma fixação fraca ou uma ligação malfeita viram risco. Veja o que conferir antes e durante a instalação.</p>
+
+  <div class="destaque-box">
+    <p><strong>O essencial:</strong> desligue o disjuntor, fixe o suporte na laje (nunca só no gesso), respeite a altura mínima do manual, faça a ligação conforme o esquema do fabricante e confira o balanceamento antes de usar.</p>
+  </div>
+
+  <h2 id="antes">Antes de comprar: meça o cômodo</h2>
+  <ul>
+    <li><strong>Pé-direito:</strong> confira a altura do teto. Com pé-direito baixo, prefira modelos compactos, que ficam mais rentes ao teto.</li>
+    <li><strong>Tamanho do cômodo:</strong> os fabricantes indicam a área atendida (por exemplo, até 20 m² ou 25 m²).</li>
+    <li><strong>Ponto de luz:</strong> a maioria aproveita o ponto de luz do teto. Veja se ele está no centro do cômodo.</li>
+    <li><strong>Distância das paredes:</strong> as pás precisam girar livres, longe de paredes, armários e lustres.</li>
+  </ul>
+
+  <h2 id="fixacao">Fixação: laje ou forro de gesso</h2>
+  <h3>Laje</h3>
+  <p>É o caso mais simples: o suporte é parafusado na laje com bucha e parafuso adequados ao peso e à vibração, ou preso a um gancho firme. Siga o kit de fixação do fabricante.</p>
+  <h3>Forro de gesso ou PVC</h3>
+  <p>O forro não aguenta o peso nem a vibração. O ventilador precisa ser preso na <strong>laje acima do forro</strong>, com uma haste ou estrutura de reforço. Se não houver laje, é preciso criar um reforço na estrutura do telhado, feito por profissional.</p>
+
+  <h2 id="altura">Altura</h2>
+  <p>Respeite a distância mínima entre as pás e o chão indicada no manual. Como referência, costuma-se recomendar pelo menos cerca de 2,3 m. Pás muito baixas são perigosas; muito altas ventilam menos.</p>
+
+  <h2 id="eletrica">Parte elétrica</h2>
+  <ol>
+    <li><strong>Desligue o disjuntor</strong> do circuito antes de começar.</li>
+    <li>Identifique fase, neutro e terra.</li>
+    <li>Ligue o ventilador conforme o <strong>esquema do manual</strong>, que muda entre modelos com controle de parede, controle remoto ou interruptor simples.</li>
+    <li>Em modelos com controle de parede, a caixa de parede recebe o controle no lugar do interruptor comum.</li>
+    <li>Confira a <strong>voltagem</strong>: o modelo precisa ser da mesma tensão da rede ou bivolt.</li>
+  </ol>
+
+  <h2 id="balanceamento">Montagem das pás e balanceamento</h2>
+  <ul>
+    <li>Aperte bem todos os parafusos das pás.</li>
+    <li>Verifique se todas as pás estão na mesma altura.</li>
+    <li>Se o ventilador balançar, use o kit de balanceamento (quando fornecido).</li>
+    <li>Teste em todas as velocidades antes do uso normal.</li>
+  </ul>
+
+  <h2 id="inverno">Dica: modo exaustor ou reverso</h2>
+  <p>Vários modelos têm a função de inverter o sentido de rotação. Na posição exaustor, o ar é puxado para cima, o que ajuda a renovar o ar e, no inverno, a redistribuir o ar quente acumulado perto do teto.</p>
+
+  <h2 id="checklist">Checklist</h2>
+  <ul class="check-lista">
+    <li>Disjuntor desligado durante a instalação</li>
+    <li>Suporte fixado na laje ou em estrutura de reforço</li>
+    <li>Altura mínima do manual respeitada</li>
+    <li>Ligação conforme o esquema do fabricante, com terra</li>
+    <li>Voltagem do ventilador igual à da rede (ou bivolt)</li>
+    <li>Pás apertadas e balanceadas</li>
+  </ul>
+  <p>Ainda escolhendo o modelo? Veja os <a href="/melhor-ventilador-de-teto/">10 melhores ventiladores de teto de 2026</a>.</p>
+</Artigo>
+
+<style>
+  .check-lista { list-style: none; padding: 0; }
+  .check-lista li { padding-left: 32px; position: relative; }
+  .check-lista li::before { content: '☑'; position: absolute; left: 0; color: var(--verde); font-size: 1.2rem; }
+</style>

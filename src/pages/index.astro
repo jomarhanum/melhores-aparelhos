@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import AuthorBox from '../components/AuthorBox.astro';
 import { site } from '../data/site';
 import { artigos } from '../data/artigos.mjs';
-import { categorias } from '../data/categorias.mjs';
+import { categorias, grupos } from '../data/categorias.mjs';
 
 const title = 'Melhores Aparelhos: Reviews e Comparativos Honestos de 2026';
 const description = site.description;
@@ -18,7 +18,7 @@ const guias = artigos.filter((a) => a.categoria === 'Guia');
         <h1>Escolha o aparelho certo sem cair em propaganda</h1>
         <p class="subtitulo">Comparativos detalhados, prós e contras sinceros e guias de compra em linguagem simples. Você lê em poucos minutos e compra com segurança.</p>
         <div class="hero-botoes">
-          {categorias.map((c) => <a class="btn" href={c.hub}>Melhor {c.nome.toLowerCase()} →</a>)}
+          {grupos.map((g) => <a class="btn" href={g.url}>{g.nome} →</a>)}
         </div>
       </div>
       <div class="home-ilu"><img src={categorias[1].imagem} alt="Ar-condicionado split inverter, um dos aparelhos comparados no site" width="600" height="600" fetchpriority="high" /></div>
@@ -41,7 +41,7 @@ const guias = artigos.filter((a) => a.categoria === 'Guia');
       <div class="cat cat-breve">
         <div>
           <h3>Em breve</h3>
-          <p>Fornos elétricos de bancada, airfryer, ventiladores e outros aparelhos para a sua casa.</p>
+          <p>Air fryer, geladeira e outros aparelhos para a sua casa.</p>
         </div>
       </div>
     </div>

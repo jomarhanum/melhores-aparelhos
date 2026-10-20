@@ -51,7 +51,20 @@ const bancadas = [
   ['suggar-fe42', 'Suggar FE42 42 litros'],
   ['mondial-pratic-cook', 'Mondial Pratic Cook 6 litros'],
 ];
+const ventiladores = [
+  ['arno-vx13', 'Arno Ultimate VX13'],
+  ['ventisol-aires-inverter', 'Ventisol Aires Inverter'],
+  ['arno-vx15', 'Arno Ultimate VX15'],
+  ['ventisol-fenix-370', 'Ventisol Fênix 370'],
+  ['ventisol-fenix-led-inverter', 'Ventisol Fênix Inverter com LED'],
+  ['aliseu-terral', 'Aliseu Terral'],
+  ['ventisol-wind-inverter', 'Ventisol Wind Inverter'],
+  ['venti-delta-new-light', 'Venti-Delta New Light'],
+  ['tron-marbella-new', 'Tron Marbella New'],
+  ['venti-delta-new-zeta', 'Venti-Delta New Zeta'],
+];
 const fotosDoHub = {
+  '/melhor-ventilador-de-teto/': ventiladores.map(([s, n]) => [s, `Ventilador de teto ${n}`]),
   '/melhor-forno-eletrico-de-bancada/': bancadas.map(([s, n]) => [s, `Forno elétrico de bancada ${n}`]),
   '/melhor-forno-eletrico-de-embutir/': fornos.map(([s, n]) => [s, `Forno elétrico de embutir ${n}`]),
   '/melhor-ar-condicionado-portatil/': produtos.map(([s, n]) => [s, `Ar-condicionado portátil ${n}`]),
@@ -66,6 +79,7 @@ const paginas = {
   '/': { priority: 1.0, changefreq: 'weekly', lastmod: ultimaAtualizacao, img: [img('/images/produtos/electrolux-sp12f.webp', 'Melhor ar-condicionado portátil de 2026')] },
   '/guias/': { priority: 0.7, changefreq: 'weekly', lastmod: ultimaAtualizacao },
   '/fornos/': { priority: 0.8, changefreq: 'weekly', lastmod: ultimaAtualizacao },
+  '/climatizacao/': { priority: 0.8, changefreq: 'weekly', lastmod: ultimaAtualizacao },
   '/autor/jomar-hanum/': { priority: 0.6, changefreq: 'monthly', lastmod: '2026-10-19', img: [fotoAutor] },
   '/sobre/': { priority: 0.5, changefreq: 'monthly', lastmod: '2026-10-19', img: [fotoAutor] },
   '/contato/': { priority: 0.5, changefreq: 'yearly', lastmod: '2026-10-19' },

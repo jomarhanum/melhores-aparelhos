@@ -36,6 +36,20 @@ export const categorias = [
     imagem: '/images/produtos/philco-pfe65.webp',
     descricao: 'Sem instalação: fornos de bancada do mini de 6 litros ao de 65 litros, com dourador, grill e convecção.',
   },
+  {
+    id: 'ventilador-teto',
+    nome: 'Ventilador de teto',
+    curto: 'Ventilador de Teto',
+    hub: '/melhor-ventilador-de-teto/',
+    imagem: '/images/produtos/arno-vx13.webp',
+    descricao: 'Conforto gastando pouco: modelos inverter de 30 W, com controle remoto, luz LED e modo exaustor.',
+  },
+];
+
+// Grupos de categorias com página própria (itens do menu).
+export const grupos = [
+  { id: 'climatizacao', nome: 'Climatização', url: '/climatizacao/', categorias: ['ar-portatil', 'ar-inverter', 'ventilador-teto'] },
+  { id: 'fornos', nome: 'Fornos', url: '/fornos/', categorias: ['forno-embutir', 'forno-bancada'] },
 ];
 
 export const categoriaPorId = (id) => categorias.find((c) => c.id === id);

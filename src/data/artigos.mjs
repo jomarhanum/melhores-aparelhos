@@ -357,5 +357,61 @@ artigos.push(
   },
 );
 
+// ---------- Ventilador de teto ----------
+artigos.push(
+  {
+    url: '/melhor-ventilador-de-teto/',
+    titulo: 'Melhor Ventilador de Teto 2026: 10 Modelos Comparados',
+    h1: 'Melhor Ventilador de Teto de 2026: 10 Modelos Comparados',
+    descricao: 'Qual o melhor ventilador de teto de 2026? Comparamos 10 modelos (Arno, Ventisol, Aliseu, Venti-Delta e Tron) com potência, consumo, velocidades, luz, controle remoto, prós e contras.',
+    categoria: 'Comparativo',
+    secao: 'ventilador-teto',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/arno-vx13.webp',
+    resumo: 'Arno, Ventisol, Aliseu, Venti-Delta e Tron lado a lado: qual ventilador de teto comprar.',
+    minutos: 14,
+  },
+  {
+    url: '/guias/ventilador-de-teto-inverter-vale-a-pena/',
+    titulo: 'Ventilador de Teto Inverter Vale a Pena? Consumo e Economia',
+    h1: 'Ventilador de teto inverter vale a pena?',
+    descricao: 'Ventilador de teto inverter vale a pena? Compare o consumo de 30 W com os 130 a 150 W dos modelos comuns, veja quanto economiza por mês e quando compensa.',
+    categoria: 'Guia',
+    secao: 'ventilador-teto',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/ventisol-aires-inverter.webp',
+    resumo: 'Consumo, economia por mês, silêncio e quando o inverter compensa.',
+    minutos: 6,
+  },
+  {
+    url: '/guias/como-instalar-ventilador-de-teto/',
+    titulo: 'Como Instalar Ventilador de Teto: Altura, Fiação e Laje ou Gesso',
+    h1: 'Como instalar ventilador de teto com segurança',
+    descricao: 'Guia de instalação do ventilador de teto: altura mínima, fixação em laje ou forro de gesso, fiação, interruptor ou controle de parede e checklist de segurança.',
+    categoria: 'Guia',
+    secao: 'ventilador-teto',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/tron-marbella-new.webp',
+    resumo: 'Altura, fixação na laje ou no gesso, fiação e controle: o que conferir antes de instalar.',
+    minutos: 7,
+  },
+  {
+    url: '/guias/ventilador-de-teto-ou-ar-condicionado/',
+    titulo: 'Ventilador de Teto ou Ar-Condicionado: Qual Escolher?',
+    h1: 'Ventilador de teto ou ar-condicionado: qual escolher?',
+    descricao: 'Ventilador de teto ou ar-condicionado? Compare conforto, consumo de energia, custo, instalação e quando vale usar os dois juntos para economizar.',
+    categoria: 'Guia',
+    secao: 'ventilador-teto',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/aliseu-terral.webp',
+    resumo: 'Conforto, consumo, custo e o truque de usar os dois juntos para gastar menos.',
+    minutos: 6,
+  },
+);
+
 export const artigoPorUrl = (url) => artigos.find((a) => a.url === url);
 export const artigosDaSecao = (secao) => artigos.filter((a) => a.secao === secao);

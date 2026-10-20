@@ -1,92 +1,12 @@
 ---
-import Base from '../layouts/Base.astro';
-import { site } from '../data/site';
-import { artigosDaSecao } from '../data/artigos.mjs';
-import { categoriaPorId } from '../data/categorias.mjs';
-
-const title = 'Forno Elétrico: Melhores de Embutir e de Bancada em 2026 | Melhores Aparelhos';
-const description = 'Comparativos e guias de forno elétrico: os melhores fornos de embutir e de bancada de 2026, como escolher o tamanho, consumo de energia e instalação.';
-const cats = ['forno-embutir', 'forno-bancada'].map((id) => categoriaPorId(id));
-const guias = [...artigosDaSecao('forno-embutir'), ...artigosDaSecao('forno-bancada')].filter((a) => !cats.some((c) => c.hub === a.url));
-const ld = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: 'Forno elétrico',
-    url: `${site.url}/fornos/`,
-    mainEntity: {
-      '@type': 'ItemList',
-      itemListElement: [...cats.map((c) => ({ name: c.nome, url: c.hub })), ...guias.map((g) => ({ name: g.h1, url: g.url }))].map((x, i) => ({ '@type': 'ListItem', position: i + 1, name: x.name, url: `${site.url}${x.url}` })),
-    },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
-      { '@type': 'ListItem', position: 2, name: 'Fornos', item: `${site.url}/fornos/` },
-    ],
-  },
-];
+import Grupo from '../layouts/Grupo.astro';
 ---
-<Base title={title} description={description} jsonLd={ld}>
-  <section class="hero">
-    <div class="wrap">
-      <nav class="migalhas" aria-label="Você está em">
-        <ol><li><a href="/">Home</a></li><li aria-current="page">Fornos</li></ol>
-      </nav>
-      <h1>Forno elétrico: de embutir ou de bancada?</h1>
-      <p class="subtitulo">Comparativos dos melhores modelos de 2026 e guias para escolher o tamanho certo, entender o consumo e acertar a instalação.</p>
-    </div>
-  </section>
-
-  <div class="wrap">
-    <h2>Escolha o tipo de forno</h2>
-    <div class="cats">
-      {cats.map((c) => (
-        <a class="cat" href={c.hub}>
-          <img src={c.imagem} alt="" width="600" height="600" loading="eager" decoding="async" />
-          <div>
-            <h3>{c.nome}</h3>
-            <p>{c.descricao}</p>
-            <span class="ler">Ver os 10 melhores de 2026 →</span>
-          </div>
-        </a>
-      ))}
-    </div>
-    <p>Na dúvida entre os dois? Leia <a href="/guias/forno-de-bancada-ou-de-embutir/">forno de bancada ou de embutir: qual escolher</a>.</p>
-
-    <h2>Guias de forno elétrico</h2>
-    <div class="lista">
-      {guias.map((a) => (
-        <a class="item" href={a.url}>
-          <img src={a.imagem} alt="" width="120" height="120" loading="lazy" decoding="async" />
-          <div>
-            <span class="cat-tag">{a.categoria} · {a.minutos} min</span>
-            <h3>{a.h1}</h3>
-            <p>{a.resumo}</p>
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
-</Base>
-
-<style>
-  .cats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 1rem; }
-  .cat { display: grid; grid-template-columns: 180px 1fr; gap: 20px; align-items: center; text-decoration: none; color: inherit; border: 1px solid var(--borda); border-radius: 20px; padding: 20px; background: #fff; transition: transform .15s, box-shadow .15s; }
-  .cat:hover { transform: translateY(-3px); box-shadow: var(--sombra); color: inherit; }
-  .cat img { width: 100%; aspect-ratio: 1; object-fit: contain; }
-  .cat h3 { margin: 0 0 .4rem; }
-  .cat p { font-size: 1rem; color: var(--texto-2); }
-  .ler { font-weight: 700; color: var(--azul); }
-  .lista { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .item { display: flex; gap: 18px; align-items: center; border: 1px solid var(--borda); border-radius: 18px; padding: 18px; text-decoration: none; color: inherit; background: #fff; }
-  .item:hover { box-shadow: var(--sombra); color: inherit; }
-  .item img { width: 88px; height: 88px; object-fit: contain; flex-shrink: 0; }
-  .item h3 { margin: .2rem 0 .3rem; font-size: 1.12rem; }
-  .item p { margin: 0; font-size: 1rem; color: var(--texto-2); line-height: 1.5; }
-  .cat-tag { font-size: .8rem; font-weight: 700; color: var(--azul); text-transform: uppercase; letter-spacing: .05em; }
-  @media (max-width: 860px) { .cats, .lista { grid-template-columns: 1fr; } }
-  @media (max-width: 520px) { .cat { grid-template-columns: 1fr; } .cat img { max-width: 200px; margin: 0 auto; } }
-</style>
+<Grupo
+  grupoId="fornos"
+  title="Forno Elétrico: Melhores de Embutir e de Bancada em 2026 | Melhores Aparelhos"
+  description="Comparativos e guias de forno elétrico: os melhores fornos de embutir e de bancada de 2026, como escolher o tamanho, consumo de energia e instalação."
+  h1="Forno elétrico: de embutir ou de bancada?"
+  subtitulo="Comparativos dos melhores modelos de 2026 e guias para escolher o tamanho certo, entender o consumo e acertar a instalação."
+>
+  <p>Na dúvida entre os dois? Leia <a href="/guias/forno-de-bancada-ou-de-embutir/">forno de bancada ou de embutir: qual escolher</a>.</p>
+</Grupo>

@@ -1,0 +1,55 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Ventilador de teto refresca como ar-condicionado?', a: 'Não. O ventilador não baixa a temperatura do cômodo; ele movimenta o ar e aumenta a evaporação do suor, o que dá sensação de frescor. O ar-condicionado retira o calor e a umidade do ambiente.' },
+  { q: 'Quanto o ventilador de teto gasta comparado ao ar-condicionado?', a: 'Um ventilador de teto consome de cerca de 30 W (inverter) a 150 W. Um ar-condicionado de 12.000 BTUs consome em torno de 1.000 W a 1.400 W. Ou seja, o ventilador gasta de 7 a mais de 40 vezes menos.' },
+  { q: 'Vale usar ventilador de teto junto com o ar-condicionado?', a: 'Vale. Com o ventilador ligado, dá para programar o ar-condicionado 1 ou 2 graus mais alto e manter a mesma sensação de conforto, o que reduz o consumo do ar.' },
+  { q: 'Ventilador de teto funciona em cidade muito quente?', a: 'Funciona como alívio, mas em dias muito quentes e úmidos ele só movimenta ar quente. Nesses lugares, o ar-condicionado, ou os dois juntos, costuma ser necessário.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ventilador-de-teto/', '/melhor-ar-condicionado-inverter/', '/melhor-ar-condicionado-portatil/', '/guias/ventilador-de-teto-inverter-vale-a-pena/']}>
+  <p>Na hora de enfrentar o calor, a dúvida é comum: <strong>ventilador de teto ou ar-condicionado?</strong> Eles fazem coisas diferentes, custam muito diferente e, em muitas casas, a melhor resposta é usar os dois.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> o <strong>ventilador de teto</strong> é barato de comprar e de usar, mas só alivia a sensação de calor. O <strong>ar-condicionado</strong> baixa a temperatura de verdade, mas gasta muito mais energia. Usar os dois juntos permite deixar o ar mais alto e economizar.</p>
+  </div>
+
+  <h2 id="comparativo">Lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Ventilador de teto</th><th>Ar-condicionado</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Baixa a temperatura?</th><td>Não, só a sensação térmica</td><td>Sim</td></tr>
+        <tr><th scope="row">Tira umidade?</th><td>Não</td><td>Sim</td></tr>
+        <tr><th scope="row">Consumo</th><td>Cerca de 30 W a 150 W</td><td>Cerca de 1.000 W a 1.400 W (12.000 BTUs)</td></tr>
+        <tr><th scope="row">Instalação</th><td>Ponto de luz do teto</td><td>Técnico, ou mangueira na janela (portátil)</td></tr>
+        <tr><th scope="row">Preço</th><td>Mais baixo</td><td>Mais alto</td></tr>
+        <tr><th scope="row">Ideal para</th><td>Calor moderado, economia</td><td>Calor intenso e úmido</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="como-funciona">Por que o ventilador "refresca" sem esfriar</h2>
+  <p>O ventilador não tira calor do cômodo: ele movimenta o ar sobre a pele, o que acelera a evaporação do suor e dá a sensação de frescor. Por isso funciona melhor em calor moderado. Em dias muito quentes e úmidos, ele só espalha ar quente.</p>
+
+  <h2 id="juntos">O truque: usar os dois juntos</h2>
+  <p>Com o ventilador de teto ligado, a sensação térmica cai alguns graus. Assim, você pode programar o ar-condicionado <strong>1 ou 2 graus mais alto</strong> (por exemplo, 25 °C em vez de 23 °C) e manter o mesmo conforto. Como cada grau a menos aumenta o trabalho do ar-condicionado, a economia aparece na conta.</p>
+
+  <h2 id="escolha">Qual escolher</h2>
+  <h3>Fique com o ventilador de teto se...</h3>
+  <ul>
+    <li>O calor na sua cidade é moderado.</li>
+    <li>Quer gastar pouco na compra e na conta de luz.</li>
+    <li>Precisa ventilar salas e varandas abertas.</li>
+  </ul>
+  <h3>Fique com o ar-condicionado se...</h3>
+  <ul>
+    <li>Mora em cidade muito quente e úmida.</li>
+    <li>Precisa de um quarto realmente fresco para dormir.</li>
+    <li>Também quer aquecimento no inverno (modelos quente e frio).</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Veja os <a href="/melhor-ventilador-de-teto/">10 melhores ventiladores de teto de 2026</a>, os <a href="/melhor-ar-condicionado-inverter/">melhores ar-condicionados inverter</a> e, se não puder instalar split, os <a href="/melhor-ar-condicionado-portatil/">melhores portáteis</a>.</p>
+</Artigo>
