@@ -1,0 +1,48 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Forno elétrico de 44 litros é bom para família?', a: 'Atende bem famílias de 2 a 4 pessoas no dia a dia: cabe uma assadeira média, um bolo ou uma lasanha. Para assados grandes ou duas assadeiras ao mesmo tempo, prefira 50 litros ou mais.' },
+  { q: 'Cabe pizza em forno elétrico de bancada?', a: 'Depende da largura e da profundidade internas, não só dos litros. Antes de comprar, compare as medidas da sua forma de pizza com as medidas internas informadas pelo fabricante.' },
+  { q: 'Forno maior gasta mais energia?', a: 'Em geral, sim: tem mais espaço para aquecer e costuma ter potência maior. Por isso, escolher um forno muito maior do que você precisa pode desperdiçar energia.' },
+  { q: 'Mini forno de 6 a 10 litros vale a pena?', a: 'Vale para lanches, torradas e porções individuais, ocupando pouco espaço. Não serve para bolos, lasanhas ou assados de família.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-forno-eletrico-de-bancada/', '/guias/forno-de-bancada-ou-de-embutir/', '/guias/forno-eletrico-ou-air-fryer/', '/melhor-forno-eletrico-de-embutir/']}>
+  <p>Na hora de comprar um forno elétrico, o número de <strong>litros</strong> é a primeira coisa que aparece no anúncio. Mas quantos litros você realmente precisa? Forno pequeno demais frustra; grande demais ocupa espaço e gasta mais energia.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> até 10 litros para lanches; de 20 a 30 litros para 1 ou 2 pessoas; de 40 a 50 litros para famílias de até 4; e 60 litros ou mais para famílias grandes e assados.</p>
+  </div>
+
+  <h2 id="tabela">Tamanho ideal por perfil</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Capacidade</th><th>Perfil</th><th>O que dá para fazer</th></tr></thead>
+      <tbody>
+        <tr><td>Até 10 litros</td><td>1 pessoa, lanches</td><td>Torradas, pão de queijo, esquentar comida</td></tr>
+        <tr><td>20 a 30 litros</td><td>1 a 2 pessoas</td><td>Pratos individuais, pequenas assadeiras</td></tr>
+        <tr><td>40 a 50 litros</td><td>2 a 4 pessoas</td><td>Bolos, lasanhas, assados médios</td></tr>
+        <tr><td>60 litros ou mais</td><td>Família grande, quem recebe</td><td>Assados grandes, duas assadeiras</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="litros">Litros não contam tudo</h2>
+  <p>Dois fornos com o mesmo número de litros podem ter formatos diferentes: um mais largo, outro mais fundo ou mais alto. Para saber se a sua assadeira, a forma de pizza ou a travessa de lasanha vão caber, compare as <strong>medidas internas</strong> (largura e profundidade) informadas pelo fabricante com as medidas das suas formas.</p>
+  <p>Também vale contar as <strong>alturas de grade</strong>: quanto mais posições, mais fácil ajustar a distância da resistência para dourar ou assar devagar.</p>
+
+  <h2 id="espaco">Não esqueça o espaço na bancada</h2>
+  <p>Fornos de bancada de 40 a 65 litros costumam ter de 50 a 60 cm de largura e precisam de espaço livre ao redor para ventilar. Antes de comprar:</p>
+  <ul>
+    <li>Meça a bancada (largura e profundidade) e a altura até o armário de cima.</li>
+    <li>Some a folga de ventilação indicada no manual.</li>
+    <li>Confira se há uma tomada adequada por perto.</li>
+  </ul>
+
+  <h2 id="potencia">Tamanho e potência andam juntos</h2>
+  <p>Fornos maiores costumam ter mais potência: de cerca de 650 W nos mini fornos a 2.000 W nos modelos de 50 a 65 litros. Mais potência aquece mais rápido, mas exige tomada adequada e pesa um pouco mais na conta de luz. Veja <a href="/guias/forno-eletrico-gasta-muita-energia/">quanto um forno elétrico gasta</a>.</p>
+
+  <h2>Já sabe o tamanho?</h2>
+  <p>Compare os modelos no <a href="/melhor-forno-eletrico-de-bancada/">ranking dos 10 melhores fornos de bancada</a>. Se a sua cozinha é planejada, veja também os <a href="/melhor-forno-eletrico-de-embutir/">fornos de embutir</a>.</p>
+</Artigo>

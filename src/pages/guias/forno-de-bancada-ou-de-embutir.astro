@@ -1,0 +1,62 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Forno de bancada assa tão bem quanto o de embutir?', a: 'Para o dia a dia, sim: bolos, lasanhas, pães de queijo e assados médios saem muito bem. Os fornos de embutir costumam ter mais capacidade e recursos, como convecção e controle de temperatura mais preciso, o que ajuda em receitas grandes ou mais exigentes.' },
+  { q: 'Forno de bancada precisa de instalação?', a: 'Não precisa de instalador: basta uma bancada firme, espaço de ventilação ao redor e uma tomada adequada. Como muitos modelos passam de 1.500 W, use tomada exclusiva, sem extensão ou benjamim.' },
+  { q: 'Qual gasta menos energia?', a: 'Por hora de uso, depende da potência de cada modelo. O forno de bancada tem cavidade menor e costuma aquecer mais rápido, o que ajuda a gastar menos com porções pequenas.' },
+  { q: 'Posso embutir um forno de bancada no armário?', a: 'Não é recomendado. O forno de bancada foi projetado para ficar com as laterais e o topo livres para ventilar. Fechado em um nicho, ele pode superaquecer e danificar o móvel.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-forno-eletrico-de-bancada/', '/melhor-forno-eletrico-de-embutir/', '/guias/qual-tamanho-de-forno-eletrico/', '/guias/forno-eletrico-ou-air-fryer/']}>
+  <p>Vai comprar um forno elétrico e está em dúvida entre o <strong>de bancada</strong> e o <strong>de embutir</strong>? A escolha depende menos de qual é "melhor" e mais da sua cozinha: espaço, móveis, instalação elétrica e quanto você cozinha.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> o <strong>de bancada</strong> é mais barato, não precisa de instalação e pode mudar de lugar. O <strong>de embutir</strong> é maior, tem mais recursos, libera a bancada e deixa a cozinha planejada mais bonita, mas exige nicho no móvel e circuito elétrico exclusivo.</p>
+  </div>
+
+  <h2 id="comparativo">Bancada x embutir lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Forno de bancada</th><th>Forno de embutir</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Instalação</th><td>Nenhuma (tomada adequada)</td><td>Nicho no móvel e circuito exclusivo</td></tr>
+        <tr><th scope="row">Capacidade típica</th><td>De 6 a 65 litros</td><td>De 47 a 84 litros</td></tr>
+        <tr><th scope="row">Recursos</th><td>Básicos a intermediários</td><td>Convecção, grill, timer, painel digital</td></tr>
+        <tr><th scope="row">Espaço</th><td>Ocupa a bancada</td><td>Libera a bancada</td></tr>
+        <tr><th scope="row">Mobilidade</th><td>Muda de lugar</td><td>Fixo</td></tr>
+        <tr><th scope="row">Preço</th><td>Mais baixo</td><td>Mais alto</td></tr>
+        <tr><th scope="row">Ideal para</th><td>Aluguel, cozinha pequena, uso moderado</td><td>Cozinha planejada, uso frequente</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="bancada">Quando escolher o forno de bancada</h2>
+  <ul>
+    <li>Você mora de aluguel ou não quer mexer nos móveis.</li>
+    <li>A cozinha é pequena e não tem nicho para forno.</li>
+    <li>Usa o forno algumas vezes por semana, para receitas do dia a dia.</li>
+    <li>Quer gastar menos na compra.</li>
+  </ul>
+  <p>Veja os <a href="/melhor-forno-eletrico-de-bancada/">10 melhores fornos elétricos de bancada de 2026</a>.</p>
+
+  <h2 id="embutir">Quando escolher o forno de embutir</h2>
+  <ul>
+    <li>Está montando ou reformando uma cozinha planejada.</li>
+    <li>Cozinha com frequência ou para muita gente.</li>
+    <li>Quer recursos como convecção, painel digital e timer com desligamento.</li>
+    <li>Prefere a bancada livre e o forno na altura do peito (torre quente).</li>
+  </ul>
+  <p>Veja os <a href="/melhor-forno-eletrico-de-embutir/">10 melhores fornos elétricos de embutir de 2026</a> e o guia de <a href="/guias/como-instalar-forno-eletrico-de-embutir/">instalação do forno de embutir</a>.</p>
+
+  <h2 id="cuidados">Cuidados com o forno de bancada</h2>
+  <ul>
+    <li><strong>Ventilação:</strong> deixe espaço livre nas laterais, atrás e em cima, conforme o manual.</li>
+    <li><strong>Bancada firme e resistente ao calor</strong>, longe de cortinas e da pia.</li>
+    <li><strong>Tomada adequada:</strong> modelos de 1.500 W a 2.000 W puxam bastante corrente, principalmente em 127 V. Use tomada exclusiva, de 20 A quando o plugue for de 20 A.</li>
+    <li><strong>Nunca embuta</strong> um forno de bancada em armário fechado.</li>
+  </ul>
+
+  <h2>Ainda em dúvida sobre o tamanho?</h2>
+  <p>Veja <a href="/guias/qual-tamanho-de-forno-eletrico/">qual tamanho de forno elétrico comprar</a> e compare o <a href="/guias/forno-eletrico-ou-air-fryer/">forno elétrico com a air fryer</a>.</p>
+</Artigo>

@@ -39,7 +39,20 @@ const fornos = [
   ['mueller-mfe0268', 'Mueller MFE0268G1 68 litros'],
   ['continental-oc4em', 'Continental OC4EM 50 litros'],
 ];
+const bancadas = [
+  ['philco-pfe65', 'Philco PFE65 65 litros'],
+  ['oster-ofor455', 'Oster 45 litros com convecção'],
+  ['fischer-gourmet-grill', 'Fischer Gourmet Grill 44 litros'],
+  ['philco-pfe52p', 'Philco PFE52P 50 litros'],
+  ['britania-bfe44p', 'Britânia BFE44P 44 litros'],
+  ['mondial-grand-family', 'Mondial Grand Family II 52 litros'],
+  ['nardelli-smart-60s', 'Nardelli SMART60-S 60 litros com espeto giratório'],
+  ['fischer-premier-48', 'Fischer Premier 48 litros'],
+  ['suggar-fe42', 'Suggar FE42 42 litros'],
+  ['mondial-pratic-cook', 'Mondial Pratic Cook 6 litros'],
+];
 const fotosDoHub = {
+  '/melhor-forno-eletrico-de-bancada/': bancadas.map(([s, n]) => [s, `Forno elétrico de bancada ${n}`]),
   '/melhor-forno-eletrico-de-embutir/': fornos.map(([s, n]) => [s, `Forno elétrico de embutir ${n}`]),
   '/melhor-ar-condicionado-portatil/': produtos.map(([s, n]) => [s, `Ar-condicionado portátil ${n}`]),
   '/melhor-ar-condicionado-inverter/': inverters.map(([s, n]) => [s, `Ar-condicionado split inverter ${n}`]),
@@ -52,6 +65,7 @@ const ultimaAtualizacao = artigos.map((a) => a.atualizado).sort().at(-1);
 const paginas = {
   '/': { priority: 1.0, changefreq: 'weekly', lastmod: ultimaAtualizacao, img: [img('/images/produtos/electrolux-sp12f.webp', 'Melhor ar-condicionado portátil de 2026')] },
   '/guias/': { priority: 0.7, changefreq: 'weekly', lastmod: ultimaAtualizacao },
+  '/fornos/': { priority: 0.8, changefreq: 'weekly', lastmod: ultimaAtualizacao },
   '/autor/jomar-hanum/': { priority: 0.6, changefreq: 'monthly', lastmod: '2026-10-19', img: [fotoAutor] },
   '/sobre/': { priority: 0.5, changefreq: 'monthly', lastmod: '2026-10-19', img: [fotoAutor] },
   '/contato/': { priority: 0.5, changefreq: 'yearly', lastmod: '2026-10-19' },

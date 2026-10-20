@@ -3,8 +3,9 @@ import type { Produto } from './tipos';
 import { produtos as portateis } from './produtos';
 import { inverters } from './inverter';
 import { fornos } from './forno';
+import { bancadas } from './bancada';
 
-export const todosProdutos: Produto[] = [...portateis, ...inverters, ...fornos];
+export const todosProdutos: Produto[] = [...portateis, ...inverters, ...fornos, ...bancadas];
 
 export const buscarProduto = (slug: string) => {
   const p = todosProdutos.find((x) => x.slug === slug);

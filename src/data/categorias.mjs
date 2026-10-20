@@ -28,6 +28,14 @@ export const categorias = [
     imagem: '/images/produtos/electrolux-oe8ea.webp',
     descricao: 'Fornos elétricos para a cozinha planejada: capacidade, funções, consumo e medidas do nicho.',
   },
+  {
+    id: 'forno-bancada',
+    nome: 'Forno elétrico de bancada',
+    curto: 'Forno de Bancada',
+    hub: '/melhor-forno-eletrico-de-bancada/',
+    imagem: '/images/produtos/philco-pfe65.webp',
+    descricao: 'Sem instalação: fornos de bancada do mini de 6 litros ao de 65 litros, com dourador, grill e convecção.',
+  },
 ];
 
 export const categoriaPorId = (id) => categorias.find((c) => c.id === id);

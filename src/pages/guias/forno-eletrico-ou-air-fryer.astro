@@ -1,0 +1,59 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Air fryer substitui o forno elétrico?', a: 'Para porções pequenas e alimentos crocantes, sim. Mas a air fryer tem cesto pequeno e não comporta bolos grandes, lasanhas ou assados de família. Para essas receitas, o forno continua sendo necessário.' },
+  { q: 'Air fryer gasta menos energia que o forno?', a: 'Para porções pequenas, normalmente sim: tem potência parecida ou menor e cozinha em menos tempo, quase sem pré-aquecimento. Para grandes quantidades, o forno pode ser mais eficiente por fazer tudo de uma vez.' },
+  { q: 'Existe forno com função air fryer?', a: 'Sim. Alguns fornos têm convecção forte com função air fryer, como os fornos de embutir Electrolux OE8EA e Fischer Infinity do nosso comparativo.' },
+  { q: 'Vale ter os dois?', a: 'Para muitas famílias, sim: a air fryer resolve o dia a dia rápido e o forno fica para bolos, assados e receitas maiores.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-forno-eletrico-de-bancada/', '/guias/qual-tamanho-de-forno-eletrico/', '/guias/forno-eletrico-gasta-muita-energia/', '/melhor-forno-eletrico-de-embutir/']}>
+  <p>A air fryer conquistou as cozinhas, e muita gente se pergunta se ainda precisa de um forno elétrico. A resposta depende do que você cozinha e para quantas pessoas.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> a <strong>air fryer</strong> é imbatível para porções pequenas e crocantes, rápidas e sem óleo. O <strong>forno elétrico</strong> vence em capacidade: bolos, lasanhas, pães e assados para a família.</p>
+  </div>
+
+  <h2 id="comparativo">Forno elétrico x air fryer</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Forno elétrico de bancada</th><th>Air fryer</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Capacidade</th><td>De 6 a 65 litros</td><td>Cesto de poucos litros</td></tr>
+        <tr><th scope="row">Pré-aquecimento</th><td>Necessário na maioria das receitas</td><td>Curto ou nenhum</td></tr>
+        <tr><th scope="row">Crocância</th><td>Boa (melhor com convecção)</td><td>Excelente</td></tr>
+        <tr><th scope="row">Bolos e lasanhas</th><td>Sim</td><td>Só pequenos</td></tr>
+        <tr><th scope="row">Porções pequenas</th><td>Gasta mais do que precisa</td><td>Ideal</td></tr>
+        <tr><th scope="row">Espaço na bancada</th><td>Maior</td><td>Menor</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="receitas">Quem faz melhor cada receita</h2>
+  <ul>
+    <li><strong>Batata, nuggets, empanados, legumes crocantes:</strong> air fryer.</li>
+    <li><strong>Bolos, pães e tortas:</strong> forno.</li>
+    <li><strong>Lasanha, gratinados e assados de família:</strong> forno.</li>
+    <li><strong>Pão de queijo:</strong> os dois; a air fryer é mais rápida para poucas unidades, o forno para muitas.</li>
+    <li><strong>Esquentar comida:</strong> os dois funcionam; a air fryer é mais rápida para pouca quantidade.</li>
+  </ul>
+
+  <h2 id="energia">E o consumo de energia?</h2>
+  <p>A conta é a mesma para os dois: <strong>potência (W) × tempo de uso</strong>. Como a air fryer costuma cozinhar porções pequenas mais rápido e quase sem pré-aquecimento, ela tende a gastar menos nesses casos. Para grandes quantidades, o forno faz tudo de uma vez e pode compensar. Faça a conta no guia <a href="/guias/forno-eletrico-gasta-muita-energia/">quanto gasta um forno elétrico</a>.</p>
+
+  <h2 id="decidir">Como decidir</h2>
+  <h3>Fique com a air fryer se...</h3>
+  <ul>
+    <li>Mora sozinho ou a dois e cozinha porções pequenas.</li>
+    <li>Quer praticidade e rapidez no dia a dia.</li>
+    <li>Tem pouco espaço na bancada.</li>
+  </ul>
+  <h3>Fique com o forno se...</h3>
+  <ul>
+    <li>Faz bolos, pães e assados com frequência.</li>
+    <li>Cozinha para 3 pessoas ou mais.</li>
+    <li>Quer assar várias coisas ao mesmo tempo.</li>
+  </ul>
+  <p>Quer as duas coisas em um só aparelho? Alguns fornos de embutir têm função air fryer, como o <a href="/melhor-forno-eletrico-de-embutir/#electrolux-oe8ea">Electrolux OE8EA</a> e o <a href="/melhor-forno-eletrico-de-embutir/#fischer-infinity-50-air-fryer">Fischer Infinity 50L</a>. Para a bancada, veja os <a href="/melhor-forno-eletrico-de-bancada/">10 melhores fornos de bancada de 2026</a>.</p>
+</Artigo>

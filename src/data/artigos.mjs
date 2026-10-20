@@ -301,5 +301,61 @@ artigos.push(
   },
 );
 
+// ---------- Forno elétrico de bancada ----------
+artigos.push(
+  {
+    url: '/melhor-forno-eletrico-de-bancada/',
+    titulo: 'Melhor Forno Elétrico de Bancada 2026: 10 Modelos Comparados',
+    h1: 'Melhor Forno Elétrico de Bancada de 2026: 10 Modelos Comparados',
+    descricao: 'Qual o melhor forno elétrico de bancada de 2026? Comparamos 10 modelos (Philco, Fischer, Oster, Britânia, Mondial e mais) com capacidade, potência, temperatura, prós e contras.',
+    categoria: 'Comparativo',
+    secao: 'forno-bancada',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/philco-pfe65.webp',
+    resumo: 'Philco, Fischer, Oster, Britânia, Mondial, Nardelli e Suggar lado a lado, do mini de 6 L ao de 65 L.',
+    minutos: 14,
+  },
+  {
+    url: '/guias/forno-de-bancada-ou-de-embutir/',
+    titulo: 'Forno de Bancada ou de Embutir: Qual Escolher?',
+    h1: 'Forno elétrico de bancada ou de embutir: qual escolher?',
+    descricao: 'Forno elétrico de bancada ou de embutir? Compare espaço, instalação, capacidade, recursos, consumo e preço para escolher o melhor para a sua cozinha.',
+    categoria: 'Guia',
+    secao: 'forno-bancada',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/fischer-gourmet-grill.webp',
+    resumo: 'Espaço, instalação, capacidade e recursos de cada tipo, lado a lado.',
+    minutos: 6,
+  },
+  {
+    url: '/guias/qual-tamanho-de-forno-eletrico/',
+    titulo: 'Qual Tamanho de Forno Elétrico Comprar? Litros por Família',
+    h1: 'Qual tamanho de forno elétrico comprar? Guia de litros',
+    descricao: 'Quantos litros de forno elétrico você precisa? Veja a capacidade ideal por tamanho de família, o tamanho de pizza e de assadeira que cabe e as medidas externas.',
+    categoria: 'Guia',
+    secao: 'forno-bancada',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/philco-pfe52p.webp',
+    resumo: 'Litros ideais por família, pizza e assadeira que cabem e espaço na bancada.',
+    minutos: 5,
+  },
+  {
+    url: '/guias/forno-eletrico-ou-air-fryer/',
+    titulo: 'Forno Elétrico ou Air Fryer: Qual Vale Mais a Pena?',
+    h1: 'Forno elétrico ou air fryer: qual vale mais a pena?',
+    descricao: 'Forno elétrico ou air fryer? Compare capacidade, receitas, tempo de preparo, consumo de energia e espaço para descobrir qual combina com a sua rotina.',
+    categoria: 'Guia',
+    secao: 'forno-bancada',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/oster-ofor455.webp',
+    resumo: 'Capacidade, receitas, tempo, consumo e espaço: quando cada um faz mais sentido.',
+    minutos: 6,
+  },
+);
+
 export const artigoPorUrl = (url) => artigos.find((a) => a.url === url);
 export const artigosDaSecao = (secao) => artigos.filter((a) => a.secao === secao);
