@@ -98,7 +98,7 @@ const dados: FornoDados[] = [
     pros: ['84 litros', 'Convecção e turbo grill', 'Até 260 °C', 'Acabamento espelhado'],
     contras: ['Um dos mais altos da lista (62 cm): confira o nicho', 'Potência não informada nas fichas que consultamos'],
     amazonUrl: 'https://link.amazon/B08IziKGI',
-    mercadoLivreUrl: '',
+    mercadoLivreUrl: null,
   },
   {
     slug: 'fischer-infinity-50-air-fryer',
