@@ -39,6 +39,15 @@ if (!chave.ok || (await chave.text()).trim() !== KEY) {
   process.exit(1);
 }
 
+// Só envia páginas que já respondem 200 no site publicado (evita avisar páginas de um deploy que falhou).
+for (const u of enviar) {
+  const resp = await fetchTentando(u, { method: 'HEAD' });
+  if (!resp.ok) {
+    console.error(`${u} respondeu ${resp.status}. Confira o deploy antes de enviar ao IndexNow.`);
+    process.exit(1);
+  }
+}
+
 const r = await fetchTentando('https://api.indexnow.org/indexnow', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json; charset=utf-8' },
