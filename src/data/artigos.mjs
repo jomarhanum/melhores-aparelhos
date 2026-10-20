@@ -213,7 +213,7 @@ artigos.push(
     secao: 'ar-inverter',
     publicado: '2026-10-20',
     atualizado: '2026-10-20',
-    imagem: '/images/produtos/elgin-eco-inverter-ii-9000-qf.webp',
+    imagem: '/images/produtos/elgin-eco-iii-9000-qf.webp',
     resumo: 'IDRS, classes de A a E, consumo anual e quanto o aparelho vai pesar na conta de luz.',
     minutos: 6,
   },
