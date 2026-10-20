@@ -30,8 +30,8 @@ const p = buscarProduto(slug);
       </p>
       {p.versoes && <p class="mini-volt">⚡ Não é bivolt: escolha na loja a versão 127 V ou 220 V da sua tomada.</p>}
       <div class="mini-botoes">
-        <a class="btn btn-amazon btn-sm" href={amazonLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Ver preço na Amazon</a>
-        <a class="btn btn-ml btn-sm" href={mercadoLivreLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Ver no Mercado Livre</a>
+        {amazonLink(p) && <a class="btn btn-amazon btn-sm" href={amazonLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Ver preço na Amazon</a>}
+        {mercadoLivreLink(p) && <a class="btn btn-ml btn-sm" href={mercadoLivreLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Ver no Mercado Livre</a>}
       </div>
       <a class="mini-review" href={`${p.hub}#${p.slug}`}>Análise completa no comparativo →</a>
     </div>

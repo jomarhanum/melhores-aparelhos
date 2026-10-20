@@ -31,15 +31,18 @@ export interface Produto {
   busca: string;
   /** Página principal (comparativo) da categoria. */
   hub: string;
-  amazonUrl: string;
-  mercadoLivreUrl: string;
+  /** '' = ainda sem link (botão leva à busca na loja); null = produto não vendido na loja (botão some). */
+  amazonUrl: string | null;
+  mercadoLivreUrl: string | null;
 }
 
-export const amazonLink = (p: Produto) =>
-  p.amazonUrl || `https://www.amazon.com.br/s?k=${encodeURIComponent(p.busca)}`;
+export const amazonLink = (p: Produto): string | null =>
+  p.amazonUrl === null ? null : p.amazonUrl || `https://www.amazon.com.br/s?k=${encodeURIComponent(p.busca)}`;
 
-export const mercadoLivreLink = (p: Produto) =>
-  p.mercadoLivreUrl ||
-  `https://lista.mercadolivre.com.br/${encodeURIComponent(p.busca.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, '-'))}`;
+export const mercadoLivreLink = (p: Produto): string | null =>
+  p.mercadoLivreUrl === null
+    ? null
+    : p.mercadoLivreUrl ||
+      `https://lista.mercadolivre.com.br/${encodeURIComponent(p.busca.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, '-'))}`;
 
 export const fotoProduto = (p: Pick<Produto, 'slug'>) => `/images/produtos/${p.slug}.webp`;

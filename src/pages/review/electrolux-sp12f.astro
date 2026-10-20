@@ -49,8 +49,8 @@ const specs: [string, string][] = [
       <p class="v-nota"><strong>{p.nota.toLocaleString('pt-BR')}</strong>/10</p>
       <p><strong>Sim, o Electrolux SP12F é bom</strong> e é o 1º colocado do nosso <a href="/melhor-ar-condicionado-portatil/">ranking de 2026</a>. Ele reúne Wi-Fi, comando de voz, eficiência nível A e modo dormir com um ótimo custo-benefício. Não é para quem precisa de aquecimento ou de silêncio absoluto.</p>
       <div class="botoes">
-        <a class="btn btn-amazon" href={amazonLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Ver preço na Amazon</a>
-        <a class="btn btn-ml" href={mercadoLivreLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Ver no Mercado Livre</a>
+        {amazonLink(p) && <a class="btn btn-amazon" href={amazonLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Ver preço na Amazon</a>}
+        {mercadoLivreLink(p) && <a class="btn btn-ml" href={mercadoLivreLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Ver no Mercado Livre</a>}
       </div>
     </div>
   </div>
@@ -119,8 +119,8 @@ const specs: [string, string][] = [
   <h2>Conclusão</h2>
   <p>O <strong>Electrolux SP12F</strong> é a escolha mais equilibrada entre os portáteis de 2026: recursos de casa inteligente, eficiência nível A e um preço competitivo. Escolha a voltagem certa, instale com a <a href="/guias/como-instalar-ar-condicionado-portatil/">mangueira curta e a janela bem vedada</a> e ele vai entregar o que promete.</p>
   <div class="botoes">
-    <a class="btn btn-amazon" href={amazonLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Ver preço na Amazon</a>
-    <a class="btn btn-ml" href={mercadoLivreLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Ver no Mercado Livre</a>
+    {amazonLink(p) && <a class="btn btn-amazon" href={amazonLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Ver preço na Amazon</a>}
+    {mercadoLivreLink(p) && <a class="btn btn-ml" href={mercadoLivreLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Ver no Mercado Livre</a>}
   </div>
   <p class="nota">Review baseado em pesquisa (especificações oficiais e avaliações de compradores), sem teste em laboratório. Nota: opinião editorial de {author.name}.</p>
 </Artigo>

@@ -26,12 +26,12 @@ const specs = p.ficha;
       <p class="ideal"><strong>Ideal para:</strong> {p.idealPara}</p>
       {reviewUrl && <p><a href={reviewUrl}><strong>Leia o review completo do {p.marca} {p.modelo} →</strong></a></p>}
       <div class="botoes">
-        <a class="btn btn-amazon" href={amazonLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>
+        {amazonLink(p) && <a class="btn btn-amazon" href={amazonLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>
           Ver preço na Amazon
-        </a>
-        <a class="btn btn-ml" href={mercadoLivreLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>
+        </a>}
+        {mercadoLivreLink(p) && <a class="btn btn-ml" href={mercadoLivreLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>
           Ver no Mercado Livre
-        </a>
+        </a>}
       </div>
     </div>
   </div>
@@ -96,8 +96,8 @@ const specs = p.ficha;
   )}
 
   <div class="botoes botoes-fim">
-    <a class="btn btn-amazon" href={amazonLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Comprar na Amazon</a>
-    <a class="btn btn-ml" href={mercadoLivreLink(p)} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Comprar no Mercado Livre</a>
+    {amazonLink(p) && <a class="btn btn-amazon" href={amazonLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Comprar na Amazon</a>}
+    {mercadoLivreLink(p) && <a class="btn btn-ml" href={mercadoLivreLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Comprar no Mercado Livre</a>}
   </div>
 </article>
 

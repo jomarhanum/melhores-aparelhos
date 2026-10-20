@@ -31,7 +31,7 @@ const fornos = [
   ['electrolux-oe8ea', 'Electrolux Experience OE8EA 80 litros'],
   ['brastemp-boc84ar', 'Brastemp BOC84AR 84 litros'],
   ['fischer-infinity-50-air-fryer', 'Fischer Infinity 50 litros com air fryer'],
-  ['consul-cob47', 'Consul COB47AR 47 litros'],
+  ['consul-cob47', 'Consul COB47BE 47 litros'],
   ['electrolux-oe8el', 'Electrolux Efficient OE8EL 80 litros'],
   ['panasonic-hl-cx668', 'Panasonic HL-CX668SRPK 80 litros'],
   ['fischer-infinity-touch-82', 'Fischer Infinity Touch 82 litros'],
