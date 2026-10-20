@@ -27,7 +27,20 @@ const inverters = [
   ['electrolux-color-adapt-9000-qf', 'Electrolux Color Adapt 9.000 BTUs quente e frio'],
   ['daikin-full-inverter-12000', 'Daikin Full Inverter 12.000 BTUs'],
 ];
+const fornos = [
+  ['electrolux-oe8ea', 'Electrolux Experience OE8EA 80 litros'],
+  ['brastemp-boc84ar', 'Brastemp BOC84AR 84 litros'],
+  ['fischer-infinity-50-air-fryer', 'Fischer Infinity 50 litros com air fryer'],
+  ['consul-cob47', 'Consul COB47AR 47 litros'],
+  ['electrolux-oe8el', 'Electrolux Efficient OE8EL 80 litros'],
+  ['panasonic-hl-cx668', 'Panasonic HL-CX668SRPK 80 litros'],
+  ['fischer-infinity-touch-82', 'Fischer Infinity Touch 82 litros'],
+  ['brastemp-bo260ar', 'Brastemp BO260AR 67 litros'],
+  ['mueller-mfe0268', 'Mueller MFE0268G1 68 litros'],
+  ['continental-oc4em', 'Continental OC4EM 50 litros'],
+];
 const fotosDoHub = {
+  '/melhor-forno-eletrico-de-embutir/': fornos.map(([s, n]) => [s, `Forno elétrico de embutir ${n}`]),
   '/melhor-ar-condicionado-portatil/': produtos.map(([s, n]) => [s, `Ar-condicionado portátil ${n}`]),
   '/melhor-ar-condicionado-inverter/': inverters.map(([s, n]) => [s, `Ar-condicionado split inverter ${n}`]),
 };

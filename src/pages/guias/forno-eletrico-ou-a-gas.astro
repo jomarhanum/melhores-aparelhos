@@ -1,0 +1,59 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Forno elétrico assa melhor que o a gás?', a: 'Para bolos, pães e receitas que pedem temperatura precisa, o forno elétrico costuma dar resultado mais uniforme, principalmente os modelos com convecção. O forno a gás tem calor mais úmido, que agrada em algumas carnes e assados.' },
+  { q: 'Forno elétrico gasta mais que o a gás?', a: 'Depende do preço da energia e do gás na sua cidade. Por hora de uso, os custos costumam ficar na mesma faixa. O elétrico tende a compensar com timer, termostato preciso e menos calor perdido na cozinha.' },
+  { q: 'Forno elétrico é mais seguro?', a: 'Sim, no sentido de que não há risco de vazamento de gás. Mas exige instalação elétrica adequada, com circuito exclusivo e aterramento.' },
+  { q: 'Posso ter cooktop a gás e forno elétrico?', a: 'Pode, e é uma combinação muito comum em cozinhas planejadas. Só confira nos manuais as distâncias e a ventilação se o forno for ficar embaixo do cooktop.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-forno-eletrico-de-embutir/', '/guias/forno-eletrico-gasta-muita-energia/', '/guias/como-instalar-forno-eletrico-de-embutir/', '/melhor-forno-eletrico-de-embutir-compacto/']}>
+  <p>Na hora de montar a cozinha, essa é uma das primeiras dúvidas: <strong>forno elétrico ou a gás?</strong> Os dois assam bem, mas mudam a forma de usar, o custo, a instalação e a segurança. Veja as diferenças sem complicação.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> o <strong>elétrico</strong> é mais preciso, mais seguro e tem mais recursos (timer, convecção, grill), ideal para cozinha planejada. O <strong>a gás</strong> é mais simples, aquece rápido e não depende da instalação elétrica.</p>
+  </div>
+
+  <h2 id="comparativo">Elétrico x a gás lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Forno elétrico</th><th>Forno a gás</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Precisão da temperatura</th><td>Alta (termostato)</td><td>Média</td></tr>
+        <tr><th scope="row">Cozimento uniforme</th><td>Muito bom, principalmente com convecção</td><td>Bom</td></tr>
+        <tr><th scope="row">Recursos</th><td>Timer, convecção, grill, programas</td><td>Básicos</td></tr>
+        <tr><th scope="row">Segurança</th><td>Sem risco de vazamento de gás</td><td>Exige cuidado com gás</td></tr>
+        <tr><th scope="row">Instalação</th><td>Circuito elétrico exclusivo</td><td>Ponto de gás e ventilação</td></tr>
+        <tr><th scope="row">Embutir em móvel</th><td>Muito comum</td><td>Menos comum</td></tr>
+        <tr><th scope="row">Custo de uso</th><td>Depende da tarifa de energia</td><td>Depende do preço do gás</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="resultado">Resultado na cozinha</h2>
+  <p>O forno elétrico mantém a temperatura escolhida com mais precisão, o que faz diferença em <strong>bolos, pães, suflês e massas</strong>. Os modelos com <strong>convecção</strong> (ventilador interno) espalham o calor de forma uniforme e permitem assar em mais de uma prateleira ao mesmo tempo. Já o grill elétrico gratina e doura por cima, ótimo para lasanhas e carnes.</p>
+  <p>O forno a gás tem um calor mais úmido, que muita gente prefere para assados longos. Mas costuma ter variação maior de temperatura e menos recursos.</p>
+
+  <h2 id="custo">Qual custa menos para usar?</h2>
+  <p>Depende do preço da energia e do gás na sua região. Um <strong>exemplo ilustrativo</strong> com o forno elétrico: um modelo de 2.000 W ligado por 1 hora, com o termostato desligando as resistências parte do tempo, consome até 2 kWh. Com tarifa de R$ 0,90 por kWh, são no máximo R$ 1,80 por hora. Veja o cálculo completo em <a href="/guias/forno-eletrico-gasta-muita-energia/">forno elétrico gasta muita energia?</a></p>
+  <p>Na prática, para uso doméstico comum, a diferença de custo entre os dois tende a ser pequena. A escolha costuma ser decidida mais pela praticidade e pela cozinha do que pela conta.</p>
+
+  <h2 id="quando">Quando escolher cada um</h2>
+  <h3>Escolha o elétrico se...</h3>
+  <ul>
+    <li>Vai montar ou reformar uma cozinha planejada e quer o forno embutido.</li>
+    <li>Faz bolos, pães e receitas que pedem temperatura precisa.</li>
+    <li>Quer timer com desligamento automático, convecção e grill.</li>
+    <li>Prefere não ter gás perto do forno.</li>
+  </ul>
+  <h3>Escolha o a gás se...</h3>
+  <ul>
+    <li>A instalação elétrica da casa é limitada e não comporta um circuito exclusivo.</li>
+    <li>Quer um fogão com forno, sem móvel planejado.</li>
+    <li>Usa o forno com pouca frequência e prefere algo simples.</li>
+  </ul>
+
+  <h2>Decidiu pelo elétrico?</h2>
+  <p>Veja os <a href="/melhor-forno-eletrico-de-embutir/">10 melhores fornos elétricos de embutir de 2026</a> e, antes de comprar, confira <a href="/guias/como-instalar-forno-eletrico-de-embutir/">como planejar o nicho e a parte elétrica</a>.</p>
+</Artigo>

@@ -20,6 +20,14 @@ export const categorias = [
     imagem: '/images/produtos/lg-dual-inverter-ai-voice-12000.webp',
     descricao: 'Split inverter: mais economia na conta de luz, menos barulho e conforto para o dia a dia.',
   },
+  {
+    id: 'forno-embutir',
+    nome: 'Forno elétrico de embutir',
+    curto: 'Forno de Embutir',
+    hub: '/melhor-forno-eletrico-de-embutir/',
+    imagem: '/images/produtos/electrolux-oe8ea.webp',
+    descricao: 'Fornos elétricos para a cozinha planejada: capacidade, funções, consumo e medidas do nicho.',
+  },
 ];
 
 export const categoriaPorId = (id) => categorias.find((c) => c.id === id);

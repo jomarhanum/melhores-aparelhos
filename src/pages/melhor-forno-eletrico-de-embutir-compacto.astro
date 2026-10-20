@@ -1,0 +1,73 @@
+---
+import Artigo from '../layouts/Artigo.astro';
+import ProdutoMini from '../components/ProdutoMini.astro';
+import { fornos } from '../data/forno';
+import { site, author } from '../data/site';
+
+const faq = [
+  { q: 'Forno de embutir de 50 litros é pequeno?', a: 'Atende bem casais e famílias de até 3 pessoas no dia a dia: cabe uma assadeira média, um bolo ou uma pizza grande. Para assados grandes, como peru de Natal, ou para cozinhar duas receitas de uma vez, prefira um forno de 67 a 84 litros.' },
+  { q: 'Qual a medida do nicho de um forno de embutir compacto?', a: 'Os compactos costumam ter cerca de 45 a 47 cm de altura e 60 cm de largura. A medida exata do nicho varia por modelo e está no manual. Confira antes de encomendar o móvel.' },
+  { q: 'Forno compacto gasta menos energia?', a: 'Em geral, sim: tem cavidade menor para aquecer e, em muitos casos, potência menor. O Consul COB47AR (1.675 W) e o Continental OC4EM (1.575 W) estão entre os de menor potência da nossa lista.' },
+  { q: 'Qual o melhor forno de embutir compacto de 2026?', a: 'O Fischer Infinity 50L com air fryer é o mais completo, com convecção turbo e temperatura de até 300 °C. O Consul COB47AR é o mais equilibrado, e o Continental OC4EM, o mais em conta.' },
+];
+
+const compactos = fornos.filter((p) => p.tipo === 'Compacto');
+const pageUrl = `${site.url}/melhor-forno-eletrico-de-embutir-compacto/`;
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Melhores fornos elétricos de embutir compactos de 2026',
+  itemListElement: compactos.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${pageUrl}#mini-${p.slug}`, name: p.nome })),
+}];
+const destaques: Record<string, string> = {
+  'fischer-infinity-50-air-fryer': 'O mais completo: air fryer embutida, convecção Air Convection Turbo, grill e temperatura de até 300 °C, a mais alta da nossa lista.',
+  'consul-cob47': 'O mais equilibrado: simples de usar, com grill, timer com desligamento automático e potência baixa, que facilita a instalação elétrica.',
+  'continental-oc4em': 'O mais em conta: programas prontos para carnes e bolos, função dourar, timer com desligamento e limpeza fácil com TOPLimpaFácil.',
+};
+---
+<Artigo faq={faq} jsonLd={jsonLd} relacionados={['/melhor-forno-eletrico-de-embutir/', '/guias/como-instalar-forno-eletrico-de-embutir/', '/guias/forno-eletrico-gasta-muita-energia/', '/guias/forno-eletrico-ou-a-gas/']}>
+  <p>Cozinha pequena, apartamento ou família de duas ou três pessoas? Um <strong>forno de embutir compacto</strong>, de 47 a 50 litros, ocupa menos espaço no móvel, costuma ser mais barato e gasta menos energia. Separamos os melhores do nosso <a href="/melhor-forno-eletrico-de-embutir/">ranking geral de 2026</a>.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resposta rápida:</strong> o mais completo é o <a href="#mini-fischer-infinity-50-air-fryer">Fischer Infinity 50L com air fryer</a>; o mais equilibrado, o <a href="#mini-consul-cob47">Consul COB47AR</a>; e o mais em conta, o <a href="#mini-continental-oc4em">Continental OC4EM</a>.</p>
+  </div>
+
+  <h2 id="para-quem">Para quem é o forno compacto?</h2>
+  <ul>
+    <li>Casais e famílias de até 3 pessoas.</li>
+    <li>Cozinhas pequenas, em que o nicho de 60 cm de altura não cabe.</li>
+    <li>Quem usa o forno algumas vezes por semana para receitas do dia a dia.</li>
+    <li>Casas com instalação elétrica mais limitada, já que alguns compactos têm potência menor.</li>
+  </ul>
+  <p>Se você assa para muita gente ou quer usar duas assadeiras ao mesmo tempo, os modelos de 67 a 84 litros do <a href="/melhor-forno-eletrico-de-embutir/">comparativo geral</a> são a melhor escolha.</p>
+
+  <h2 id="ranking">Os melhores fornos de embutir compactos</h2>
+  {compactos.map((p, i) => (
+    <ProdutoMini tipo="Forno elétrico de embutir" slug={p.slug} posicao={i + 1} destaque={destaques[p.slug]} specs={[['Capacidade', `${p.litros} litros`], ['Potência', p.potencia?.split(' (')[0] ?? '—'], ['Convecção', p.conveccao.startsWith('Sim') ? 'Sim' : 'Não'], ['Voltagem', p.voltagem.split(' (')[0]]]} />
+  ))}
+
+  <h2 id="tabela">Comparativo rápido</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Modelo</th><th>Litros</th><th>Temperatura</th><th>Air fryer</th><th>Medidas (A × L × P)</th></tr></thead>
+      <tbody>
+        {compactos.map((p) => (
+          <tr><td><a href={`#mini-${p.slug}`}>{p.marca} {p.modelo}</a></td><td>{p.litros}</td><td>{p.temperatura ?? '—'}</td><td>{/air fryer/i.test(p.funcoes) ? '✔' : '—'}</td><td>{p.medidas?.split(' (')[0] ?? '—'}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">"—" indica dado não encontrado em fonte confiável. Confira o manual de cada modelo para a medida exata do nicho.</p>
+
+  <h2>Antes de comprar</h2>
+  <ul>
+    <li><strong>Meça o nicho</strong> e compare com o manual do forno. Veja <a href="/guias/como-instalar-forno-eletrico-de-embutir/">como instalar forno elétrico de embutir</a>.</li>
+    <li><strong>Confira a voltagem:</strong> o Fischer 50L e o Continental existem em 127 V e 220 V.</li>
+    <li><strong>Calcule o consumo</strong> no guia <a href="/guias/forno-eletrico-gasta-muita-energia/">forno elétrico gasta muita energia?</a></li>
+  </ul>
+  <p class="nota">Ranking e notas: opinião editorial de {author.name}, com base nas especificações oficiais e nas fichas técnicas das lojas.</p>
+</Artigo>
+
+<style>
+  .nota { font-size: .95rem; color: var(--texto-2); }
+</style>

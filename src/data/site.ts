@@ -29,6 +29,7 @@ export const nav = [
   { label: 'Home', href: '/' },
   { label: 'Ar Portátil', href: '/melhor-ar-condicionado-portatil/' },
   { label: 'Ar Inverter', href: '/melhor-ar-condicionado-inverter/' },
+  { label: 'Fornos', href: '/melhor-forno-eletrico-de-embutir/' },
   { label: 'Guias', href: '/guias/' },
   { label: 'Sobre', href: '/sobre/' },
   { label: 'Contato', href: '/contato/' },

@@ -1,0 +1,256 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { fornos } from '../data/forno';
+import { fotoProduto } from '../data/tipos';
+import { site, author } from '../data/site';
+import { artigoPorUrl } from '../data/artigos.mjs';
+
+const meta = artigoPorUrl('/melhor-forno-eletrico-de-embutir/')!;
+const publicado = `${meta.publicado}T09:00:00-03:00`;
+const atualizado = `${meta.atualizado}T09:00:00-03:00`;
+const dataExibida = new Date(`${meta.atualizado}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const title = meta.titulo;
+const description = meta.descricao;
+const pageUrl = `${site.url}${meta.url}`;
+const f = (slug: string) => fornos.find((x) => x.slug === slug)!;
+
+const faq = [
+  { q: 'Qual o melhor forno elétrico de embutir de 2026?', a: 'Para a maioria das famílias, o Electrolux Experience OE8EA é o melhor: 80 litros, convecção PerfectCook360, função air fryer, painel touch e eficiência classe A. Para cozinhas pequenas, o Fischer Infinity 50L com air fryer é o compacto mais completo.' },
+  { q: 'Qual o tamanho ideal de forno de embutir?', a: 'Para casais e famílias de até 3 pessoas, de 47 a 50 litros costuma bastar. Para famílias maiores ou quem gosta de receber, prefira de 67 a 84 litros. Lembre que os compactos têm cerca de 45 cm de altura e os padrão cerca de 60 cm, o que muda o nicho do móvel.' },
+  { q: 'Forno elétrico de embutir precisa de tomada especial?', a: 'Precisa de circuito exclusivo com disjuntor adequado e aterramento. Como a potência passa de 1.500 W, muitos modelos usam plugue de 20 A. A maioria é 220 V.' },
+  { q: 'O que é convecção no forno elétrico?', a: 'É um ventilador interno que faz o ar quente circular. O calor fica mais uniforme, as receitas assam por igual e dá para usar duas prateleiras ao mesmo tempo.' },
+  { q: 'Forno de embutir com air fryer funciona bem?', a: 'Funciona para deixar alimentos crocantes com pouco ou nenhum óleo, usando convecção forte. Na lista, o Electrolux OE8EA, o Fischer Infinity 50L e o Fischer Infinity Touch 82L têm essa função.' },
+  { q: 'Precisa deixar espaço para ventilação?', a: 'Sim. Cada fabricante indica no manual as aberturas e folgas do nicho. Sem ventilação, o forno pode superaquecer e danificar o móvel.' },
+];
+
+const destaques = [
+  { rotulo: 'Melhor no geral', x: f('electrolux-oe8ea') },
+  { rotulo: 'Maior capacidade', x: f('brastemp-boc84ar') },
+  { rotulo: 'Melhor compacto com air fryer', x: f('fischer-infinity-50-air-fryer') },
+  { rotulo: 'Melhor custo-benefício', x: f('consul-cob47') },
+  { rotulo: 'Mais bem avaliado por compradores', x: f('brastemp-bo260ar') },
+  { rotulo: 'Mais em conta', x: f('continental-oc4em') },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: [`${site.url}${meta.imagem}`],
+    datePublished: publicado,
+    dateModified: atualizado,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: { '@type': 'Person', name: author.name, url: `${site.url}${author.url}`, image: `${site.url}${author.photo}`, jobTitle: author.role },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Melhor forno elétrico de embutir', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores fornos elétricos de embutir de 2026',
+    numberOfItems: fornos.length,
+    itemListElement: fornos.map((x) => ({
+      '@type': 'ListItem',
+      position: x.rank,
+      item: {
+        '@type': 'Product',
+        name: x.nome,
+        brand: { '@type': 'Brand', name: x.marca },
+        model: x.modelo,
+        url: `${pageUrl}#${x.slug}`,
+        description: x.resumo,
+        image: `${site.url}${fotoProduto(x)}`,
+        review: {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: author.name },
+          datePublished: publicado,
+          reviewRating: { '@type': 'Rating', ratingValue: x.nota, bestRating: 10, worstRating: 0 },
+          positiveNotes: { '@type': 'ItemList', itemListElement: x.pros.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+          negativeNotes: { '@type': 'ItemList', itemListElement: x.contras.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+        },
+      },
+    })),
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) },
+];
+---
+<Base title={title} description={description} type="article" published={publicado} modified={atualizado} jsonLd={jsonLd} image={meta.imagem} imageAlt="Comparativo dos melhores fornos elétricos de embutir de 2026">
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol><li><a href="/">Home</a></li><li aria-current="page">Melhor forno elétrico de embutir</li></ol>
+      </nav>
+      <h1>{meta.h1}</h1>
+      <p class="subtitulo">Comparamos os 10 fornos elétricos de embutir mais recomendados do Brasil, do compacto de 47 litros ao de 84 litros. Veja capacidade, funções, medidas, prós e contras e descubra qual cabe na sua cozinha.</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · {meta.minutos} min de leitura
+        </div>
+      </div>
+      <ShareButtons title={title} />
+    </div>
+  </section>
+
+  <div class="leitura artigo">
+    <p class="aviso-afiliado"><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem nenhum custo extra para você. Isso não muda a nossa opinião. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+
+    <p>O forno elétrico de embutir é o coração da cozinha planejada: fica na altura certa, deixa a bancada livre e, nos modelos atuais, traz recursos como <strong>convecção</strong>, <strong>grill</strong>, <strong>timer com desligamento automático</strong> e até <strong>função air fryer</strong>.</p>
+    <p>Mas antes de escolher pelo visual, é preciso acertar a <strong>capacidade</strong>, as <strong>medidas do nicho</strong> e a <strong>parte elétrica</strong>. Reunimos os 10 melhores modelos de 2026 e explicamos tudo em linguagem simples.</p>
+
+    <div class="caixa resposta">
+      <p class="caixa-tit">⚡ Resposta rápida: os melhores de 2026</p>
+      <ol class="lista-destaques">
+        {destaques.map((d) => <li><strong>{d.rotulo}:</strong> <a href={`#${d.x.slug}`}>{d.x.nome}</a></li>)}
+      </ol>
+    </div>
+
+    <nav class="caixa sumario" aria-label="Sumário">
+      <p class="caixa-tit">📑 Neste artigo</p>
+      <ol>
+        <li><a href="#comparativo">Tabela comparativa</a></li>
+        <li><a href="#como-escolher">Como escolher</a></li>
+        <li><a href="#ranking">Os 10 melhores modelos</a></li>
+        <li><a href="#instalacao">Nicho e instalação</a></li>
+        <li><a href="#consumo">Consumo de energia</a></li>
+        <li><a href="#eletrico-x-gas">Elétrico ou a gás?</a></li>
+        <li><a href="#metodologia">Como fizemos este ranking</a></li>
+        <li><a href="#perguntas">Perguntas frequentes</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="comparativo">Tabela comparativa: os 10 melhores lado a lado</h2>
+    <p>Clique no nome para ir direto à análise completa.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabela-wrap">
+      <table>
+        <caption class="sr-only">Comparativo dos 10 melhores fornos elétricos de embutir de 2026</caption>
+        <thead><tr><th>#</th><th>Modelo</th><th>Litros</th><th>Tipo</th><th>Convecção</th><th>Potência</th><th>Voltagem</th></tr></thead>
+        <tbody>
+          {fornos.map((x) => (
+            <tr>
+              <td><strong>{x.rank}º</strong></td>
+              <td><a href={`#${x.slug}`}>{x.marca} {x.modelo}</a></td>
+              <td>{x.litros}</td>
+              <td>{x.tipo}</td>
+              <td>{x.conveccao.startsWith('Sim') ? '✔' : x.conveccao.startsWith('Não') ? '—' : 'Parcial'}</td>
+              <td>{x.potencia?.split(' (')[0] ?? '—'}</td>
+              <td>{x.voltagem.split(' (')[0]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-preco">"—" na potência indica dado não encontrado em fonte confiável. Os preços mudam com frequência: confira o valor atualizado nos botões de cada produto.</p>
+  </div>
+
+  <div class="leitura artigo">
+    <h2 id="como-escolher">Como escolher o melhor forno elétrico de embutir</h2>
+
+    <h3>1. Capacidade: quantos litros?</h3>
+    <div class="tabela-wrap">
+      <table class="tab-curta">
+        <thead><tr><th>Perfil</th><th>Capacidade</th><th>Exemplos da lista</th></tr></thead>
+        <tbody>
+          <tr><td>1 a 3 pessoas, cozinha pequena</td><td>47 a 50 litros</td><td>Consul COB47AR, Fischer 50L, Continental OC4EM</td></tr>
+          <tr><td>Família de 3 a 5 pessoas</td><td>67 a 68 litros</td><td>Brastemp BO260AR, Mueller MFE0268G1</td></tr>
+          <tr><td>Família grande, quem gosta de receber</td><td>80 a 84 litros</td><td>Electrolux OE8EA e OE8EL, Panasonic, Fischer 82L, Brastemp BOC84AR</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Para cozinhas pequenas, veja também os <a href="/melhor-forno-eletrico-de-embutir-compacto/">melhores fornos de embutir compactos</a>.</p>
+
+    <h3>2. Medidas do nicho</h3>
+    <p>Quase todos têm cerca de <strong>60 cm de largura</strong>, mas a altura muda: <strong>cerca de 45 cm nos compactos</strong> e <strong>cerca de 60 cm nos padrão</strong>. Escolha o forno antes de encomendar o móvel e siga as medidas do manual. Guia completo: <a href="/guias/como-instalar-forno-eletrico-de-embutir/">como instalar forno elétrico de embutir</a>.</p>
+
+    <h3>3. Convecção</h3>
+    <p>O ventilador interno faz o ar quente circular: bolos e pães assam por igual e dá para usar duas prateleiras ao mesmo tempo. Sete modelos da lista têm convecção com ventilador.</p>
+
+    <h3>4. Funções que fazem diferença</h3>
+    <ul>
+      <li><strong>Grill:</strong> gratina e doura lasanhas, pizzas e carnes.</li>
+      <li><strong>Timer com desligamento automático:</strong> desliga o forno sozinho no fim do tempo.</li>
+      <li><strong>Air fryer:</strong> deixa alimentos crocantes sem óleo (Electrolux OE8EA e os dois Fischer).</li>
+      <li><strong>Limpeza facilitada:</strong> revestimentos como Easy Clean, Fast Clean e TOPLimpaFácil.</li>
+      <li><strong>Vidro duplo ou triplo:</strong> a porta esquenta menos por fora, mais segurança para crianças.</li>
+    </ul>
+
+    <h3>5. Voltagem e potência</h3>
+    <p>A maioria é <strong>220 V</strong>, com potência de cerca de 1.575 W a 2.800 W. Precisa de <strong>circuito exclusivo</strong> com disjuntor adequado e aterramento. Fischer 50L e Continental existem em versões 127 V e 220 V; escolha a certa na loja.</p>
+
+    <h2 id="ranking">Os 10 melhores fornos elétricos de embutir de 2026</h2>
+    <p>Análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
+
+    {fornos.map((x) => <ProductCard p={x} tipo="Forno elétrico de embutir" />)}
+
+    <section>
+      <h2 id="instalacao">Nicho e instalação: o que conferir antes de comprar</h2>
+      <ul>
+        <li><strong>Forno primeiro, móvel depois:</strong> cada marca tem medidas de nicho um pouco diferentes.</li>
+        <li><strong>Ventilação:</strong> respeite as aberturas e folgas indicadas no manual.</li>
+        <li><strong>Elétrica:</strong> circuito exclusivo, tomada de 20 A quando o plugue for de 20 A e aterramento.</li>
+        <li><strong>Posição:</strong> a torre quente, com o forno na altura do peito, é a mais confortável.</li>
+      </ul>
+      <p>Passo a passo: <a href="/guias/como-instalar-forno-eletrico-de-embutir/">como instalar forno elétrico de embutir</a>.</p>
+
+      <h2 id="consumo">Quanto o forno elétrico gasta?</h2>
+      <p>A conta é: <strong>potência (W) × horas ÷ 1.000 = kWh</strong>. Um forno de 2.000 W ligado 1 hora gasta até 2 kWh; com tarifa de R$ 0,90 por kWh (valor de exemplo), até R$ 1,80. Depois do pré-aquecimento, o termostato desliga as resistências parte do tempo, e o gasto real fica menor. Faça a sua conta na calculadora do guia <a href="/guias/forno-eletrico-gasta-muita-energia/">forno elétrico gasta muita energia?</a></p>
+
+      <h2 id="eletrico-x-gas">Forno elétrico ou a gás?</h2>
+      <p>O elétrico tem temperatura mais precisa, mais recursos (convecção, grill, timer) e é o padrão das cozinhas planejadas. O a gás é mais simples e não depende de circuito elétrico. Compare em <a href="/guias/forno-eletrico-ou-a-gas/">forno elétrico ou a gás</a>.</p>
+
+      <h2 id="metodologia">Como fizemos este ranking</h2>
+      <p>Este é um comparativo baseado em pesquisa, não em testes de laboratório. Partimos dos modelos mais recomendados pelos principais guias de compra do Brasil e conferimos as especificações publicadas pelos fabricantes e nas fichas técnicas das lojas e comparadores. Quando as fontes divergem (por exemplo, sobre temperatura máxima ou autolimpeza), deixamos o dado de fora em vez de arriscar.</p>
+      <p>Comparamos os modelos em cinco critérios: <strong>capacidade</strong>, <strong>recursos de cozimento</strong> (convecção, grill, air fryer, temperatura), <strong>praticidade</strong> (timer, painel, limpeza), <strong>segurança e instalação</strong> (vidro da porta, potência, voltagem) e <strong>custo-benefício</strong>. A nota de cada forno é a opinião editorial de {author.name}. Nenhuma marca pagou para aparecer nesta lista.</p>
+    </section>
+
+    <section>
+      <h2 id="perguntas">Perguntas frequentes sobre forno elétrico de embutir</h2>
+      <div class="faq">
+        {faq.map((q) => (
+          <details>
+            <summary>{q.q}</summary>
+            <p>{q.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2 id="conclusao">Conclusão: qual forno elétrico de embutir comprar?</h2>
+      <p>Para a maioria das famílias, o <strong>{fornos[0].nome}</strong> é a melhor compra: grande, com convecção, air fryer e painel touch. Quem precisa de espaço máximo deve ir de <strong>Brastemp BOC84AR</strong>. Em cozinhas pequenas, o <strong>Fischer Infinity 50L com air fryer</strong> é o compacto mais completo, e o <strong>Consul COB47AR</strong> é o mais equilibrado para quem quer simplicidade.</p>
+      <p>Gostou do comparativo? Compartilhe com quem está montando a cozinha. 😉</p>
+
+      <ShareButtons title={title} />
+      <AuthorBox />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .artigo { padding-top: 28px; }
+  .resposta { background: var(--azul-claro); border-color: #bcd7f3; }
+  .lista-destaques { padding-left: 1.2rem; margin: 0; }
+  .nota-preco { font-size: .92rem; color: var(--texto-2); }
+  .tab-curta { min-width: 0; }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 30px 14px 0; list-style: none; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+</style>

@@ -1,0 +1,86 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Quanto gasta um forno elétrico por hora?', a: 'No máximo, a potência do forno em kW multiplicada pela tarifa. Um forno de 2.000 W gasta até 2 kWh por hora de uso; com tarifa de R$ 0,90 por kWh, até R$ 1,80. Depois do pré-aquecimento, o termostato desliga as resistências parte do tempo, e o gasto real fica abaixo do teto.' },
+  { q: 'Forno elétrico de embutir gasta mais que forno de bancada?', a: 'Em geral, sim, porque tem mais potência e uma cavidade maior para aquecer. Para porções pequenas, um forno de bancada ou uma air fryer costuma gastar menos.' },
+  { q: 'Pré-aquecer o forno gasta muita energia?', a: 'O pré-aquecimento é a fase em que as resistências ficam ligadas direto. Evite pré-aquecer por mais tempo que o necessário e aproveite o forno quente para assar mais de uma receita em sequência.' },
+  { q: 'Convecção economiza energia?', a: 'Pode economizar, porque o ventilador distribui o calor e muitas receitas assam mais rápido ou em temperatura um pouco menor. Siga as indicações do manual para a função de convecção.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-forno-eletrico-de-embutir/', '/guias/forno-eletrico-ou-a-gas/', '/guias/como-instalar-forno-eletrico-de-embutir/', '/melhor-forno-eletrico-de-embutir-compacto/']}>
+  <p>O forno elétrico tem potência alta, entre cerca de 1.575 W e 2.800 W nos modelos de embutir do nosso ranking. Mas isso não quer dizer que ele vá pesar muito na conta: o que importa é <strong>quanto tempo</strong> ele fica ligado e <strong>quanto desse tempo</strong> as resistências estão realmente aquecendo.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> um forno de 2.000 W usado 1 hora por dia, em 20 dias do mês, consome no máximo 40 kWh. Com tarifa de R$ 0,90 por kWh, o teto é de <strong>R$ 36 por mês</strong>. O gasto real costuma ficar abaixo, porque o termostato desliga as resistências depois que o forno esquenta.</p>
+  </div>
+
+  <h2 id="calculo">Como calcular</h2>
+  <p class="formula">kWh = potência (W) × horas de uso ÷ 1.000</p>
+  <p>Depois, multiplique pelo valor do kWh na sua conta de luz. A potência está na etiqueta do forno ou no manual.</p>
+
+  <h2>Calcule o seu gasto</h2>
+  <form class="calc" onsubmit="return false">
+    <label>Potência do forno (W)<input type="number" id="f-w" min="500" max="5000" value="2000" inputmode="numeric" /></label>
+    <label>Minutos de uso por vez<input type="number" id="f-min" min="5" max="300" value="60" inputmode="numeric" /></label>
+    <label>Vezes por mês<input type="number" id="f-vezes" min="1" max="90" value="20" inputmode="numeric" /></label>
+    <label>Tarifa (R$ por kWh)<input type="number" id="f-t" min="0.1" max="3" step="0.01" value="0.90" inputmode="decimal" /></label>
+    <output id="f-res" class="calc-res" aria-live="polite"></output>
+  </form>
+  <script is:inline>
+    (function () {
+      function v(id) { var x = parseFloat(document.getElementById(id).value); return isNaN(x) ? 0 : x; }
+      function calc() {
+        var porVez = (v('f-w') * v('f-min') / 60) / 1000;
+        var mes = porVez * v('f-vezes');
+        var brl = function (x) { return x.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); };
+        document.getElementById('f-res').innerHTML = '<span>Por uso: até <strong>' + porVez.toLocaleString('pt-BR', { maximumFractionDigits: 2 }) + ' kWh</strong> (' + brl(porVez * v('f-t')) + ')</span><span>Por mês: até <strong>' + mes.toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + ' kWh</strong> (' + brl(mes * v('f-t')) + ')</span>';
+      }
+      ['f-w', 'f-min', 'f-vezes', 'f-t'].forEach(function (id) { document.getElementById(id).addEventListener('input', calc); });
+      calc();
+    })();
+  </script>
+  <p class="nota">O resultado é o teto: considera as resistências ligadas o tempo todo. Depois do pré-aquecimento, o termostato liga e desliga as resistências, e o consumo real fica menor.</p>
+
+  <h2 id="receitas">Quanto custa cada receita (exemplos)</h2>
+  <p>Teto estimado para um forno de 2.000 W e tarifa de R$ 0,90 por kWh:</p>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>Receita</th><th>Tempo (com pré-aquecimento)</th><th>Custo máximo</th></tr></thead>
+      <tbody>
+        <tr><td>Pão de queijo</td><td>cerca de 35 min</td><td>até R$ 1,05</td></tr>
+        <tr><td>Bolo simples</td><td>cerca de 50 min</td><td>até R$ 1,50</td></tr>
+        <tr><td>Lasanha</td><td>cerca de 60 min</td><td>até R$ 1,80</td></tr>
+        <tr><td>Frango assado</td><td>cerca de 90 min</td><td>até R$ 2,70</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="economizar">8 dicas para gastar menos</h2>
+  <ol>
+    <li><strong>Não abra a porta à toa.</strong> Cada abertura deixa escapar calor, e as resistências voltam a ligar.</li>
+    <li><strong>Pré-aqueça só o necessário</strong> e só quando a receita pede.</li>
+    <li><strong>Aproveite o forno quente</strong> para assar receitas em sequência.</li>
+    <li><strong>Use a convecção</strong>, que distribui o calor e permite assar em duas prateleiras de uma vez.</li>
+    <li><strong>Desligue alguns minutos antes:</strong> o calor acumulado termina o cozimento.</li>
+    <li><strong>Mantenha a borracha da porta em bom estado</strong> para não vazar calor.</li>
+    <li><strong>Escolha a capacidade certa:</strong> forno grande para porções pequenas desperdiça energia.</li>
+    <li><strong>Para porções pequenas</strong>, uma air fryer ou forno de bancada gasta menos.</li>
+  </ol>
+
+  <h2>Escolha um forno eficiente</h2>
+  <p>Compare potência, capacidade e recursos no <a href="/melhor-forno-eletrico-de-embutir/">comparativo dos 10 melhores fornos elétricos de embutir de 2026</a>. Para cozinhas pequenas, veja os <a href="/melhor-forno-eletrico-de-embutir-compacto/">modelos compactos</a>.</p>
+  <p class="nota">A tarifa de R$ 0,90 por kWh é um exemplo. O valor real varia por distribuidora e bandeira tarifária.</p>
+</Artigo>
+
+<style>
+  .formula { background: var(--gelo); border-left: 4px solid var(--azul); padding: 12px 16px; border-radius: 8px; font-weight: 700; }
+  .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; background: var(--gelo); border: 1px solid var(--borda); border-radius: var(--raio); padding: 22px; margin: 1rem 0 1.2rem; }
+  .calc label { display: grid; gap: 6px; font-weight: 600; font-size: .98rem; }
+  .calc input { font: inherit; font-size: 1.1rem; padding: 10px 12px; border: 1.5px solid var(--borda); border-radius: 10px; background: #fff; }
+  .calc input:focus { border-color: var(--azul); outline: none; }
+  .calc-res { grid-column: 1 / -1; display: grid; gap: 4px; background: #fff; border: 2px solid var(--azul); border-radius: 12px; padding: 14px 16px; font-size: 1.05rem; }
+  .nota { font-size: .95rem; color: var(--texto-2); }
+  .tab-curta { min-width: 0; }
+  @media (max-width: 560px) { .calc { grid-template-columns: 1fr; } }
+</style>

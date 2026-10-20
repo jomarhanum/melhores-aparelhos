@@ -1,0 +1,84 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Precisa deixar respiro para o forno de embutir?', a: 'Sim. O forno precisa de ventilação para dissipar o calor e proteger o móvel e a parte eletrônica. O manual de cada modelo indica as aberturas e folgas necessárias, normalmente na parte de trás ou de baixo do nicho. Sem isso, o forno pode superaquecer e a marcenaria pode estufar.' },
+  { q: 'Qual a medida do nicho para forno de embutir?', a: 'Depende do modelo. Os fornos de 60 cm de largura costumam pedir um nicho de cerca de 56 cm de largura interna, com altura próxima de 60 cm nos modelos grandes e de 45 a 47 cm nos compactos. Confira sempre a medida exata no manual antes de encomendar o móvel.' },
+  { q: 'Forno elétrico de embutir precisa de tomada especial?', a: 'Precisa de circuito exclusivo, com disjuntor e fiação dimensionados para a potência do forno, e de aterramento. Como a corrente passa de 10 A, muitos modelos usam plugue de 20 A, que só encaixa em tomada de 20 A. Nunca use extensão ou benjamim.' },
+  { q: 'Posso instalar o forno embaixo do cooktop?', a: 'Em muitos casos, sim, mas os manuais do forno e do cooktop precisam permitir essa combinação e indicar as distâncias mínimas e a ventilação. A opção mais comum e confortável é a torre quente, com o forno na altura do peito.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-forno-eletrico-de-embutir/', '/guias/forno-eletrico-gasta-muita-energia/', '/guias/forno-eletrico-ou-a-gas/', '/melhor-forno-eletrico-de-embutir-compacto/']}>
+  <p>O forno de embutir deixa a cozinha planejada bonita e organizada, mas exige planejamento: o nicho do móvel precisa ter a medida certa, o forno precisa respirar e a parte elétrica tem que aguentar a potência. Errar qualquer um desses pontos dá dor de cabeça (e às vezes prejuízo com a marcenaria).</p>
+
+  <div class="destaque-box">
+    <p><strong>O essencial:</strong> escolha o forno antes de fazer o móvel, siga as medidas de nicho e de ventilação do manual, use um circuito elétrico exclusivo com aterramento e confira a voltagem (a maioria dos fornos de embutir é 220 V).</p>
+  </div>
+
+  <h2 id="ordem">A ordem certa: forno primeiro, móvel depois</h2>
+  <p>O erro mais comum é encomendar a marcenaria e depois procurar um forno que caiba. Cada marca tem medidas de nicho um pouco diferentes. O caminho seguro é:</p>
+  <ol>
+    <li>Escolher o forno (veja o <a href="/melhor-forno-eletrico-de-embutir/">comparativo dos 10 melhores</a>).</li>
+    <li>Baixar o manual no site do fabricante e anotar as <strong>medidas do nicho</strong> e da <strong>ventilação</strong>.</li>
+    <li>Passar essas medidas ao marceneiro e ao eletricista.</li>
+  </ol>
+
+  <h2 id="nicho">Medidas do nicho</h2>
+  <p>Quase todos os fornos de embutir residenciais têm cerca de <strong>60 cm de largura</strong>. O que muda é a altura:</p>
+  <div class="tabela-wrap">
+    <table class="tab-curta">
+      <thead><tr><th>Tipo</th><th>Capacidade típica</th><th>Altura aproximada do forno</th></tr></thead>
+      <tbody>
+        <tr><td>Compacto</td><td>47 a 50 litros</td><td>cerca de 45 a 47 cm</td></tr>
+        <tr><td>Padrão</td><td>67 a 84 litros</td><td>cerca de 59 a 62 cm</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>O nicho interno costuma ser um pouco menor que o forno, porque a moldura frontal cobre a borda do móvel. Em fornos de 60 cm, é comum o nicho ter cerca de 56 cm de largura interna. <strong>Use sempre a medida do manual do seu modelo</strong>, não uma medida genérica.</p>
+
+  <h2 id="respiro">Ventilação: o forno precisa respirar</h2>
+  <ul>
+    <li>Respeite as <strong>aberturas e folgas</strong> indicadas no manual, geralmente na parte de trás ou de baixo do nicho.</li>
+    <li>Não feche o fundo do nicho com chapa inteira se o manual pedir abertura.</li>
+    <li>Prefira <strong>marcenaria resistente ao calor</strong> nas áreas próximas ao forno.</li>
+    <li>Sem ventilação, o forno pode desligar por superaquecimento, a vida útil cai e o móvel pode estufar.</li>
+  </ul>
+
+  <h2 id="eletrica">Parte elétrica</h2>
+  <p>Os fornos de embutir do nosso ranking têm potência entre cerca de 1.575 W e 2.800 W. Em 220 V, isso representa correntes de aproximadamente 7 A a 12,7 A. Por isso:</p>
+  <ul>
+    <li><strong>Circuito exclusivo</strong>, com disjuntor e bitola de fio dimensionados por eletricista.</li>
+    <li><strong>Tomada de 20 A</strong> quando o plugue do forno for de 20 A (pino mais grosso).</li>
+    <li><strong>Aterramento</strong> obrigatório.</li>
+    <li><strong>Voltagem certa:</strong> a maioria dos fornos de embutir é 220 V. Alguns têm versão 127 V com código diferente.</li>
+    <li>Nada de extensão, benjamim ou adaptador.</li>
+  </ul>
+  <p>Se a sua casa já sofre com o disjuntor caindo quando liga chuveiro e micro-ondas juntos, chame um eletricista antes de instalar o forno.</p>
+
+  <h2 id="posicao">Onde posicionar: torre quente ou sob o cooktop?</h2>
+  <ul>
+    <li><strong>Torre quente:</strong> forno na altura do peito, em uma coluna. É a opção mais confortável, porque você não precisa se abaixar para tirar uma assadeira quente.</li>
+    <li><strong>Sob o cooktop:</strong> economiza espaço, mas só se os manuais dos dois aparelhos permitirem, respeitando as distâncias e a ventilação.</li>
+  </ul>
+
+  <h2 id="checklist">Checklist antes de instalar</h2>
+  <ul class="check-lista">
+    <li>Manual com medidas de nicho e ventilação em mãos</li>
+    <li>Nicho com as medidas do manual, nivelado e firme</li>
+    <li>Aberturas de ventilação feitas</li>
+    <li>Circuito exclusivo com disjuntor adequado e aterramento</li>
+    <li>Tomada compatível com o plugue (20 A, se for o caso)</li>
+    <li>Voltagem da tomada igual à do forno</li>
+    <li>Forno fixado ao móvel com os parafusos indicados</li>
+  </ul>
+
+  <h2>Primeiro uso</h2>
+  <p>Antes de assar a primeira receita, muitos fabricantes recomendam ligar o forno vazio por alguns minutos para eliminar o cheiro de proteção de fábrica, com a cozinha ventilada. Siga o manual do seu modelo. Ainda escolhendo? Veja os <a href="/melhor-forno-eletrico-de-embutir/">10 melhores fornos elétricos de embutir de 2026</a>.</p>
+</Artigo>
+
+<style>
+  .tab-curta { min-width: 0; }
+  .check-lista { list-style: none; padding: 0; }
+  .check-lista li { padding-left: 32px; position: relative; }
+  .check-lista li::before { content: '☑'; position: absolute; left: 0; color: var(--verde); font-size: 1.2rem; }
+</style>
