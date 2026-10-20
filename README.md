@@ -7,6 +7,9 @@ Blog de reviews (Astro, estático) — https://melhoresaparelhos.com.br
 - `npm run build` — gera `dist/`
 - `npm run og` — regenera favicons e imagem de compartilhamento
 - `node scripts/otimizar-produtos.mjs <pasta>` — converte fotos de produto para WebP em `public/images/produtos/`
+- `npm run indexnow` — depois do build e do deploy, avisa Bing/Yandex (IndexNow) das páginas novas ou alteradas (compara o `lastmod` do sitemap com `indexnow-estado.json`). `-- --todas` reenvia tudo.
+
+> Para uma página contar como "alterada", atualize a data `atualizado` dela em `src/data/artigos.mjs` (ou em `astro.config.mjs`, nas páginas fixas).
 
 ## Estrutura
 | O quê | Onde |
