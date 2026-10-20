@@ -230,7 +230,7 @@ const dados: InverterDados[] = [
       criticas: ['App Wi-Fi limitado: liga, desliga e muda funções, mas não monitora consumo', 'Relato isolado de defeito difícil de resolver no pós-venda'],
     },
     amazonUrl: 'https://link.amazon/B0cAyCUeI',
-    mercadoLivreUrl: 'https://meli.la/1oh3zV2',
+    mercadoLivreUrl: 'https://meli.la/1aHDMJ6',
   },
   {
     slug: 'hisense-hi-efficiency-12000-qf',
