@@ -60,6 +60,11 @@ const dados: InverterDados[] = [
     vantagens: ['Consumo anual baixo (276 kWh, segundo a ficha)', 'Garantia de 10 anos no compressor'],
     pros: ['Consumo de energia baixo', 'Wi-Fi e comando de voz', '10 anos de garantia no compressor', 'Gás R-32'],
     contras: ['9.000 BTUs atende só cômodos pequenos', 'Garantia estendida exige instalador credenciado', 'Apenas 220 V'],
+    opiniao: {
+      elogios: ['Gela muito e rápido', 'Econômico no uso', 'Silencioso para a maioria dos compradores', 'Chega bem embalado'],
+      criticas: ['Parte dos compradores não achou tão silencioso, mas sem chegar a incomodar'],
+      observacao: 'É um dos inverters mais bem avaliados pelos compradores nas lojas.',
+    },
     amazonUrl: 'https://link.amazon/B0cKdRtrr',
     mercadoLivreUrl: 'https://meli.la/1tp6jAb',
   },
