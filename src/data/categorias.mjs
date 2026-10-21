@@ -44,11 +44,19 @@ export const categorias = [
     imagem: '/images/produtos/arno-vx13.webp',
     descricao: 'Conforto gastando pouco: modelos inverter de 30 W, com controle remoto, luz LED e modo exaustor.',
   },
+  {
+    id: 'ventilador-coluna',
+    nome: 'Ventilador de coluna',
+    curto: 'Ventilador de Coluna',
+    hub: '/melhor-ventilador-de-coluna/',
+    imagem: '/images/produtos/mondial-vsp-40c.webp',
+    descricao: 'Sem instalação e fácil de levar de um cômodo a outro: modelos de 40 e 50 cm, com altura ajustável e até controle remoto.',
+  },
 ];
 
 // Grupos de categorias com página própria (itens do menu).
 export const grupos = [
-  { id: 'climatizacao', nome: 'Climatização', url: '/climatizacao/', categorias: ['ar-portatil', 'ar-inverter', 'ventilador-teto'] },
+  { id: 'climatizacao', nome: 'Climatização', url: '/climatizacao/', categorias: ['ar-portatil', 'ar-inverter', 'ventilador-teto', 'ventilador-coluna'] },
   { id: 'fornos', nome: 'Fornos', url: '/fornos/', categorias: ['forno-embutir', 'forno-bancada'] },
 ];
 

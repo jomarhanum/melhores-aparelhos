@@ -5,8 +5,9 @@ import { inverters } from './inverter';
 import { fornos } from './forno';
 import { bancadas } from './bancada';
 import { ventiladores } from './ventilador';
+import { colunas } from './coluna';
 
-export const todosProdutos: Produto[] = [...portateis, ...inverters, ...fornos, ...bancadas, ...ventiladores];
+export const todosProdutos: Produto[] = [...portateis, ...inverters, ...fornos, ...bancadas, ...ventiladores, ...colunas];
 
 export const buscarProduto = (slug: string) => {
   const p = todosProdutos.find((x) => x.slug === slug);

@@ -413,5 +413,61 @@ artigos.push(
   },
 );
 
+// ---------- Ventilador de coluna ----------
+artigos.push(
+  {
+    url: '/melhor-ventilador-de-coluna/',
+    titulo: 'Melhor Ventilador de Coluna 2026: 10 Modelos Comparados',
+    h1: 'Melhor Ventilador de Coluna de 2026: 10 Modelos Comparados',
+    descricao: 'Qual o melhor ventilador de coluna de 2026? Comparamos 10 modelos (Mondial, Mallory, Arno, WAP, Britânia, Ventisol e Oster) com vazão, consumo, altura, pás, prós e contras.',
+    categoria: 'Comparativo',
+    secao: 'ventilador-coluna',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/mondial-vsp-40c.webp',
+    resumo: 'Mondial, Mallory, Arno, WAP e Britânia lado a lado: qual ventilador de coluna comprar.',
+    minutos: 14,
+  },
+  {
+    url: '/guias/ventilador-de-coluna-gasta-muita-energia/',
+    titulo: 'Ventilador de Coluna Gasta Muita Energia? Consumo em kWh e Reais',
+    h1: 'Ventilador de coluna gasta muita energia?',
+    descricao: 'Quanto gasta um ventilador de coluna por mês? Veja o consumo real em kWh dos modelos mais vendidos, a conta em reais e como ler a classe de eficiência do Inmetro.',
+    categoria: 'Guia',
+    secao: 'ventilador-coluna',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/ventisol-turbo-6-premium.webp',
+    resumo: 'Consumo real em kWh, conta em reais e a etiqueta do Inmetro explicada.',
+    minutos: 6,
+  },
+  {
+    url: '/guias/ventilador-de-coluna-ou-de-mesa/',
+    titulo: 'Ventilador de Coluna ou de Mesa: Qual Escolher?',
+    h1: 'Ventilador de coluna ou de mesa: qual escolher?',
+    descricao: 'Ventilador de coluna ou de mesa? Compare altura, alcance do vento, espaço, estabilidade e consumo, e veja qual combina com o seu quarto, sala ou escritório.',
+    categoria: 'Guia',
+    secao: 'ventilador-coluna',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/britania-bvt450.webp',
+    resumo: 'Altura, alcance, espaço e consumo: quando cada formato faz mais sentido.',
+    minutos: 5,
+  },
+  {
+    url: '/guias/ventilador-de-teto-ou-de-coluna/',
+    titulo: 'Ventilador de Teto ou de Coluna: Qual Escolher?',
+    h1: 'Ventilador de teto ou de coluna: qual escolher?',
+    descricao: 'Ventilador de teto ou de coluna? Compare instalação, alcance do vento, consumo, espaço ocupado e segurança com crianças e pets, e descubra qual é melhor para você.',
+    categoria: 'Guia',
+    secao: 'ventilador-coluna',
+    publicado: '2026-10-20',
+    atualizado: '2026-10-20',
+    imagem: '/images/produtos/mallory-max-control.webp',
+    resumo: 'Instalação, alcance, consumo e espaço: teto e coluna lado a lado.',
+    minutos: 6,
+  },
+);
+
 export const artigoPorUrl = (url) => artigos.find((a) => a.url === url);
 export const artigosDaSecao = (secao) => artigos.filter((a) => a.secao === secao);

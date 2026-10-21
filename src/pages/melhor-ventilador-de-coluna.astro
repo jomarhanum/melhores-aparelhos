@@ -1,0 +1,227 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { colunas } from '../data/coluna';
+import { fotoProduto } from '../data/tipos';
+import { site, author } from '../data/site';
+import { artigoPorUrl } from '../data/artigos.mjs';
+
+const meta = artigoPorUrl('/melhor-ventilador-de-coluna/')!;
+const publicado = `${meta.publicado}T09:00:00-03:00`;
+const atualizado = `${meta.atualizado}T09:00:00-03:00`;
+const dataExibida = new Date(`${meta.atualizado}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const title = meta.titulo;
+const description = meta.descricao;
+const pageUrl = `${site.url}${meta.url}`;
+const v = (slug: string) => colunas.find((x) => x.slug === slug)!;
+
+const faq = [
+  { q: 'Qual o melhor ventilador de coluna de 2026?', a: 'Para a maioria das pessoas, o Mondial Super Power VSP-40C: forte, firme, com altura de 1,19 a 1,50 m e presente nos três principais comparativos do Brasil. Para gastar menos energia com vento forte, o Mallory Delfos TS+ tem classe A nas três velocidades.' },
+  { q: 'Qual ventilador de coluna venta mais?', a: 'Entre os modelos da lista, o Arno Xtreme Force Breeze VB52, de 50 cm, tem a maior vazão de ar registrada no Inmetro: 1,44 m³/s na velocidade máxima.' },
+  { q: 'Ventilador de coluna de 40 ou 50 cm?', a: 'O de 40 cm atende bem quartos e salas pequenas e ocupa menos espaço. O de 50 cm move mais ar e é melhor para salas grandes. Atenção: em alguns modelos, os 50 cm são da grade, e a hélice é menor.' },
+  { q: 'Ventilador com mais pás venta mais?', a: 'Não necessariamente. A vazão depende do conjunto: motor, diâmetro, desenho das pás e grade. Mais pás tendem a distribuir o vento de forma mais suave, mas o número que importa é a vazão em m³/s.' },
+  { q: 'Qual ventilador de coluna é mais silencioso?', a: 'Nenhum é totalmente silencioso na velocidade máxima. Modelos com modo noturno ou grade desenhada para reduzir ruído, como o Arno VB52 e os Mallory com grade TS, são os mais elogiados nesse ponto pelos compradores.' },
+  { q: 'Ventilador de coluna gasta muita energia?', a: 'Pouco. Um modelo de 120 W ligado 8 horas por dia consome cerca de 29 kWh por mês. A etiqueta do Inmetro mostra o consumo para 1 hora por dia; multiplique pelas horas de uso.' },
+];
+
+const destaques = [
+  { rotulo: 'Melhor no geral', x: v('mondial-vsp-40c') },
+  { rotulo: 'Econômico e mais avaliado', x: v('mallory-delfos-ts-plus') },
+  { rotulo: 'Mais vento', x: v('arno-xtreme-force-breeze-vb52') },
+  { rotulo: 'Com controle remoto e timer', x: v('mallory-max-control') },
+  { rotulo: 'Mais alto', x: v('britania-bvt450') },
+  { rotulo: 'Menor consumo', x: v('ventisol-turbo-6-premium') },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: [`${site.url}${meta.imagem}`],
+    datePublished: publicado,
+    dateModified: atualizado,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: { '@type': 'Person', name: author.name, url: `${site.url}${author.url}`, image: `${site.url}${author.photo}`, jobTitle: author.role },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Climatização', item: `${site.url}/climatizacao/` },
+      { '@type': 'ListItem', position: 3, name: 'Melhor ventilador de coluna', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores ventiladores de coluna de 2026',
+    numberOfItems: colunas.length,
+    itemListElement: colunas.map((x) => ({
+      '@type': 'ListItem',
+      position: x.rank,
+      item: {
+        '@type': 'Product',
+        name: x.nome,
+        brand: { '@type': 'Brand', name: x.marca },
+        model: x.modelo,
+        url: `${pageUrl}#${x.slug}`,
+        description: x.resumo,
+        image: `${site.url}${fotoProduto(x)}`,
+        review: {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: author.name },
+          datePublished: publicado,
+          reviewRating: { '@type': 'Rating', ratingValue: x.nota, bestRating: 10, worstRating: 0 },
+          positiveNotes: { '@type': 'ItemList', itemListElement: x.pros.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+          negativeNotes: { '@type': 'ItemList', itemListElement: x.contras.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+        },
+      },
+    })),
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) },
+];
+---
+<Base title={title} description={description} type="article" published={publicado} modified={atualizado} jsonLd={jsonLd} image={meta.imagem} imageAlt="Comparativo dos melhores ventiladores de coluna de 2026">
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol><li><a href="/">Home</a></li><li><a href="/climatizacao/">Climatização</a></li><li aria-current="page">Melhor ventilador de coluna</li></ol>
+      </nav>
+      <h1>{meta.h1}</h1>
+      <p class="subtitulo">Comparamos os 10 ventiladores de coluna mais recomendados do Brasil, de 40 e 50 cm. Veja vazão de ar, consumo real, altura, número de pás, prós e contras e descubra qual combina com a sua casa.</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · {meta.minutos} min de leitura
+        </div>
+      </div>
+      <ShareButtons title={title} />
+    </div>
+  </section>
+
+  <div class="leitura artigo">
+    <p class="aviso-afiliado"><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem nenhum custo extra para você. Isso não muda a nossa opinião. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+
+    <p>O ventilador de coluna é a solução mais prática contra o calor: não precisa de instalação, vai de um cômodo para o outro e, com a <strong>altura ajustável</strong>, joga o vento por cima da cama ou do sofá, onde o ventilador de mesa não chega.</p>
+    <p>Mas os números dos anúncios enganam: a potência em watts não diz quanto vento o aparelho faz, e "50 cm" às vezes é só a grade. Por isso usamos também os dados do <strong>Inmetro</strong> (vazão de ar e consumo) para montar os <strong>10 melhores de 2026</strong>.</p>
+
+    <div class="caixa resposta">
+      <p class="caixa-tit">⚡ Resposta rápida: os melhores de 2026</p>
+      <ol class="lista-destaques">
+        {destaques.map((d) => <li><strong>{d.rotulo}:</strong> <a href={`#${d.x.slug}`}>{d.x.nome}</a></li>)}
+      </ol>
+    </div>
+
+    <nav class="caixa sumario" aria-label="Sumário">
+      <p class="caixa-tit">📑 Neste artigo</p>
+      <ol>
+        <li><a href="#comparativo">Tabela comparativa</a></li>
+        <li><a href="#como-escolher">Como escolher</a></li>
+        <li><a href="#ranking">Os 10 melhores modelos</a></li>
+        <li><a href="#consumo">Consumo de energia</a></li>
+        <li><a href="#metodologia">Como fizemos este ranking</a></li>
+        <li><a href="#perguntas">Perguntas frequentes</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="comparativo">Tabela comparativa: os 10 melhores lado a lado</h2>
+    <p>Clique no nome para ir direto à análise completa.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabela-wrap">
+      <table>
+        <caption class="sr-only">Comparativo dos 10 melhores ventiladores de coluna de 2026</caption>
+        <thead><tr><th>#</th><th>Modelo</th><th>Diâmetro</th><th>Pás</th><th>Vazão de ar</th><th>Consumo (Inmetro)</th><th>Controle remoto</th></tr></thead>
+        <tbody>
+          {colunas.map((x) => (
+            <tr>
+              <td><strong>{x.rank}º</strong></td>
+              <td><a href={`#${x.slug}`}>{x.marca} {x.modelo}</a></td>
+              <td>{x.diametro}</td>
+              <td>{x.pas.split(' ')[0]}</td>
+              <td>{x.vazao && !/fabricante/.test(x.vazao) ? x.vazao.split(' (')[0] : '—'}</td>
+              <td>{x.consumo && !/fabricante/.test(x.consumo) ? x.consumo.split(' (')[0] : '—'}</td>
+              <td>{/remoto/i.test(x.controle) ? '✔' : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-preco">Vazão de ar na velocidade máxima e consumo mensal conforme o registro do Inmetro (o consumo da etiqueta considera 1 hora de uso por dia). "—" indica dado não publicado. Os preços mudam com frequência: confira o valor atualizado nos botões de cada produto.</p>
+  </div>
+
+  <div class="leitura artigo">
+    <h2 id="como-escolher">Como escolher o melhor ventilador de coluna</h2>
+
+    <h3>1. Vazão de ar, não watts</h3>
+    <p>Mais watts não quer dizer mais vento. O número que mostra quanto ar o ventilador move é a <strong>vazão, em m³/s</strong>, que aparece no registro do Inmetro. Na lista, ela vai de 0,90 m³/s (Ventisol Turbo 6 Premium) a 1,44 m³/s (Arno VB52). Alguns anúncios de 180 W, quando medidos, consomem bem menos que isso.</p>
+
+    <h3>2. Diâmetro: 40 ou 50 cm</h3>
+    <p>Os de <strong>40 cm</strong> atendem bem quartos e salas pequenas. Os de <strong>50 cm</strong> movem mais ar e combinam com salas grandes. Confira se os 50 cm são da hélice ou só da grade: no WAP Flow Turbo, por exemplo, a hélice tem 40 cm.</p>
+
+    <h3>3. Altura ajustável</h3>
+    <p>É a grande vantagem da coluna. Para ventilar quem está deitado numa cama alta ou sentado no sofá, prefira modelos que chegam a <strong>1,50 m</strong> ou mais. O Britânia BVT450 chega a 1,62 m; o Mallory Delfos TS+ e o Max Control, a cerca de 1,30 m.</p>
+
+    <h3>4. Ruído</h3>
+    <p>Nenhum ventilador é silencioso no máximo. Modos noturnos (como o "sono tranquilo" da Arno) e grades desenhadas para reduzir ruído (como a TS da Mallory) ajudam na hora de dormir.</p>
+
+    <h3>5. Controle remoto, timer e voltagem</h3>
+    <p>Se você quer ajustar da cama e programar o desligamento, o <strong>Mallory Max Control</strong> é o único da lista com controle remoto e timer. Nenhum dos 10 é bivolt: todos vêm em versões separadas de <strong>127 V e 220 V</strong>, então confira a tensão da tomada antes de comprar.</p>
+
+    <h2 id="ranking">Os 10 melhores ventiladores de coluna de 2026</h2>
+    <p>Análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
+
+    {colunas.map((x) => <ProductCard p={x} tipo="Ventilador de coluna" />)}
+
+    <section>
+      <h2 id="consumo">Quanto o ventilador de coluna gasta</h2>
+      <p>A etiqueta do Inmetro mostra o consumo para <strong>1 hora por dia</strong> durante um mês. Para saber o seu gasto, multiplique pelas horas de uso. Exemplo com 8 horas por dia e tarifa de R$ 0,90 por kWh (valor ilustrativo): o Mallory Delfos TS+ (3,66 kWh/mês na etiqueta) gasta cerca de 29 kWh, ou R$ 26 por mês; o Ventisol Turbo 6 Premium (2,62 kWh/mês), cerca de 21 kWh, ou R$ 19. Veja a conta completa em <a href="/guias/ventilador-de-coluna-gasta-muita-energia/">ventilador de coluna gasta muita energia?</a></p>
+      <p>Ainda em dúvida sobre o formato? Compare em <a href="/guias/ventilador-de-coluna-ou-de-mesa/">ventilador de coluna ou de mesa</a> e <a href="/guias/ventilador-de-teto-ou-de-coluna/">ventilador de teto ou de coluna</a>.</p>
+
+      <h2 id="metodologia">Como fizemos este ranking</h2>
+      <p>Este é um comparativo baseado em pesquisa, não em testes de laboratório. Partimos dos modelos mais recomendados pelos três principais guias de compra do Brasil (TechTudo, Zoom e Casa dos Eletrodomésticos) e conferimos as especificações nos anúncios das lojas e nos dados do registro do Inmetro (vazão de ar, classe de eficiência e consumo). Quando as fontes divergem, deixamos o dado de fora.</p>
+      <p>Comparamos os modelos em cinco critérios: <strong>desempenho</strong> (vazão, diâmetro), <strong>consumo</strong>, <strong>praticidade</strong> (altura, controle, timer, montagem), <strong>ruído</strong> e <strong>opinião dos compradores</strong>. A nota de cada ventilador é a opinião editorial de {author.name}. Nenhuma marca pagou para aparecer nesta lista.</p>
+    </section>
+
+    <section>
+      <h2 id="perguntas">Perguntas frequentes sobre ventilador de coluna</h2>
+      <div class="faq">
+        {faq.map((q) => (
+          <details>
+            <summary>{q.q}</summary>
+            <p>{q.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2 id="conclusao">Conclusão: qual ventilador de coluna comprar?</h2>
+      <p>Para a maioria das casas, o <strong>{colunas[0].nome}</strong> é a melhor compra: forte, firme e com altura até 1,50 m. Para ventilar bem gastando menos, vá de <strong>Mallory Delfos TS+</strong>. Para salas grandes, o <strong>Arno Xtreme Force Breeze VB52</strong> é o que mais move ar, e quem quer controle remoto e timer deve olhar o <strong>Mallory Max Control</strong>.</p>
+      <p>Prefere ventilar o cômodo todo sem ocupar o chão? Veja os <a href="/melhor-ventilador-de-teto/">melhores ventiladores de teto</a>. Precisa de frio de verdade? Veja os <a href="/melhor-ar-condicionado-inverter/">ar-condicionados inverter</a> e os <a href="/melhor-ar-condicionado-portatil/">portáteis</a>.</p>
+
+      <ShareButtons title={title} />
+      <AuthorBox />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .artigo { padding-top: 28px; }
+  .resposta { background: var(--azul-claro); border-color: #bcd7f3; }
+  .lista-destaques { padding-left: 1.2rem; margin: 0; }
+  .nota-preco { font-size: .92rem; color: var(--texto-2); }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 30px 14px 0; list-style: none; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+</style>

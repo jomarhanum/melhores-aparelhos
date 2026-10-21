@@ -63,7 +63,20 @@ const ventiladores = [
   ['tron-marbella-new', 'Tron Marbella New'],
   ['venti-delta-new-zeta', 'Venti-Delta New Zeta'],
 ];
+const colunas = [
+  ['mondial-vsp-40c', 'Mondial Super Power VSP-40C 40 cm'],
+  ['mallory-delfos-ts-plus', 'Mallory Delfos TS+ 40 cm'],
+  ['arno-xtreme-force-breeze-vb52', 'Arno Xtreme Force Breeze VB52 50 cm'],
+  ['wap-flow-turbo', 'WAP Flow Turbo 50 cm'],
+  ['britania-bvt450', 'Britânia Maxx Force BVT450 40 cm'],
+  ['mallory-max-control', 'Mallory Max Control com controle remoto'],
+  ['mondial-vtx-40c-8p', 'Mondial Turbo 8 Pás VTX-40C-8P'],
+  ['ventisol-turbo-6-premium', 'Ventisol Turbo 6 Premium 50 cm'],
+  ['arno-x-treme-7', 'Arno X-Treme 7 VE7C 40 cm'],
+  ['oster-power-fresh', 'Oster Power Fresh OVTR881'],
+];
 const fotosDoHub = {
+  '/melhor-ventilador-de-coluna/': colunas.map(([s, n]) => [s, `Ventilador de coluna ${n}`]),
   '/melhor-ventilador-de-teto/': ventiladores.map(([s, n]) => [s, `Ventilador de teto ${n}`]),
   '/melhor-forno-eletrico-de-bancada/': bancadas.map(([s, n]) => [s, `Forno elétrico de bancada ${n}`]),
   '/melhor-forno-eletrico-de-embutir/': fornos.map(([s, n]) => [s, `Forno elétrico de embutir ${n}`]),

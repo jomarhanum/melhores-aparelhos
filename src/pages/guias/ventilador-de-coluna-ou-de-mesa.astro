@@ -1,0 +1,47 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Ventilador de coluna venta mais que o de mesa?', a: 'Com o mesmo motor e o mesmo diâmetro, o vento é parecido. A diferença é a altura: a coluna joga o vento por cima de camas e sofás, enquanto o de mesa depende de um móvel para ficar na altura certa.' },
+  { q: 'Dá para transformar ventilador de coluna em ventilador de mesa?', a: 'Em muitos modelos, sim: basta montar sem o tubo da coluna. Alguns fabricantes vendem versões "2 em 1" pensadas para isso. Confira no manual do seu modelo.' },
+  { q: 'Qual gasta menos energia, coluna ou mesa?', a: 'O consumo depende do motor, não do formato. Um modelo de mesa e um de coluna da mesma linha costumam gastar praticamente o mesmo.' },
+  { q: 'Qual é mais seguro com crianças e pets?', a: 'O de mesa fica longe do chão se estiver sobre um móvel firme, mas pode cair se for puxado pelo fio. O de coluna fica ao alcance, mas tem base pesada. Em ambos, prefira grades fechadas e mantenha o fio fora do caminho.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ventilador-de-coluna/', '/guias/ventilador-de-teto-ou-de-coluna/', '/guias/ventilador-de-coluna-gasta-muita-energia/', '/melhor-ventilador-de-teto/']}>
+  <p>Muitos ventiladores são vendidos nas duas versões, coluna e mesa, com o mesmo motor e a mesma hélice. Então o que muda? Basicamente <strong>altura, espaço e estabilidade</strong>. E isso faz bastante diferença no dia a dia.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> escolha o de <strong>coluna</strong> para ventilar quem está deitado ou sentado no sofá, sem depender de móvel. Escolha o de <strong>mesa</strong> para mesas de trabalho, bancadas e cômodos pequenos, onde espaço no chão é escasso.</p>
+  </div>
+
+  <h2 id="comparativo">Lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Coluna</th><th>Mesa</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Altura do vento</th><td>Ajustável, em geral até 1,30 a 1,60 m</td><td>Depende do móvel onde fica</td></tr>
+        <tr><th scope="row">Espaço</th><td>Ocupa chão</td><td>Ocupa a superfície de um móvel</td></tr>
+        <tr><th scope="row">Transporte</th><td>Mais pesado, mas muitos têm alça</td><td>Leve e compacto</td></tr>
+        <tr><th scope="row">Consumo</th><td>Igual ao de mesa da mesma linha</td><td>Igual ao de coluna da mesma linha</td></tr>
+        <tr><th scope="row">Ideal para</th><td>Quarto (cama) e sala (sofá)</td><td>Escritório, cozinha, quarto pequeno</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="altura">A altura é o que decide</h2>
+  <p>O vento precisa chegar ao corpo. Deitado numa cama box alta, o ventilador de mesa no chão sopra no colchão; na mesinha de cabeceira, muitas vezes fica baixo demais. A coluna regulável resolve: dá para subir até a altura certa e inclinar a hélice. Por isso, para dormir, a coluna costuma ser a melhor escolha.</p>
+
+  <h2 id="espaco">Quando o de mesa leva vantagem</h2>
+  <ul>
+    <li><strong>Mesa de trabalho:</strong> o vento fica na altura do rosto, sem ocupar o chão.</li>
+    <li><strong>Cômodos pequenos:</strong> sobra espaço para circular.</li>
+    <li><strong>Cozinha e bancadas:</strong> fácil de mudar de lugar.</li>
+  </ul>
+
+  <h2 id="tamanho">40 ou 50 cm vale para os dois</h2>
+  <p>Nos dois formatos, os modelos de <strong>40 cm</strong> atendem quartos e salas pequenas, e os de <strong>50 cm</strong> movem mais ar para salas grandes. Confira se os 50 cm são da hélice ou só da grade, e compare a <strong>vazão em m³/s</strong>, que mostra quanto ar o aparelho move de verdade.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Decidiu pela coluna? Veja os <a href="/melhor-ventilador-de-coluna/">10 melhores ventiladores de coluna de 2026</a>, com altura, vazão, consumo e prós e contras de cada um.</p>
+</Artigo>

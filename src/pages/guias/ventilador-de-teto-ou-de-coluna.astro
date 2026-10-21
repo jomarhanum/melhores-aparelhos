@@ -1,0 +1,54 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Ventilador de teto ventila mais que o de coluna?', a: 'Ele ventila o cômodo de forma mais uniforme, porque o ar desce do centro do teto. O de coluna faz um vento mais forte e direcionado, bom para quem está perto dele.' },
+  { q: 'Qual gasta menos energia, teto ou coluna?', a: 'Os ventiladores de teto inverter, com cerca de 30 W, são os mais econômicos. Entre os modelos comuns, teto (130 W a 150 W) e coluna (cerca de 90 W a 140 W medidos) gastam valores parecidos.' },
+  { q: 'Posso instalar ventilador de teto em apartamento alugado?', a: 'Depende do contrato e do ponto elétrico no teto. A instalação exige fixação na laje e ligação elétrica. Se não puder mexer, o de coluna é a saída sem obra.' },
+  { q: 'Qual é melhor para quarto de criança?', a: 'O de teto fica fora do alcance e não tem fio no chão, o que é uma vantagem. Se escolher o de coluna, prefira grade fechada e base pesada, e mantenha o fio fora do caminho.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ventilador-de-coluna/', '/melhor-ventilador-de-teto/', '/guias/ventilador-de-coluna-gasta-muita-energia/', '/guias/como-instalar-ventilador-de-teto/']}>
+  <p>Ventilador de teto e ventilador de coluna resolvem o mesmo problema de jeitos bem diferentes. Um fica fixo e ventila o cômodo todo; o outro vai para onde você estiver. A escolha depende de <strong>instalação, espaço e de quem vai usar</strong>.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> o <strong>ventilador de teto</strong> é melhor para ventilar o cômodo inteiro sem ocupar o chão, e os modelos inverter gastam muito pouco. O <strong>ventilador de coluna</strong> não precisa de instalação, muda de cômodo e faz vento forte e direcionado. Para quem mora de aluguel, o de coluna costuma ser o caminho.</p>
+  </div>
+
+  <h2 id="comparativo">Lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Ventilador de teto</th><th>Ventilador de coluna</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Instalação</th><td>Fixação na laje e ligação elétrica</td><td>Nenhuma: é só ligar na tomada</td></tr>
+        <tr><th scope="row">Vento</th><td>Distribuído pelo cômodo todo</td><td>Forte e direcionado</td></tr>
+        <tr><th scope="row">Espaço</th><td>Não ocupa o chão</td><td>Ocupa chão e tem fio</td></tr>
+        <tr><th scope="row">Mobilidade</th><td>Fixo</td><td>Vai de um cômodo para outro</td></tr>
+        <tr><th scope="row">Consumo</th><td>30 W (inverter) a 150 W</td><td>Cerca de 90 W a 140 W medidos</td></tr>
+        <tr><th scope="row">Luz</th><td>Muitos têm luminária</td><td>Não</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="teto">Escolha o de teto se...</h2>
+  <ul>
+    <li>O imóvel é seu (ou o proprietário permite) e há ponto de luz no teto.</li>
+    <li>Quer ventilar o cômodo inteiro, de forma uniforme.</li>
+    <li>Quer liberar o chão, por causa de crianças, pets ou espaço.</li>
+    <li>Quer gastar o mínimo de energia: os <strong>inverter</strong> consomem cerca de 30 W.</li>
+  </ul>
+
+  <h2 id="coluna">Escolha o de coluna se...</h2>
+  <ul>
+    <li>Mora de aluguel ou não pode fazer instalação.</li>
+    <li>Quer levar o ventilador do quarto para a sala.</li>
+    <li>Prefere um vento forte apontado para você.</li>
+    <li>Quer gastar menos na compra.</li>
+  </ul>
+
+  <h2 id="juntos">E os dois juntos?</h2>
+  <p>Funciona bem em salas grandes: o de teto mantém o ar circulando, e o de coluna reforça o vento onde as pessoas ficam. Também é uma boa combinação com o ar-condicionado, que pode ficar 1 ou 2 graus mais alto com o vento ajudando.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Veja os <a href="/melhor-ventilador-de-teto/">10 melhores ventiladores de teto</a> e os <a href="/melhor-ventilador-de-coluna/">10 melhores ventiladores de coluna</a> de 2026. Se for de teto, leia também <a href="/guias/como-instalar-ventilador-de-teto/">como instalar ventilador de teto</a>.</p>
+</Artigo>

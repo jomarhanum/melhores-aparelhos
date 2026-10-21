@@ -1,0 +1,69 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+import { colunas } from '../../data/coluna';
+
+// Só modelos com consumo do registro do Inmetro (etiqueta: 1 hora por dia, 30 dias).
+const tarifa = 0.9;
+const tabela = colunas
+  .filter((x) => x.consumo && !/fabricante/.test(x.consumo))
+  .map((x) => {
+    const etiqueta = parseFloat(x.consumo!.replace(',', '.'));
+    const mes8h = etiqueta * 8;
+    return { x, etiqueta, mes8h, reais: mes8h * tarifa };
+  })
+  .sort((a, b) => a.etiqueta - b.etiqueta);
+const br = (n: number, d = 1) => n.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+const faq = [
+  { q: 'Quanto gasta um ventilador de coluna ligado a noite toda?', a: 'Um modelo que consome cerca de 120 W, ligado 8 horas por noite durante 30 dias, gasta perto de 29 kWh, algo como R$ 26 por mês com tarifa de R$ 0,90 por kWh.' },
+  { q: 'Como ler o consumo da etiqueta do Inmetro?', a: 'O consumo em kWh/mês da etiqueta de ventiladores considera 1 hora de uso por dia. Multiplique pelo número de horas que você usa por dia para ter o gasto real.' },
+  { q: 'Velocidade baixa gasta menos?', a: 'Sim. O motor puxa menos potência nas velocidades baixas, por isso a etiqueta do Inmetro traz uma classe de eficiência para cada velocidade.' },
+  { q: 'Ventilador de coluna gasta mais que ventilador de teto?', a: 'Depende do modelo. Os de coluna da lista consomem de cerca de 90 W a 140 W medidos; os de teto comuns, 130 W a 150 W; e os de teto inverter, cerca de 30 W.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ventilador-de-coluna/', '/guias/ventilador-de-coluna-ou-de-mesa/', '/guias/ventilador-de-teto-ou-de-coluna/', '/melhor-ventilador-de-teto/']}>
+  <p>Ventilador de coluna é um dos aparelhos mais baratos de manter ligado em casa. Mas quanto ele gasta de verdade? A resposta está na <strong>etiqueta do Inmetro</strong>, desde que você saiba ler um detalhe que quase ninguém percebe.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> o consumo em kWh/mês da etiqueta considera só <strong>1 hora de uso por dia</strong>. Ligado 8 horas por dia, um ventilador de coluna da lista gasta de cerca de <strong>21 a 34 kWh por mês</strong>, ou algo entre R$ 19 e R$ 31 com tarifa de R$ 0,90 por kWh.</p>
+  </div>
+
+  <h2 id="etiqueta">O detalhe da etiqueta: 1 hora por dia</h2>
+  <p>A etiqueta de ventiladores mostra o consumo mensal considerando <strong>1 hora de uso por dia</strong>. Por isso os números parecem tão baixos (3 ou 4 kWh). Para saber o seu gasto, multiplique pelas horas que o ventilador fica ligado.</p>
+  <p>Exemplo: um modelo com <strong>3,66 kWh/mês</strong> na etiqueta, ligado 8 horas por noite, gasta 3,66 × 8 = <strong>29,3 kWh por mês</strong>.</p>
+
+  <h2 id="tabela">Consumo dos ventiladores de coluna mais vendidos</h2>
+  <p>Dados do registro do Inmetro, do mais econômico para o que mais gasta. Conta com 8 horas por dia, 30 dias e tarifa de R$ 0,90 por kWh (valor ilustrativo; veja a sua na conta de luz).</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Modelo</th><th>Etiqueta (1 h/dia)</th><th>8 h/dia</th><th>Por mês</th></tr></thead>
+      <tbody>
+        {tabela.map((l) => (
+          <tr>
+            <td><a href={`/melhor-ventilador-de-coluna/#${l.x.slug}`}>{l.x.marca} {l.x.modelo}</a></td>
+            <td>{br(l.etiqueta, 2)} kWh</td>
+            <td>{br(l.mes8h)} kWh</td>
+            <td>R$ {br(l.reais, 2)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="watts">Por que os watts do anúncio enganam</h2>
+  <p>A potência do anúncio é um valor nominal. Quando o Inmetro mede, o consumo real na velocidade máxima pode ser bem diferente: há modelos anunciados com 160 W ou 180 W que, medidos, ficam em torno de 100 W a 120 W. Para comparar consumo, use a etiqueta; para comparar vento, use a <strong>vazão em m³/s</strong>.</p>
+
+  <h2 id="classe">Classe de eficiência: uma letra por velocidade</h2>
+  <p>A etiqueta traz <strong>três letras</strong>, uma para cada velocidade (por exemplo, A/A/B). Elas medem quanto ar o ventilador move para cada watt gasto. Um modelo "A" nas três velocidades, como o Mallory Delfos TS+, o Arno VB52 e o WAP Flow Turbo, entrega mais vento pela mesma energia.</p>
+
+  <h2 id="economizar">Como gastar menos</h2>
+  <ul>
+    <li>Use a <strong>velocidade mais baixa</strong> que já deixa você confortável.</li>
+    <li>Aponte o vento para as pessoas, não para o cômodo vazio.</li>
+    <li>Desligue ao sair do cômodo, ou use um modelo com <strong>timer</strong> para dormir.</li>
+    <li>Mantenha as pás e a grade limpas: poeira atrapalha o fluxo de ar.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Veja os <a href="/melhor-ventilador-de-coluna/">10 melhores ventiladores de coluna de 2026</a> com vazão, consumo e prós e contras de cada um.</p>
+</Artigo>
