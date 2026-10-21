@@ -165,6 +165,41 @@ const baseLd = [
         try { localStorage.setItem('cookie-ok', '1'); } catch {}
         if (c) c.hidden = true;
       });
+
+      // Âncoras: quando a rolagem termina, acerta a posição final. No celular a barra de endereço
+      // e as imagens que carregam no caminho podem deixar o destino alguns pixels fora do lugar.
+      const acertar = (id: string) => {
+        const alvo = document.getElementById(decodeURIComponent(id));
+        if (!alvo) return;
+        const corrigir = () => {
+          const dif = alvo.getBoundingClientRect().top - parseFloat(getComputedStyle(alvo).scrollMarginTop || '0');
+          if (Math.abs(dif) > 2) scrollTo({ top: scrollY + dif, behavior: 'instant' });
+        };
+        if ('onscrollend' in window) {
+          // Só depois que a rolagem do navegador termina de fato.
+          addEventListener('scrollend', corrigir, { once: true });
+          setTimeout(() => removeEventListener('scrollend', corrigir), 5000);
+          return;
+        }
+        // Navegadores sem scrollend: espera a página se mover e depois ficar parada.
+        const inicio = scrollY;
+        let ultimo = scrollY, parado = 0, voltas = 0, moveu = false;
+        const t = setInterval(() => {
+          if (scrollY !== inicio) moveu = true;
+          parado = scrollY === ultimo ? parado + 1 : 0;
+          ultimo = scrollY;
+          if (++voltas > 50) return clearInterval(t);
+          if (!moveu || parado < 3) return;
+          clearInterval(t);
+          corrigir();
+        }, 100);
+      };
+      document.addEventListener('click', (e) => {
+        const a = (e.target as Element).closest?.('a[href^="#"]');
+        const id = a?.getAttribute('href')?.slice(1);
+        if (id) acertar(id);
+      });
+      addEventListener('load', () => { if (location.hash.length > 1) acertar(location.hash.slice(1)); });
     </script>
   </body>
 </html>
