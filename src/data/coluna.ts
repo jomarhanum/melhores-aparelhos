@@ -65,7 +65,7 @@ const dados: ColunaDados[] = [
       criticas: ['Na velocidade máxima faz barulho', 'Silencioso mesmo só na velocidade mais baixa'],
       observacao: 'Tem milhares de avaliações na Amazon, somando as versões de 127 V e 220 V, com nota alta.',
     },
-    amazonUrl: 'https://link.amazon/B0dhGQ7iA',
+    amazonUrl: 'https://www.amazon.com.br/dp/B09B15B85N?tag=jhos08-20',
     mercadoLivreUrl: 'https://meli.la/1H3kgbe',
   },
   {
@@ -205,7 +205,7 @@ const dados: ColunaDados[] = [
       criticas: ['Alguns acham barulhento', 'Montagem difícil para alguns', 'Hélice menor que a grade sugere'],
       observacao: 'Tem milhares de avaliações na Amazon, com nota alta.',
     },
-    amazonUrl: 'https://link.amazon/B08m0Y0zR',
+    amazonUrl: 'https://www.amazon.com.br/dp/B0BT4YZZKK?tag=jhos08-20',
     mercadoLivreUrl: 'https://meli.la/2Va2daM',
   },
   {
