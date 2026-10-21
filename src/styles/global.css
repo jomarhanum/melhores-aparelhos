@@ -134,8 +134,10 @@ tbody tr:last-child td { border-bottom: 0; }
 .cookie[hidden] { display: none; }
 .cookie p { margin: 0; line-height: 1.5; }
 
-/* Blocos longos abaixo da dobra: layout só quando se aproximam da tela */
-.bloco { content-visibility: auto; contain-intrinsic-size: auto 2400px; background: #fff; }
+.bloco { background: #fff; }
+
+/* Âncoras: o destino não fica escondido sob o menu fixo */
+[id] { scroll-margin-top: 84px; }
 
 /* Páginas simples */
 .pagina { padding: 40px 0 0; }
