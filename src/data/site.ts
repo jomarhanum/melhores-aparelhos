@@ -11,7 +11,7 @@ export const site = {
   // E-mail exibido na página de contato. Troque pelo e-mail oficial do blog.
   contactEmail: 'contato@jhonlinesolutions.com.br',
   developer: { name: 'JH Online Solutions', url: 'https://jhonlinesolutions.com.br' },
-  ogImage: '/images/og-melhores-aparelhos.jpg',
+  ogImage: '/images/og-melhores-aparelhos-geral.jpg',
 };
 
 export const author = {
