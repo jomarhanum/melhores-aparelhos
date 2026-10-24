@@ -1,0 +1,54 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Geladeira inverse é melhor que duplex?', a: 'Depende do uso. Na inverse, o refrigerador fica na altura dos olhos e você se abaixa menos no dia a dia. Na duplex, o freezer fica em cima, e ela costuma ser mais barata. Quem usa mais o refrigerador tende a preferir a inverse.' },
+  { q: 'O que é geladeira French Door?', a: 'É a geladeira com duas portas lado a lado no refrigerador e o freezer em gaveta embaixo. Você abre só metade do refrigerador quando precisa, e cabem travessas largas.' },
+  { q: 'Side by side gasta mais energia?', a: 'Costuma gastar mais que uma duplex do mesmo tamanho, por ter portas altas e estreitas e, em geral, dispenser. Compare pelo consumo da etiqueta do Inmetro, sempre no mesmo padrão de medição.' },
+  { q: 'Qual tipo de geladeira cabe em cozinha pequena?', a: 'Duplex e inverse de cerca de 60 cm de largura, como a Electrolux TF38 e a Panasonic BB41. French Door e side by side passam de 80 cm.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-geladeira/', '/guias/qual-tamanho-de-geladeira/', '/guias/geladeira-gasta-muita-energia/']}>
+  <p>Duplex, inverse, French Door, side by side: os nomes confundem, mas a diferença é simples. O que muda é <strong>onde fica o freezer</strong> e <strong>como as portas abrem</strong>. E isso faz diferença em todas as vezes que você abre a geladeira.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> <strong>duplex</strong> (freezer em cima) é a mais comum e barata. <strong>Inverse</strong> (freezer embaixo) deixa o refrigerador na altura dos olhos. <strong>French Door</strong> tem duas portas no refrigerador e muito espaço. <strong>Side by side</strong> põe freezer e refrigerador lado a lado, com dispenser na porta.</p>
+  </div>
+
+  <h2 id="comparativo">Os quatro tipos lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Duplex</th><th>Inverse</th><th>French Door</th><th>Side by side</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Freezer</th><td>Em cima</td><td>Embaixo, em gaveta</td><td>Embaixo, em gaveta</td><td>Ao lado, porta inteira</td></tr>
+        <tr><th scope="row">Largura comum</th><td>60 a 71 cm</td><td>60 a 70 cm</td><td>Mais de 80 cm</td><td>Cerca de 90 cm</td></tr>
+        <tr><th scope="row">Preço</th><td>Mais baixo</td><td>Médio</td><td>Alto</td><td>Médio a alto</td></tr>
+        <tr><th scope="row">Ponto forte</th><td>Custo-benefício</td><td>Refrigerador na altura dos olhos</td><td>Espaço e visual</td><td>Dispenser e visual</td></tr>
+        <tr><th scope="row">Na nossa lista</th><td><a href="/melhor-geladeira/#electrolux-it70s">Electrolux IT70S</a></td><td><a href="/melhor-geladeira/#electrolux-ib7s">Electrolux IB7S</a></td><td><a href="/melhor-geladeira/#brastemp-bro85">Brastemp BRO85</a></td><td><a href="/melhor-geladeira/#philco-prf535id">Philco PRF535ID</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="duplex">Duplex: a escolha segura</h2>
+  <p>O freezer fica em cima, e o refrigerador embaixo. É o formato mais vendido, com mais opções de tamanho e os preços mais baixos. A desvantagem é se abaixar para pegar o que está nas prateleiras de baixo do refrigerador, que é a parte que você mais abre.</p>
+
+  <h2 id="inverse">Inverse: menos tempo agachado</h2>
+  <p>Inverte a lógica: refrigerador em cima, na altura dos olhos, e freezer embaixo, em gavetas. Como abrimos o refrigerador muito mais vezes que o freezer, o dia a dia fica mais confortável. As gavetas do freezer também facilitam achar o que está congelado.</p>
+
+  <h2 id="french-door">French Door: espaço de sobra</h2>
+  <p>Duas portas no refrigerador e freezer em gaveta. Você abre só um lado para pegar algo rápido, perdendo menos frio, e cabem travessas largas e bolos de festa. É a opção para famílias grandes, mas exige cozinha larga (mais de 80 cm) e cuidado com as passagens até ela.</p>
+
+  <h2 id="side-by-side">Side by side: o visual americano</h2>
+  <p>Freezer e refrigerador ficam lado a lado, cada um com uma porta da altura da geladeira. Muitos modelos têm dispenser de água ou gelo na porta. As portas são estreitas, o que dificulta guardar travessas largas, e o modelo ocupa cerca de 90 cm de largura.</p>
+
+  <h2 id="qual">Qual escolher</h2>
+  <ul>
+    <li><strong>Orçamento apertado ou cozinha pequena:</strong> duplex.</li>
+    <li><strong>Quer conforto no dia a dia:</strong> inverse.</li>
+    <li><strong>Família grande e cozinha larga:</strong> French Door.</li>
+    <li><strong>Quer dispenser e visual:</strong> side by side.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-geladeira/">10 melhores geladeiras de 2026</a>, com modelos de todos os tipos, consumo oficial do Inmetro e prós e contras.</p>
+</Artigo>

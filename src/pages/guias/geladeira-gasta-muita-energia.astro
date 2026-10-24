@@ -1,0 +1,71 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+import { geladeiras } from '../../data/geladeira';
+
+// Consumo do "Padrão 2025" da tabela do Inmetro (31/12/2025). A Philco não declara esse padrão e fica de fora.
+const tarifa = 0.9;
+const tabela = geladeiras
+  .filter((x) => !/padrão 2022/.test(x.consumo))
+  .map((x) => {
+    const kwh = parseFloat(x.consumo.replace(',', '.'));
+    return { x, kwh, mes: kwh * tarifa, ano: kwh * tarifa * 12 };
+  })
+  .sort((a, b) => a.kwh - b.kwh);
+const br = (n: number, d = 2) => n.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+const faq = [
+  { q: 'Quanto gasta uma geladeira por mês?', a: 'As geladeiras frost free da nossa lista consomem de 24 a 33 kWh por mês, segundo a tabela do Inmetro. Com tarifa de R$ 0,90 por kWh, isso dá entre R$ 22 e R$ 29 por mês.' },
+  { q: 'Por que a mesma geladeira aparece com consumos diferentes?', a: 'A tabela do Inmetro traz dois padrões de medição. No padrão 2022, a Electrolux IB7S aparece com 42,9 kWh/mês e classe A+++; no padrão 2025, com 29,4 kWh/mês e classe A. Cada loja copia um dos dois.' },
+  { q: 'Geladeira frost free gasta mais que a de degelo manual?', a: 'Em geral, sim, porque o sistema que evita o gelo usa energia. Em troca, você não precisa descongelar. Com compressor inverter, a diferença diminui bastante.' },
+  { q: 'Geladeira velha gasta mais?', a: 'Gasta. Borrachas gastas deixam o frio escapar e compressores antigos são menos eficientes. Trocar uma geladeira com mais de 10 anos por um modelo inverter costuma reduzir a conta.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-geladeira/', '/guias/qual-tamanho-de-geladeira/', '/guias/geladeira-duplex-inverse-french-door-ou-side-by-side/']}>
+  <p>A geladeira fica ligada 24 horas por dia, o ano todo. Mesmo assim, uma geladeira moderna gasta menos do que muita gente imagina. O difícil é descobrir o número certo: a mesma geladeira aparece com consumos diferentes em cada loja. Explicamos por quê.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> as geladeiras frost free mais vendidas consomem de <strong>24 a 33 kWh por mês</strong> no padrão mais recente do Inmetro, ou cerca de <strong>R$ 22 a R$ 29</strong> com tarifa de R$ 0,90 por kWh. Para comparar modelos, use sempre o mesmo padrão de medição.</p>
+  </div>
+
+  <h2 id="dois-padroes">Por que as lojas mostram números diferentes</h2>
+  <p>A tabela oficial do Inmetro (atualizada em 31/12/2025) traz <strong>dois padrões de medição</strong> para muitas geladeiras:</p>
+  <ul>
+    <li><strong>Padrão 2022:</strong> classes de A+++ a C e números de consumo maiores.</li>
+    <li><strong>Padrão 2025:</strong> método mais recente e exigente, com classes A, B e C.</li>
+  </ul>
+  <p>Exemplo: a Electrolux IB7S aparece com <strong>42,9 kWh/mês e classe A+++</strong> no padrão 2022 e com <strong>29,4 kWh/mês e classe A</strong> no padrão 2025. Uma loja que copia o primeiro número e outra que copia o segundo estão falando da mesma geladeira. Por isso, compare sempre pelo mesmo padrão, e desconfie de uma "A+++" ao lado de uma "A": podem ser escalas diferentes.</p>
+
+  <h2 id="tabela">Consumo das geladeiras mais vendidas</h2>
+  <p>Dados do padrão 2025 da tabela do Inmetro, da mais econômica para a que mais gasta. Conta com tarifa de R$ 0,90 por kWh (valor ilustrativo; veja a sua na conta de luz).</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Geladeira</th><th>Consumo</th><th>Por mês</th><th>Por ano</th></tr></thead>
+      <tbody>
+        {tabela.map((l) => (
+          <tr>
+            <td><a href={`/melhor-geladeira/#${l.x.slug}`}>{l.x.marca} {l.x.modelo}</a> ({l.x.capacidade})</td>
+            <td>{br(l.kwh, 1)} kWh/mês</td>
+            <td>R$ {br(l.mes)}</td>
+            <td>R$ {br(l.ano)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p>Repare que a geladeira mais econômica da lista, a LG GC-B569, tem 451 litros, e a Electrolux TF38, a menor, de 320 litros, consome mais que ela. Tamanho não é tudo: o <strong>compressor inverter</strong> faz muita diferença, e a TF38 é a única sem ele.</p>
+
+  <h2 id="inverter">Compressor inverter: por que importa tanto na geladeira</h2>
+  <p>O compressor comum funciona no liga e desliga: arranca com força, gela e para. O <strong>inverter</strong> ajusta a velocidade e trabalha de forma contínua e suave, mantendo a temperatura estável e gastando menos. Como a geladeira nunca desliga, essa economia aparece todos os meses.</p>
+
+  <h2 id="economizar">Como gastar menos com a geladeira</h2>
+  <ul>
+    <li>Deixe <strong>espaço atrás e dos lados</strong> para o calor sair, como pede o manual.</li>
+    <li>Instale longe do fogão, do forno e do sol direto.</li>
+    <li>Confira a <strong>borracha da porta</strong>: se uma folha de papel escorrega fechada, é hora de trocar.</li>
+    <li>Não coloque comida quente lá dentro; espere esfriar.</li>
+    <li>Evite abrir a porta à toa e deixá-la aberta escolhendo o que comer.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-geladeira/">10 melhores geladeiras de 2026</a>, com consumo oficial, medidas e prós e contras de cada uma.</p>
+</Artigo>

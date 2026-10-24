@@ -29,6 +29,7 @@ export const nav = [
   { label: 'Home', href: '/' },
   { label: 'Climatização', href: '/climatizacao/' },
   { label: 'Fornos', href: '/fornos/' },
+  { label: 'Geladeiras', href: '/melhor-geladeira/' },
   { label: 'Guias', href: '/guias/' },
   { label: 'Sobre', href: '/sobre/' },
   { label: 'Contato', href: '/contato/' },

@@ -52,6 +52,14 @@ export const categorias = [
     imagem: '/images/produtos/mondial-vsp-40c.webp',
     descricao: 'Sem instalação e fácil de levar de um cômodo a outro: modelos de 40 e 50 cm, com altura ajustável e até controle remoto.',
   },
+  {
+    id: 'geladeira',
+    nome: 'Geladeira',
+    curto: 'Geladeira',
+    hub: '/melhor-geladeira/',
+    imagem: '/images/produtos/electrolux-it70s.webp',
+    descricao: 'Duplex, inverse, French Door e side by side: consumo oficial do Inmetro, medidas e capacidade lado a lado.',
+  },
 ];
 
 // Grupos de categorias com página própria (itens do menu).

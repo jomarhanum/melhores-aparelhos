@@ -469,5 +469,61 @@ artigos.push(
   },
 );
 
+// ---------- Geladeira ----------
+artigos.push(
+  {
+    url: '/melhor-geladeira/',
+    titulo: 'Melhor Geladeira 2026: 10 Modelos com Consumo Oficial do Inmetro',
+    h1: 'Melhor Geladeira de 2026: 10 Modelos Comparados',
+    descricao: 'Qual a melhor geladeira de 2026? Comparamos 10 modelos frost free (Electrolux, Consul, LG, Panasonic, Brastemp e Philco) com o consumo oficial do Inmetro, capacidade, medidas, prós e contras.',
+    categoria: 'Comparativo',
+    secao: 'geladeira',
+    publicado: '2026-10-24',
+    atualizado: '2026-10-24',
+    imagem: '/images/produtos/electrolux-it70s.webp',
+    resumo: 'Duplex, inverse, French Door e side by side lado a lado, com o consumo oficial do Inmetro.',
+    minutos: 15,
+  },
+  {
+    url: '/guias/geladeira-duplex-inverse-french-door-ou-side-by-side/',
+    titulo: 'Geladeira Duplex, Inverse, French Door ou Side by Side: Qual Escolher?',
+    h1: 'Geladeira duplex, inverse, French Door ou side by side: qual escolher?',
+    descricao: 'Entenda a diferença entre geladeira duplex, inverse, French Door e side by side: onde fica o freezer, espaço, consumo, medidas e qual tipo combina com a sua rotina.',
+    categoria: 'Guia',
+    secao: 'geladeira',
+    publicado: '2026-10-24',
+    atualizado: '2026-10-24',
+    imagem: '/images/produtos/brastemp-bro85.webp',
+    resumo: 'Onde fica o freezer, espaço, consumo e medidas de cada tipo.',
+    minutos: 6,
+  },
+  {
+    url: '/guias/qual-tamanho-de-geladeira/',
+    titulo: 'Qual Tamanho de Geladeira Comprar? Litros por Pessoa e Medidas',
+    h1: 'Qual tamanho de geladeira comprar?',
+    descricao: 'Quantos litros de geladeira você precisa? Veja a capacidade ideal por número de pessoas e como medir o espaço, as portas e a ventilação antes de comprar.',
+    categoria: 'Guia',
+    secao: 'geladeira',
+    publicado: '2026-10-24',
+    atualizado: '2026-10-24',
+    imagem: '/images/produtos/consul-crm44.webp',
+    resumo: 'Litros por pessoa, medidas do espaço e o teste das portas antes de comprar.',
+    minutos: 5,
+  },
+  {
+    url: '/guias/geladeira-gasta-muita-energia/',
+    titulo: 'Geladeira Gasta Muita Energia? Consumo Real e a Nova Etiqueta do Inmetro',
+    h1: 'Geladeira gasta muita energia?',
+    descricao: 'Quanto gasta uma geladeira por mês? Veja o consumo oficial do Inmetro dos modelos mais vendidos, a conta em reais e por que as lojas mostram números diferentes para a mesma geladeira.',
+    categoria: 'Guia',
+    secao: 'geladeira',
+    publicado: '2026-10-24',
+    atualizado: '2026-10-24',
+    imagem: '/images/produtos/lg-gc-b569.webp',
+    resumo: 'Consumo oficial, conta em reais e os dois padrões da etiqueta do Inmetro.',
+    minutos: 7,
+  },
+);
+
 export const artigoPorUrl = (url) => artigos.find((a) => a.url === url);
 export const artigosDaSecao = (secao) => artigos.filter((a) => a.secao === secao);

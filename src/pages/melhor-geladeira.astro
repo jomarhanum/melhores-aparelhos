@@ -1,0 +1,232 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { geladeiras } from '../data/geladeira';
+import { fotoProduto } from '../data/tipos';
+import { site, author } from '../data/site';
+import { artigoPorUrl } from '../data/artigos.mjs';
+
+const meta = artigoPorUrl('/melhor-geladeira/')!;
+const publicado = `${meta.publicado}T09:00:00-03:00`;
+const atualizado = `${meta.atualizado}T09:00:00-03:00`;
+const dataExibida = new Date(`${meta.atualizado}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const title = meta.titulo;
+const description = meta.descricao;
+const pageUrl = `${site.url}${meta.url}`;
+const v = (slug: string) => geladeiras.find((x) => x.slug === slug)!;
+
+const faq = [
+  { q: 'Qual a melhor geladeira de 2026?', a: 'Para a maioria das famílias, a Electrolux IT70S: duplex de 480 litros, inverter, consumo de 25 kWh/mês no padrão mais recente do Inmetro e bivolt. Para gastar menos na compra, a Consul CRM44 tem 377 litros e consome 24,9 kWh/mês.' },
+  { q: 'Qual a geladeira mais econômica?', a: 'Entre os 10 modelos da lista, a LG GC-B569 (451 litros, inverse) tem o menor consumo na tabela do Inmetro: 24 kWh/mês, seguida pela Consul CRM44 (24,9) e pela Electrolux IT70S (25,0).' },
+  { q: 'Por que as lojas mostram consumos diferentes para a mesma geladeira?', a: 'Porque a tabela do Inmetro traz dois padrões de medição. No padrão 2022, a Electrolux IB7S aparece com 42,9 kWh/mês e classe A+++; no padrão 2025, mais exigente, com 29,4 kWh/mês e classe A. Cada loja copia um deles. Compare sempre pelo mesmo padrão.' },
+  { q: 'Geladeira inverter vale a pena?', a: 'Para uma geladeira, que fica ligada 24 horas por dia, sim. Quase todos os modelos da lista são inverter; a única sem inverter, a Electrolux TF38, ficou com classe C no padrão mais recente do Inmetro.' },
+  { q: 'Quantos litros de geladeira preciso?', a: 'Como referência: até 300 litros para 1 ou 2 pessoas, de 300 a 450 litros para 3 ou 4 pessoas e acima de 450 litros para famílias maiores ou quem faz compras grandes. Veja o guia de tamanho para medir o espaço.' },
+  { q: 'Geladeira bivolt existe?', a: 'Existe, mas é rara. Na lista, só a Electrolux IT70S é bivolt (SmartBivolt). As demais vêm em versões separadas de 127 V e 220 V, então confira a tomada antes de comprar.' },
+];
+
+const destaques = [
+  { rotulo: 'Melhor no geral', x: v('electrolux-it70s') },
+  { rotulo: 'Melhor custo-benefício', x: v('consul-crm44') },
+  { rotulo: 'Melhor inverse', x: v('electrolux-ib7s') },
+  { rotulo: 'Menor consumo', x: v('lg-gc-b569') },
+  { rotulo: 'Melhor French Door', x: v('brastemp-bro85') },
+  { rotulo: 'Compacta para casais', x: v('electrolux-tf38') },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: [`${site.url}${meta.imagem}`],
+    datePublished: publicado,
+    dateModified: atualizado,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: { '@type': 'Person', name: author.name, url: `${site.url}${author.url}`, image: `${site.url}${author.photo}`, jobTitle: author.role },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Melhor geladeira', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores geladeiras de 2026',
+    numberOfItems: geladeiras.length,
+    itemListElement: geladeiras.map((x) => ({
+      '@type': 'ListItem',
+      position: x.rank,
+      item: {
+        '@type': 'Product',
+        name: x.nome,
+        brand: { '@type': 'Brand', name: x.marca },
+        model: x.modelo,
+        url: `${pageUrl}#${x.slug}`,
+        description: x.resumo,
+        image: `${site.url}${fotoProduto(x)}`,
+        review: {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: author.name },
+          datePublished: publicado,
+          reviewRating: { '@type': 'Rating', ratingValue: x.nota, bestRating: 10, worstRating: 0 },
+          positiveNotes: { '@type': 'ItemList', itemListElement: x.pros.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+          negativeNotes: { '@type': 'ItemList', itemListElement: x.contras.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+        },
+      },
+    })),
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) },
+];
+---
+<Base title={title} description={description} type="article" published={publicado} modified={atualizado} jsonLd={jsonLd} image={meta.imagem} imageAlt="Comparativo das melhores geladeiras de 2026">
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol><li><a href="/">Home</a></li><li aria-current="page">Melhor geladeira</li></ol>
+      </nav>
+      <h1>{meta.h1}</h1>
+      <p class="subtitulo">Comparamos as 10 geladeiras mais recomendadas do Brasil, da compacta de 320 litros à French Door de 590. Veja o consumo oficial do Inmetro, a capacidade, as medidas, prós e contras e descubra qual cabe na sua cozinha e na sua conta de luz.</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · {meta.minutos} min de leitura
+        </div>
+      </div>
+      <ShareButtons title={title} />
+    </div>
+  </section>
+
+  <div class="leitura artigo">
+    <p class="aviso-afiliado"><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem nenhum custo extra para você. Isso não muda a nossa opinião. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+
+    <p>A geladeira é o único aparelho que fica ligado 24 horas por dia, todos os dias, por 10 anos ou mais. Por isso a escolha certa pesa duas vezes: no preço e na conta de luz. E é justamente no consumo que os anúncios mais confundem.</p>
+    <p>Para este comparativo, usamos a <strong>tabela oficial do Inmetro</strong> (atualizada em 31/12/2025) e comparamos todas as geladeiras pelo mesmo padrão de medição. Assim, os números de consumo abaixo podem ser comparados entre si, o que nem sempre acontece nas lojas.</p>
+
+    <div class="caixa resposta">
+      <p class="caixa-tit">⚡ Resposta rápida: as melhores de 2026</p>
+      <ol class="lista-destaques">
+        {destaques.map((d) => <li><strong>{d.rotulo}:</strong> <a href={`#${d.x.slug}`}>{d.x.nome}</a></li>)}
+      </ol>
+    </div>
+
+    <nav class="caixa sumario" aria-label="Sumário">
+      <p class="caixa-tit">📑 Neste artigo</p>
+      <ol>
+        <li><a href="#comparativo">Tabela comparativa</a></li>
+        <li><a href="#como-escolher">Como escolher</a></li>
+        <li><a href="#ranking">As 10 melhores geladeiras</a></li>
+        <li><a href="#consumo">Consumo: o detalhe da etiqueta</a></li>
+        <li><a href="#metodologia">Como fizemos este ranking</a></li>
+        <li><a href="#perguntas">Perguntas frequentes</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="comparativo">Tabela comparativa: as 10 melhores lado a lado</h2>
+    <p>Clique no nome para ir direto à análise completa.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabela-wrap">
+      <table>
+        <caption class="sr-only">Comparativo das 10 melhores geladeiras de 2026</caption>
+        <thead><tr><th>#</th><th>Modelo</th><th>Tipo</th><th>Capacidade</th><th>Consumo (Inmetro)</th><th>Largura</th><th>Bivolt</th></tr></thead>
+        <tbody>
+          {geladeiras.map((x) => (
+            <tr>
+              <td><strong>{x.rank}º</strong></td>
+              <td><a href={`#${x.slug}`}>{x.marca} {x.modelo}</a></td>
+              <td>{x.tipo}</td>
+              <td>{x.capacidade}</td>
+              <td>{/padrão 2022/.test(x.consumo) ? '—*' : x.consumo.split(',').slice(0, 2).join(',')}</td>
+              <td>{x.medidas.split(' de largura')[0]}</td>
+              <td>{/bivolt/i.test(x.voltagem) ? '✔' : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-preco">Consumo mensal conforme a tabela do Inmetro de 31/12/2025, no padrão de medição mais recente (padrão 2025). *A Philco PRF535ID não declara esse padrão; no padrão 2022, mais antigo, ela consome 44 kWh/mês. Os preços mudam com frequência: confira o valor atualizado nos botões de cada produto.</p>
+  </div>
+
+  <div class="leitura artigo">
+    <h2 id="como-escolher">Como escolher a melhor geladeira</h2>
+
+    <h3>1. Tipo: onde fica o freezer</h3>
+    <ul>
+      <li><strong>Duplex:</strong> freezer em cima. A mais comum e, em geral, a mais barata.</li>
+      <li><strong>Inverse:</strong> freezer embaixo, em gaveta. O refrigerador, que você abre mais, fica na altura dos olhos.</li>
+      <li><strong>French Door:</strong> duas portas no refrigerador e freezer em gaveta. Muito espaço e visual premium.</li>
+      <li><strong>Side by side:</strong> freezer e refrigerador lado a lado. Larga, com dispenser na porta.</li>
+    </ul>
+    <p>Comparação completa em <a href="/guias/geladeira-duplex-inverse-french-door-ou-side-by-side/">duplex, inverse, French Door ou side by side</a>.</p>
+
+    <h3>2. Capacidade</h3>
+    <p>Como referência: até 300 litros para 1 ou 2 pessoas, de 300 a 450 litros para 3 ou 4 pessoas e acima de 450 litros para famílias maiores. Veja o <a href="/guias/qual-tamanho-de-geladeira/">guia de tamanho de geladeira</a>.</p>
+
+    <h3>3. Medidas: meça antes de se apaixonar</h3>
+    <p>As geladeiras da lista vão de <strong>60 cm</strong> (Panasonic BB41 e Electrolux TF38) a <strong>91 cm</strong> de largura (Philco side by side). Meça o nicho, deixe folga para ventilação e confira se a geladeira passa pelas portas, corredores e elevador do prédio.</p>
+
+    <h3>4. Consumo e compressor inverter</h3>
+    <p>Como fica ligada o tempo todo, a geladeira pesa na conta. O compressor <strong>inverter</strong> ajusta a velocidade em vez de ligar e desligar, gastando menos. Use o consumo em kWh/mês da etiqueta, sempre comparando pelo mesmo padrão. Veja <a href="/guias/geladeira-gasta-muita-energia/">geladeira gasta muita energia?</a></p>
+
+    <h3>5. Voltagem</h3>
+    <p>Geladeira bivolt é rara. Na lista, só a <strong>Electrolux IT70S</strong> funciona em 127 V e 220 V. As demais têm versões separadas: escolha a da sua tomada.</p>
+
+    <h2 id="ranking">As 10 melhores geladeiras de 2026</h2>
+    <p>Análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
+
+    {geladeiras.map((x) => <ProductCard p={x} tipo="Geladeira" />)}
+
+    <section>
+      <h2 id="consumo">Consumo: o detalhe da etiqueta que confunde todo mundo</h2>
+      <p>A tabela do Inmetro de 31/12/2025 traz <strong>dois padrões de medição</strong> para muitas geladeiras. A Electrolux IB7S, por exemplo, aparece com <strong>42,9 kWh/mês e classe A+++</strong> no padrão 2022 e com <strong>29,4 kWh/mês e classe A</strong> no padrão 2025, mais exigente. As lojas copiam um ou outro, e por isso a mesma geladeira aparece com números diferentes.</p>
+      <p>Neste comparativo usamos o padrão 2025 para todas as geladeiras que o declaram. Exemplo de conta com tarifa de R$ 0,90 por kWh (valor ilustrativo): a Consul CRM44, com 24,9 kWh/mês, custa cerca de <strong>R$ 22 por mês</strong>; a Electrolux IM8S, com 32,6 kWh/mês, cerca de <strong>R$ 29</strong>. Mais detalhes em <a href="/guias/geladeira-gasta-muita-energia/">geladeira gasta muita energia?</a></p>
+
+      <h2 id="metodologia">Como fizemos este ranking</h2>
+      <p>Este é um comparativo baseado em pesquisa, não em testes de laboratório. Partimos das geladeiras mais recomendadas pelos três principais guias de compra do Brasil (Promobit, Zoom e Casa dos Eletrodomésticos), conferimos as especificações nos anúncios das lojas e tiramos o consumo e a classe de eficiência da <strong>tabela oficial do Inmetro</strong>. Quando as fontes divergem, vale o dado oficial ou deixamos de fora.</p>
+      <p>Comparamos os modelos em cinco critérios: <strong>espaço e organização</strong>, <strong>consumo</strong>, <strong>medidas</strong>, <strong>recursos</strong> (inverter, bivolt, controle de temperatura) e <strong>opinião dos compradores</strong>. A nota de cada geladeira é a opinião editorial de {author.name}. Nenhuma marca pagou para aparecer nesta lista.</p>
+    </section>
+
+    <section>
+      <h2 id="perguntas">Perguntas frequentes sobre geladeira</h2>
+      <div class="faq">
+        {faq.map((q) => (
+          <details>
+            <summary>{q.q}</summary>
+            <p>{q.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2 id="conclusao">Conclusão: qual geladeira comprar?</h2>
+      <p>Para a maioria das famílias, a <strong>{geladeiras[0].nome}</strong> é a melhor compra: grande, econômica e bivolt. Para gastar menos, vá de <strong>Consul CRM44</strong>. Se você prefere o refrigerador na altura dos olhos, a <strong>Electrolux IB7S</strong> e a <strong>LG GC-B569</strong>, a mais econômica da lista, são as inverse mais indicadas. Para famílias grandes, a <strong>Brastemp BRO85</strong> e a <strong>Electrolux IM8S</strong> entregam espaço de sobra.</p>
+      <p>Também está montando a cozinha? Veja os <a href="/melhor-forno-eletrico-de-embutir/">melhores fornos elétricos de embutir</a> e os <a href="/melhor-forno-eletrico-de-bancada/">de bancada</a>.</p>
+
+      <ShareButtons title={title} />
+      <AuthorBox />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .artigo { padding-top: 28px; }
+  .resposta { background: var(--azul-claro); border-color: #bcd7f3; }
+  .lista-destaques { padding-left: 1.2rem; margin: 0; }
+  .nota-preco { font-size: .92rem; color: var(--texto-2); }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 30px 14px 0; list-style: none; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+</style>

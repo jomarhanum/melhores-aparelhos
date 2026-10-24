@@ -1,0 +1,48 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Quantos litros de geladeira para 1 pessoa?', a: 'Para quem mora sozinho, de 250 a 300 litros costuma bastar. Quem cozinha muito ou congela marmitas pode preferir algo perto de 350 litros.' },
+  { q: 'Quantos litros de geladeira para 4 pessoas?', a: 'Para uma família de 4 pessoas, algo entre 400 e 480 litros é o mais comum. Se a família faz compras grandes do mês, vale ir acima de 450 litros.' },
+  { q: 'Quanto espaço deixar em volta da geladeira?', a: 'Siga o manual do modelo. Em geral, os fabricantes pedem alguns centímetros de folga atrás, dos lados e em cima para o calor sair. Geladeira sem ventilação gasta mais e pode durar menos.' },
+  { q: 'Como saber se a geladeira passa pela porta?', a: 'Compare a profundidade e a largura da geladeira (sem as portas, quando o manual permitir retirá-las) com a menor passagem do caminho: porta de entrada, corredor e elevador. Em prédios, confira também a altura do elevador.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-geladeira/', '/guias/geladeira-duplex-inverse-french-door-ou-side-by-side/', '/guias/geladeira-gasta-muita-energia/']}>
+  <p>Geladeira pequena demais vira um quebra-cabeça toda semana. Grande demais gasta mais energia, ocupa espaço e às vezes nem passa pela porta. Veja como acertar a <strong>capacidade em litros</strong> e as <strong>medidas</strong> antes de comprar.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> como referência, <strong>até 300 litros</strong> para 1 ou 2 pessoas, <strong>de 300 a 450 litros</strong> para 3 ou 4 pessoas e <strong>acima de 450 litros</strong> para famílias maiores. Depois, meça o nicho, a folga para ventilação e o caminho até a cozinha.</p>
+  </div>
+
+  <h2 id="litros">Capacidade ideal por número de pessoas</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Pessoas em casa</th><th>Capacidade indicada</th><th>Exemplos da nossa lista</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1 ou 2</th><td>Até cerca de 300 a 350 L</td><td><a href="/melhor-geladeira/#electrolux-tf38">Electrolux TF38 (320 L)</a></td></tr>
+        <tr><th scope="row">3 ou 4</th><td>De 350 a 450 L</td><td><a href="/melhor-geladeira/#consul-crm44">Consul CRM44 (377 L)</a>, <a href="/melhor-geladeira/#panasonic-nr-bb41">Panasonic BB41 (407 L)</a></td></tr>
+        <tr><th scope="row">4 ou 5</th><td>De 450 a 500 L</td><td><a href="/melhor-geladeira/#electrolux-it70s">Electrolux IT70S (480 L)</a>, <a href="/melhor-geladeira/#electrolux-ib7s">IB7S (490 L)</a></td></tr>
+        <tr><th scope="row">5 ou mais</th><td>Acima de 500 L</td><td><a href="/melhor-geladeira/#brastemp-bro85">Brastemp BRO85 (559 L)</a>, <a href="/melhor-geladeira/#electrolux-im8s">Electrolux IM8S (590 L)</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Ajuste para a sua rotina: quem faz compra grande uma vez por mês, recebe visitas com frequência ou congela muita comida deve subir uma faixa.</p>
+
+  <h2 id="freezer">Olhe também o tamanho do freezer</h2>
+  <p>A capacidade total esconde a divisão. Duas geladeiras de cerca de 480 litros podem ter freezers bem diferentes: a Electrolux IT70S (duplex) tem 128 litros de freezer, e a IB7S (inverse) tem 167. Se você congela carnes, marmitas e sorvete, confira o número do freezer, não só o total.</p>
+
+  <h2 id="medidas">Como medir o espaço</h2>
+  <ol>
+    <li><strong>Largura do nicho:</strong> as geladeiras da nossa lista vão de 60 cm a 91 cm.</li>
+    <li><strong>Altura:</strong> confira armários aéreos acima da geladeira. Muitos modelos passam de 1,85 m.</li>
+    <li><strong>Folga para ventilação:</strong> deixe o espaço que o manual pede atrás e dos lados.</li>
+    <li><strong>Abertura das portas:</strong> a porta precisa abrir o suficiente para tirar gavetas, sem bater na parede.</li>
+  </ol>
+
+  <h2 id="caminho">O teste do caminho: ela passa pela porta?</h2>
+  <p>Antes de comprar, meça a menor passagem entre a rua e a cozinha: porta de entrada, corredores, curvas e o elevador do prédio. Geladeiras French Door e side by side, com mais de 80 cm de largura, são as que mais dão trabalho. Em muitos modelos, dá para retirar as portas para passar, mas confira no manual.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-geladeira/">10 melhores geladeiras de 2026</a> com capacidade, medidas e consumo lado a lado.</p>
+</Artigo>

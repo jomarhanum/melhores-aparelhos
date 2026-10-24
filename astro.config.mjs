@@ -75,7 +75,20 @@ const colunas = [
   ['arno-x-treme-7', 'Arno X-Treme 7 VE7C 40 cm'],
   ['oster-power-fresh', 'Oster Power Fresh OVTR881'],
 ];
+const geladeiras = [
+  ['electrolux-it70s', 'Electrolux IT70S 480 L duplex'],
+  ['consul-crm44', 'Consul CRM44 377 L duplex'],
+  ['electrolux-ib7s', 'Electrolux IB7S 490 L inverse'],
+  ['lg-gc-b569', 'LG GC-B569 451 L inverse'],
+  ['panasonic-nr-bb41', 'Panasonic BB41 407 L inverse'],
+  ['brastemp-bro85', 'Brastemp BRO85 559 L French Door'],
+  ['electrolux-im8s', 'Electrolux IM8S 590 L 3 portas'],
+  ['consul-crm53', 'Consul CRM53 455 L duplex'],
+  ['philco-prf535id', 'Philco PRF535ID 434 L side by side'],
+  ['electrolux-tf38', 'Electrolux TF38 320 L duplex'],
+];
 const fotosDoHub = {
+  '/melhor-geladeira/': geladeiras.map(([s, n]) => [s, `Geladeira ${n}`]),
   '/melhor-ventilador-de-coluna/': colunas.map(([s, n]) => [s, `Ventilador de coluna ${n}`]),
   '/melhor-ventilador-de-teto/': ventiladores.map(([s, n]) => [s, `Ventilador de teto ${n}`]),
   '/melhor-forno-eletrico-de-bancada/': bancadas.map(([s, n]) => [s, `Forno elétrico de bancada ${n}`]),
