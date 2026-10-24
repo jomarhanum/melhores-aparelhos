@@ -68,12 +68,20 @@ export const categorias = [
     imagem: '/images/produtos/philips-walita-serie-2000-xl.webp',
     descricao: 'Do modelo compacto de 3,5 litros à air fryer forno de 12: capacidade, potência, visor e facilidade de limpeza.',
   },
+  {
+    id: 'maquina-lavar',
+    nome: 'Máquina de lavar',
+    curto: 'Máquina de Lavar',
+    hub: '/melhor-maquina-de-lavar/',
+    imagem: '/images/produtos/panasonic-na-f150b1t.webp',
+    descricao: 'Abertura superior, frontal e lava e seca: capacidade, água e energia por ciclo segundo o Inmetro.',
+  },
 ];
 
 // Grupos de categorias com página própria (itens do menu).
 export const grupos = [
   { id: 'climatizacao', nome: 'Climatização', url: '/climatizacao/', categorias: ['ar-portatil', 'ar-inverter', 'ventilador-teto', 'ventilador-coluna'] },
-  { id: 'fornos', nome: 'Fornos', url: '/fornos/', categorias: ['forno-embutir', 'forno-bancada'] },
+  { id: 'cozinha', nome: 'Cozinha', url: '/cozinha/', categorias: ['forno-embutir', 'forno-bancada', 'geladeira', 'airfryer'] },
 ];
 
 export const categoriaPorId = (id) => categorias.find((c) => c.id === id);

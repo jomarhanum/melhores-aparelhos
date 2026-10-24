@@ -99,7 +99,20 @@ const airfryers = [
   ['wap-barbecue', 'WAP Barbecue Digital 12 em 1 10 L'],
   ['elgin-gran-fry', 'Elgin Gran Fry 8 L'],
 ];
+const maquinas = [
+  ['panasonic-na-f150b1t', 'Panasonic NA-F150B1T 15 kg'],
+  ['electrolux-led13', 'Electrolux Essential Care LED13 13 kg'],
+  ['electrolux-led15', 'Electrolux Essential Care LED15 15 kg'],
+  ['samsung-ww11t', 'Samsung WW11T 11 kg frontal'],
+  ['panasonic-na-f140b1w', 'Panasonic NA-F140B1W 14 kg'],
+  ['electrolux-led17', 'Electrolux Essential Care LED17 17 kg'],
+  ['brastemp-bwf15ab', 'Brastemp BWF15AB 15 kg'],
+  ['samsung-wd11m', 'Samsung WD11M lava e seca 11/7 kg'],
+  ['electrolux-les11', 'Electrolux Essential Care LES11 11 kg'],
+  ['colormaq-lca12', 'Colormaq LCA12 12 kg'],
+];
 const fotosDoHub = {
+  '/melhor-maquina-de-lavar/': maquinas.map(([s, n]) => [s, `Máquina de lavar ${n}`]),
   '/melhor-air-fryer/': airfryers.map(([s, n]) => [s, `Air fryer ${n}`]),
   '/melhor-geladeira/': geladeiras.map(([s, n]) => [s, `Geladeira ${n}`]),
   '/melhor-ventilador-de-coluna/': colunas.map(([s, n]) => [s, `Ventilador de coluna ${n}`]),
@@ -117,7 +130,7 @@ const ultimaAtualizacao = artigos.map((a) => a.atualizado).sort().at(-1);
 const paginas = {
   '/': { priority: 1.0, changefreq: 'weekly', lastmod: ultimaAtualizacao, img: [img('/images/produtos/electrolux-sp12f.webp', 'Melhor ar-condicionado portátil de 2026')] },
   '/guias/': { priority: 0.7, changefreq: 'weekly', lastmod: ultimaAtualizacao },
-  '/fornos/': { priority: 0.8, changefreq: 'weekly', lastmod: ultimaAtualizacao },
+  '/cozinha/': { priority: 0.8, changefreq: 'weekly', lastmod: ultimaAtualizacao },
   '/climatizacao/': { priority: 0.8, changefreq: 'weekly', lastmod: ultimaAtualizacao },
   '/autor/jomar-hanum/': { priority: 0.6, changefreq: 'monthly', lastmod: '2026-10-19', img: [fotoAutor] },
   '/sobre/': { priority: 0.5, changefreq: 'monthly', lastmod: '2026-10-19', img: [fotoAutor] },

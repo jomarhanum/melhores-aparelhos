@@ -1,0 +1,237 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { maquinas } from '../data/maquina';
+import { fotoProduto } from '../data/tipos';
+import { site, author } from '../data/site';
+import { artigoPorUrl } from '../data/artigos.mjs';
+
+const meta = artigoPorUrl('/melhor-maquina-de-lavar/')!;
+const publicado = `${meta.publicado}T09:00:00-03:00`;
+const atualizado = `${meta.atualizado}T09:00:00-03:00`;
+const dataExibida = new Date(`${meta.atualizado}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const title = meta.titulo;
+const description = meta.descricao;
+const pageUrl = `${site.url}${meta.url}`;
+const v = (slug: string) => maquinas.find((x) => x.slug === slug)!;
+const curto = (t?: string) => (t ? t.split(' por ciclo')[0] : '—');
+
+const faq = [
+  { q: 'Qual a melhor máquina de lavar de 2026?', a: 'Para a maioria das famílias, a Panasonic NA-F150B1T: 15 kg, sem agitador central, silenciosa, econômica em água e presente nos três principais comparativos do Brasil. Para gastar menos na compra, a Electrolux LED13 tem 13 kg, 11 programas e mais de mil avaliações.' },
+  { q: 'Qual máquina de lavar gasta menos água?', a: 'Entre os modelos da lista com dados do Inmetro, a Panasonic NA-F140B1W, de 14 kg, gasta 97 litros por ciclo. As Electrolux de 13 a 17 kg gastam de 150 a 180 litros.' },
+  { q: 'Máquina frontal ou de abertura superior?', a: 'A frontal gasta menos água e energia e centrifuga mais forte (1.400 rpm na Samsung WW11T, contra cerca de 700 rpm das de abertura superior), mas custa mais. A de abertura superior é mais barata, lava rápido e permite colocar peças no meio do ciclo.' },
+  { q: 'Quantos kg de máquina de lavar preciso?', a: 'Como referência: 11 a 12 kg para 1 ou 2 pessoas, 13 a 15 kg para 3 ou 4 e 15 kg ou mais para famílias maiores ou quem lava edredons em casa.' },
+  { q: 'Lava e seca vale a pena?', a: 'Para quem não tem varal ou mora em lugar úmido, sim. Mas a secagem tem capacidade menor que a lavagem (7 kg na Samsung WD11M, que lava 11 kg) e gasta mais energia.' },
+  { q: 'Máquina de lavar bivolt existe?', a: 'É raro. Todos os 10 modelos da lista vêm em versões separadas de 127 V e 220 V. Confira a tomada antes de comprar.' },
+];
+
+const destaques = [
+  { rotulo: 'Melhor no geral', x: v('panasonic-na-f150b1t') },
+  { rotulo: 'Melhor custo-benefício', x: v('electrolux-led13') },
+  { rotulo: 'Melhor frontal', x: v('samsung-ww11t') },
+  { rotulo: 'Menor consumo de água', x: v('panasonic-na-f140b1w') },
+  { rotulo: 'Melhor lava e seca', x: v('samsung-wd11m') },
+  { rotulo: 'Mais barata', x: v('colormaq-lca12') },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: [`${site.url}${meta.imagem}`],
+    datePublished: publicado,
+    dateModified: atualizado,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: { '@type': 'Person', name: author.name, url: `${site.url}${author.url}`, image: `${site.url}${author.photo}`, jobTitle: author.role },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Melhor máquina de lavar', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores máquinas de lavar de 2026',
+    numberOfItems: maquinas.length,
+    itemListElement: maquinas.map((x) => ({
+      '@type': 'ListItem',
+      position: x.rank,
+      item: {
+        '@type': 'Product',
+        name: x.nome,
+        brand: { '@type': 'Brand', name: x.marca },
+        model: x.modelo,
+        url: `${pageUrl}#${x.slug}`,
+        description: x.resumo,
+        image: `${site.url}${fotoProduto(x)}`,
+        review: {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: author.name },
+          datePublished: publicado,
+          reviewRating: { '@type': 'Rating', ratingValue: x.nota, bestRating: 10, worstRating: 0 },
+          positiveNotes: { '@type': 'ItemList', itemListElement: x.pros.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+          negativeNotes: { '@type': 'ItemList', itemListElement: x.contras.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+        },
+      },
+    })),
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) },
+];
+---
+<Base title={title} description={description} type="article" published={publicado} modified={atualizado} jsonLd={jsonLd} image={meta.imagem} imageAlt="Comparativo das melhores máquinas de lavar de 2026">
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol><li><a href="/">Home</a></li><li aria-current="page">Melhor máquina de lavar</li></ol>
+      </nav>
+      <h1>{meta.h1}</h1>
+      <p class="subtitulo">Comparamos as 10 máquinas de lavar mais recomendadas do Brasil: abertura superior, frontal e lava e seca, de 11 a 17 kg. Veja água e energia por lavagem, centrifugação, prós e contras e descubra qual combina com a sua casa.</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · {meta.minutos} min de leitura
+        </div>
+      </div>
+      <ShareButtons title={title} />
+    </div>
+  </section>
+
+  <div class="leitura artigo">
+    <p class="aviso-afiliado"><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem nenhum custo extra para você. Isso não muda a nossa opinião. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+
+    <p>A máquina de lavar é das compras que mais pesam na rotina: ela trabalha várias vezes por semana, por muitos anos, e cada lavagem gasta água e energia. A diferença entre os modelos é grande: uma máquina de 14 kg pode gastar <strong>97 litros</strong> por ciclo, e outra de tamanho parecido, mais de <strong>150</strong>.</p>
+    <p>Reunimos as <strong>10 melhores de 2026</strong> a partir dos modelos mais recomendados pelos principais guias do Brasil e conferimos o consumo de água e energia na <strong>tabela oficial do Inmetro</strong> sempre que o modelo aparece nela.</p>
+
+    <div class="caixa resposta">
+      <p class="caixa-tit">⚡ Resposta rápida: as melhores de 2026</p>
+      <ol class="lista-destaques">
+        {destaques.map((d) => <li><strong>{d.rotulo}:</strong> <a href={`#${d.x.slug}`}>{d.x.nome}</a></li>)}
+      </ol>
+    </div>
+
+    <nav class="caixa sumario" aria-label="Sumário">
+      <p class="caixa-tit">📑 Neste artigo</p>
+      <ol>
+        <li><a href="#comparativo">Tabela comparativa</a></li>
+        <li><a href="#como-escolher">Como escolher</a></li>
+        <li><a href="#ranking">As 10 melhores máquinas de lavar</a></li>
+        <li><a href="#cuidados">Instalação e cuidados</a></li>
+        <li><a href="#metodologia">Como fizemos este ranking</a></li>
+        <li><a href="#perguntas">Perguntas frequentes</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="comparativo">Tabela comparativa: as 10 melhores lado a lado</h2>
+    <p>Clique no nome para ir direto à análise completa.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabela-wrap">
+      <table>
+        <caption class="sr-only">Comparativo das 10 melhores máquinas de lavar de 2026</caption>
+        <thead><tr><th>#</th><th>Modelo</th><th>Tipo</th><th>Capacidade</th><th>Água por ciclo</th><th>Energia por ciclo</th><th>Centrifugação</th></tr></thead>
+        <tbody>
+          {maquinas.map((x) => (
+            <tr>
+              <td><strong>{x.rank}º</strong></td>
+              <td><a href={`#${x.slug}`}>{x.marca} {x.modelo}</a></td>
+              <td>{x.tipo}</td>
+              <td>{x.capacidade.replace(' para lavar e ', ' / ').replace(' para secar', '')}</td>
+              <td>{curto(x.agua)}{x.agua && x.fonte === 'lojas' ? '*' : ''}</td>
+              <td>{curto(x.energia)}{x.energia && x.fonte === 'lojas' ? '*' : ''}</td>
+              <td>{x.centrifugacao ?? '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-preco">Água e energia por ciclo segundo a tabela do Inmetro de máquinas top load (edição 2022). *Dado da ficha das lojas: o modelo não aparece na tabela do Inmetro com o código atual. "—" indica dado não publicado de forma confiável. Os preços mudam com frequência: confira o valor atualizado nos botões de cada produto.</p>
+  </div>
+
+  <div class="leitura artigo">
+    <h2 id="como-escolher">Como escolher a melhor máquina de lavar</h2>
+
+    <h3>1. Tipo: abertura superior, frontal ou lava e seca</h3>
+    <ul>
+      <li><strong>Abertura superior:</strong> a mais vendida no Brasil. Mais barata, ciclos rápidos e dá para pôr uma peça esquecida no meio da lavagem.</li>
+      <li><strong>Frontal:</strong> gasta menos água e energia, centrifuga mais forte e cuida melhor dos tecidos. Custa mais.</li>
+      <li><strong>Lava e seca:</strong> frontal que também seca, ideal para quem não tem varal.</li>
+    </ul>
+    <p>Comparação completa em <a href="/guias/maquina-de-lavar-frontal-ou-superior/">frontal ou de abertura superior</a>.</p>
+
+    <h3>2. Capacidade em kg</h3>
+    <p>Como referência: <strong>11 a 12 kg</strong> para 1 ou 2 pessoas, <strong>13 a 15 kg</strong> para 3 ou 4 e <strong>15 kg ou mais</strong> para famílias maiores ou quem lava edredons em casa. Veja <a href="/guias/quantos-kg-maquina-de-lavar/">quantos kg de máquina de lavar você precisa</a>.</p>
+
+    <h3>3. Água e energia por lavagem</h3>
+    <p>Olhe o consumo por ciclo na etiqueta do Inmetro. Na nossa lista, as <strong>Panasonic</strong>, com o sistema Ciclone e sensor de carga, gastam bem menos água que as concorrentes do mesmo tamanho. Veja os números em <a href="/guias/maquina-de-lavar-gasta-muita-agua-e-energia/">máquina de lavar gasta muita água e energia?</a></p>
+
+    <h3>4. Agitador ou sem agitador</h3>
+    <p>Máquinas <strong>sem agitador central</strong>, como as Panasonic, têm mais espaço livre para edredons e peças grandes e tendem a gastar menos água. As com agitador costumam esfregar mais forte as roupas muito sujas.</p>
+
+    <h3>5. Medidas e voltagem</h3>
+    <p>Meça o espaço: as de abertura superior precisam de folga em cima para abrir a tampa, e as frontais, de espaço na frente para a porta. Nenhum dos 10 modelos é bivolt: escolha a versão da sua tomada.</p>
+
+    <h2 id="ranking">As 10 melhores máquinas de lavar de 2026</h2>
+    <p>Análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
+
+    {maquinas.map((x) => <ProductCard p={x} tipo="Máquina de lavar" />)}
+
+    <section>
+      <h2 id="cuidados">Instalação e cuidados</h2>
+      <ul>
+        <li>Instale em piso firme e nivelado; máquina desnivelada vibra e faz barulho na centrifugação.</li>
+        <li>Retire as travas de transporte antes do primeiro uso, como indica o manual, principalmente nas frontais.</li>
+        <li>Limpe o filtro de fiapos com frequência.</li>
+        <li>Use a dose de sabão indicada: excesso deixa resíduo nas roupas e na máquina.</li>
+        <li>Deixe a porta ou a tampa entreaberta depois de usar, para secar por dentro e evitar mau cheiro.</li>
+      </ul>
+
+      <h2 id="metodologia">Como fizemos este ranking</h2>
+      <p>Este é um comparativo baseado em pesquisa, não em testes próprios de laboratório. Partimos dos modelos mais recomendados pelos principais guias do Brasil (Zoom, Casa dos Eletrodomésticos e Promobit), conferimos as especificações nos anúncios e o consumo de água e energia na tabela do Inmetro, e resumimos o que dizem os compradores. Quando as fontes divergem, vale o dado oficial ou deixamos de fora.</p>
+      <p>Comparamos os modelos em cinco critérios: <strong>capacidade</strong>, <strong>consumo de água e energia</strong>, <strong>recursos</strong> (programas, centrifugação, cesto), <strong>ruído</strong> e <strong>opinião dos compradores</strong>. A nota de cada máquina é a opinião editorial de {author.name}. Nenhuma marca pagou para aparecer nesta lista.</p>
+    </section>
+
+    <section>
+      <h2 id="perguntas">Perguntas frequentes sobre máquina de lavar</h2>
+      <div class="faq">
+        {faq.map((q) => (
+          <details>
+            <summary>{q.q}</summary>
+            <p>{q.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2 id="conclusao">Conclusão: qual máquina de lavar comprar?</h2>
+      <p>Para a maioria das famílias, a <strong>{maquinas[0].nome}</strong> é a melhor compra: grande, silenciosa e econômica em água. Para gastar menos, vá de <strong>Electrolux LED13</strong>. Quem quer economizar água ao máximo deve olhar a <strong>Panasonic NA-F140B1W</strong>, e quem não tem varal, a lava e seca <strong>Samsung WD11M</strong>.</p>
+      <p>Também está equipando a casa? Veja as <a href="/melhor-geladeira/">melhores geladeiras</a> e os <a href="/melhor-ar-condicionado-inverter/">melhores ar-condicionados inverter</a>.</p>
+
+      <ShareButtons title={title} />
+      <AuthorBox />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .artigo { padding-top: 28px; }
+  .resposta { background: var(--azul-claro); border-color: #bcd7f3; }
+  .lista-destaques { padding-left: 1.2rem; margin: 0; }
+  .nota-preco { font-size: .92rem; color: var(--texto-2); }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 30px 14px 0; list-style: none; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+</style>

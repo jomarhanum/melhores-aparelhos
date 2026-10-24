@@ -1,0 +1,45 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'O que significa o kg da máquina de lavar?', a: 'É o peso máximo de roupa seca que a máquina lava de uma vez. Uma máquina de 13 kg lava até 13 kg de roupa seca, não molhada.' },
+  { q: 'Máquina de 11 kg lava edredom?', a: 'Edredons de solteiro, em geral, sim. Para edredom de casal ou queen, prefira 13 kg ou mais e confira se a máquina tem ciclo específico para edredom.' },
+  { q: 'Máquina grande gasta mais água?', a: 'No ciclo completo, sim. Mas muitas têm níveis de água ou sensor de carga, que reduzem o consumo quando você lava menos roupa. Compare os litros por kg na etiqueta do Inmetro.' },
+  { q: 'Quanto pesa uma carga de roupa do dia a dia?', a: 'Como referência, uma calça jeans pesa cerca de 600 g, uma camiseta cerca de 150 g e uma toalha de banho cerca de 500 g. Uma semana de roupas de uma pessoa costuma ficar entre 4 e 6 kg.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-maquina-de-lavar/', '/guias/maquina-de-lavar-frontal-ou-superior/', '/guias/maquina-de-lavar-gasta-muita-agua-e-energia/']}>
+  <p>Máquina pequena demais obriga a lavar roupa todo dia e não dá conta do edredom. Grande demais ocupa espaço e gasta mais água num ciclo completo. Veja como acertar a <strong>capacidade em kg</strong>.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> <strong>11 a 12 kg</strong> para 1 ou 2 pessoas, <strong>13 a 15 kg</strong> para 3 ou 4 e <strong>15 kg ou mais</strong> para famílias maiores ou quem lava edredons e cobertores em casa.</p>
+  </div>
+
+  <h2 id="kg">Capacidade ideal por número de pessoas</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Pessoas</th><th>Capacidade indicada</th><th>Exemplos da nossa lista</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1 ou 2</th><td>11 a 12 kg</td><td><a href="/melhor-maquina-de-lavar/#electrolux-les11">Electrolux LES11 (11 kg)</a>, <a href="/melhor-maquina-de-lavar/#colormaq-lca12">Colormaq LCA12 (12 kg)</a></td></tr>
+        <tr><th scope="row">3 ou 4</th><td>13 a 15 kg</td><td><a href="/melhor-maquina-de-lavar/#electrolux-led13">Electrolux LED13 (13 kg)</a>, <a href="/melhor-maquina-de-lavar/#panasonic-na-f140b1w">Panasonic NA-F140B1W (14 kg)</a></td></tr>
+        <tr><th scope="row">5 ou mais</th><td>15 a 17 kg</td><td><a href="/melhor-maquina-de-lavar/#panasonic-na-f150b1t">Panasonic NA-F150B1T (15 kg)</a>, <a href="/melhor-maquina-de-lavar/#electrolux-led17">Electrolux LED17 (17 kg)</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Suba uma faixa se você lava roupa de cama e cobertores em casa, tem crianças pequenas ou prefere lavar menos vezes por semana.</p>
+
+  <h2 id="significado">O que o kg da máquina significa</h2>
+  <p>É o peso máximo de <strong>roupa seca</strong> por lavagem. Lotar a máquina até o limite em todas as lavagens não é bom: a roupa precisa de espaço para se movimentar na água. Para o dia a dia, usar entre metade e três quartos da capacidade costuma dar o melhor resultado.</p>
+
+  <h2 id="edredom">Edredom: o teste que define o tamanho</h2>
+  <p>Edredom é volumoso, mesmo pesando pouco. Para lavar edredom de casal ou queen em casa, prefira máquinas de <strong>13 kg ou mais</strong> com ciclo para edredom. Máquinas sem agitador central, como as Panasonic da lista, têm mais espaço livre no cesto para peças grandes.</p>
+
+  <h2 id="lava-e-seca">Na lava e seca, a secagem é menor</h2>
+  <p>Nas lava e seca, a capacidade de secar é sempre menor que a de lavar: a Samsung WD11M lava 11 kg e seca 7 kg. Para secar tudo de uma vez, lave cargas menores ou divida a secagem.</p>
+
+  <h2 id="espaco">Confira o espaço</h2>
+  <p>Máquinas maiores são mais largas e altas: a Electrolux LED15 tem 66,2 cm de largura, contra 59,5 cm da LED13. Nas de abertura superior, deixe espaço em cima para abrir a tampa por completo.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-maquina-de-lavar/">10 melhores máquinas de lavar de 2026</a>, de 11 a 17 kg.</p>
+</Artigo>

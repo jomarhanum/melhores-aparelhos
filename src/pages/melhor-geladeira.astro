@@ -54,7 +54,8 @@ const jsonLd = [
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
-      { '@type': 'ListItem', position: 2, name: 'Melhor geladeira', item: pageUrl },
+      { '@type': 'ListItem', position: 2, name: 'Cozinha', item: `${site.url}/cozinha/` },
+      { '@type': 'ListItem', position: 3, name: 'Melhor geladeira', item: pageUrl },
     ],
   },
   {
@@ -91,7 +92,7 @@ const jsonLd = [
   <section class="hero">
     <div class="leitura">
       <nav class="migalhas" aria-label="Você está em">
-        <ol><li><a href="/">Home</a></li><li aria-current="page">Melhor geladeira</li></ol>
+        <ol><li><a href="/">Home</a></li><li><a href="/cozinha/">Cozinha</a></li><li aria-current="page">Melhor geladeira</li></ol>
       </nav>
       <h1>{meta.h1}</h1>
       <p class="subtitulo">Comparamos as 10 geladeiras mais recomendadas do Brasil, da compacta de 320 litros à French Door de 590. Veja o consumo oficial do Inmetro, a capacidade, as medidas, prós e contras e descubra qual cabe na sua cozinha e na sua conta de luz.</p>

@@ -1,0 +1,51 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Máquina frontal lava melhor?', a: 'A frontal lava por tombamento: as roupas sobem e caem dentro do tambor. É mais delicada com os tecidos e gasta menos água. A de abertura superior agita mais forte, o que ajuda em roupas muito sujas.' },
+  { q: 'Máquina frontal é mais demorada?', a: 'Os ciclos completos costumam ser mais longos que os das de abertura superior, mas muitos modelos têm ciclo rápido. A Samsung WW11T, por exemplo, tem lavagem rápida de 15 minutos para cargas pequenas.' },
+  { q: 'Posso colocar uma peça no meio da lavagem?', a: 'Na de abertura superior, em geral sim, basta pausar. Na frontal, a porta trava durante o ciclo; alguns modelos permitem abrir no início, antes de encher de água.' },
+  { q: 'Precisa de sabão especial para máquina frontal?', a: 'Use sabão indicado para lavadoras de abertura frontal, que faz menos espuma. Espuma em excesso atrapalha a lavagem e o enxágue.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-maquina-de-lavar/', '/guias/quantos-kg-maquina-de-lavar/', '/guias/maquina-de-lavar-gasta-muita-agua-e-energia/']}>
+  <p>No Brasil, a máquina de abertura superior ainda domina as vendas, mas a frontal e a lava e seca ganham espaço. A escolha mexe com a conta de água, o tempo de varal, o espaço da lavanderia e o bolso.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> a de <strong>abertura superior</strong> é mais barata, lava rápido e aceita peças no meio do ciclo. A <strong>frontal</strong> gasta menos água e energia, centrifuga muito mais forte e é mais delicada com os tecidos. A <strong>lava e seca</strong> é uma frontal que também seca, para quem não tem varal.</p>
+  </div>
+
+  <h2 id="comparativo">Lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Abertura superior</th><th>Frontal</th><th>Lava e seca</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Preço</th><td>Mais baixo</td><td>Mais alto</td><td>O mais alto</td></tr>
+        <tr><th scope="row">Água</th><td>Mais</td><td>Menos</td><td>Menos</td></tr>
+        <tr><th scope="row">Centrifugação</th><td>Cerca de 700 rpm</td><td>Até 1.400 rpm</td><td>Até 1.400 rpm</td></tr>
+        <tr><th scope="row">Cuidado com tecidos</th><td>Bom</td><td>Melhor</td><td>Melhor</td></tr>
+        <tr><th scope="row">Peça no meio do ciclo</th><td>Sim</td><td>Só no início</td><td>Só no início</td></tr>
+        <tr><th scope="row">Na nossa lista</th><td><a href="/melhor-maquina-de-lavar/#panasonic-na-f150b1t">Panasonic NA-F150B1T</a></td><td><a href="/melhor-maquina-de-lavar/#samsung-ww11t">Samsung WW11T</a></td><td><a href="/melhor-maquina-de-lavar/#samsung-wd11m">Samsung WD11M</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="superior">Abertura superior: prática e barata</h2>
+  <p>É a mais vendida no Brasil. Lava por agitação (com ou sem agitador central), tem ciclos rápidos e permite pausar para colocar a meia esquecida. Custa menos e há opções de 11 a 17 kg. Em troca, gasta mais água e centrifuga mais fraco, então a roupa sai mais molhada.</p>
+
+  <h2 id="frontal">Frontal: econômica e delicada</h2>
+  <p>Lava por tombamento: o tambor gira na horizontal, as roupas sobem e caem. Usa menos água, centrifuga muito mais forte e preserva melhor os tecidos. Como fica na altura da bancada, pode ir embaixo de uma pia ou com uma secadora em cima. Custa mais, pesa mais e exige sabão próprio, que faz menos espuma.</p>
+
+  <h2 id="lava-e-seca">Lava e seca: para quem não tem varal</h2>
+  <p>É uma frontal com função de secagem. Resolve a vida em apartamentos pequenos e lugares úmidos, mas a secagem tem capacidade menor que a lavagem (a Samsung WD11M lava 11 kg e seca 7 kg) e gasta bem mais energia que secar no varal.</p>
+
+  <h2 id="qual">Qual escolher</h2>
+  <ul>
+    <li><strong>Orçamento apertado ou família grande:</strong> abertura superior.</li>
+    <li><strong>Quer economizar água e energia e cuidar das roupas:</strong> frontal.</li>
+    <li><strong>Não tem varal ou mora em lugar úmido:</strong> lava e seca.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-maquina-de-lavar/">10 melhores máquinas de lavar de 2026</a>, com modelos dos três tipos.</p>
+</Artigo>

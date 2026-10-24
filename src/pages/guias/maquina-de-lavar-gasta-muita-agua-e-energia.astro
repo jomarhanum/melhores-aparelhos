@@ -1,0 +1,71 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+import { maquinas } from '../../data/maquina';
+
+// Só os modelos com água e energia da tabela do Inmetro (top load, edição 2022).
+const tarifaLuz = 0.9;
+const tarifaAgua = 0.015; // R$ por litro (R$ 15 por m³), valor ilustrativo
+const lavagens = 12; // por mês
+const num = (t: string) => parseFloat(t.replace(',', '.'));
+const tabela = maquinas
+  .filter((x) => x.fonte === 'Inmetro' && x.agua && x.energia)
+  .map((x) => {
+    const litros = num(x.agua!);
+    const kwh = num(x.energia!);
+    const kg = num(x.capacidade);
+    return { x, litros, kwh, porKg: litros / kg, mes: lavagens * (litros * tarifaAgua + kwh * tarifaLuz) };
+  })
+  .sort((a, b) => a.litros - b.litros);
+const br = (n: number, d = 2) => n.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+const faq = [
+  { q: 'Quantos litros de água a máquina de lavar gasta?', a: 'Segundo a tabela do Inmetro, as máquinas de abertura superior da nossa lista gastam de 97 a 180 litros por ciclo completo, dependendo do tamanho e do sistema de lavagem.' },
+  { q: 'Máquina de lavar gasta muita energia?', a: 'Pouca. As máquinas da lista consomem de 0,31 a 0,52 kWh por ciclo, menos de R$ 0,50 por lavagem com tarifa de R$ 0,90 por kWh. A água costuma pesar mais na conta que a energia.' },
+  { q: 'Máquina frontal gasta menos água?', a: 'Em geral, sim: a frontal gira o tambor na horizontal e usa menos água para molhar as roupas. Ela também centrifuga mais forte, deixando a roupa mais seca.' },
+  { q: 'Como gastar menos água com a máquina de lavar?', a: 'Lave com a carga completa, use o nível de água adequado ou o sensor automático, reaproveite a água do último enxágue para limpar o quintal e evite ciclos extras de enxágue sem necessidade.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-maquina-de-lavar/', '/guias/quantos-kg-maquina-de-lavar/', '/guias/maquina-de-lavar-frontal-ou-superior/']}>
+  <p>Toda lavagem tem dois custos: a <strong>água</strong> e a <strong>energia</strong>. E, ao contrário do que muita gente pensa, a água costuma pesar mais. Usamos a tabela oficial do Inmetro para mostrar quanto cada máquina gasta de verdade.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> segundo o Inmetro, as máquinas de abertura superior da nossa lista gastam de <strong>97 a 180 litros</strong> e de <strong>0,31 a 0,52 kWh</strong> por lavagem. A mais econômica em água, a Panasonic NA-F140B1W, gasta 97 litros, quase metade da Electrolux LED17, de 17 kg.</p>
+  </div>
+
+  <h2 id="tabela">Água e energia por lavagem, segundo o Inmetro</h2>
+  <p>Ciclo completo com a carga máxima, conforme a tabela do Inmetro de máquinas top load (edição 2022). Custo mensal com 12 lavagens por mês, água a R$ 15 por m³ e energia a R$ 0,90 por kWh (valores ilustrativos; confira os da sua cidade).</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Máquina</th><th>Água</th><th>Litros por kg</th><th>Energia</th><th>Por mês</th></tr></thead>
+      <tbody>
+        {tabela.map((l) => (
+          <tr>
+            <td><a href={`/melhor-maquina-de-lavar/#${l.x.slug}`}>{l.x.marca} {l.x.modelo}</a> ({l.x.capacidade})</td>
+            <td>{br(l.litros, 0)} L</td>
+            <td>{br(l.porKg, 1)} L</td>
+            <td>{br(l.kwh)} kWh</td>
+            <td>R$ {br(l.mes)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p>Repare na coluna <strong>litros por kg</strong>: ela mostra a eficiência real, independente do tamanho. A Panasonic NA-F140B1W lava cada quilo de roupa com menos de 7 litros; as Electrolux da linha Essential Care, com 9,7 a 11,5 litros.</p>
+
+  <h2 id="por-que">Por que a água pesa mais que a energia</h2>
+  <p>A máquina de lavar tem um motor de potência modesta e trabalha em água fria na maioria dos ciclos, então a energia por lavagem é baixa. Já a água vem em grande volume: são até 180 litros num ciclo completo. Em muitas cidades, a tarifa de água e esgoto faz essa parte custar mais que a energia.</p>
+
+  <h2 id="frontal">E as máquinas frontais?</h2>
+  <p>As frontais giram o tambor na horizontal e usam menos água para molhar as roupas. Também centrifugam mais forte (1.400 rpm na Samsung WW11T, contra cerca de 700 rpm das de abertura superior), o que deixa a roupa mais seca e encurta o tempo no varal ou na secadora. Compare em <a href="/guias/maquina-de-lavar-frontal-ou-superior/">frontal ou de abertura superior</a>.</p>
+
+  <h2 id="economizar">Como gastar menos</h2>
+  <ul>
+    <li>Lave com a carga completa, sem exagerar: muita roupa lava mal e pede um segundo ciclo.</li>
+    <li>Use o sensor de carga ou o nível de água certo para a quantidade de roupa.</li>
+    <li>Reaproveite a água do último enxágue para lavar quintal e calçada, nos modelos com essa função.</li>
+    <li>Prefira ciclos rápidos para roupas pouco sujas.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-maquina-de-lavar/">10 melhores máquinas de lavar de 2026</a>, com água e energia de cada uma.</p>
+</Artigo>

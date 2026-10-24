@@ -28,9 +28,8 @@ export const author = {
 export const nav = [
   { label: 'Home', href: '/' },
   { label: 'Climatização', href: '/climatizacao/' },
-  { label: 'Fornos', href: '/fornos/' },
-  { label: 'Geladeiras', href: '/melhor-geladeira/' },
-  { label: 'Air Fryer', href: '/melhor-air-fryer/' },
+  { label: 'Cozinha', href: '/cozinha/' },
+  { label: 'Máquina de Lavar', href: '/melhor-maquina-de-lavar/' },
   { label: 'Guias', href: '/guias/' },
   { label: 'Sobre', href: '/sobre/' },
   { label: 'Contato', href: '/contato/' },

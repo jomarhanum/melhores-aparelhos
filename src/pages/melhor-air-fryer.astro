@@ -54,7 +54,8 @@ const jsonLd = [
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
-      { '@type': 'ListItem', position: 2, name: 'Melhor air fryer', item: pageUrl },
+      { '@type': 'ListItem', position: 2, name: 'Cozinha', item: `${site.url}/cozinha/` },
+      { '@type': 'ListItem', position: 3, name: 'Melhor air fryer', item: pageUrl },
     ],
   },
   {
@@ -91,7 +92,7 @@ const jsonLd = [
   <section class="hero">
     <div class="leitura">
       <nav class="migalhas" aria-label="Você está em">
-        <ol><li><a href="/">Home</a></li><li aria-current="page">Melhor air fryer</li></ol>
+        <ol><li><a href="/">Home</a></li><li><a href="/cozinha/">Cozinha</a></li><li aria-current="page">Melhor air fryer</li></ol>
       </nav>
       <h1>{meta.h1}</h1>
       <p class="subtitulo">Comparamos as 10 air fryers mais recomendadas do Brasil, da compacta de 3,5 litros à air fryer forno de 12. Veja capacidade, potência, visor, facilidade de limpeza, prós e contras e descubra qual combina com a sua cozinha.</p>
