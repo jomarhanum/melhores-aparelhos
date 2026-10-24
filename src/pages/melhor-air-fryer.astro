@@ -1,0 +1,232 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { airfryers } from '../data/airfryer';
+import { fotoProduto } from '../data/tipos';
+import { site, author } from '../data/site';
+import { artigoPorUrl } from '../data/artigos.mjs';
+
+const meta = artigoPorUrl('/melhor-air-fryer/')!;
+const publicado = `${meta.publicado}T09:00:00-03:00`;
+const atualizado = `${meta.atualizado}T09:00:00-03:00`;
+const dataExibida = new Date(`${meta.atualizado}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const title = meta.titulo;
+const description = meta.descricao;
+const pageUrl = `${site.url}${meta.url}`;
+const v = (slug: string) => airfryers.find((x) => x.slug === slug)!;
+
+const faq = [
+  { q: 'Qual a melhor air fryer de 2026?', a: 'Para a maioria das famílias, a Philips Walita Série 2000 XL: cesto de 6,2 litros, janela com luz, painel touch, peças que vão à lava-louças e 2 anos de garantia. Para gastar menos, a Mondial Grand Family AFN-50 tem 5 litros e cesto quadrado.' },
+  { q: 'Qual o melhor tamanho de air fryer?', a: 'Como referência: de 3 a 4 litros para 1 ou 2 pessoas, de 4 a 5,5 litros para 3 ou 4 pessoas e acima de 6 litros para famílias maiores. Modelos forno, de 10 a 12 litros, servem para quem quer substituir o forninho.' },
+  { q: 'Air fryer com visor vale a pena?', a: 'Para quem gosta de acompanhar o dourado, sim: dá para ver o alimento sem abrir o cesto e sem perder calor. Na lista, as Philips Walita Série 2000 e 3000 e a Oster Digital Clear têm janela com luz.' },
+  { q: 'Air fryer de cesto ou forno?', a: 'A de cesto é mais rápida e fácil de limpar para o dia a dia. A air fryer forno, como a Philco Oven de 12 litros, tem vários níveis e funções de forno e desidratador, mas ocupa mais espaço e dá mais trabalho para limpar.' },
+  { q: 'Qual air fryer é mais silenciosa?', a: 'Entre os modelos da lista, as Philips Walita são as mais elogiadas pelo silêncio, tanto pelos compradores quanto no teste do TechTudo.' },
+  { q: 'Air fryer bivolt existe?', a: 'É raro. Todos os 10 modelos da lista vêm em versões separadas de 127 V e 220 V. Ligar na tensão errada pode queimar o aparelho, então confira a tomada.' },
+];
+
+const destaques = [
+  { rotulo: 'Melhor no geral', x: v('philips-walita-serie-2000-xl') },
+  { rotulo: 'Melhor custo-benefício', x: v('mondial-afn-50') },
+  { rotulo: 'Melhor premium', x: v('philips-walita-serie-3000-xl') },
+  { rotulo: 'Compacta para casais', x: v('electrolux-eaf30') },
+  { rotulo: 'Melhor air fryer forno', x: v('philco-oven-pfr2200p') },
+  { rotulo: 'Mais funções', x: v('wap-barbecue') },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: [`${site.url}${meta.imagem}`],
+    datePublished: publicado,
+    dateModified: atualizado,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: { '@type': 'Person', name: author.name, url: `${site.url}${author.url}`, image: `${site.url}${author.photo}`, jobTitle: author.role },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Melhor air fryer', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores air fryers de 2026',
+    numberOfItems: airfryers.length,
+    itemListElement: airfryers.map((x) => ({
+      '@type': 'ListItem',
+      position: x.rank,
+      item: {
+        '@type': 'Product',
+        name: x.nome,
+        brand: { '@type': 'Brand', name: x.marca },
+        model: x.modelo,
+        url: `${pageUrl}#${x.slug}`,
+        description: x.resumo,
+        image: `${site.url}${fotoProduto(x)}`,
+        review: {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: author.name },
+          datePublished: publicado,
+          reviewRating: { '@type': 'Rating', ratingValue: x.nota, bestRating: 10, worstRating: 0 },
+          positiveNotes: { '@type': 'ItemList', itemListElement: x.pros.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+          negativeNotes: { '@type': 'ItemList', itemListElement: x.contras.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+        },
+      },
+    })),
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) },
+];
+---
+<Base title={title} description={description} type="article" published={publicado} modified={atualizado} jsonLd={jsonLd} image={meta.imagem} imageAlt="Comparativo das melhores air fryers de 2026">
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol><li><a href="/">Home</a></li><li aria-current="page">Melhor air fryer</li></ol>
+      </nav>
+      <h1>{meta.h1}</h1>
+      <p class="subtitulo">Comparamos as 10 air fryers mais recomendadas do Brasil, da compacta de 3,5 litros à air fryer forno de 12. Veja capacidade, potência, visor, facilidade de limpeza, prós e contras e descubra qual combina com a sua cozinha.</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · {meta.minutos} min de leitura
+        </div>
+      </div>
+      <ShareButtons title={title} />
+    </div>
+  </section>
+
+  <div class="leitura artigo">
+    <p class="aviso-afiliado"><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem nenhum custo extra para você. Isso não muda a nossa opinião. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+
+    <p>A air fryer virou o eletrodoméstico do dia a dia: frita sem óleo, esquenta rápido e deixa batata, frango e pão de queijo crocantes em poucos minutos. Mas a escolha vai muito além da marca. <strong>Capacidade, formato do cesto, painel, visor e facilidade de limpeza</strong> mudam completamente a experiência.</p>
+    <p>Reunimos as <strong>10 melhores de 2026</strong>, a partir dos modelos mais recomendados pelos principais guias do Brasil, incluindo os testes de longo prazo do TechTudo e as opiniões de dezenas de milhares de compradores.</p>
+
+    <div class="caixa resposta">
+      <p class="caixa-tit">⚡ Resposta rápida: as melhores de 2026</p>
+      <ol class="lista-destaques">
+        {destaques.map((d) => <li><strong>{d.rotulo}:</strong> <a href={`#${d.x.slug}`}>{d.x.nome}</a></li>)}
+      </ol>
+    </div>
+
+    <nav class="caixa sumario" aria-label="Sumário">
+      <p class="caixa-tit">📑 Neste artigo</p>
+      <ol>
+        <li><a href="#comparativo">Tabela comparativa</a></li>
+        <li><a href="#como-escolher">Como escolher</a></li>
+        <li><a href="#ranking">As 10 melhores air fryers</a></li>
+        <li><a href="#cuidados">Cuidados com o antiaderente</a></li>
+        <li><a href="#metodologia">Como fizemos este ranking</a></li>
+        <li><a href="#perguntas">Perguntas frequentes</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="comparativo">Tabela comparativa: as 10 melhores lado a lado</h2>
+    <p>Clique no nome para ir direto à análise completa.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabela-wrap">
+      <table>
+        <caption class="sr-only">Comparativo das 10 melhores air fryers de 2026</caption>
+        <thead><tr><th>#</th><th>Modelo</th><th>Formato</th><th>Capacidade</th><th>Potência</th><th>Painel</th><th>Visor</th></tr></thead>
+        <tbody>
+          {airfryers.map((x) => (
+            <tr>
+              <td><strong>{x.rank}º</strong></td>
+              <td><a href={`#${x.slug}`}>{x.marca} {x.modelo}</a></td>
+              <td>{x.formato}</td>
+              <td>{x.capacidade}</td>
+              <td>{x.potencia.split(' (')[0]}</td>
+              <td>{/^Digital/.test(x.painel) ? 'Digital' : 'Manual'}</td>
+              <td>{x.visor ? '✔' : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-preco">Potência e capacidade conforme os anúncios dos fabricantes. Os preços mudam com frequência: confira o valor atualizado nos botões de cada produto.</p>
+  </div>
+
+  <div class="leitura artigo">
+    <h2 id="como-escolher">Como escolher a melhor air fryer</h2>
+
+    <h3>1. Capacidade</h3>
+    <p>Como referência: <strong>3 a 4 litros</strong> para 1 ou 2 pessoas, <strong>4 a 5,5 litros</strong> para 3 ou 4 e <strong>6 litros ou mais</strong> para famílias maiores. Veja o <a href="/guias/qual-tamanho-de-air-fryer/">guia de tamanho de air fryer</a>.</p>
+
+    <h3>2. Formato: cesto ou forno</h3>
+    <p>A de <strong>cesto</strong> é a clássica: rápida, compacta e fácil de limpar. A <strong>air fryer forno</strong> (10 a 12 litros) tem vários níveis e funções de forno, mas ocupa mais bancada. Cesto <strong>quadrado</strong> aproveita melhor o espaço que o redondo do mesmo volume.</p>
+
+    <h3>3. Painel e visor</h3>
+    <p>O painel <strong>manual</strong> (botões giratórios) é simples e durável. O <strong>digital</strong> traz programas prontos. O <strong>visor com luz</strong> deixa acompanhar o dourado sem abrir o cesto.</p>
+
+    <h3>4. Limpeza</h3>
+    <p>Prefira cesto e grelha removíveis e antiaderentes; melhor ainda se forem à lava-louças, como nas Philips Walita. Modelos com base funda e grelha fixa dão mais trabalho.</p>
+
+    <h3>5. Potência e voltagem</h3>
+    <p>Os modelos vão de <strong>1.400 W a 1.900 W</strong>. Mais potência esquenta mais rápido, mas o consumo total depende do tempo de uso. Veja a conta em <a href="/guias/air-fryer-gasta-muita-energia/">air fryer gasta muita energia?</a> Nenhum dos 10 é bivolt: escolha a versão da sua tomada.</p>
+
+    <h2 id="ranking">As 10 melhores air fryers de 2026</h2>
+    <p>Análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
+
+    {airfryers.map((x) => <ProductCard p={x} tipo="Air fryer" />)}
+
+    <section>
+      <h2 id="cuidados">Cuidados com o antiaderente</h2>
+      <p>O antiaderente é a parte que mais se desgasta. Para fazer durar:</p>
+      <ul>
+        <li>Use utensílios de silicone ou madeira, nunca de metal.</li>
+        <li>Lave com esponja macia; evite a parte verde e palha de aço.</li>
+        <li>Em modelos com antiaderente mais sensível, use papel próprio ou forma de silicone.</li>
+        <li>Não use spray de óleo em excesso: ele forma uma crosta difícil de tirar.</li>
+      </ul>
+      <p>Ainda em dúvida se precisa de uma? Leia <a href="/guias/air-fryer-vale-a-pena/">air fryer vale a pena?</a> e <a href="/guias/forno-eletrico-ou-air-fryer/">forno elétrico ou air fryer</a>.</p>
+
+      <h2 id="metodologia">Como fizemos este ranking</h2>
+      <p>Este é um comparativo baseado em pesquisa, não em testes próprios de laboratório. Partimos dos modelos mais recomendados pelos principais guias do Brasil (TechTudo, Zoom e Sam's Club), incluindo os testes de uso do TechTudo, conferimos as especificações nos anúncios e fichas das lojas e resumimos o que dizem os compradores. Quando as fontes divergem, deixamos o dado de fora.</p>
+      <p>Comparamos os modelos em cinco critérios: <strong>capacidade</strong>, <strong>resultado no preparo</strong>, <strong>praticidade</strong> (painel, visor, limpeza), <strong>durabilidade</strong> e <strong>custo-benefício</strong>. A nota de cada air fryer é a opinião editorial de {author.name}. Nenhuma marca pagou para aparecer nesta lista.</p>
+    </section>
+
+    <section>
+      <h2 id="perguntas">Perguntas frequentes sobre air fryer</h2>
+      <div class="faq">
+        {faq.map((q) => (
+          <details>
+            <summary>{q.q}</summary>
+            <p>{q.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2 id="conclusao">Conclusão: qual air fryer comprar?</h2>
+      <p>Para a maioria das famílias, a <strong>{airfryers[0].nome}</strong> é a melhor compra: grande, silenciosa, com janela e fácil de limpar. Para gastar menos, vá de <strong>Mondial Grand Family AFN-50</strong>. Casais ficam bem servidos com a <strong>Electrolux EAF30</strong>, e quem quer substituir o forninho deve olhar a <strong>Philco Oven de 12 litros</strong>.</p>
+      <p>Também está equipando a cozinha? Veja os <a href="/melhor-forno-eletrico-de-bancada/">melhores fornos elétricos de bancada</a> e as <a href="/melhor-geladeira/">melhores geladeiras</a>.</p>
+
+      <ShareButtons title={title} />
+      <AuthorBox />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .artigo { padding-top: 28px; }
+  .resposta { background: var(--azul-claro); border-color: #bcd7f3; }
+  .lista-destaques { padding-left: 1.2rem; margin: 0; }
+  .nota-preco { font-size: .92rem; color: var(--texto-2); }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 30px 14px 0; list-style: none; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+</style>

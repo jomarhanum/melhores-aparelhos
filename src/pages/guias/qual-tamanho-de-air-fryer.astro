@@ -1,0 +1,45 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Air fryer de 4 litros serve para quantas pessoas?', a: 'Em geral, para 2 ou 3 pessoas. Dá para preparar a porção de batata de um casal ou um acompanhamento para três de uma vez.' },
+  { q: 'Air fryer de 5 litros é boa para família?', a: 'Para famílias de 3 ou 4 pessoas, sim, principalmente se o cesto for quadrado, que aproveita melhor o espaço.' },
+  { q: 'Cabe frango inteiro na air fryer?', a: 'Um frango pequeno cabe em cestos a partir de cerca de 6 litros. Para frangos maiores, a air fryer forno, de 10 a 12 litros, é mais indicada.' },
+  { q: 'A capacidade anunciada é toda útil?', a: 'Nem sempre. Alguns fabricantes informam o volume total da cuba, e a capacidade útil do cesto é menor. O TechTudo mediu, por exemplo, 5,3 litros úteis num modelo anunciado com 6 litros.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-air-fryer/', '/guias/air-fryer-vale-a-pena/', '/guias/air-fryer-gasta-muita-energia/']}>
+  <p>Air fryer pequena demais obriga a fazer o jantar em várias levas. Grande demais ocupa a bancada e demora mais para esquentar. Veja como acertar a <strong>capacidade em litros</strong> e o <strong>formato</strong> para a sua casa.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> <strong>3 a 4 litros</strong> para 1 ou 2 pessoas, <strong>4 a 5,5 litros</strong> para 3 ou 4 e <strong>6 litros ou mais</strong> para famílias maiores. Cesto quadrado aproveita melhor o espaço, e a air fryer forno, de 10 a 12 litros, serve para quem quer substituir o forninho.</p>
+  </div>
+
+  <h2 id="litros">Capacidade ideal por número de pessoas</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Pessoas</th><th>Capacidade indicada</th><th>Exemplos da nossa lista</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1 ou 2</th><td>3 a 4 L</td><td><a href="/melhor-air-fryer/#mondial-af-31">Mondial AF-31 (3,5 L)</a>, <a href="/melhor-air-fryer/#electrolux-eaf30">Electrolux EAF30 (4 L)</a></td></tr>
+        <tr><th scope="row">3 ou 4</th><td>4 a 5,5 L</td><td><a href="/melhor-air-fryer/#oster-digital-clear">Oster Digital Clear (4,6 L)</a>, <a href="/melhor-air-fryer/#mondial-afn-50">Mondial AFN-50 (5 L)</a></td></tr>
+        <tr><th scope="row">4 ou mais</th><td>6 L ou mais</td><td><a href="/melhor-air-fryer/#philips-walita-serie-2000-xl">Philips Walita Série 2000 XL (6,2 L)</a>, <a href="/melhor-air-fryer/#elgin-gran-fry">Elgin Gran Fry (8 L)</a></td></tr>
+        <tr><th scope="row">Para substituir o forninho</th><td>10 a 12 L (forno)</td><td><a href="/melhor-air-fryer/#philco-oven-pfr2200p">Philco Oven (12 L)</a>, <a href="/melhor-air-fryer/#wap-barbecue">WAP Barbecue (10 L)</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="quadrado">Cesto quadrado ou redondo?</h2>
+  <p>Na air fryer, o que importa é a <strong>área do fundo</strong>, porque o alimento precisa ficar em camada única para dourar por igual. Com o mesmo volume, o cesto <strong>quadrado</strong> tem mais área útil que o redondo: cabem mais filés, pães de queijo e batatas lado a lado. A Mondial AFN-50 e a Elgin Gran Fry são exemplos de cesto quadrado na nossa lista.</p>
+
+  <h2 id="util">Capacidade anunciada x capacidade útil</h2>
+  <p>Alguns fabricantes anunciam o volume total da cuba, não o do cesto. Nos testes do TechTudo, uma air fryer anunciada com 6 litros tinha 5,3 litros úteis, e outra com 7,2 litros tinha 4,7 litros úteis no cesto. Ao comparar, considere uma margem.</p>
+
+  <h2 id="forno">Quando vale a air fryer forno</h2>
+  <p>A air fryer em formato de forno, de 10 a 12 litros, tem porta frontal e funções de forno, desidratador e, em alguns modelos, espeto giratório. Vale para quem quer um aparelho só no lugar do forninho e da air fryer. Em troca, ocupa mais bancada e é mais trabalhosa de limpar que um cesto.</p>
+
+  <h2 id="espaco">Meça a bancada</h2>
+  <p>Air fryers grandes passam de 40 cm de profundidade e precisam de espaço livre em volta e em cima para o ar quente sair. Confira as medidas na ficha de cada modelo antes de comprar.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-air-fryer/">10 melhores air fryers de 2026</a>, do modelo de 3,5 litros ao forno de 12.</p>
+</Artigo>

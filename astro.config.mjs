@@ -87,7 +87,20 @@ const geladeiras = [
   ['philco-prf535id', 'Philco PRF535ID 434 L side by side'],
   ['electrolux-tf38', 'Electrolux TF38 320 L duplex'],
 ];
+const airfryers = [
+  ['philips-walita-serie-2000-xl', 'Philips Walita Série 2000 XL 6,2 L'],
+  ['mondial-afn-50', 'Mondial Grand Family AFN-50 5 L'],
+  ['philips-walita-serie-3000-xl', 'Philips Walita Série 3000 XL 7,2 L'],
+  ['electrolux-eaf30', 'Electrolux por Rita Lobo EAF30 4 L'],
+  ['mondial-af-31', 'Mondial New Pratic AF-31 3,5 L'],
+  ['philco-oven-pfr2200p', 'Philco Oven PFR2200P 12 L'],
+  ['oster-digital-clear', 'Oster Digital Clear 4,6 L com visor'],
+  ['britania-bfr21p', 'Britânia BFR21P 4 L'],
+  ['wap-barbecue', 'WAP Barbecue Digital 12 em 1 10 L'],
+  ['elgin-gran-fry', 'Elgin Gran Fry 8 L'],
+];
 const fotosDoHub = {
+  '/melhor-air-fryer/': airfryers.map(([s, n]) => [s, `Air fryer ${n}`]),
   '/melhor-geladeira/': geladeiras.map(([s, n]) => [s, `Geladeira ${n}`]),
   '/melhor-ventilador-de-coluna/': colunas.map(([s, n]) => [s, `Ventilador de coluna ${n}`]),
   '/melhor-ventilador-de-teto/': ventiladores.map(([s, n]) => [s, `Ventilador de teto ${n}`]),

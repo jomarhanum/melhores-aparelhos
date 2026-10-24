@@ -1,0 +1,55 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Comida de air fryer é saudável?', a: 'É uma forma de preparo com pouco ou nenhum óleo, o que reduz a gordura em relação à fritura por imersão. Mas a saúde depende do que você coloca no cesto: empanados industrializados continuam sendo empanados industrializados.' },
+  { q: 'Air fryer frita igual à fritura com óleo?', a: 'Não exatamente. O resultado é crocante por fora e macio por dentro, mas a textura é diferente da fritura em óleo quente. Para batata, frango e empanados, a maioria das pessoas aprova.' },
+  { q: 'Air fryer substitui o forno?', a: 'Para porções pequenas, em grande parte. Para bolos grandes, lasanhas e assados de família, o forno continua necessário, a não ser que você escolha uma air fryer forno de 10 a 12 litros.' },
+  { q: 'Quanto tempo dura uma air fryer?', a: 'Depende do uso e dos cuidados. A peça que mais se desgasta é o antiaderente do cesto. No teste de longo prazo do TechTudo, o cesto da Mondial AF-31 continuou intacto após dois anos.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-air-fryer/', '/guias/qual-tamanho-de-air-fryer/', '/guias/air-fryer-gasta-muita-energia/', '/guias/forno-eletrico-ou-air-fryer/']}>
+  <p>A air fryer virou presente de casamento, item de Black Friday e assunto de família. Mas ela vale mesmo a pena? Para a maioria das pessoas, sim, desde que você saiba o que ela faz bem e o que ela não faz.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> vale a pena para quem quer preparos rápidos e crocantes no dia a dia, com pouco óleo e pouca louça. Não substitui totalmente o forno para receitas grandes e exige cuidado com o antiaderente.</p>
+  </div>
+
+  <h2 id="faz-bem">O que a air fryer faz muito bem</h2>
+  <ul>
+    <li><strong>Batata, mandioca e legumes crocantes</strong> com uma colher de óleo ou nenhuma.</li>
+    <li><strong>Frango, coxinha da asa e empanados</strong> dourados sem fritar em óleo.</li>
+    <li><strong>Pão de queijo e salgados congelados</strong> mais rápido que no forno.</li>
+    <li><strong>Requentar</strong> pizza, salgado e batata sem deixar murcho, como fica no micro-ondas.</li>
+  </ul>
+
+  <h2 id="nao-faz">O que ela não faz tão bem</h2>
+  <ul>
+    <li><strong>Grandes quantidades:</strong> o alimento precisa ficar em camada única; para a família toda, às vezes são várias levas.</li>
+    <li><strong>Bolos e assados grandes:</strong> o cesto limita o tamanho da forma.</li>
+    <li><strong>Massas líquidas e empanados caseiros molhados:</strong> o vento espalha e suja a resistência.</li>
+  </ul>
+
+  <h2 id="pros-contras">Prós e contras</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Prós</th><th>Contras</th></tr></thead>
+      <tbody>
+        <tr><td>Rápida, sem preaquecimento longo</td><td>Capacidade limitada</td></tr>
+        <tr><td>Pouco ou nenhum óleo</td><td>Antiaderente exige cuidado</td></tr>
+        <tr><td>Não esquenta a cozinha como o forno</td><td>Ocupa espaço na bancada</td></tr>
+        <tr><td>Pouca louça para lavar</td><td>Textura diferente da fritura em óleo</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="para-quem">Para quem compensa</h2>
+  <ul>
+    <li><strong>Compensa muito:</strong> quem cozinha porções pequenas no dia a dia, quer reduzir a fritura e gosta de praticidade.</li>
+    <li><strong>Compensa:</strong> famílias, desde que escolham um modelo de 5 litros ou mais, ou uma air fryer forno.</li>
+    <li><strong>Talvez não:</strong> quem já tem um bom forno elétrico com convecção e cozinha sempre em grande quantidade.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Decidiu comprar? Veja as <a href="/melhor-air-fryer/">10 melhores air fryers de 2026</a> e o <a href="/guias/qual-tamanho-de-air-fryer/">guia de tamanho</a>. Na dúvida entre as duas, leia <a href="/guias/forno-eletrico-ou-air-fryer/">forno elétrico ou air fryer</a>.</p>
+</Artigo>

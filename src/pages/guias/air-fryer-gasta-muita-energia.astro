@@ -1,0 +1,66 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+import { airfryers } from '../../data/airfryer';
+
+// Conta pela potência nominal: o termostato desliga a resistência em parte do tempo, então o gasto real tende a ser menor.
+const tarifa = 0.9;
+const minutosDia = 30;
+const tabela = airfryers
+  .map((x) => {
+    const w = parseInt(x.potencia.replace(/\D/g, ''), 10);
+    const kwh = (w / 1000) * (minutosDia / 60) * 30;
+    return { x, w, kwh, reais: kwh * tarifa };
+  })
+  .sort((a, b) => a.w - b.w);
+const br = (n: number, d = 2) => n.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+const faq = [
+  { q: 'Quanto gasta uma air fryer por mês?', a: 'Usando 30 minutos por dia, uma air fryer de 1.500 W consome no máximo cerca de 22,5 kWh por mês, algo como R$ 20 com tarifa de R$ 0,90 por kWh. O gasto real costuma ser menor, porque a resistência desliga quando atinge a temperatura.' },
+  { q: 'Air fryer gasta mais que forno elétrico?', a: 'Para porções pequenas, em geral gasta menos: esquenta mais rápido e o espaço é menor. Para receitas grandes, que exigiriam várias levas na air fryer, o forno pode compensar.' },
+  { q: 'Air fryer gasta mais que forno a gás?', a: 'Depende das tarifas de luz e gás da sua cidade. Para preparos rápidos e pequenos, a air fryer costuma sair competitiva, porque esquenta em poucos minutos e não precisa de preaquecimento longo.' },
+  { q: 'Potência maior gasta mais?', a: 'Por minuto, sim. Mas uma air fryer mais potente pode terminar o preparo antes, o que compensa parte da diferença. O que pesa na conta é o tempo total de uso.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-air-fryer/', '/guias/air-fryer-vale-a-pena/', '/guias/forno-eletrico-ou-air-fryer/', '/guias/forno-eletrico-gasta-muita-energia/']}>
+  <p>A air fryer tem potência alta, de 1.400 W a 1.900 W, e isso assusta quem olha a conta de luz. Mas ela fica ligada pouco tempo. A conta é simples, e o resultado costuma surpreender.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> usando <strong>30 minutos por dia</strong>, as air fryers da nossa lista consomem <strong>no máximo de 21 a 29 kWh por mês</strong>, ou cerca de <strong>R$ 19 a R$ 26</strong> com tarifa de R$ 0,90 por kWh. O gasto real tende a ser menor, porque a resistência desliga quando atinge a temperatura.</p>
+  </div>
+
+  <h2 id="conta">Como fazer a conta</h2>
+  <p>Multiplique a potência (em kW) pelas horas de uso. Exemplo: uma air fryer de <strong>1.500 W</strong> (1,5 kW) usada <strong>30 minutos</strong> (0,5 h) por dia gasta 1,5 × 0,5 = <strong>0,75 kWh por dia</strong>, ou 22,5 kWh em 30 dias.</p>
+  <p>Esse é o valor máximo. Na prática, o termostato desliga a resistência várias vezes durante o preparo, então o consumo real fica abaixo disso.</p>
+
+  <h2 id="tabela">Consumo máximo das air fryers da lista</h2>
+  <p>Conta com 30 minutos por dia, 30 dias e tarifa de R$ 0,90 por kWh (valor ilustrativo; veja a sua na conta de luz).</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Air fryer</th><th>Potência</th><th>Por mês (máximo)</th><th>Em reais</th></tr></thead>
+      <tbody>
+        {tabela.map((l) => (
+          <tr>
+            <td><a href={`/melhor-air-fryer/#${l.x.slug}`}>{l.x.marca} {l.x.modelo}</a></td>
+            <td>{l.w.toLocaleString('pt-BR')} W</td>
+            <td>{br(l.kwh, 1)} kWh</td>
+            <td>R$ {br(l.reais)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="forno">Air fryer x forno elétrico</h2>
+  <p>Um forno elétrico de bancada costuma ter potência parecida ou maior, mas precisa aquecer um espaço muito maior e leva mais tempo para preaquecer. Para porções pequenas, a air fryer termina antes e gasta menos. Para receitas grandes, que exigiriam várias levas na air fryer, o forno pode compensar. Veja a comparação completa em <a href="/guias/forno-eletrico-ou-air-fryer/">forno elétrico ou air fryer</a>.</p>
+
+  <h2 id="economizar">Como gastar menos</h2>
+  <ul>
+    <li>Não lote o cesto: o ar precisa circular, senão o preparo demora mais.</li>
+    <li>Aproveite o calor: faça um preparo logo depois do outro.</li>
+    <li>Use a temperatura certa; mais quente nem sempre é mais rápido, e pode queimar por fora.</li>
+    <li>Mantenha o cesto e a resistência limpos; gordura acumulada atrapalha o aquecimento.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-air-fryer/">10 melhores air fryers de 2026</a>, com potência, capacidade e prós e contras de cada uma.</p>
+</Artigo>

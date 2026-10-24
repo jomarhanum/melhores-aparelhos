@@ -60,6 +60,14 @@ export const categorias = [
     imagem: '/images/produtos/electrolux-it70s.webp',
     descricao: 'Duplex, inverse, French Door e side by side: consumo oficial do Inmetro, medidas e capacidade lado a lado.',
   },
+  {
+    id: 'airfryer',
+    nome: 'Air fryer',
+    curto: 'Air Fryer',
+    hub: '/melhor-air-fryer/',
+    imagem: '/images/produtos/philips-walita-serie-2000-xl.webp',
+    descricao: 'Do modelo compacto de 3,5 litros à air fryer forno de 12: capacidade, potência, visor e facilidade de limpeza.',
+  },
 ];
 
 // Grupos de categorias com página própria (itens do menu).
