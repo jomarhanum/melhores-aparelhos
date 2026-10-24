@@ -8,6 +8,7 @@ import { author } from '../data/site';
     <p class="autor-nome"><a href={author.url}>{author.name}</a></p>
     <p class="autor-cargo">{author.role}</p>
     <p>{author.bio}</p>
+    <p class="autor-redes">{author.redes.map((r, i) => <>{i > 0 && ' · '}<a href={r.url} target="_blank" rel="me noopener">{r.nome}</a></>)}</p>
     <a href={author.url} class="autor-mais">Conheça o autor →</a>
   </div>
 </aside>
@@ -21,5 +22,6 @@ import { author } from '../data/site';
   .autor-nome a { color: var(--texto); text-decoration: none; }
   .autor-cargo { color: var(--azul); font-weight: 600; }
   .autor-mais { font-weight: 700; font-size: 1rem; }
+  .autor-redes { font-size: .95rem !important; font-weight: 600; }
   @media (max-width: 560px) { .autor-box { flex-direction: column; align-items: center; text-align: center; } }
 </style>

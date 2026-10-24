@@ -22,7 +22,18 @@ export const author = {
   photoSmall: '/images/autor-jomar-hanum-104.webp',
   role: 'Editor-chefe e analista de produtos',
   bio: 'Jomar Hanum é o criador do Melhores Aparelhos. Ele pesquisa e compara eletrodomésticos e tecnologia, traduzindo ficha técnica em linguagem simples para quem quer comprar bem sem cair em propaganda.',
-  sameAs: ['https://jhonlinesolutions.com.br'],
+  // Perfis oficiais: viram 'sameAs' nos dados estruturados e links na página do autor.
+  redes: [
+    { nome: 'Instagram', url: 'https://www.instagram.com/jomar.hanum' },
+    { nome: 'LinkedIn', url: 'https://www.linkedin.com/in/jomar-hanum' },
+    { nome: 'Facebook', url: 'https://www.facebook.com/jomar.hanum' },
+  ],
+  sameAs: [
+    'https://www.instagram.com/jomar.hanum',
+    'https://www.linkedin.com/in/jomar-hanum',
+    'https://www.facebook.com/jomar.hanum',
+    'https://jhonlinesolutions.com.br',
+  ],
 };
 
 export const nav = [

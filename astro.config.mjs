@@ -132,7 +132,7 @@ const paginas = {
   '/guias/': { priority: 0.7, changefreq: 'weekly', lastmod: ultimaAtualizacao },
   '/cozinha/': { priority: 0.8, changefreq: 'weekly', lastmod: ultimaAtualizacao },
   '/climatizacao/': { priority: 0.8, changefreq: 'weekly', lastmod: ultimaAtualizacao },
-  '/autor/jomar-hanum/': { priority: 0.6, changefreq: 'monthly', lastmod: '2026-10-19', img: [fotoAutor] },
+  '/autor/jomar-hanum/': { priority: 0.6, changefreq: 'monthly', lastmod: '2026-10-24', img: [fotoAutor] },
   '/sobre/': { priority: 0.5, changefreq: 'monthly', lastmod: '2026-10-19', img: [fotoAutor] },
   '/contato/': { priority: 0.5, changefreq: 'yearly', lastmod: '2026-10-19' },
   '/politica-de-privacidade/': { priority: 0.3, changefreq: 'yearly', lastmod: '2026-10-19' },

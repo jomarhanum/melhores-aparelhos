@@ -2,9 +2,15 @@
 import Base from '../../layouts/Base.astro';
 import ShareButtons from '../../components/ShareButtons.astro';
 import { site, author } from '../../data/site';
+import { artigos } from '../../data/artigos.mjs';
+import { categorias } from '../../data/categorias.mjs';
 
 const title = `${author.name}, ${author.role}`;
 const description = `Conheça ${author.name}, criador e editor-chefe do ${site.name}, responsável pelos reviews e comparativos de eletrodomésticos do blog.`;
+// Todos os textos do site, agrupados por categoria (comparativo principal primeiro).
+const porCategoria = categorias
+  .map((c) => ({ nome: c.nome, itens: artigos.filter((a) => a.secao === c.id).sort((a, b) => Number(b.url === c.hub) - Number(a.url === c.hub)) }))
+  .filter((g) => g.itens.length);
 const jsonLd = [
   {
     '@context': 'https://schema.org',
@@ -31,14 +37,23 @@ const jsonLd = [
     <img src={author.photo} alt={`Foto de ${author.name}`} width="200" height="200" />
     <h1>{author.name}</h1>
     <p class="cargo">{author.role}</p>
+    <ul class="redes" aria-label={`Perfis de ${author.name}`}>
+      {author.redes.map((r) => <li><a href={r.url} target="_blank" rel="me noopener">{r.nome}</a></li>)}
+    </ul>
     <p>{author.bio}</p>
     <p>No {site.name}, Jomar é responsável pela pesquisa, redação e revisão de todos os reviews. O método é sempre o mesmo: conferir as especificações oficiais, comparar os modelos lado a lado em critérios objetivos e traduzir tudo isso em uma recomendação clara, com prós e contras honestos.</p>
+    <p>Sempre que existe dado oficial, ele vem primeiro: o consumo de energia e de água das geladeiras e máquinas de lavar, por exemplo, sai das tabelas do Inmetro, e não dos anúncios. As opiniões de compradores são resumidas com as palavras do próprio site, sem copiar avaliações, e preços não são publicados porque mudam o tempo todo.</p>
     <p>Além do blog, Jomar atua com projetos digitais pela <a href={site.developer.url} target="_blank" rel="noopener">{site.developer.name}</a>.</p>
 
     <h2>Artigos de {author.name}</h2>
-    <ul>
-      <li><a href="/melhor-ar-condicionado-portatil/">Melhor Ar-Condicionado Portátil de 2026: 10 Modelos Comparados</a></li>
-    </ul>
+    {porCategoria.map((g) => (
+      <>
+        <h3>{g.nome}</h3>
+        <ul>
+          {g.itens.map((a) => <li><a href={a.url}>{a.h1}</a></li>)}
+        </ul>
+      </>
+    ))}
     <ShareButtons title={title} />
   </section>
 </Base>
@@ -46,4 +61,7 @@ const jsonLd = [
 <style>
   .perfil > img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 6px solid #fff; box-shadow: var(--sombra); margin: 1rem 0 1.2rem; }
   .cargo { color: var(--azul); font-weight: 700; font-size: 1.15rem; margin-top: -.6rem; }
+  .redes { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 1.2rem; }
+  .redes a { display: inline-block; padding: 8px 16px; border: 1px solid var(--borda); border-radius: 999px; font-weight: 700; text-decoration: none; background: #fff; }
+  .redes a:hover { border-color: var(--azul); }
 </style>
