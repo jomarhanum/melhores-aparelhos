@@ -51,7 +51,7 @@ const dados: AirFryerDados[] = [
     ],
     vantagens: ['2 anos de garantia', 'Nota alta com milhares de avaliações'],
     pros: ['Grande', 'Silenciosa', 'Janela com luz', 'Fácil de limpar'],
-    contras: ['Precisa de espaço livre em volta para ventilar', 'Acabamento externo sensível', 'Não é bivolt: escolha a versão certa'],
+    contras: ['Precisa de espaço livre em volta para ventilar', 'Não é bivolt: escolha a versão certa'],
     opiniao: {
       elogios: ['Silenciosa', 'Espaçosa', 'Boa construção e acabamento', 'Fácil de limpar'],
       criticas: ['Há relato de unidade com defeito na luz, trocada pela loja', 'Precisa ficar em superfície plana com espaço em volta'],
@@ -123,7 +123,7 @@ const dados: AirFryerDados[] = [
     extras: 'RapidAir Plus, peças que vão à lava-louças',
     idealPara: 'Quem usa a air fryer todo dia e quer a mais completa, sem economizar.',
     resumo:
-      'A Philips Walita Série 3000 XL foi eleita a melhor air fryer de 2025 pelo TechTudo. Tem cesto de 7,2 litros, painel touch com programas automáticos, janela com luz e funcionamento silencioso, segundo os compradores. Pesa quase 8 kg e ocupa bastante espaço.',
+      'A Philips Walita Série 3000 XL é a mais completa da lista: cesto de 7,2 litros, painel touch com programas automáticos, janela com luz e funcionamento silencioso, segundo os compradores. Pesa quase 8 kg e ocupa bastante espaço.',
     caracteristicas: [
       'Cesto de 7,2 litros',
       'Painel touch com programas automáticos',
@@ -136,7 +136,7 @@ const dados: AirFryerDados[] = [
       'Programas prontos para os pratos mais comuns.',
       'Limpeza fácil, com peças na lava-louças.',
     ],
-    vantagens: ['Melhor air fryer de 2025 segundo o TechTudo', 'Nota muito alta entre os compradores'],
+    vantagens: ['A mais completa da lista', 'Nota muito alta entre os compradores'],
     pros: ['Muito espaço', 'Silenciosa', 'Programas automáticos', 'Fácil de limpar'],
     contras: ['Cara', 'Grande e pesada (7,9 kg)', 'Não é bivolt: escolha a versão certa'],
     opiniao: {
@@ -208,7 +208,7 @@ const dados: AirFryerDados[] = [
     extras: 'Cesto antiaderente Duraflon, timer de 60 minutos com alerta sonoro, desligamento automático',
     idealPara: 'Quem mora sozinho ou a dois e quer a air fryer mais testada do Brasil.',
     resumo:
-      'A Mondial New Pratic AF-31 tem um dos anúncios de air fryer com mais avaliações da Amazon, mais de 15 mil. Compacta, com 3,5 litros e 1.500 W, é simples de usar e, no teste de longo prazo do TechTudo, o antiaderente Duraflon continuou intacto depois de dois anos.',
+      'A Mondial New Pratic AF-31 tem um dos anúncios de air fryer com mais avaliações da Amazon, mais de 15 mil. Compacta, com 3,5 litros e 1.500 W, é simples de usar e tem cesto com antiaderente Duraflon. Os compradores elogiam o silêncio e a praticidade.',
     caracteristicas: [
       'Cesto de 3,5 litros',
       '1.500 W de potência',
@@ -219,11 +219,11 @@ const dados: AirFryerDados[] = [
     beneficios: [
       'Cabe em qualquer cozinha.',
       'Simples de usar.',
-      'Antiaderente durável, segundo o teste do TechTudo.',
+      'Silenciosa, segundo os compradores.',
     ],
-    vantagens: ['Mais de 15 mil avaliações num só anúncio da Amazon', 'Antiaderente aprovado em 2 anos de teste'],
-    pros: ['Barata', 'Compacta', 'Durável', 'Silenciosa'],
-    contras: ['Pequena para famílias', 'Sem painel digital', 'Acabamento preto brilhante risca fácil'],
+    vantagens: ['Mais de 15 mil avaliações num só anúncio da Amazon', 'Simples de usar'],
+    pros: ['Barata', 'Compacta', 'Simples', 'Silenciosa'],
+    contras: ['Pequena para famílias', 'Sem painel digital', 'Há relato de pintura do cesto descascada na chegada'],
     opiniao: {
       elogios: ['Silenciosa', 'Prática e simples', 'Boa qualidade'],
       criticas: ['Há relato de cesto com pintura descascada na chegada'],
@@ -323,7 +323,7 @@ const dados: AirFryerDados[] = [
     marca: 'Britânia',
     modelo: 'BFR21P',
     nome: 'Britânia BFR21P 4 L',
-    selo: '1ª colocada no teste do TechTudo',
+    selo: 'Simples e acessível para casais',
     nota: 8.6,
     formato: 'Cesto',
     capacidade: '4 L',
@@ -335,7 +335,7 @@ const dados: AirFryerDados[] = [
     extras: 'Circulação de ar 360°',
     idealPara: 'Casais que querem uma air fryer simples, barata e bem avaliada em teste.',
     resumo:
-      'A Britânia BFR21P é a 1ª colocada do teste do TechTudo: compacta, com 4 litros, aquece rápido e cozinha por igual. É simples, com controles manuais, e o antiaderente pede cuidado, como o próprio teste apontou.',
+      'A Britânia BFR21P é uma air fryer simples e acessível: 4 litros, 1.500 W, circulação de ar 360° e controles manuais de tempo e temperatura. Os compradores elogiam o tamanho para casal e o preço.',
     caracteristicas: [
       'Cesto de 4 litros',
       '1.500 W de potência',
@@ -344,16 +344,16 @@ const dados: AirFryerDados[] = [
       'Compacta',
     ],
     beneficios: [
-      'Aquece rápido e cozinha por igual.',
+      'Circulação de ar 360°.',
       'Muito simples de usar.',
       'Preço acessível.',
     ],
-    vantagens: ['1ª colocada no teste do TechTudo', 'Ótimo preço'],
-    pros: ['Barata', 'Compacta', 'Cozimento uniforme', 'Simples'],
-    contras: ['Antiaderente sensível: use papel ou silicone', 'Sem painel digital', 'Pequena para famílias'],
+    vantagens: ['Simples e acessível', 'Compacta para casais'],
+    pros: ['Barata', 'Compacta', 'Fácil de usar', 'Simples'],
+    contras: ['Sem painel digital', 'Sem janela', 'Pequena para famílias'],
     opiniao: {
       elogios: ['Compacta, ideal para casal', 'Preço acessível', 'Boa qualidade'],
-      criticas: ['Antiaderente desgasta com o tempo, segundo o teste do TechTudo'],
+      criticas: ['Poucas reclamações nas avaliações mais recentes'],
       observacao: 'Tem centenas de avaliações na Amazon, com nota alta.',
     },
     amazonUrl: 'https://link.amazon/B071QrUil',
@@ -420,7 +420,7 @@ const dados: AirFryerDados[] = [
     extras: 'Cuba quadrada, Air Circuit 360°, grelha removível, antiaderente Black Resist',
     idealPara: 'Famílias grandes que querem o maior cesto pagando menos que as premium.',
     resumo:
-      'A Elgin Gran Fry tem o maior cesto da lista, com 8 litros em formato quadrado. No teste do TechTudo, foi bem com cargas grandes e tem preço competitivo, mas as laterais esquentam bastante e o acabamento é simples.',
+      'A Elgin Gran Fry tem o maior cesto da lista, com 8 litros em formato quadrado. Os compradores elogiam o tamanho e o resultado, mas ainda são poucas avaliações e há relato de defeito.',
     caracteristicas: [
       'Cuba quadrada de 8 litros',
       'Air Circuit 360°',
@@ -430,12 +430,12 @@ const dados: AirFryerDados[] = [
     ],
     beneficios: [
       'Cabe muita comida de uma vez.',
-      'Bom resultado com cargas cheias.',
+      'Assa bem, segundo os compradores.',
       'Preço abaixo das grandes premium.',
     ],
     vantagens: ['Maior cesto da lista', 'Preço competitivo para o tamanho'],
-    pros: ['Muito espaço', 'Bom preço', 'Cozinha bem cargas grandes'],
-    contras: ['Laterais esquentam bastante', 'Acabamento simples', 'Ainda tem poucas avaliações e há relato de defeito em menos de 6 meses'],
+    pros: ['Muito espaço', 'Bom preço', 'Assa bem'],
+    contras: ['Ainda tem poucas avaliações', 'Há relato de defeito em menos de 6 meses', 'Demora mais em porções pequenas, segundo compradores'],
     opiniao: {
       elogios: ['Cesto muito grande', 'Assa bem'],
       criticas: ['Demora mais para fritar porções pequenas', 'Há relato de aparelho que parou em menos de 6 meses'],

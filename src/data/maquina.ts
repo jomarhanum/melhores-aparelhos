@@ -41,7 +41,7 @@ const dados: MaquinaDados[] = [
     extras: 'Sistema Ciclone (sem agitador central), cesto inox, SmartSense, ciclo com Vanish, painel digital',
     idealPara: 'Famílias que querem lavar muito gastando pouca água, com roupa saindo quase seca.',
     resumo:
-      'A Panasonic NA-F150B1T é a única máquina presente nos três comparativos que analisamos (o Zoom cita a versão branca) e a 1ª colocada do Promobit. Lava 15 kg sem agitador central, com o sistema Ciclone, e gasta pouca água para o tamanho. Os compradores elogiam o silêncio e a roupa que sai quase seca.',
+      'A Panasonic NA-F150B1T é a máquina mais recomendada nos rankings que analisamos. Lava 15 kg sem agitador central, com o sistema Ciclone, e gasta pouca água para o tamanho. Os compradores elogiam o silêncio e a roupa que sai quase seca.',
     caracteristicas: [
       'Capacidade de 15 kg',
       'Sistema Ciclone, sem agitador central',
@@ -86,7 +86,7 @@ const dados: MaquinaDados[] = [
     extras: 'Cesto inox, dispenser autolimpante Jet&Clean, Ultra Filter pega-fiapos, programa Super Silencioso',
     idealPara: 'Famílias de 3 a 4 pessoas que querem uma máquina completa sem pagar caro.',
     resumo:
-      'A Electrolux LED13 tem mais de mil avaliações na Amazon, com nota muito alta. Tem 13 kg, 11 programas, cesto inox, dispenser que se limpa sozinho e um filtro de fiapos elogiado pelos compradores. Aparece nos rankings da Casa dos Eletrodomésticos e do Promobit.',
+      'A Electrolux LED13 tem mais de mil avaliações na Amazon, com nota muito alta. Tem 13 kg, 11 programas, cesto inox, dispenser que se limpa sozinho e um filtro de fiapos elogiado pelos compradores. Aparece nos principais rankings do país.',
     caracteristicas: [
       'Capacidade de 13 kg',
       '11 programas de lavagem',
@@ -116,7 +116,7 @@ const dados: MaquinaDados[] = [
     marca: 'Electrolux',
     modelo: 'Essential Care LED15',
     nome: 'Electrolux Essential Care LED15 15 kg',
-    selo: '1ª colocada da Casa dos Eletrodomésticos',
+    selo: 'Grande e fácil de usar',
     nota: 9.2,
     tipo: 'Abertura superior',
     capacidade: '15 kg',
@@ -131,7 +131,7 @@ const dados: MaquinaDados[] = [
     extras: 'Cesto inox, Jet&Clean, Ultra Filter, programa Super Silencioso',
     idealPara: 'Famílias de 4 ou 5 pessoas que lavam roupa de cama e cobertores com frequência.',
     resumo:
-      'A Electrolux LED15 é a 1ª colocada da Casa dos Eletrodomésticos entre as máquinas de abertura superior. É a versão de 15 kg da LED13, com os mesmos 11 programas, cesto inox e dispenser autolimpante, e quase mil avaliações na Amazon.',
+      'A Electrolux LED15 é a versão de 15 kg da LED13, com os mesmos 11 programas, cesto inox e dispenser autolimpante, e quase mil avaliações na Amazon.',
     caracteristicas: [
       'Capacidade de 15 kg',
       '11 programas de lavagem',
@@ -144,7 +144,7 @@ const dados: MaquinaDados[] = [
       'Painel fácil de operar.',
       'Roupa sai quase seca, segundo os compradores.',
     ],
-    vantagens: ['1ª colocada da Casa dos Eletrodomésticos', 'Quase mil avaliações na Amazon'],
+    vantagens: ['Presente nos principais rankings', 'Quase mil avaliações na Amazon'],
     pros: ['Grande', 'Fácil de usar', 'Silenciosa', 'Durável, segundo compradores'],
     contras: ['Larga (66,2 cm)', 'Gasta mais água que as Panasonic', 'Não é bivolt: escolha a versão certa'],
     opiniao: {
@@ -218,7 +218,7 @@ const dados: MaquinaDados[] = [
     extras: 'Sistema Ciclone, cesto inox, 7 níveis de água com sensor de carga',
     idealPara: 'Quem quer economizar água sem abrir mão de uma máquina grande.',
     resumo:
-      'A Panasonic NA-F140B1W é a 2ª colocada da Casa dos Eletrodomésticos e a que menos gasta água na lista: 97 litros por ciclo segundo o Inmetro, contra 107 a 180 litros das Electrolux. Tem 14 kg, sistema Ciclone e um filtro de fiapos muito elogiado.',
+      'A Panasonic NA-F140B1W é a que menos gasta água na lista: 97 litros por ciclo segundo o Inmetro, contra 107 a 180 litros das Electrolux. Tem 14 kg, sistema Ciclone e um filtro de fiapos muito elogiado.',
     caracteristicas: [
       'Capacidade de 14 kg',
       '97 litros de água por ciclo (Inmetro)',
@@ -231,7 +231,7 @@ const dados: MaquinaDados[] = [
       'Filtro que pega praticamente todos os fiapos.',
       'Espaço interno amplo.',
     ],
-    vantagens: ['Menor consumo de água da lista', '2ª colocada da Casa dos Eletrodomésticos'],
+    vantagens: ['Menor consumo de água da lista', 'Filtro de fiapos muito elogiado'],
     pros: ['Muito econômica em água', 'Filtro de fiapos excelente', 'Espaçosa', 'Silenciosa'],
     contras: ['Pode embolar as roupas', 'Só 8 programas', 'Não é bivolt: escolha a versão certa'],
     opiniao: {
@@ -262,7 +262,7 @@ const dados: MaquinaDados[] = [
     extras: 'Cesto inox, Jet&Clean, autolimpeza, reúso de água',
     idealPara: 'Famílias grandes e quem lava edredons e cobertores com frequência.',
     resumo:
-      'A Electrolux LED17 é a maior da lista, com 17 kg. Tem os mesmos 11 programas e o cesto inox da linha Essential Care e aparece nos rankings da Casa dos Eletrodomésticos e do Promobit. Gasta mais água por ciclo, como esperado para o tamanho.',
+      'A Electrolux LED17 é a maior da lista, com 17 kg. Tem os mesmos 11 programas e o cesto inox da linha Essential Care e aparece nos principais rankings do país. Gasta mais água por ciclo, como esperado para o tamanho.',
     caracteristicas: [
       'Capacidade de 17 kg, a maior da lista',
       '11 programas',
@@ -347,7 +347,7 @@ const dados: MaquinaDados[] = [
     extras: 'Motor Digital Inverter com 10 anos de garantia, Air Wash (higieniza sem água), ciclo rápido de 15 minutos, lavar e secar em 59 minutos',
     idealPara: 'Apartamentos sem varal ou quem quer roupa seca no mesmo dia.',
     resumo:
-      'A Samsung WD11M é a 1ª lava e seca da Casa dos Eletrodomésticos: lava 11 kg e seca 7 kg, com motor Digital Inverter com 10 anos de garantia e função Air Wash, que higieniza peças sem água. Lava e seca uma carga pequena em 59 minutos.',
+      'A Samsung WD11M lava 11 kg e seca 7 kg, com motor Digital Inverter com 10 anos de garantia e função Air Wash, que higieniza peças sem água. Lava e seca uma carga pequena em 59 minutos.',
     caracteristicas: [
       'Lava 11 kg e seca 7 kg',
       'Motor Digital Inverter com 10 anos de garantia',
@@ -360,7 +360,7 @@ const dados: MaquinaDados[] = [
       'Higieniza peças que não vão à água.',
       'Garantia longa do motor.',
     ],
-    vantagens: ['1ª lava e seca da Casa dos Eletrodomésticos', 'Motor com 10 anos de garantia'],
+    vantagens: ['Lava e seca com Air Wash', 'Motor com 10 anos de garantia'],
     pros: ['Lava e seca', 'Silenciosa', 'Econômica', 'Garantia longa do motor'],
     contras: ['Seca só 7 kg por vez', 'Segundo um comprador, criança mexendo nos botões reinicia a lavagem', 'Há relato de defeitos repetidos na válvula de água'],
     opiniao: {
@@ -392,7 +392,7 @@ const dados: MaquinaDados[] = [
     extras: 'Easy Clean, filtro de fiapos, ciclo rápido de 19 minutos, reúso de água',
     idealPara: 'Casais e famílias pequenas, em lavanderias apertadas.',
     resumo:
-      'A Electrolux LES11 é compacta, com 11 kg, e uma das mais econômicas da lista segundo o Inmetro: 0,34 kWh e 107 litros por ciclo. Os compradores elogiam o silêncio e a roupa que sai quase seca. É a melhor de 11 kg do Promobit.',
+      'A Electrolux LES11 é compacta, com 11 kg, e uma das mais econômicas da lista segundo o Inmetro: 0,34 kWh e 107 litros por ciclo. Os compradores elogiam o silêncio e a roupa que sai quase seca.',
     caracteristicas: [
       'Capacidade de 11 kg',
       '0,34 kWh e 107 L por ciclo (Inmetro)',
@@ -405,7 +405,7 @@ const dados: MaquinaDados[] = [
       'Gasta pouca água e energia.',
       'Silenciosa.',
     ],
-    vantagens: ['Uma das mais econômicas da lista', 'Melhor de 11 kg do Promobit'],
+    vantagens: ['Uma das mais econômicas da lista', 'Compacta e silenciosa'],
     pros: ['Econômica', 'Silenciosa', 'Compacta', 'Roupa sai quase seca'],
     contras: ['Pequena para famílias grandes', 'Escolher o ciclo certo pode confundir no início'],
     opiniao: {

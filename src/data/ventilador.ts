@@ -40,7 +40,7 @@ const dados: VentiladorDados[] = [
     peso: '3,72 kg',
     idealPara: 'Quem quer o ventilador de teto mais completo para salas e quartos grandes.',
     resumo:
-      'O Arno Ultimate VX13 aparece nos três maiores guias do Brasil e é o 1º colocado em dois deles. Tem 6 velocidades, controle remoto com timer, modo exaustor, modo dormir, é bivolt e atende cômodos de até 25 m².',
+      'O Arno Ultimate VX13 é um dos ventiladores de teto mais recomendados do país. Tem 6 velocidades, controle remoto com timer, modo exaustor, modo dormir, é bivolt e atende cômodos de até 25 m².',
     caracteristicas: [
       '3 pás de acrílico, com cerca de 105 cm de diâmetro',
       '6 velocidades',

@@ -91,7 +91,7 @@ const dados: ColunaDados[] = [
     peso: '6,05 kg',
     idealPara: 'Quem quer vento forte gastando pouco, com um modelo testado por milhares de compradores.',
     resumo:
-      'O Mallory Delfos TS+ é o 1º colocado da Casa dos Eletrodomésticos e o ventilador de coluna com mais avaliações entre os da lista. Tem classe A de eficiência nas três velocidades, boa vazão de ar e a grade TS, feita para ventilar mais com menos ruído.',
+      'O Mallory Delfos TS+ é o ventilador de coluna com mais avaliações entre os da lista. Tem classe A de eficiência nas três velocidades, boa vazão de ar e a grade TS, feita para ventilar mais com menos ruído.',
     caracteristicas: [
       'Hélice de 40 cm com 6 pás',
       'Motor de 126 W',
@@ -184,7 +184,7 @@ const dados: ColunaDados[] = [
     peso: '5,6 kg',
     idealPara: 'Quem quer vento forte com 8 pás e bom consumo.',
     resumo:
-      'O WAP Flow Turbo é o 1º colocado do TechTudo. Tem 8 pás, 3 velocidades (silencioso, brisa e turbo), oscilação de 90° e classe A nas três velocidades. A grade tem 50 cm, mas a hélice tem 40 cm.',
+      'O WAP Flow Turbo tem 8 pás, 3 velocidades (silencioso, brisa e turbo), oscilação de 90° e classe A nas três velocidades. A grade tem 50 cm, mas a hélice tem 40 cm.',
     caracteristicas: [
       'Hélice de 8 pás (40 cm) em grade de 50 cm',
       '3 velocidades: silencioso, brisa e turbo',
@@ -197,7 +197,7 @@ const dados: ColunaDados[] = [
       'Consumo baixo para a potência.',
       'Velocidade silenciosa para dormir.',
     ],
-    vantagens: ['1º colocado do TechTudo', 'Classe A em todas as velocidades'],
+    vantagens: ['8 pás', 'Classe A em todas as velocidades'],
     pros: ['Potente', '8 pás', 'Econômico', 'Oscilação ampla'],
     contras: ['A hélice tem 40 cm, não 50 cm', 'Barulho perceptível no turbo', 'Montagem pode dar trabalho'],
     opiniao: {

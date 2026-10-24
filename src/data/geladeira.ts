@@ -38,7 +38,7 @@ const dados: GeladeiraDados[] = [
     extras: 'AutoSense (ajuste automático de temperatura), gaveta HortiNatura',
     idealPara: 'Famílias de 3 a 5 pessoas que querem uma geladeira grande, econômica e que funciona em qualquer tomada.',
     resumo:
-      'A Electrolux IT70S é a 1ª colocada da Casa dos Eletrodomésticos: duplex de 480 litros com motor inverter, consumo de 25 kWh/mês para o tamanho e SmartBivolt, que funciona em 127 V ou 220 V. Tem ajuste automático de temperatura (AutoSense) e gaveta HortiNatura para frutas e verduras.',
+      'A Electrolux IT70S é uma duplex de 480 litros com motor inverter, consumo de 25 kWh/mês para o tamanho e SmartBivolt, que funciona em 127 V ou 220 V. Tem ajuste automático de temperatura (AutoSense) e gaveta HortiNatura para frutas e verduras.',
     caracteristicas: [
       '480 litros (352 L de refrigerador e 128 L de freezer)',
       'Compressor inverter',
@@ -51,7 +51,7 @@ const dados: GeladeiraDados[] = [
       'Consumo baixo para uma geladeira desse tamanho.',
       'Não precisa escolher voltagem.',
     ],
-    vantagens: ['1ª colocada da Casa dos Eletrodomésticos', 'Bivolt de verdade, raro nessa categoria'],
+    vantagens: ['Consumo baixo para o tamanho', 'Bivolt de verdade, raro nessa categoria'],
     pros: ['Grande', 'Econômica para o tamanho', 'Bivolt', 'Inverter'],
     contras: ['Larga e alta: meça o espaço e as portas antes', 'Acabamento Inox Look é pintura, não aço inox', 'Há relatos de ruídos ocasionais'],
     opiniao: {
@@ -101,7 +101,7 @@ const dados: GeladeiraDados[] = [
     opiniao: {
       elogios: ['Gela bem e é silenciosa', 'Econômica', 'Bonita e funcional'],
       criticas: ['Espaço interno menor do que parece por fora'],
-      observacao: 'Na Casa dos Eletrodomésticos, a versão inox tem milhares de avaliações, com nota alta.',
+      observacao: 'Tem milhares de avaliações nas lojas, somando as versões, com nota alta.',
     },
     amazonUrl: 'https://link.amazon/B06iLZXQC',
     mercadoLivreUrl: 'https://meli.la/1eMSire',
@@ -139,7 +139,7 @@ const dados: GeladeiraDados[] = [
       'Freezer grande e organizado em gavetas.',
       'Mantém os alimentos frescos por mais tempo.',
     ],
-    vantagens: ['2ª colocada da Casa dos Eletrodomésticos', 'Freezer de 167 litros'],
+    vantagens: ['Inverse com AutoSense', 'Freezer de 167 litros'],
     pros: ['Inverse', 'Freezer grande', 'Inverter', 'Não resseca os alimentos'],
     contras: ['Não é bivolt: escolha a versão certa', 'Inox Look é pintura, não aço inox', 'Consome um pouco mais que as duplex da lista'],
     opiniao: {
@@ -257,7 +257,7 @@ const dados: GeladeiraDados[] = [
     acabamento: 'Inox (MK) ou branco (MB)',
     idealPara: 'Famílias grandes que querem uma geladeira premium, com duas portas no refrigerador.',
     resumo:
-      'A Brastemp BRO85 aparece nos três comparativos que analisamos. É French Door: duas portas no refrigerador e o freezer em gaveta embaixo, somando 559 litros, com compressor inverter. Na Casa dos Eletrodomésticos, tem nota quase máxima entre centenas de compradores.',
+      'A Brastemp BRO85 aparece nos três comparativos que analisamos. É French Door: duas portas no refrigerador e o freezer em gaveta embaixo, somando 559 litros, com compressor inverter. Tem nota quase máxima entre centenas de compradores.',
     caracteristicas: [
       '559 litros (381 L de refrigerador e 178 L de freezer)',
       'French Door: 2 portas no refrigerador e freezer em gaveta',
@@ -276,7 +276,7 @@ const dados: GeladeiraDados[] = [
     opiniao: {
       elogios: ['Bonita e moderna', 'Refrigerador espaçoso', 'Silenciosa'],
       criticas: ['Freezer considerado apertado por alguns', 'Exige atenção às medidas para passar nas portas'],
-      observacao: 'Tem centenas de avaliações na Casa dos Eletrodomésticos e poucas na Amazon, com nota alta nas duas.',
+      observacao: 'Tem centenas de avaliações nas lojas, com nota alta.',
     },
     amazonUrl: 'https://link.amazon/B05byUOEQ',
     mercadoLivreUrl: 'https://meli.la/1wFAeQm',
@@ -363,7 +363,7 @@ const dados: GeladeiraDados[] = [
     opiniao: {
       elogios: ['Boa qualidade'],
       criticas: ['Há relato de peça faltando na entrega'],
-      observacao: 'Ainda tem poucas avaliações na Amazon; na Casa dos Eletrodomésticos, a versão inox soma milhares, com nota alta.',
+      observacao: 'Ainda tem poucas avaliações na Amazon; em outras lojas, a versão inox soma milhares, com nota alta.',
     },
     amazonUrl: 'https://link.amazon/B0gZWFE2b',
     mercadoLivreUrl: 'https://meli.la/1tp7QSS',
@@ -450,7 +450,7 @@ const dados: GeladeiraDados[] = [
     opiniao: {
       elogios: ['Tamanho ideal para casais', 'Gela bem e rápido', 'Silenciosa para a maioria'],
       criticas: ['Pouco espaço interno', 'Alguns relatam ruído ocasional'],
-      observacao: 'Na Casa dos Eletrodomésticos, tem milhares de avaliações, com nota alta.',
+      observacao: 'Tem milhares de avaliações nas lojas, com nota alta.',
     },
     amazonUrl: 'https://link.amazon/B0iBKPqay',
     mercadoLivreUrl: 'https://meli.la/2zcE7Uo',
