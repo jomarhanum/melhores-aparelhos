@@ -100,7 +100,7 @@ const dados: AirFryerDados[] = [
       criticas: ['Há relato de fusível térmico que queimou com poucos dias de uso'],
       observacao: 'Tem dezenas de milhares de avaliações na Amazon, somando as versões, com nota alta.',
     },
-    amazonUrl: 'https://link.amazon/B04QFvNwE',
+    amazonUrl: 'https://link.amazon/B0d3mvRli',
     mercadoLivreUrl: 'https://meli.la/1AFE643',
   },
   {
