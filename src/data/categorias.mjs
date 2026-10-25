@@ -92,12 +92,20 @@ export const categorias = [
     imagem: '/images/produtos/electrolux-ecm30.webp',
     descricao: 'Café coado sem trabalho: capacidade, jarra de vidro, inox ou térmica, timer e filtro permanente.',
   },
+  {
+    id: 'cafeteira-moedor',
+    nome: 'Cafeteira com moedor',
+    curto: 'Cafeteira com Moedor',
+    hub: '/melhor-cafeteira-com-moedor/',
+    imagem: '/images/produtos/philips-walita-ep2330.webp',
+    descricao: 'Café moído na hora: superautomáticas e semiautomáticas com moedor, leite automático ou vaporizador.',
+  },
 ];
 
 // Grupos de categorias com página própria (itens do menu).
 export const grupos = [
   { id: 'climatizacao', nome: 'Climatização', url: '/climatizacao/', categorias: ['ar-portatil', 'ar-inverter', 'ventilador-teto', 'ventilador-coluna'] },
-  { id: 'cozinha', nome: 'Cozinha', url: '/cozinha/', categorias: ['forno-embutir', 'forno-bancada', 'geladeira', 'airfryer', 'cafeteira-capsula', 'cafeteira-eletrica'] },
+  { id: 'cozinha', nome: 'Cozinha', url: '/cozinha/', categorias: ['forno-embutir', 'forno-bancada', 'geladeira', 'airfryer', 'cafeteira-capsula', 'cafeteira-eletrica', 'cafeteira-moedor'] },
 ];
 
 export const categoriaPorId = (id) => categorias.find((c) => c.id === id);

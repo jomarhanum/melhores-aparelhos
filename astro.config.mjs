@@ -135,7 +135,20 @@ const eletricas = [
   ['wap-aroma-wcd1500', 'WAP Digital Aroma WCD1500 1,5 L'],
   ['cadence-caf338', 'Cadence Desperta Contrast CAF338'],
 ];
+const moedores = [
+  ['philips-walita-ep2330', 'Philips Walita Série 2300 LatteGo'],
+  ['philips-walita-ep1220', 'Philips Walita Série 1200'],
+  ['delonghi-magnifica-s', "De'Longhi Magnifica S"],
+  ['philips-walita-ep4441', 'Philips Walita Série 4400 LatteGo'],
+  ['oster-xpert-perfect-brew', 'Oster Xpert Perfect Brew semiautomática'],
+  ['spidem-trevi', 'Spidem Trevi'],
+  ['philips-walita-ep5547', 'Philips Walita Série 5500 LatteGo'],
+  ['tramontina-express-pro', 'Tramontina by Breville Express Pro'],
+  ['krups-coffee-crush', 'Krups Coffee Crush'],
+  ['gaggia-besana', 'Gaggia Besana'],
+];
 const fotosDoHub = {
+  '/melhor-cafeteira-com-moedor/': moedores.map(([s, n]) => [s, `Cafeteira com moedor ${n}`]),
   '/melhor-cafeteira-eletrica/': eletricas.map(([s, n]) => [s, `Cafeteira elétrica ${n}`]),
   '/melhor-cafeteira-de-capsula/': cafeteiras.map(([s, n]) => [s, `Cafeteira de cápsula ${n}`]),
   '/melhor-maquina-de-lavar/': maquinas.map(([s, n]) => [s, `Máquina de lavar ${n}`]),

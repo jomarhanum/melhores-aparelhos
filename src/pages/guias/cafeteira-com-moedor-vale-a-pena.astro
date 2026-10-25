@@ -1,0 +1,59 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Conta com dose de 8 g por espresso e preço do grão como variável (o leitor ajusta ao café que compra).
+// Cápsulas: faixa de preço da Amazon em out/2026, a mesma do guia de cápsulas.
+const dose = 8;
+const precosKg = [80, 120, 160];
+const porXicara = (kg: number) => (kg / 1000) * dose;
+const br = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const xicarasDia = 3;
+const economiaMes = (capsula: number, kg: number) => Math.round((capsula - porXicara(kg)) * xicarasDia * 30);
+
+const faq = [
+  { q: 'Quanto custa um espresso feito com café em grão?', a: 'Com cerca de 8 g de café por dose, cada xícara custa R$ 0,64 com o grão a R$ 80 o quilo, R$ 0,96 a R$ 120 e R$ 1,28 a R$ 160. A cápsula custa de R$ 1,60 a mais de R$ 5.' },
+  { q: 'Em quanto tempo a máquina se paga?', a: 'Depende de quantos cafés você toma. Trocando cápsulas de R$ 2 por grão de R$ 120 o quilo, a economia é de cerca de R$ 1 por xícara: com 3 cafés por dia, uns R$ 94 por mês. Uma máquina de R$ 2.400 se pagaria em pouco mais de dois anos, sem contar manutenção.' },
+  { q: 'Cafeteira com moedor dá muito trabalho?', a: 'Menos do que parece nas superautomáticas: esvaziar a gaveta de borra, lavar o grupo de extração uma vez por semana e descalcificar quando a máquina avisar. As semiautomáticas pedem mais cuidado a cada uso.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-cafeteira-com-moedor/', '/guias/superautomatica-ou-semiautomatica/', '/guias/cafeteira-de-capsula-vale-a-pena/']}>
+  <p>A cafeteira com moedor custa bem mais que uma máquina de cápsula, mas cada xícara sai mais barata e com café moído na hora. Veja a conta e para quem ela compensa.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> com o grão a R$ 120 o quilo, cada espresso custa cerca de <strong>R$ {br(porXicara(120))}</strong>, contra <strong>R$ 1,60 a mais de R$ 5</strong> na cápsula. Para quem toma <strong>2 ou mais cafés por dia</strong>, a máquina tende a se pagar em alguns anos e entrega um café mais aromático. Para quem toma um café por dia, a cápsula ainda é mais prática e barata no total.</p>
+  </div>
+
+  <h2 id="custo">Quanto custa cada xícara</h2>
+  <p>Conta com <strong>{dose} g de café por espresso</strong>, uma dose comum nas superautomáticas. Ajuste ao preço do café que você compra:</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Preço do grão</th><th>Por xícara</th><th>Xícaras por quilo</th></tr></thead>
+      <tbody>
+        {precosKg.map((kg) => (
+          <tr><th scope="row">R$ {kg} o quilo</th><td>R$ {br(porXicara(kg))}</td><td>cerca de {Math.round(1000 / dose)}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p>Para comparar: nas cápsulas, o preço vai de <strong>R$ 1,60</strong> (TRES e compatíveis com Nespresso) a <strong>mais de R$ 5</strong> (Nespresso Vertuo), segundo o nosso <a href="/guias/cafeteira-de-capsula-vale-a-pena/">guia de custo das cápsulas</a>.</p>
+
+  <h2 id="economia">Quanto se economiza por mês</h2>
+  <p>Tomando <strong>{xicarasDia} cafés por dia</strong> e trocando cápsulas de R$ 2 por grão de R$ 120 o quilo, a economia é de cerca de <strong>R$ {economiaMes(2, 120)} por mês</strong>. Trocando cápsulas Vertuo de R$ 4,50, passa de <strong>R$ {economiaMes(4.5, 120)} por mês</strong>. Lembre de somar os gastos com filtro de água e descalcificante.</p>
+
+  <h2 id="vale">Quando vale a pena</h2>
+  <ul>
+    <li>Você toma <strong>2 ou mais cafés por dia</strong>, ou a casa toda toma.</li>
+    <li>Quer <strong>escolher o café</strong>: grãos especiais, de produtores e torras diferentes.</li>
+    <li>Quer <strong>parar de gerar lixo</strong> de cápsula: a borra vai para o lixo orgânico ou para as plantas.</li>
+  </ul>
+
+  <h2 id="nao-vale">Quando não vale</h2>
+  <ul>
+    <li>Você toma <strong>um café por dia</strong> ou menos: a máquina demora muito para se pagar.</li>
+    <li>Gosta de <strong>variedade pronta</strong>, como chocolate e bebidas em cápsula.</li>
+    <li>Tem <strong>pouco espaço</strong>: as superautomáticas ocupam bem mais bancada que uma de cápsula.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Compare as <a href="/melhor-cafeteira-com-moedor/">10 melhores cafeteiras com moedor de 2026</a> e veja se a sua é <a href="/guias/superautomatica-ou-semiautomatica/">superautomática ou semiautomática</a>.</p>
+</Artigo>

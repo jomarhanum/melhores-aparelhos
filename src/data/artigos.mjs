@@ -749,5 +749,61 @@ artigos.push(
   },
 );
 
+// ---------- Cafeteira com moedor ----------
+artigos.push(
+  {
+    url: '/melhor-cafeteira-com-moedor/',
+    titulo: 'Melhor Cafeteira com Moedor 2026: 10 Modelos Comparados',
+    h1: 'Melhor Cafeteira com Moedor de Grãos de 2026: 10 Modelos Comparados',
+    descricao: "Qual a melhor cafeteira que mói grãos em 2026? Comparamos 10 superautomáticas e semiautomáticas (Philips Walita, De'Longhi, Oster e mais) com prós e contras.",
+    categoria: 'Comparativo',
+    secao: 'cafeteira-moedor',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/philips-walita-ep2330.webp',
+    resumo: "Philips Walita, De'Longhi, Oster, Spidem e mais: qual máquina de café em grão comprar.",
+    minutos: 13,
+  },
+  {
+    url: '/guias/superautomatica-ou-semiautomatica/',
+    titulo: 'Cafeteira Superautomática ou Semiautomática: Qual Escolher?',
+    h1: 'Superautomática ou semiautomática: qual escolher?',
+    descricao: 'Superautomática ou semiautomática com moedor? Compare praticidade, controle, leite, limpeza e preço e veja qual máquina de espresso combina com você.',
+    categoria: 'Guia',
+    secao: 'cafeteira-moedor',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/oster-xpert-perfect-brew.webp',
+    resumo: 'Praticidade, controle, leite, limpeza e preço de cada tipo.',
+    minutos: 5,
+  },
+  {
+    url: '/guias/cafeteira-com-moedor-vale-a-pena/',
+    titulo: 'Cafeteira com Moedor Vale a Pena? Grão x Cápsula',
+    h1: 'Cafeteira com moedor vale a pena?',
+    descricao: 'Cafeteira que mói grãos vale a pena? Compare o custo por xícara com a cápsula, veja em quanto tempo a máquina se paga e para quem compensa.',
+    categoria: 'Guia',
+    secao: 'cafeteira-moedor',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/philips-walita-ep1220.webp',
+    resumo: 'Custo por xícara, em quanto tempo se paga e para quem compensa.',
+    minutos: 5,
+  },
+  {
+    url: '/guias/como-limpar-cafeteira-superautomatica/',
+    titulo: 'Como Limpar a Cafeteira Superautomática e o Moedor',
+    h1: 'Como limpar a cafeteira superautomática',
+    descricao: 'Rotina de limpeza da cafeteira com moedor: borra, grupo de extração, sistema de leite, descalcificação e quais grãos evitar para não travar o moedor.',
+    categoria: 'Guia',
+    secao: 'cafeteira-moedor',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/delonghi-magnifica-s.webp',
+    resumo: 'Borra, grupo de extração, leite, descalcificação e grãos a evitar.',
+    minutos: 5,
+  },
+);
+
 export const artigoPorUrl = (url) => artigos.find((a) => a.url === url);
 export const artigosDaSecao = (secao) => artigos.filter((a) => a.secao === secao);

@@ -1,0 +1,47 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Superautomática faz espresso tão bom quanto a semiautomática?', a: 'Para o dia a dia, faz um espresso muito bom e sempre igual. A semiautomática pode ir além nas mãos de quem domina moagem, dose e prensagem, mas também pode sair pior enquanto você aprende.' },
+  { q: 'Semiautomática é difícil de usar?', a: 'Tem curva de aprendizado. Nas primeiras semanas, é comum o café sair fraco ou amargo até acertar moagem, quantidade de pó e força da prensagem. Depois disso, o preparo leva poucos minutos.' },
+  { q: 'Qual dá menos trabalho para limpar?', a: 'A superautomática: a borra vai para uma gaveta, e a máquina faz enxágues automáticos. Na semiautomática, você limpa o porta-filtro e o bico de vapor a cada uso.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-cafeteira-com-moedor/', '/guias/cafeteira-com-moedor-vale-a-pena/', '/guias/como-limpar-cafeteira-superautomatica/']}>
+  <p>As duas moem o grão na hora e fazem espresso. A diferença está em <strong>quem faz o resto do trabalho</strong>: a máquina ou você. Veja qual combina com a sua rotina.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> escolha a <strong>superautomática</strong> se você quer apertar um botão e ter o café pronto, sempre igual. Escolha a <strong>semiautomática</strong> se você gosta do ritual, quer controlar cada etapa e não se importa de aprender e limpar mais.</p>
+  </div>
+
+  <h2 id="comparacao">Comparação</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Superautomática</th><th>Semiautomática com moedor</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Preparo</th><td>Um botão: mói, dosa, prensa e extrai</td><td>Você dosa, prensa e encaixa o porta-filtro</td></tr>
+        <tr><th scope="row">Controle</th><td>Intensidade e volume no painel</td><td>Moagem, dose, prensagem e tempo de extração</td></tr>
+        <tr><th scope="row">Resultado</th><td>Sempre igual</td><td>Varia com a sua técnica</td></tr>
+        <tr><th scope="row">Leite</th><td>Automático (em alguns modelos) ou vaporizador</td><td>Vaporizador manual</td></tr>
+        <tr><th scope="row">Limpeza</th><td>Gaveta de borra e enxágue automático</td><td>Porta-filtro e bico de vapor a cada uso</td></tr>
+        <tr><th scope="row">Aprendizado</th><td>Poucos dias</td><td>Algumas semanas</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="super">Superautomática: para quem quer praticidade</h2>
+  <p>É a substituta natural da cápsula: você coloca grão e água, aperta o botão e o café sai em menos de um minuto. Os modelos com sistema de leite automático, como o LatteGo das <a href="/melhor-cafeteira-com-moedor/#philips-walita-ep2330">Philips Walita</a>, fazem cappuccino sem esforço. Em troca, você tem menos controle sobre a extração.</p>
+
+  <h2 id="semi">Semiautomática: para quem quer ser barista</h2>
+  <p>A máquina mói o grão, mas o resto é com você: dosar o pó no porta-filtro, nivelar, prensar e acompanhar a extração. O vaporizador permite fazer espuma para latte art. Modelos como a <a href="/melhor-cafeteira-com-moedor/#oster-xpert-perfect-brew">Oster Xpert Perfect Brew</a>, com 30 níveis de moagem, dão bastante espaço para ajustar.</p>
+
+  <h2 id="perguntas-chave">Três perguntas para decidir</h2>
+  <ol>
+    <li><strong>Quanto tempo você tem de manhã?</strong> Pouco: superautomática.</li>
+    <li><strong>Gosta de mexer no café?</strong> Sim: semiautomática.</li>
+    <li><strong>Toma cappuccino todo dia?</strong> Superautomática com leite automático poupa tempo e limpeza.</li>
+  </ol>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-cafeteira-com-moedor/">10 melhores cafeteiras com moedor de 2026</a>, com superautomáticas e semiautomáticas.</p>
+</Artigo>

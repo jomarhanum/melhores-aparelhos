@@ -1,0 +1,60 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Com que frequência lavar o grupo de extração?', a: 'Na maioria das superautomáticas com grupo removível, uma vez por semana, enxaguando em água corrente, sem detergente. Siga o manual da sua máquina; algumas pedem lubrificação periódica.' },
+  { q: 'Posso descalcificar com vinagre?', a: 'Os fabricantes recomendam o descalcificante próprio. O vinagre pode danificar vedações e deixar gosto, e não é o produto indicado nos manuais.' },
+  { q: 'Por que o moedor travou?', a: 'A causa mais comum são grãos oleosos, de torra muito escura ou aromatizados, que empastam as mós. Outra é pedra ou corpo estranho no pacote. Desligue a máquina e procure a assistência; não force o moedor.' },
+  { q: 'O filtro de água vale a pena?', a: 'Sim, principalmente onde a água é dura. Filtros como o AquaClean das Philips reduzem o calcário e espaçam a descalcificação, segundo o fabricante.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-cafeteira-com-moedor/', '/guias/superautomatica-ou-semiautomatica/', '/guias/cafeteira-com-moedor-vale-a-pena/']}>
+  <p>A superautomática lida com café úmido, leite e água quente todos os dias. Sem limpeza, aparecem mofo no grupo de extração, café com gosto ruim e moedor travado. A boa notícia: a rotina é curta.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> esvazie a gaveta de borra e a bandeja <strong>todo dia</strong>, lave o sistema de leite <strong>depois de cada uso</strong>, enxágue o grupo de extração <strong>toda semana</strong> e descalcifique <strong>quando a máquina avisar</strong>. Evite grãos oleosos.</p>
+  </div>
+
+  <h2 id="dia">Todo dia</h2>
+  <ul>
+    <li><strong>Esvazie a gaveta de borra e a bandeja de gotejamento.</strong> Borra úmida parada cria mofo em poucos dias.</li>
+    <li><strong>Troque a água do reservatório</strong> e use água filtrada.</li>
+    <li><strong>Lave o sistema de leite logo após o uso.</strong> No LatteGo das Philips, são duas peças sem tubos, que vão à lava-louças. No vaporizador manual, limpe o bico com pano úmido e solte um jato de vapor.</li>
+  </ul>
+
+  <h2 id="semana">Toda semana</h2>
+  <ol>
+    <li>Desligue a máquina e retire o <strong>grupo de extração</strong>, se ele for removível.</li>
+    <li>Enxágue em água corrente morna, <strong>sem detergente</strong>, e deixe secar.</li>
+    <li>Limpe o compartimento onde ele fica, retirando o pó acumulado.</li>
+    <li>Lave a gaveta de borra, a bandeja e o reservatório.</li>
+    <li>Recoloque tudo e faça um ciclo de enxágue.</li>
+  </ol>
+
+  <h2 id="descalcificar">Descalcificação</h2>
+  <p>O calcário reduz a temperatura e a vazão e pode danificar a máquina. As superautomáticas avisam quando é hora. Use o <strong>descalcificante indicado pelo fabricante</strong> e o programa de descalcificação do painel, seguindo o passo a passo do manual. Com filtro de água instalado, o intervalo costuma ser bem maior.</p>
+
+  <h2 id="moedor">Cuidados com o moedor</h2>
+  <ul>
+    <li>Prefira grãos de <strong>torra média ou média-escura</strong>. Grãos oleosos e aromatizados empastam as mós.</li>
+    <li><strong>Mude a moagem só com o moedor girando</strong>, se o manual pedir. Muitas máquinas só aceitam ajuste durante a moagem.</li>
+    <li>Não coloque <strong>café moído no recipiente de grãos</strong>. Use o compartimento próprio, se a máquina tiver.</li>
+  </ul>
+
+  <h2 id="problemas">Problemas comuns</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Sintoma</th><th>O que costuma ser</th><th>O que fazer</th></tr></thead>
+      <tbody>
+        <tr><td>Café fraco ou aguado</td><td>Moagem grossa ou intensidade baixa</td><td>Afine a moagem aos poucos e aumente a intensidade</td></tr>
+        <tr><td>Café amargo</td><td>Moagem fina demais ou grupo sujo</td><td>Engrosse a moagem e lave o grupo de extração</td></tr>
+        <tr><td>Cheiro de mofo</td><td>Borra parada ou grupo sem limpeza</td><td>Esvazie a gaveta todo dia e lave o grupo</td></tr>
+        <tr><td>Moedor girando sem moer ou travado</td><td>Grão oleoso, pedra ou defeito</td><td>Desligue e procure a assistência</td></tr>
+        <tr><td>Aviso de descalcificação</td><td>Calcário acumulado</td><td>Rode o programa com o descalcificante indicado</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Próximos passos</h2>
+  <p>Ainda escolhendo a sua? Veja as <a href="/melhor-cafeteira-com-moedor/">10 melhores cafeteiras com moedor de 2026</a>.</p>
+</Artigo>
