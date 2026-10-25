@@ -1,0 +1,239 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { cafeteiras } from '../data/cafeteira';
+import { fotoProduto } from '../data/tipos';
+import { site, author } from '../data/site';
+import { artigoPorUrl } from '../data/artigos.mjs';
+
+const meta = artigoPorUrl('/melhor-cafeteira-de-capsula/')!;
+const publicado = `${meta.publicado}T09:00:00-03:00`;
+const atualizado = `${meta.atualizado}T09:00:00-03:00`;
+const dataExibida = new Date(`${meta.atualizado}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const title = meta.titulo;
+const description = meta.descricao;
+const pageUrl = `${site.url}${meta.url}`;
+const v = (slug: string) => cafeteiras.find((x) => x.slug === slug)!;
+
+const faq = [
+  { q: 'Qual a melhor cafeteira de cápsula de 2026?', a: 'Para a maioria das pessoas, a Nescafé Dolce Gusto Genio S Plus: faz café, cappuccino, chocolate e bebidas geladas, tem 4 níveis de temperatura e usa cápsulas fáceis de achar no supermercado. Para gastar menos na máquina e nas cápsulas, a TRES LOV tem reservatório de 950 ml e garantia de 5 anos informada no anúncio.' },
+  { q: 'Qual cafeteira de cápsula faz o melhor espresso?', a: 'As Nespresso do sistema Original, como a Essenza Mini e a CitiZ, são as mais indicadas para quem toma espresso puro: usam 19 bar de pressão e aceitam cápsulas compatíveis de várias marcas. A Delta Q Quick também usa 19 bar, mas só aceita cápsulas Delta Q.' },
+  { q: 'Existe cafeteira que aceita todas as cápsulas?', a: 'Não. Cada sistema tem cápsula de formato próprio. Algumas máquinas multicápsula aceitam dois sistemas com adaptadores, mas nenhuma aceita todos. A Nespresso Original é o sistema com mais cápsulas compatíveis de outras marcas.' },
+  { q: 'Posso usar cápsula compatível na Nespresso?', a: 'No sistema Original (Essenza Mini, CitiZ, Lattissima One), sim: várias marcas vendem cápsulas compatíveis em supermercado. A Vertuo Pop, do sistema Vertuo, só aceita cápsulas Vertuo, que têm formato e código de barras próprios.' },
+  { q: 'Qual a cafeteira de cápsula mais barata?', a: 'Na lista, a Delta Q Quick e a Nespresso Vertuo Pop são as máquinas mais baratas. Mas pense no custo das cápsulas: as da TRES e da Dolce Gusto custam menos por xícara que as da Vertuo e são mais fáceis de achar.' },
+  { q: 'Cafeteira de cápsula faz cappuccino?', a: 'As Dolce Gusto e as TRES fazem cappuccino com cápsulas próprias, que já trazem leite em pó. A Nespresso Lattissima One é a única da lista que espuma leite fresco, com recipiente próprio.' },
+  { q: 'Cafeteira de cápsula é bivolt?', a: 'É raro. Os 10 modelos da lista vêm em versões separadas de 127 V e 220 V. Ligar na tensão errada pode queimar o aparelho, então confira a tomada antes de comprar.' },
+];
+
+const destaques = [
+  { rotulo: 'Melhor no geral', x: v('nescafe-dolce-gusto-genio-s-plus') },
+  { rotulo: 'Melhor custo-benefício', x: v('tres-lov') },
+  { rotulo: 'Melhor para espresso', x: v('nespresso-essenza-mini') },
+  { rotulo: 'Melhor para café com leite', x: v('nespresso-lattissima-one') },
+  { rotulo: 'Melhor para xícaras grandes', x: v('nespresso-vertuo-pop') },
+  { rotulo: 'Mais barata', x: v('delta-q-quick') },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: [`${site.url}${meta.imagem}`],
+    datePublished: publicado,
+    dateModified: atualizado,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: { '@type': 'Person', name: author.name, url: `${site.url}${author.url}`, image: `${site.url}${author.photo}`, jobTitle: author.role },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Cozinha', item: `${site.url}/cozinha/` },
+      { '@type': 'ListItem', position: 3, name: 'Melhor cafeteira de cápsula', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores cafeteiras de cápsula de 2026',
+    numberOfItems: cafeteiras.length,
+    itemListElement: cafeteiras.map((x) => ({
+      '@type': 'ListItem',
+      position: x.rank,
+      item: {
+        '@type': 'Product',
+        name: x.nome,
+        brand: { '@type': 'Brand', name: x.marca },
+        model: x.modelo,
+        url: `${pageUrl}#${x.slug}`,
+        description: x.resumo,
+        image: `${site.url}${fotoProduto(x)}`,
+        review: {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: author.name },
+          datePublished: publicado,
+          reviewRating: { '@type': 'Rating', ratingValue: x.nota, bestRating: 10, worstRating: 0 },
+          positiveNotes: { '@type': 'ItemList', itemListElement: x.pros.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+          negativeNotes: { '@type': 'ItemList', itemListElement: x.contras.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+        },
+      },
+    })),
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) },
+];
+---
+<Base title={title} description={description} type="article" published={publicado} modified={atualizado} jsonLd={jsonLd} image={meta.imagem} imageAlt="Comparativo das melhores cafeteiras de cápsula de 2026">
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol><li><a href="/">Home</a></li><li><a href="/cozinha/">Cozinha</a></li><li aria-current="page">Melhor cafeteira de cápsula</li></ol>
+      </nav>
+      <h1>{meta.h1}</h1>
+      <p class="subtitulo">Comparamos as 10 cafeteiras de cápsula mais recomendadas do Brasil, de Dolce Gusto, Nespresso, TRES e Delta Q. Veja o sistema de cápsula, as bebidas que cada uma faz, o reservatório, prós e contras e descubra qual combina com o seu jeito de tomar café.</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · {meta.minutos} min de leitura
+        </div>
+      </div>
+      <ShareButtons title={title} />
+    </div>
+  </section>
+
+  <div class="leitura artigo">
+    <p class="aviso-afiliado" data-pagefind-ignore><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem nenhum custo extra para você. Isso não muda a nossa opinião. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+
+    <p>A cafeteira de cápsula resolve o café de todo dia em menos de um minuto, sem moer grão nem lavar coador. Mas a escolha mais importante não é a máquina: é o <strong>sistema de cápsula</strong>. Ele define quais bebidas você vai tomar, onde vai comprar as cápsulas e quanto vai pagar por xícara pelos próximos anos.</p>
+    <p>Reunimos as <strong>10 melhores de 2026</strong> nos quatro sistemas mais vendidos do Brasil, com as especificações conferidas nos anúncios e fichas dos fabricantes e o que dizem milhares de compradores.</p>
+
+    <div class="caixa resposta">
+      <p class="caixa-tit">⚡ Resposta rápida: as melhores de 2026</p>
+      <ol class="lista-destaques">
+        {destaques.map((d) => <li><strong>{d.rotulo}:</strong> <a href={`#${d.x.slug}`}>{d.x.nome}</a></li>)}
+      </ol>
+    </div>
+
+    <nav class="caixa sumario" aria-label="Sumário">
+      <p class="caixa-tit">📑 Neste artigo</p>
+      <ol>
+        <li><a href="#comparativo">Tabela comparativa</a></li>
+        <li><a href="#como-escolher">Como escolher</a></li>
+        <li><a href="#ranking">As 10 melhores cafeteiras de cápsula</a></li>
+        <li><a href="#custo">Quanto custa cada xícara</a></li>
+        <li><a href="#metodologia">Como fizemos este ranking</a></li>
+        <li><a href="#perguntas">Perguntas frequentes</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="comparativo">Tabela comparativa: as 10 melhores lado a lado</h2>
+    <p>Clique no nome para ir direto à análise completa.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabela-wrap">
+      <table>
+        <caption class="sr-only">Comparativo das 10 melhores cafeteiras de cápsula de 2026</caption>
+        <thead><tr><th>#</th><th>Modelo</th><th>Sistema</th><th>Pressão</th><th>Reservatório</th><th>Faz bebidas com leite?</th></tr></thead>
+        <tbody>
+          {cafeteiras.map((x) => (
+            <tr>
+              <td><strong>{x.rank}º</strong></td>
+              <td><a href={`#${x.slug}`}>{x.marca} {x.modelo}</a></td>
+              <td>{x.sistema}</td>
+              <td>{x.pressao.replace('Multipressão, ', '').replace(' (sem bomba de pressão)', '')}</td>
+              <td>{x.reservatorio}</td>
+              <td>{x.leite ? 'Sim, com leite fresco' : /cappuccino/.test(x.bebidas) ? 'Sim, com cápsulas' : 'Não'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-preco">Pressão e reservatório conforme os anúncios e as fichas dos fabricantes. Os preços mudam com frequência: confira o valor atualizado nos botões de cada produto.</p>
+  </div>
+
+  <div class="leitura artigo">
+    <h2 id="como-escolher">Como escolher a melhor cafeteira de cápsula</h2>
+
+    <h3>1. O sistema de cápsula vem primeiro</h3>
+    <p>Cada máquina só aceita as cápsulas do seu sistema. A <strong>Dolce Gusto</strong> tem a maior variedade, com café, cappuccino, chocolate e bebidas geladas. A <strong>TRES</strong>, da 3 Corações, tem cápsulas mais baratas e cafés brasileiros. A <strong>Nespresso Original</strong> é a melhor para espresso e aceita cápsulas compatíveis de várias marcas. A <strong>Vertuo</strong> faz cafés grandes, mas só com cápsulas próprias. Veja a comparação completa em <a href="/guias/qual-sistema-de-capsula-escolher/">qual sistema de cápsula escolher</a>.</p>
+
+    <h3>2. Bebidas com leite</h3>
+    <p>Se você toma cappuccino todo dia, há dois caminhos: cápsulas que já trazem leite em pó (Dolce Gusto e TRES) ou uma máquina com espumador de leite fresco, como a <strong>Nespresso Lattissima One</strong>, que custa bem mais.</p>
+
+    <h3>3. Pressão</h3>
+    <p>Para espresso com creme, o mínimo é <strong>15 bar</strong>, e todos os modelos da lista chegam lá ou passam disso. As TRES usam <strong>multipressão</strong>: 15 bar no espresso e 2 bar no café filtrado e no chá. A Vertuo não usa bomba de pressão: ela gira a cápsula em alta velocidade.</p>
+
+    <h3>4. Reservatório e tamanho</h3>
+    <p>Os reservatórios vão de <strong>560 ml a 1 litro</strong>. Para uma pessoa, 600 ml bastam; para a casa toda, prefira de 950 ml a 1 litro. A Essenza Mini tem só 8,4 cm de largura e cabe em qualquer canto.</p>
+
+    <h3>5. Voltagem e tomada</h3>
+    <p>Nenhum dos 10 modelos é bivolt: escolha a versão da sua tomada. As Nespresso vendidas no Brasil costumam vir com <strong>plugue de 20 A</strong>, de pino mais grosso, que não entra em tomada de 10 A.</p>
+
+    <h2 id="ranking">As 10 melhores cafeteiras de cápsula de 2026</h2>
+    <p>Análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
+
+    {cafeteiras.map((x) => <ProductCard p={x} tipo="Cafeteira de cápsula" />)}
+
+    <section>
+      <h2 id="custo">Quanto custa cada xícara</h2>
+      <p>A máquina você compra uma vez; as cápsulas, toda semana. Nos preços da Amazon em outubro de 2026, em caixas de 10 unidades:</p>
+      <div class="tabela-wrap">
+        <table>
+          <thead><tr><th>Sistema</th><th>Preço por cápsula</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">TRES</th><td>R$ 1,60 a R$ 1,70</td></tr>
+            <tr><th scope="row">Nespresso Original (compatíveis)</th><td>R$ 1,60 a R$ 2,60</td></tr>
+            <tr><th scope="row">Dolce Gusto</th><td>R$ 1,70 a R$ 2,00</td></tr>
+            <tr><th scope="row">Delta Q</th><td>R$ 2,40 a R$ 2,60</td></tr>
+            <tr><th scope="row">Nespresso Vertuo</th><td>R$ 3,70 a R$ 5,20</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Atenção: algumas bebidas da Dolce Gusto, como cappuccino e latte, usam duas cápsulas (uma de café e uma de leite), o que dobra o custo da xícara. Veja a conta completa em <a href="/guias/cafeteira-de-capsula-vale-a-pena/">cafeteira de cápsula vale a pena?</a></p>
+
+      <h2 id="metodologia">Como fizemos este ranking</h2>
+      <p>Este é um comparativo baseado em pesquisa, não em testes próprios de laboratório. Partimos dos modelos mais recomendados pelos principais guias de compra e comparativos do Brasil, conferimos as especificações nos anúncios e nas fichas dos fabricantes e resumimos o que dizem os compradores. Quando as fontes divergem, deixamos o dado de fora.</p>
+      <p>Comparamos os modelos em cinco critérios: <strong>variedade de bebidas</strong>, <strong>qualidade do café</strong>, <strong>praticidade</strong> (reservatório, tamanho, limpeza), <strong>custo das cápsulas</strong> e <strong>confiabilidade</strong>, segundo as reclamações dos compradores. A nota de cada cafeteira é a opinião editorial de {author.name}. Nenhuma marca pagou para aparecer nesta lista.</p>
+    </section>
+
+    <section>
+      <h2 id="perguntas">Perguntas frequentes sobre cafeteira de cápsula</h2>
+      <div class="faq">
+        {faq.map((q) => (
+          <details>
+            <summary>{q.q}</summary>
+            <p>{q.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2 id="conclusao">Conclusão: qual cafeteira de cápsula comprar?</h2>
+      <p>Para a maioria das casas, a <strong>{cafeteiras[0].nome}</strong> é a melhor compra: faz de tudo, ajusta a temperatura e usa cápsulas fáceis de achar. Para gastar menos na máquina e nas cápsulas, vá de <strong>TRES LOV</strong>. Quem toma espresso puro fica bem servido com a <strong>Nespresso Essenza Mini</strong>, e quem não abre mão do cappuccino com leite fresco deve olhar a <strong>Nespresso Lattissima One</strong>.</p>
+      <p>Também está equipando a cozinha? Veja as <a href="/melhor-air-fryer/">melhores air fryers</a> e os <a href="/melhor-forno-eletrico-de-bancada/">melhores fornos elétricos de bancada</a>.</p>
+
+      <ShareButtons title={title} />
+      <AuthorBox />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .artigo { padding-top: 28px; }
+  .resposta { background: var(--azul-claro); border-color: #bcd7f3; }
+  .lista-destaques { padding-left: 1.2rem; margin: 0; }
+  .nota-preco { font-size: .92rem; color: var(--texto-2); }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 30px 14px 0; list-style: none; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+</style>

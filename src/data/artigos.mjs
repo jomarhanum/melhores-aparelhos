@@ -637,5 +637,61 @@ artigos.push(
   },
 );
 
+// ---------- Cafeteira de cápsula ----------
+artigos.push(
+  {
+    url: '/melhor-cafeteira-de-capsula/',
+    titulo: 'Melhor Cafeteira de Cápsula 2026: 10 Modelos Comparados',
+    h1: 'Melhor Cafeteira de Cápsula de 2026: 10 Modelos Comparados',
+    descricao: 'Qual a melhor cafeteira de cápsula de 2026? Comparamos 10 modelos (Dolce Gusto, Nespresso, TRES e Delta Q) com bebidas, custo por xícara, prós e contras.',
+    categoria: 'Comparativo',
+    secao: 'cafeteira-capsula',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/nescafe-dolce-gusto-genio-s-plus.webp',
+    resumo: 'Dolce Gusto, Nespresso, TRES e Delta Q lado a lado: qual cafeteira de cápsula comprar.',
+    minutos: 13,
+  },
+  {
+    url: '/guias/qual-sistema-de-capsula-escolher/',
+    titulo: 'Nespresso, Dolce Gusto ou TRES? Qual Cápsula Escolher',
+    h1: 'Nespresso, Dolce Gusto ou TRES: qual sistema de cápsula escolher?',
+    descricao: 'Nespresso, Vertuo, Dolce Gusto, TRES ou Delta Q? Compare bebidas, pressão, cápsulas compatíveis, onde comprar e o preço de cada sistema.',
+    categoria: 'Guia',
+    secao: 'cafeteira-capsula',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/tres-lov.webp',
+    resumo: 'Bebidas, cápsulas compatíveis, onde comprar e preço de cada sistema.',
+    minutos: 6,
+  },
+  {
+    url: '/guias/cafeteira-de-capsula-vale-a-pena/',
+    titulo: 'Cafeteira de Cápsula Vale a Pena? Custo por Xícara',
+    h1: 'Cafeteira de cápsula vale a pena?',
+    descricao: 'Cafeteira de cápsula vale a pena? Veja quanto custa cada xícara em cada sistema, o gasto por mês e quando o café coado ou em grão compensa mais.',
+    categoria: 'Guia',
+    secao: 'cafeteira-capsula',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/nespresso-essenza-mini.webp',
+    resumo: 'Quanto custa cada xícara, o gasto por mês e quando compensa.',
+    minutos: 5,
+  },
+  {
+    url: '/guias/como-limpar-cafeteira-de-capsula/',
+    titulo: 'Como Limpar e Descalcificar a Cafeteira de Cápsula',
+    h1: 'Como limpar e descalcificar a cafeteira de cápsula',
+    descricao: 'Passo a passo para limpar a cafeteira de cápsula no dia a dia, descalcificar e resolver café fraco, frio ou máquina piscando.',
+    categoria: 'Guia',
+    secao: 'cafeteira-capsula',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/nespresso-lattissima-one.webp',
+    resumo: 'Limpeza do dia a dia, descalcificação e o que fazer quando a máquina pisca.',
+    minutos: 5,
+  },
+);
+
 export const artigoPorUrl = (url) => artigos.find((a) => a.url === url);
 export const artigosDaSecao = (secao) => artigos.filter((a) => a.secao === secao);

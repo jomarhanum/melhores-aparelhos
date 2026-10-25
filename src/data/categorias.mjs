@@ -76,12 +76,20 @@ export const categorias = [
     imagem: '/images/produtos/panasonic-na-f150b1t.webp',
     descricao: 'Abertura superior, frontal e lava e seca: capacidade, água e energia por ciclo segundo o Inmetro.',
   },
+  {
+    id: 'cafeteira-capsula',
+    nome: 'Cafeteira de cápsula',
+    curto: 'Cafeteira de Cápsula',
+    hub: '/melhor-cafeteira-de-capsula/',
+    imagem: '/images/produtos/nescafe-dolce-gusto-genio-s-plus.webp',
+    descricao: 'Dolce Gusto, Nespresso, TRES e Delta Q: sistema de cápsula, bebidas, reservatório e custo por xícara.',
+  },
 ];
 
 // Grupos de categorias com página própria (itens do menu).
 export const grupos = [
   { id: 'climatizacao', nome: 'Climatização', url: '/climatizacao/', categorias: ['ar-portatil', 'ar-inverter', 'ventilador-teto', 'ventilador-coluna'] },
-  { id: 'cozinha', nome: 'Cozinha', url: '/cozinha/', categorias: ['forno-embutir', 'forno-bancada', 'geladeira', 'airfryer'] },
+  { id: 'cozinha', nome: 'Cozinha', url: '/cozinha/', categorias: ['forno-embutir', 'forno-bancada', 'geladeira', 'airfryer', 'cafeteira-capsula'] },
 ];
 
 export const categoriaPorId = (id) => categorias.find((c) => c.id === id);

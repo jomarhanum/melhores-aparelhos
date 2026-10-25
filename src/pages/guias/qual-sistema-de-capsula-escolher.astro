@@ -1,0 +1,57 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Cápsula da Nespresso serve na Dolce Gusto?', a: 'Não. Cada sistema tem cápsula de formato e tamanho próprios. Cápsula de um sistema não encaixa na máquina de outro, e forçar pode danificar a cafeteira.' },
+  { q: 'Qual a diferença entre Nespresso Original e Vertuo?', a: 'A Original usa bomba de 19 bar e faz espresso e lungo; aceita cápsulas compatíveis de várias marcas. A Vertuo lê o código de barras da cápsula, gira a cápsula em alta velocidade e faz de espresso a canecas de 230 ml, mas só aceita cápsulas Vertuo.' },
+  { q: 'Qual sistema tem a cápsula mais barata?', a: 'Nos preços da Amazon em outubro de 2026, a TRES e as compatíveis com Nespresso Original saíam a partir de R$ 1,60 por cápsula. As Vertuo eram as mais caras, de R$ 3,70 a R$ 5,20.' },
+  { q: 'Qual sistema faz chocolate quente?', a: 'Dolce Gusto e TRES têm cápsulas de chocolate e outras bebidas cremosas. Nespresso e Delta Q são focadas em café.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-cafeteira-de-capsula/', '/guias/cafeteira-de-capsula-vale-a-pena/', '/guias/como-limpar-cafeteira-de-capsula/']}>
+  <p>Quem compra uma cafeteira de cápsula está, na verdade, escolhendo um <strong>sistema</strong>: a máquina só aceita as cápsulas dele. É isso que define quais bebidas você vai tomar, onde vai comprar e quanto vai pagar por xícara. Veja as diferenças entre os cinco sistemas mais vendidos no Brasil.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> <strong>Dolce Gusto</strong> para variedade (café, cappuccino, chocolate, gelados); <strong>TRES</strong> para gastar pouco nas cápsulas; <strong>Nespresso Original</strong> para espresso puro e cápsulas compatíveis; <strong>Vertuo</strong> para café em caneca; <strong>Delta Q</strong> só se a prioridade for a máquina mais barata.</p>
+  </div>
+
+  <h2 id="comparacao">Os sistemas lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Sistema</th><th>Bebidas</th><th>Cápsulas de outras marcas</th><th>Preço por cápsula*</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Dolce Gusto</th><td>Café, cappuccino, latte, chocolate, chá e gelados</td><td>Algumas marcas compatíveis</td><td>R$ 1,70 a R$ 2,00</td></tr>
+        <tr><th scope="row">TRES (3 Corações)</th><td>Espresso, filtrado, cappuccino, chocolate e chá</td><td>Só TRES</td><td>R$ 1,60 a R$ 1,70</td></tr>
+        <tr><th scope="row">Nespresso Original</th><td>Espresso e lungo</td><td>Muitas compatíveis no supermercado</td><td>R$ 1,60 a R$ 2,60 (compatíveis)</td></tr>
+        <tr><th scope="row">Nespresso Vertuo</th><td>Espresso a caneca de 230 ml</td><td>Só Vertuo</td><td>R$ 3,70 a R$ 5,20</td></tr>
+        <tr><th scope="row">Delta Q</th><td>Espresso e café longo</td><td>Poucas</td><td>R$ 2,40 a R$ 2,60</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">*Preços de caixas de 10 cápsulas na Amazon em outubro de 2026 (Vertuo em caixas de 20). Variam com promoções.</p>
+
+  <h2 id="dolce-gusto">Dolce Gusto: a mais variada</h2>
+  <p>É o sistema com mais tipos de bebida: espressos, cafés longos, cappuccinos, chocolates, chás e bebidas geladas. As cápsulas estão em quase todo supermercado. A ressalva é que várias bebidas com leite usam <strong>duas cápsulas</strong> (café e leite), o que encarece a xícara. Na nossa lista: <a href="/melhor-cafeteira-de-capsula/#nescafe-dolce-gusto-genio-s-plus">Genio S Plus</a> e <a href="/melhor-cafeteira-de-capsula/#nescafe-dolce-gusto-genio-s-basic">Genio S Basic</a>.</p>
+
+  <h2 id="tres">TRES: cápsula barata e café brasileiro</h2>
+  <p>O sistema da 3 Corações tem as cápsulas mais baratas entre os sistemas fechados e foco em cafés brasileiros, além de cappuccinos, chocolates e chás. As máquinas usam <strong>multipressão</strong>: 15 bar no espresso e 2 bar no filtrado e no chá. Só aceitam cápsulas TRES. Na lista: <a href="/melhor-cafeteira-de-capsula/#tres-lov">LOV</a>, <a href="/melhor-cafeteira-de-capsula/#tres-passione">Passione</a> e <a href="/melhor-cafeteira-de-capsula/#tres-touch">Touch</a>.</p>
+
+  <h2 id="nespresso-original">Nespresso Original: o melhor para espresso</h2>
+  <p>Usa bomba de 19 bar e faz espresso e lungo com bastante creme. A grande vantagem é a liberdade: várias marcas vendem <strong>cápsulas compatíveis</strong> em supermercado, muitas vezes mais baratas que as originais. Não faz bebidas com leite em cápsula; para isso, existe a Lattissima, com espumador. Na lista: <a href="/melhor-cafeteira-de-capsula/#nespresso-essenza-mini">Essenza Mini</a>, <a href="/melhor-cafeteira-de-capsula/#nespresso-citiz">CitiZ</a> e <a href="/melhor-cafeteira-de-capsula/#nespresso-lattissima-one">Lattissima One</a>.</p>
+
+  <h2 id="vertuo">Nespresso Vertuo: café em caneca</h2>
+  <p>A máquina lê o código de barras da cápsula e ajusta sozinha volume, temperatura e rotação. Vai do espresso de 40 ml à caneca de 230 ml com uma cápsula só. O preço da máquina costuma ser baixo, mas as cápsulas são as mais caras e <strong>só servem as Vertuo</strong>, vendidas principalmente pela Nespresso e pela internet. Muitos compradores só descobrem isso depois. Na lista: <a href="/melhor-cafeteira-de-capsula/#nespresso-vertuo-pop">Vertuo Pop</a>.</p>
+
+  <h2 id="delta-q">Delta Q: máquina barata, cápsula difícil</h2>
+  <p>A máquina está entre as mais baratas e faz espresso com 19 bar. O problema é a cápsula: poucos sabores, sem bebidas com leite e quase nada nos supermercados. Na lista: <a href="/melhor-cafeteira-de-capsula/#delta-q-quick">Delta Q Quick</a>.</p>
+
+  <h2 id="como-decidir">Como decidir em 3 perguntas</h2>
+  <ol>
+    <li><strong>Você toma bebidas com leite ou chocolate?</strong> Sim: Dolce Gusto ou TRES. Só café puro: Nespresso Original.</li>
+    <li><strong>Quantas xícaras por dia?</strong> Muitas: priorize cápsula barata (TRES ou compatíveis com Nespresso).</li>
+    <li><strong>Gosta de caneca grande?</strong> Vertuo, ou a função XL das Dolce Gusto.</li>
+  </ol>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-cafeteira-de-capsula/">10 melhores cafeteiras de cápsula de 2026</a> e faça a conta do gasto mensal em <a href="/guias/cafeteira-de-capsula-vale-a-pena/">cafeteira de cápsula vale a pena?</a></p>
+</Artigo>

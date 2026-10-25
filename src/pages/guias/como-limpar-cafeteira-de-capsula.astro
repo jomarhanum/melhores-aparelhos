@@ -1,0 +1,61 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'De quanto em quanto tempo descalcificar a cafeteira?', a: 'Siga o manual e o aviso da máquina. Como referência, a cada 3 meses para uso diário; mais vezes se a água da sua região for dura, com muito calcário.' },
+  { q: 'Posso descalcificar com vinagre?', a: 'Os fabricantes recomendam o descalcificante próprio. O vinagre pode deixar gosto e cheiro no café e não é o produto indicado nos manuais; em caso de defeito, usar outro produto pode complicar a garantia.' },
+  { q: 'Posso lavar as peças na lava-louças?', a: 'Só as que o manual permite. O recipiente de leite da Nespresso Lattissima One, por exemplo, vai à lava-louças. Na dúvida, lave à mão com água e detergente neutro.' },
+  { q: 'Água filtrada ajuda?', a: 'Sim. Água filtrada ou mineral tem menos calcário, o que reduz o acúmulo dentro da máquina e melhora o sabor do café.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-cafeteira-de-capsula/', '/guias/qual-sistema-de-capsula-escolher/', '/guias/cafeteira-de-capsula-vale-a-pena/']}>
+  <p>A cafeteira de cápsula quase não suja, mas não é livre de manutenção. Resto de café, leite e, principalmente, <strong>calcário da água</strong> se acumulam por dentro e deixam o café fraco, frio ou a máquina parada, piscando. Veja a rotina que evita isso.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> esvazie as cápsulas usadas e a bandeja <strong>todo dia</strong>, lave as peças removíveis <strong>toda semana</strong> e descalcifique <strong>quando a máquina avisar</strong> ou, como referência, a cada 3 meses. Use água filtrada.</p>
+  </div>
+
+  <h2 id="dia-a-dia">Todo dia</h2>
+  <ul>
+    <li><strong>Esvazie o compartimento de cápsulas usadas</strong> e a bandeja de gotejamento. Cápsula molhada parada cria mofo.</li>
+    <li><strong>Troque a água do reservatório</strong>: água parada por dias deixa gosto.</li>
+    <li>Se você faz bebidas com leite fresco, <strong>limpe o sistema de leite logo depois</strong>. Na Lattissima One, use a função de limpeza e guarde o recipiente de leite na geladeira.</li>
+  </ul>
+
+  <h2 id="semana">Toda semana</h2>
+  <ol>
+    <li>Desligue a máquina da tomada.</li>
+    <li>Retire o reservatório, a bandeja, a grade e o compartimento de cápsulas.</li>
+    <li>Lave com água morna e detergente neutro, usando esponja macia.</li>
+    <li>Passe um pano úmido por fora e na área onde a cápsula entra.</li>
+    <li>Seque tudo e monte de novo.</li>
+    <li>Faça um ciclo só com água, sem cápsula, para enxaguar o circuito.</li>
+  </ol>
+
+  <h2 id="descalcificar">Descalcificação</h2>
+  <p>O calcário da água se acumula na resistência e nos canos internos. Ele reduz a temperatura e a vazão e é a causa mais comum de café frio e fraco. A maioria das máquinas avisa quando é hora, com uma luz ou sequência de luzes.</p>
+  <ol>
+    <li>Esvazie as cápsulas usadas e a bandeja.</li>
+    <li>Coloque no reservatório o <strong>descalcificante indicado pelo fabricante</strong>, diluído em água conforme a embalagem.</li>
+    <li>Ative o modo de descalcificação descrito no manual (a sequência de botões muda de máquina para máquina).</li>
+    <li>Quando terminar, lave o reservatório e faça o enxágue com água limpa, também conforme o manual.</li>
+  </ol>
+
+  <h2 id="problemas">Problemas comuns e o que fazer</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Sintoma</th><th>O que costuma ser</th><th>O que fazer</th></tr></thead>
+      <tbody>
+        <tr><td>Máquina piscando e não prepara</td><td>Falta de água, reservatório mal encaixado ou ar no sistema</td><td>Encaixe bem o reservatório cheio; no primeiro uso ou depois de a água acabar, faça ciclos só com água até ela sair</td></tr>
+        <tr><td>Café frio</td><td>Calcário ou xícara fria</td><td>Descalcifique; faça um ciclo só com água para aquecer o circuito e a xícara</td></tr>
+        <tr><td>Café fraco ou pouco volume</td><td>Calcário, cápsula mal perfurada ou incompatível</td><td>Descalcifique e use cápsulas do sistema certo</td></tr>
+        <tr><td>Luz de limpeza acesa</td><td>Aviso de descalcificação ou de limpeza</td><td>Siga o procedimento do manual para o aviso</td></tr>
+        <tr><td>Vazamento</td><td>Reservatório mal encaixado ou bandeja cheia</td><td>Reencaixe e esvazie; se continuar, procure a assistência</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Na TRES Touch, compradores relatam que, quando entra ar no sistema, é preciso usar o acessório que vem com a máquina para tirar o ar; siga o passo a passo do manual. Se o problema continuar, procure a assistência autorizada enquanto a máquina estiver na garantia.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Ainda escolhendo a sua? Veja as <a href="/melhor-cafeteira-de-capsula/">10 melhores cafeteiras de cápsula de 2026</a>.</p>
+</Artigo>

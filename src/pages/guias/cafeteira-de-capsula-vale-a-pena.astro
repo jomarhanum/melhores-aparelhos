@@ -1,0 +1,68 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Preço por cápsula: caixas de 10 na Amazon em out/2026 (Vertuo em caixas de 20).
+const xicarasDia = 2;
+const sistemas = [
+  { nome: 'TRES', min: 1.6, max: 1.7 },
+  { nome: 'Nespresso Original (compatíveis)', min: 1.6, max: 2.6 },
+  { nome: 'Dolce Gusto (café)', min: 1.7, max: 2.0 },
+  { nome: 'Delta Q', min: 2.4, max: 2.6 },
+  { nome: 'Nespresso Vertuo', min: 3.7, max: 5.2 },
+];
+const mes = (v: number) => Math.round(v * xicarasDia * 30);
+const br = (n: number, d = 2) => n.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+const faq = [
+  { q: 'Café de cápsula é mais caro que o coado?', a: 'Sim. A cápsula custa de R$ 1,60 a mais de R$ 5 por xícara, dependendo do sistema. No café coado, cada xícara usa cerca de 10 g de pó, e o custo costuma ser bem menor, mesmo com o café mais caro.' },
+  { q: 'Quanto gasto por mês com cápsulas?', a: 'Tomando 2 xícaras por dia, de cerca de R$ 96 por mês (TRES ou compatíveis com Nespresso) a mais de R$ 300 (Vertuo). As bebidas com leite da Dolce Gusto que usam duas cápsulas dobram o custo da xícara.' },
+  { q: 'Cafeteira de cápsula gasta muita energia?', a: 'Pouco. A potência é alta, de 1.200 W a 1.460 W, mas cada preparo leva menos de um minuto, e os modelos da lista entram em economia de energia ou desligam sozinhos depois de alguns minutos parados.' },
+  { q: 'Existe cápsula reutilizável?', a: 'Existem cápsulas recarregáveis para alguns sistemas, como Nespresso Original e Dolce Gusto. Elas reduzem o custo, mas dão mais trabalho e o resultado varia. Confira no manual se o uso afeta a garantia da sua máquina.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-cafeteira-de-capsula/', '/guias/qual-sistema-de-capsula-escolher/', '/guias/como-limpar-cafeteira-de-capsula/']}>
+  <p>A cafeteira de cápsula é a forma mais prática de tomar um bom café em casa. Mas a praticidade tem preço, e ele não está na máquina: está nas cápsulas que você vai comprar todo mês. Veja a conta antes de decidir.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> vale a pena para quem toma <strong>1 a 3 cafés por dia</strong> e valoriza rapidez, variedade e zero louça. Tomando 2 xícaras por dia, o gasto vai de <strong>cerca de R$ {mes(1.6)} por mês</strong> (TRES ou compatíveis com Nespresso) a <strong>mais de R$ {mes(5.2)}</strong> (Vertuo). Para quem toma muitas xícaras, o café coado ou em grão sai bem mais barato.</p>
+  </div>
+
+  <h2 id="custo">Quanto custa por mês</h2>
+  <p>Conta para <strong>{xicarasDia} xícaras por dia</strong>, uma cápsula por xícara, com os preços da Amazon em outubro de 2026:</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Sistema</th><th>Por cápsula</th><th>Por mês</th></tr></thead>
+      <tbody>
+        {sistemas.map((s) => (
+          <tr><th scope="row">{s.nome}</th><td>R$ {br(s.min)} a R$ {br(s.max)}</td><td>R$ {mes(s.min)} a R$ {mes(s.max)}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p>Na Dolce Gusto, cappuccino, latte e outras bebidas com leite costumam usar <strong>duas cápsulas</strong>: nessas, o custo da xícara dobra.</p>
+
+  <h2 id="vale">Quando vale a pena</h2>
+  <ul>
+    <li><strong>Você toma poucas xícaras por dia</strong> e quer cada uma pronta em menos de um minuto.</li>
+    <li><strong>Cada pessoa da casa gosta de uma bebida diferente:</strong> café, cappuccino, chocolate, chá.</li>
+    <li><strong>Você quer resultado sempre igual</strong>, sem pesar pó nem acertar moagem.</li>
+    <li><strong>Escritório ou home office</strong>, onde não dá para ficar lavando coador.</li>
+  </ul>
+
+  <h2 id="nao-vale">Quando não vale</h2>
+  <ul>
+    <li><strong>Muitas xícaras por dia</strong> ou garrafa térmica para a família: o coado custa uma fração.</li>
+    <li><strong>Você gosta de escolher grão e moagem:</strong> uma máquina de espresso com moedor dá mais controle.</li>
+    <li><strong>Preocupação com lixo:</strong> as cápsulas geram resíduo. Algumas marcas têm programas de coleta; vale conferir.</li>
+  </ul>
+
+  <h2 id="economizar">Como gastar menos com cápsulas</h2>
+  <ul>
+    <li>Prefira <strong>sistemas abertos</strong>, como a Nespresso Original, que aceita cápsulas compatíveis de várias marcas.</li>
+    <li>Compre <strong>caixas maiores</strong> e em promoção: o preço por cápsula costuma cair.</li>
+    <li>Na Dolce Gusto, faça o cappuccino com a cápsula de café e leite de verdade, em vez da cápsula de leite.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Veja qual sistema combina com você em <a href="/guias/qual-sistema-de-capsula-escolher/">Nespresso, Dolce Gusto ou TRES</a> e compare as <a href="/melhor-cafeteira-de-capsula/">10 melhores cafeteiras de cápsula de 2026</a>.</p>
+</Artigo>
