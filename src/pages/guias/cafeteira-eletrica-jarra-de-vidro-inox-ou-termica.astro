@@ -1,0 +1,45 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Jarra de inox mantém o café quente?', a: 'Só se for térmica, com parede dupla. A jarra de inox comum, como a da Oster OCAF650, não quebra, mas mantém o café quente apenas enquanto está na base ligada.' },
+  { q: 'Quanto tempo a jarra térmica conserva o café?', a: 'Depende do modelo e de quanto café há na jarra: cheia, conserva por mais tempo; com pouco café, esfria mais rápido. Os fabricantes raramente informam um tempo exato.' },
+  { q: 'Dá para comprar jarra de reposição?', a: 'Para muitos modelos, sim, nas assistências e lojas de peças. A jarra de vidro é a que mais precisa de reposição, porque é a que mais quebra.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-cafeteira-eletrica/', '/guias/quantas-xicaras-cafeteira-eletrica/', '/guias/como-fazer-cafe-na-cafeteira-eletrica/']}>
+  <p>Nas avaliações de cafeteiras elétricas, duas reclamações aparecem o tempo todo: <strong>jarra de vidro que quebrou</strong> e <strong>café que esfriou</strong>. As duas têm a ver com o tipo de jarra. Veja as diferenças antes de escolher.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> <strong>vidro</strong> se o preço é o que mais pesa; <strong>inox</strong> se você já quebrou jarra e serve o café logo; <strong>térmica</strong> se o café fica servido ao longo da manhã, longe da cafeteira.</p>
+  </div>
+
+  <h2 id="comparacao">Comparação</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Vidro</th><th>Inox</th><th>Térmica</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Quebra?</th><td>Sim, é o ponto fraco</td><td>Não</td><td>Não</td></tr>
+        <tr><th scope="row">Mantém quente fora da base?</th><td>Não</td><td>Não</td><td>Sim</td></tr>
+        <tr><th scope="row">Mostra o nível do café?</th><td>Sim</td><td>Não</td><td>Não</td></tr>
+        <tr><th scope="row">Limpeza</th><td>Fácil</td><td>Fácil</td><td>Mais difícil (boca estreita)</td></tr>
+        <tr><th scope="row">Preço</th><td>O mais barato</td><td>Intermediário</td><td>O mais caro</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="vidro">Jarra de vidro</h2>
+  <p>É a mais comum e a mais barata. Deixa ver quanto café sobrou e é fácil de lavar. O problema é a fragilidade: em modelos baratos, o vidro é fino, e quebras nas primeiras semanas aparecem com frequência nas avaliações. O café só fica quente na base ligada. Exemplos: <a href="/melhor-cafeteira-eletrica/#electrolux-ecm30">Electrolux ECM30</a> e <a href="/melhor-cafeteira-eletrica/#mondial-c-30-18x">Mondial C-30-18X</a>.</p>
+
+  <h2 id="inox">Jarra de inox</h2>
+  <p>Não quebra se cair e vai bonita à mesa. Mas atenção: <strong>inox não é o mesmo que térmica</strong>. A jarra de inox comum, de parede simples, perde calor como a de vidro e depende da base. Exemplo: <a href="/melhor-cafeteira-eletrica/#oster-ocaf650">Oster OCAF650</a>.</p>
+
+  <h2 id="termica">Jarra térmica</h2>
+  <p>Funciona como uma garrafa térmica: conserva o café fora da base, sem a placa "cozinhar" a bebida. É a melhor para quem faz a jarra de uma vez e serve aos poucos. Rende mais quando está cheia; com pouco café, esfria mais rápido. É mais difícil de lavar e escorrer. Exemplo: <a href="/melhor-cafeteira-eletrica/#mondial-thermo-c-33-jt">Mondial Dolce Arome Thermo</a>.</p>
+
+  <h2 id="dica">Dica: escalde a jarra térmica</h2>
+  <p>Antes de passar o café, encha a jarra térmica com água quente por alguns minutos e descarte. Com a parede já aquecida, o café conserva a temperatura por mais tempo.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Compare as <a href="/melhor-cafeteira-eletrica/">10 melhores cafeteiras elétricas de 2026</a>, com jarras de vidro, inox e térmica.</p>
+</Artigo>

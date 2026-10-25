@@ -1,0 +1,232 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import { cafeteirasEletricas as cafeteiras } from '../data/cafeteira-eletrica';
+import { fotoProduto } from '../data/tipos';
+import { site, author } from '../data/site';
+import { artigoPorUrl } from '../data/artigos.mjs';
+
+const meta = artigoPorUrl('/melhor-cafeteira-eletrica/')!;
+const publicado = `${meta.publicado}T09:00:00-03:00`;
+const atualizado = `${meta.atualizado}T09:00:00-03:00`;
+const dataExibida = new Date(`${meta.atualizado}T12:00:00-03:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const title = meta.titulo;
+const description = meta.descricao;
+const pageUrl = `${site.url}${meta.url}`;
+const v = (slug: string) => cafeteiras.find((x) => x.slug === slug)!;
+
+const faq = [
+  { q: 'Qual a melhor cafeteira elétrica de 2026?', a: 'Para a maioria das famílias, a Electrolux Experience ECM30: jarra de 1,5 litro, timer de 24 horas, ajuste de intensidade e desligamento automático, com nota 4,8 na Amazon. Para gastar pouco, a Mondial Dolce Arome C-30-18X faz o básico bem feito por bem menos.' },
+  { q: 'Quantas xícaras rende uma cafeteira de 30 xícaras?', a: 'As xícaras dos fabricantes são cafezinhos de cerca de 40 ml. Uma jarra de 1,2 litro vendida como 30 xícaras enche umas 6 canecas de 200 ml. Veja a conta em quantas xícaras de cafeteira elétrica eu preciso.' },
+  { q: 'Jarra de vidro, inox ou térmica?', a: 'A de vidro é a mais barata e mostra o nível do café, mas quebra. A de inox não quebra, mas, se não for térmica, depende da base ligada para manter o café quente. A térmica conserva o café fora da base.' },
+  { q: 'Cafeteira elétrica precisa de filtro de papel?', a: 'Os 10 modelos da lista têm filtro permanente, que dispensa o papel. A maioria também aceita filtro de papel, se você preferir um café mais limpo, com menos óleo e resíduo.' },
+  { q: 'Vale a pena cafeteira com timer?', a: 'Vale para quem quer acordar com o café pronto: você deixa água e pó na véspera e programa o horário. Na lista, ECM30, ECM25, Oster Flavor e WAP Aroma têm timer.' },
+  { q: 'Por que o café da cafeteira elétrica sai morno?', a: 'Muitas cafeteiras elétricas aquecem a água abaixo da temperatura ideal para coar café, de 92 °C a 96 °C. Esquentar a xícara antes, servir logo e descalcificar a cafeteira de tempos em tempos ajudam.' },
+  { q: 'Cafeteira elétrica é bivolt?', a: 'Quase nunca. Os 10 modelos da lista vêm em versões separadas de 127 V e 220 V. Confira a tomada antes de comprar.' },
+];
+
+const destaques = [
+  { rotulo: 'Melhor no geral', x: v('electrolux-ecm30') },
+  { rotulo: 'Melhor custo-benefício', x: v('mondial-c-30-18x') },
+  { rotulo: 'Programável mais compacta', x: v('electrolux-ecm25') },
+  { rotulo: 'Melhor com jarra de inox', x: v('oster-ocaf650') },
+  { rotulo: 'Melhor com jarra térmica', x: v('mondial-thermo-c-33-jt') },
+  { rotulo: 'Faz café gelado', x: v('wap-aroma-wcd1500') },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: [`${site.url}${meta.imagem}`],
+    datePublished: publicado,
+    dateModified: atualizado,
+    inLanguage: 'pt-BR',
+    mainEntityOfPage: pageUrl,
+    author: { '@type': 'Person', name: author.name, url: `${site.url}${author.url}`, image: `${site.url}${author.photo}`, jobTitle: author.role },
+    publisher: { '@id': `${site.url}/#org` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Cozinha', item: `${site.url}/cozinha/` },
+      { '@type': 'ListItem', position: 3, name: 'Melhor cafeteira elétrica', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores cafeteiras elétricas de 2026',
+    numberOfItems: cafeteiras.length,
+    itemListElement: cafeteiras.map((x) => ({
+      '@type': 'ListItem',
+      position: x.rank,
+      item: {
+        '@type': 'Product',
+        name: x.nome,
+        brand: { '@type': 'Brand', name: x.marca },
+        model: x.modelo,
+        url: `${pageUrl}#${x.slug}`,
+        description: x.resumo,
+        image: `${site.url}${fotoProduto(x)}`,
+        review: {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: author.name },
+          datePublished: publicado,
+          reviewRating: { '@type': 'Rating', ratingValue: x.nota, bestRating: 10, worstRating: 0 },
+          positiveNotes: { '@type': 'ItemList', itemListElement: x.pros.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+          negativeNotes: { '@type': 'ItemList', itemListElement: x.contras.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t })) },
+        },
+      },
+    })),
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: q.a } })) },
+];
+---
+<Base title={title} description={description} type="article" published={publicado} modified={atualizado} jsonLd={jsonLd} image={meta.imagem} imageAlt="Comparativo das melhores cafeteiras elétricas de 2026">
+  <section class="hero">
+    <div class="leitura">
+      <nav class="migalhas" aria-label="Você está em">
+        <ol><li><a href="/">Home</a></li><li><a href="/cozinha/">Cozinha</a></li><li aria-current="page">Melhor cafeteira elétrica</li></ol>
+      </nav>
+      <h1>{meta.h1}</h1>
+      <p class="subtitulo">Comparamos as 10 cafeteiras elétricas mais recomendadas do Brasil, da compacta de 600 ml à programável de 1,5 litro. Veja capacidade real, tipo de jarra, timer, prós e contras e descubra qual combina com a sua casa.</p>
+      <div class="autor-linha">
+        <img src={author.photoSmall} alt={`Foto de ${author.name}`} width="52" height="52" />
+        <div>
+          Por <a href={author.url} rel="author">{author.name}</a><br />
+          Atualizado em <time datetime={atualizado}>{dataExibida}</time> · {meta.minutos} min de leitura
+        </div>
+      </div>
+      <ShareButtons title={title} />
+    </div>
+  </section>
+
+  <div class="leitura artigo">
+    <p class="aviso-afiliado" data-pagefind-ignore><strong>Transparência:</strong> este artigo tem links de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem nenhum custo extra para você. Isso não muda a nossa opinião. <a href="/divulgacao-de-afiliados/">Saiba mais</a>.</p>
+
+    <p>A cafeteira elétrica é o jeito mais barato de ter café coado sem esforço: você coloca água e pó, aperta um botão e, em poucos minutos, a jarra está cheia. As diferenças entre os modelos estão na <strong>capacidade real</strong>, no <strong>tipo de jarra</strong>, no <strong>timer</strong> e em quanto tempo o café fica quente.</p>
+    <p>Reunimos as <strong>10 melhores de 2026</strong>, com as especificações conferidas nos anúncios e nas fichas das lojas e o que dizem milhares de compradores.</p>
+
+    <div class="caixa resposta">
+      <p class="caixa-tit">⚡ Resposta rápida: as melhores de 2026</p>
+      <ol class="lista-destaques">
+        {destaques.map((d) => <li><strong>{d.rotulo}:</strong> <a href={`#${d.x.slug}`}>{d.x.nome}</a></li>)}
+      </ol>
+    </div>
+
+    <nav class="caixa sumario" aria-label="Sumário">
+      <p class="caixa-tit">📑 Neste artigo</p>
+      <ol>
+        <li><a href="#comparativo">Tabela comparativa</a></li>
+        <li><a href="#como-escolher">Como escolher</a></li>
+        <li><a href="#ranking">As 10 melhores cafeteiras elétricas</a></li>
+        <li><a href="#cafe-melhor">Como deixar o café melhor</a></li>
+        <li><a href="#metodologia">Como fizemos este ranking</a></li>
+        <li><a href="#perguntas">Perguntas frequentes</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="comparativo">Tabela comparativa: as 10 melhores lado a lado</h2>
+    <p>Clique no nome para ir direto à análise completa.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabela-wrap">
+      <table>
+        <caption class="sr-only">Comparativo das 10 melhores cafeteiras elétricas de 2026</caption>
+        <thead><tr><th>#</th><th>Modelo</th><th>Capacidade</th><th>Jarra</th><th>Potência</th><th>Timer</th></tr></thead>
+        <tbody>
+          {cafeteiras.map((x) => (
+            <tr>
+              <td><strong>{x.rank}º</strong></td>
+              <td><a href={`#${x.slug}`}>{x.marca} {x.modelo}</a></td>
+              <td>{x.capacidade}</td>
+              <td>{x.jarra}</td>
+              <td>{x.potencia ?? '—'}</td>
+              <td>{x.timer ? '✔' : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-preco">Capacidade e potência conforme os anúncios e as fichas das lojas; "—" na potência indica dado divergente entre as fontes ou não informado. Os preços mudam com frequência: confira o valor atualizado nos botões de cada produto.</p>
+  </div>
+
+  <div class="leitura artigo">
+    <h2 id="como-escolher">Como escolher a melhor cafeteira elétrica</h2>
+
+    <h3>1. Capacidade real</h3>
+    <p>As "xícaras" dos fabricantes são cafezinhos de cerca de <strong>40 ml</strong>. Uma jarra de 1,2 litro anunciada como 30 xícaras enche umas <strong>6 canecas</strong>. Como referência: <strong>0,6 a 0,75 L</strong> para 1 ou 2 pessoas, <strong>1,2 L</strong> para 3 ou 4 e <strong>1,5 L</strong> para famílias maiores. Veja a conta em <a href="/guias/quantas-xicaras-cafeteira-eletrica/">quantas xícaras de cafeteira elétrica eu preciso</a>.</p>
+
+    <h3>2. Jarra: vidro, inox ou térmica</h3>
+    <p>A de <strong>vidro</strong> é a mais barata e mostra o nível, mas é a que mais quebra, segundo os compradores. A de <strong>inox</strong> não quebra, mas só mantém o café quente na base ligada. A <strong>térmica</strong> conserva fora da base, sem o café "cozinhar" na placa. Compare em <a href="/guias/cafeteira-eletrica-jarra-de-vidro-inox-ou-termica/">jarra de vidro, inox ou térmica</a>.</p>
+
+    <h3>3. Timer e desligamento automático</h3>
+    <p>O <strong>timer</strong> deixa o café pronto na hora em que você acorda. O <strong>desligamento automático</strong> evita deixar a placa ligada o dia todo, mas o café esfria depois que ela desliga, em geral após 2 horas.</p>
+
+    <h3>4. Filtro permanente</h3>
+    <p>Todos os 10 modelos têm filtro permanente, que dispensa o papel e gera menos lixo. O papel ainda é opção para quem gosta de café mais limpo, com menos óleo e resíduo no fundo da xícara.</p>
+
+    <h3>5. Voltagem e espaço</h3>
+    <p>Nenhum dos 10 é bivolt: escolha a versão da sua tomada. As mais estreitas, como a Oster OCAF650 e a Electrolux ECM10, têm 15 cm de largura; confira também a altura, se a cafeteira for ficar embaixo de armário.</p>
+
+    <h2 id="ranking">As 10 melhores cafeteiras elétricas de 2026</h2>
+    <p>Análise completa de cada modelo, do 1º ao 10º lugar, com ficha técnica, benefícios e o quadro de prós e contras.</p>
+
+    {cafeteiras.map((x) => <ProductCard p={x} tipo="Cafeteira elétrica" />)}
+
+    <section>
+      <h2 id="cafe-melhor">Como deixar o café melhor</h2>
+      <ul>
+        <li>Use cerca de <strong>1 colher de sopa cheia de pó para cada 100 ml de água</strong> e ajuste ao seu gosto.</li>
+        <li>Prefira <strong>moagem média</strong>, própria para coar. Pó muito fino entope o filtro e amarga o café.</li>
+        <li>Use água filtrada e <strong>sirva logo</strong>: café que fica muito tempo na placa perde aroma e fica amargo.</li>
+        <li>Lave o filtro e a jarra a cada uso e descalcifique a cafeteira de tempos em tempos.</li>
+      </ul>
+      <p>Passo a passo completo em <a href="/guias/como-fazer-cafe-na-cafeteira-eletrica/">como fazer café na cafeteira elétrica</a>. Prefere praticidade de uma dose? Veja as <a href="/melhor-cafeteira-de-capsula/">melhores cafeteiras de cápsula</a>.</p>
+
+      <h2 id="metodologia">Como fizemos este ranking</h2>
+      <p>Este é um comparativo baseado em pesquisa, não em testes próprios de laboratório. Partimos dos modelos mais recomendados pelos principais guias de compra e comparativos do Brasil, conferimos as especificações nos anúncios e nas fichas das lojas e resumimos o que dizem os compradores. Quando as fontes divergem, deixamos o dado de fora.</p>
+      <p>Comparamos os modelos em cinco critérios: <strong>capacidade</strong>, <strong>praticidade</strong> (timer, filtro, limpeza), <strong>temperatura do café</strong>, <strong>durabilidade</strong>, segundo as reclamações dos compradores, e <strong>custo-benefício</strong>. A nota de cada cafeteira é a opinião editorial de {author.name}. Nenhuma marca pagou para aparecer nesta lista.</p>
+    </section>
+
+    <section>
+      <h2 id="perguntas">Perguntas frequentes sobre cafeteira elétrica</h2>
+      <div class="faq">
+        {faq.map((q) => (
+          <details>
+            <summary>{q.q}</summary>
+            <p>{q.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2 id="conclusao">Conclusão: qual cafeteira elétrica comprar?</h2>
+      <p>Para a maioria das famílias, a <strong>{cafeteiras[0].nome}</strong> é a melhor compra: grande, programável e com ajuste de intensidade. Para gastar pouco, vá de <strong>Mondial Dolce Arome C-30-18X</strong>. Quem quer timer num tamanho menor fica bem com a <strong>Electrolux ECM25</strong>, e quem cansou de quebrar jarra de vidro deve olhar a <strong>Oster OCAF650</strong>, com jarra de inox.</p>
+      <p>Também está equipando a cozinha? Veja as <a href="/melhor-cafeteira-de-capsula/">melhores cafeteiras de cápsula</a> e as <a href="/melhor-air-fryer/">melhores air fryers</a>.</p>
+
+      <ShareButtons title={title} />
+      <AuthorBox />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .artigo { padding-top: 28px; }
+  .resposta { background: var(--azul-claro); border-color: #bcd7f3; }
+  .lista-destaques { padding-left: 1.2rem; margin: 0; }
+  .nota-preco { font-size: .92rem; color: var(--texto-2); }
+  .faq details { border: 1px solid var(--borda); border-radius: 12px; padding: 4px 20px; margin-bottom: 12px; background: #fff; }
+  .faq summary { cursor: pointer; font-weight: 700; padding: 14px 30px 14px 0; list-style: none; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 1.6rem; color: var(--azul); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: 0; }
+</style>

@@ -123,7 +123,20 @@ const cafeteiras = [
   ['tres-touch', 'TRES 3 Corações Touch'],
   ['delta-q-quick', 'Delta Q Quick'],
 ];
+const eletricas = [
+  ['electrolux-ecm30', 'Electrolux Experience ECM30 1,5 L programável'],
+  ['mondial-c-30-18x', 'Mondial Dolce Arome C-30-18X 18 xícaras'],
+  ['electrolux-ecm25', 'Electrolux ECM25 1,2 L programável'],
+  ['oster-ocaf650', 'Oster OCAF650 com jarra inox 1,2 L'],
+  ['electrolux-ecm10', 'Electrolux Efficient ECM10 15 xícaras'],
+  ['oster-flavor-bvstdc4401', 'Oster Flavor programável 1,5 L'],
+  ['mondial-thermo-c-33-jt', 'Mondial Dolce Arome Thermo com jarra térmica'],
+  ['oster-ocaf300', 'Oster Inox Compacta OCAF300 0,7 L'],
+  ['wap-aroma-wcd1500', 'WAP Digital Aroma WCD1500 1,5 L'],
+  ['cadence-caf338', 'Cadence Desperta Contrast CAF338'],
+];
 const fotosDoHub = {
+  '/melhor-cafeteira-eletrica/': eletricas.map(([s, n]) => [s, `Cafeteira elétrica ${n}`]),
   '/melhor-cafeteira-de-capsula/': cafeteiras.map(([s, n]) => [s, `Cafeteira de cápsula ${n}`]),
   '/melhor-maquina-de-lavar/': maquinas.map(([s, n]) => [s, `Máquina de lavar ${n}`]),
   '/melhor-air-fryer/': airfryers.map(([s, n]) => [s, `Air fryer ${n}`]),

@@ -10,8 +10,9 @@ import { geladeiras } from './geladeira';
 import { airfryers } from './airfryer';
 import { maquinas } from './maquina';
 import { cafeteiras } from './cafeteira';
+import { cafeteirasEletricas } from './cafeteira-eletrica';
 
-export const todosProdutos: Produto[] = [...portateis, ...inverters, ...fornos, ...bancadas, ...ventiladores, ...colunas, ...geladeiras, ...airfryers, ...maquinas, ...cafeteiras];
+export const todosProdutos: Produto[] = [...portateis, ...inverters, ...fornos, ...bancadas, ...ventiladores, ...colunas, ...geladeiras, ...airfryers, ...maquinas, ...cafeteiras, ...cafeteirasEletricas];
 
 export const buscarProduto = (slug: string) => {
   const p = todosProdutos.find((x) => x.slug === slug);

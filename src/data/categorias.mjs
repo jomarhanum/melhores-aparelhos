@@ -84,12 +84,20 @@ export const categorias = [
     imagem: '/images/produtos/nescafe-dolce-gusto-genio-s-plus.webp',
     descricao: 'Dolce Gusto, Nespresso, TRES e Delta Q: sistema de cápsula, bebidas, reservatório e custo por xícara.',
   },
+  {
+    id: 'cafeteira-eletrica',
+    nome: 'Cafeteira elétrica',
+    curto: 'Cafeteira Elétrica',
+    hub: '/melhor-cafeteira-eletrica/',
+    imagem: '/images/produtos/electrolux-ecm30.webp',
+    descricao: 'Café coado sem trabalho: capacidade, jarra de vidro, inox ou térmica, timer e filtro permanente.',
+  },
 ];
 
 // Grupos de categorias com página própria (itens do menu).
 export const grupos = [
   { id: 'climatizacao', nome: 'Climatização', url: '/climatizacao/', categorias: ['ar-portatil', 'ar-inverter', 'ventilador-teto', 'ventilador-coluna'] },
-  { id: 'cozinha', nome: 'Cozinha', url: '/cozinha/', categorias: ['forno-embutir', 'forno-bancada', 'geladeira', 'airfryer', 'cafeteira-capsula'] },
+  { id: 'cozinha', nome: 'Cozinha', url: '/cozinha/', categorias: ['forno-embutir', 'forno-bancada', 'geladeira', 'airfryer', 'cafeteira-capsula', 'cafeteira-eletrica'] },
 ];
 
 export const categoriaPorId = (id) => categorias.find((c) => c.id === id);

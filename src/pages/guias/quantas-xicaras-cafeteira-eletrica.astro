@@ -1,0 +1,43 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Qual o tamanho da xícara das cafeteiras elétricas?', a: 'Os fabricantes contam cafezinhos de cerca de 40 ml. Alguns usam 42 ml ou 50 ml. Por isso, uma cafeteira de 30 xícaras enche só umas 6 canecas.' },
+  { q: 'Posso fazer menos café numa cafeteira grande?', a: 'Pode, colocando menos água e menos pó. Mas, com pouco volume, a água passa rápido e o café pode sair mais fraco e esfriar mais rápido na jarra. Se você quase sempre faz pouco, prefira uma cafeteira menor.' },
+  { q: 'Cafeteira de 15 xícaras serve para quantas pessoas?', a: 'Uma cafeteira de 600 ml, anunciada como 15 xícaras, enche 3 canecas de 200 ml: serve bem 1 ou 2 pessoas no café da manhã.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-cafeteira-eletrica/', '/guias/cafeteira-eletrica-jarra-de-vidro-inox-ou-termica/', '/guias/como-fazer-cafe-na-cafeteira-eletrica/']}>
+  <p>"38 xícaras" parece muita coisa, até você perceber que a xícara do fabricante é um cafezinho de 40 ml. Veja quanto café cabe de verdade em cada jarra e qual tamanho escolher.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> divida a capacidade da jarra por 200 ml para saber quantas canecas ela enche. Como referência: <strong>0,6 a 0,75 L</strong> para 1 ou 2 pessoas, <strong>1,2 L</strong> para 3 ou 4 e <strong>1,5 L</strong> para famílias maiores ou para receber visitas.</p>
+  </div>
+
+  <h2 id="tabela">Quanto cabe em cada jarra</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Jarra</th><th>Anunciada como</th><th>Canecas de 200 ml</th><th>Para quem</th></tr></thead>
+      <tbody>
+        <tr><td>0,6 L</td><td>15 xícaras</td><td>3</td><td>1 ou 2 pessoas</td></tr>
+        <tr><td>0,75 L</td><td>18 a 19 xícaras</td><td>3 a 4</td><td>2 pessoas</td></tr>
+        <tr><td>0,96 L</td><td>24 xícaras</td><td>4 a 5</td><td>2 a 3 pessoas</td></tr>
+        <tr><td>1,2 L</td><td>30 xícaras</td><td>6</td><td>3 ou 4 pessoas</td></tr>
+        <tr><td>1,5 L</td><td>36 a 38 xícaras</td><td>7</td><td>5 ou mais pessoas, visitas</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="escolher">Escolha pelo pico, não pela média</h2>
+  <p>Pense no momento em que você mais faz café de uma vez: o café da manhã de domingo com a família, as visitas, o café da tarde no escritório. A cafeteira precisa dar conta desse pico. Fazer meia jarra no dia a dia funciona, mas fazer duas jarras seguidas porque a cafeteira é pequena é chato.</p>
+
+  <h2 id="exemplos">Exemplos da nossa lista</h2>
+  <ul>
+    <li><strong>1 ou 2 pessoas:</strong> <a href="/melhor-cafeteira-eletrica/#electrolux-ecm10">Electrolux ECM10</a> (600 ml) e <a href="/melhor-cafeteira-eletrica/#oster-ocaf300">Oster OCAF300</a> (700 ml).</li>
+    <li><strong>3 ou 4 pessoas:</strong> <a href="/melhor-cafeteira-eletrica/#electrolux-ecm25">Electrolux ECM25</a> e <a href="/melhor-cafeteira-eletrica/#oster-ocaf650">Oster OCAF650</a> (1,2 L).</li>
+    <li><strong>Família grande:</strong> <a href="/melhor-cafeteira-eletrica/#electrolux-ecm30">Electrolux ECM30</a> e <a href="/melhor-cafeteira-eletrica/#wap-aroma-wcd1500">WAP Aroma</a> (1,5 L).</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Veja as <a href="/melhor-cafeteira-eletrica/">10 melhores cafeteiras elétricas de 2026</a> e acerte a medida do pó em <a href="/guias/como-fazer-cafe-na-cafeteira-eletrica/">como fazer café na cafeteira elétrica</a>.</p>
+</Artigo>

@@ -1,0 +1,58 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+const faq = [
+  { q: 'Quantas colheres de pó por xícara na cafeteira elétrica?', a: 'Como ponto de partida, 1 colher de sopa cheia (cerca de 7 g) para cada 100 ml de água. Para uma caneca de 200 ml, 2 colheres. Ajuste ao seu gosto.' },
+  { q: 'Por que o café da cafeteira elétrica fica fraco?', a: 'Pouco pó, moagem grossa demais ou calcário dentro da cafeteira, que reduz a temperatura da água. Aumente a dose, use pó para coar e descalcifique.' },
+  { q: 'Por que o café fica amargo?', a: 'Pó fino demais, excesso de pó ou café parado muito tempo na placa aquecida. Sirva logo ou passe para uma garrafa térmica.' },
+  { q: 'Filtro permanente ou de papel?', a: 'O permanente dispensa compra e gera menos lixo, e deixa passar mais óleo, com café mais encorpado. O papel deixa o café mais limpo. Muitas cafeteiras aceitam os dois.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-cafeteira-eletrica/', '/guias/quantas-xicaras-cafeteira-eletrica/', '/guias/cafeteira-eletrica-jarra-de-vidro-inox-ou-termica/']}>
+  <p>A cafeteira elétrica faz quase tudo sozinha, mas três escolhas suas mudam muito o resultado: <strong>quanto pó</strong>, <strong>qual moagem</strong> e <strong>quanto tempo o café fica na placa</strong>. Veja como acertar e como manter a cafeteira limpa.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> use <strong>1 colher de sopa cheia de pó (cerca de 7 g) para cada 100 ml de água</strong>, pó de moagem média, água filtrada e sirva logo. Lave filtro e jarra a cada uso e descalcifique a cada 1 a 3 meses.</p>
+  </div>
+
+  <h2 id="passo-a-passo">Passo a passo</h2>
+  <ol>
+    <li><strong>Coloque água filtrada</strong> no reservatório, até a marca do número de xícaras que quer fazer.</li>
+    <li><strong>Encaixe o filtro</strong> (permanente ou de papel) no porta-filtro.</li>
+    <li><strong>Coloque o pó</strong>: cerca de 1 colher de sopa cheia para cada 100 ml de água.</li>
+    <li><strong>Feche a tampa, encaixe a jarra e ligue.</strong> O corta-pingos só funciona com a jarra bem encaixada.</li>
+    <li><strong>Sirva logo.</strong> Se for demorar, passe o café para uma garrafa térmica.</li>
+  </ol>
+
+  <h2 id="medida">Tabela de medida</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Água</th><th>Pó (aprox.)</th><th>Rende</th></tr></thead>
+      <tbody>
+        <tr><td>200 ml</td><td>2 colheres de sopa (14 g)</td><td>1 caneca ou 5 cafezinhos</td></tr>
+        <tr><td>600 ml</td><td>6 colheres de sopa (42 g)</td><td>3 canecas ou 15 cafezinhos</td></tr>
+        <tr><td>1,2 L</td><td>12 colheres de sopa (84 g)</td><td>6 canecas ou 30 cafezinhos</td></tr>
+        <tr><td>1,5 L</td><td>15 colheres de sopa (105 g)</td><td>7 canecas ou 38 cafezinhos</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>É um ponto de partida: quem gosta de café mais forte pode aumentar a dose. Cafeteiras com ajuste de intensidade, como a <a href="/melhor-cafeteira-eletrica/#electrolux-ecm30">Electrolux ECM30</a>, também permitem escolher um café mais forte.</p>
+
+  <h2 id="moagem">Moagem e temperatura</h2>
+  <p>Use pó de <strong>moagem média</strong>, o mais comum nos pacotes para coar. Pó muito fino entope o filtro, transborda e deixa o café amargo; muito grosso deixa o café fraco.</p>
+  <p>A temperatura ideal da água para coar fica entre <strong>92 °C e 96 °C</strong>. Muitas cafeteiras elétricas ficam abaixo disso, por isso o café pode parecer menos encorpado e menos quente que o coado no fogão. Esquentar a xícara antes ajuda.</p>
+
+  <h2 id="placa">Não deixe o café na placa por horas</h2>
+  <p>A placa mantém o café quente, mas continua "cozinhando" a bebida, que fica amarga e perde aroma depois de uns 30 minutos. Para servir ao longo da manhã, uma <a href="/guias/cafeteira-eletrica-jarra-de-vidro-inox-ou-termica/">jarra térmica</a> ou uma garrafa térmica funcionam melhor.</p>
+
+  <h2 id="limpeza">Como limpar a cafeteira elétrica</h2>
+  <ul>
+    <li><strong>A cada uso:</strong> jogue o pó fora e lave o filtro, o porta-filtro e a jarra com água morna e detergente neutro.</li>
+    <li><strong>Toda semana:</strong> passe um ciclo só com água, sem pó, para tirar o óleo acumulado.</li>
+    <li><strong>A cada 1 a 3 meses:</strong> descalcifique, com mais frequência se a água for dura. Siga o produto e o procedimento do manual; muitos fabricantes indicam um ciclo com solução descalcificante seguido de dois ou três ciclos só com água.</li>
+    <li>Não lave a jarra na lava-louças, a não ser que o manual permita.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Ainda escolhendo a sua? Veja as <a href="/melhor-cafeteira-eletrica/">10 melhores cafeteiras elétricas de 2026</a>.</p>
+</Artigo>

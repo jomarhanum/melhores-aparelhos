@@ -693,5 +693,61 @@ artigos.push(
   },
 );
 
+// ---------- Cafeteira elétrica ----------
+artigos.push(
+  {
+    url: '/melhor-cafeteira-eletrica/',
+    titulo: 'Melhor Cafeteira Elétrica 2026: 10 Modelos Comparados',
+    h1: 'Melhor Cafeteira Elétrica de 2026: 10 Modelos Comparados',
+    descricao: 'Qual a melhor cafeteira elétrica de 2026? Comparamos 10 modelos (Electrolux, Mondial, Oster, WAP e Cadence) com capacidade, jarra, timer, prós e contras.',
+    categoria: 'Comparativo',
+    secao: 'cafeteira-eletrica',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/electrolux-ecm30.webp',
+    resumo: 'Electrolux, Mondial, Oster, WAP e Cadence lado a lado: qual cafeteira elétrica comprar.',
+    minutos: 12,
+  },
+  {
+    url: '/guias/como-fazer-cafe-na-cafeteira-eletrica/',
+    titulo: 'Como Fazer Café na Cafeteira Elétrica: Medida e Dicas',
+    h1: 'Como fazer café na cafeteira elétrica',
+    descricao: 'Quanto pó usar por xícara, moagem, filtro de papel ou permanente e como limpar a cafeteira elétrica para o café não ficar fraco nem amargo.',
+    categoria: 'Guia',
+    secao: 'cafeteira-eletrica',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/mondial-c-30-18x.webp',
+    resumo: 'Medida de pó por xícara, moagem, filtro e limpeza.',
+    minutos: 5,
+  },
+  {
+    url: '/guias/cafeteira-eletrica-jarra-de-vidro-inox-ou-termica/',
+    titulo: 'Cafeteira Elétrica: Jarra de Vidro, Inox ou Térmica?',
+    h1: 'Jarra de vidro, inox ou térmica: qual escolher?',
+    descricao: 'Jarra de vidro, de inox ou térmica na cafeteira elétrica? Compare durabilidade, temperatura do café, limpeza e preço e veja qual combina com você.',
+    categoria: 'Guia',
+    secao: 'cafeteira-eletrica',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/mondial-thermo-c-33-jt.webp',
+    resumo: 'Durabilidade, temperatura, limpeza e preço de cada jarra.',
+    minutos: 4,
+  },
+  {
+    url: '/guias/quantas-xicaras-cafeteira-eletrica/',
+    titulo: 'Quantas Xícaras de Cafeteira Elétrica Preciso? Tamanho Ideal',
+    h1: 'Quantas xícaras de cafeteira elétrica eu preciso?',
+    descricao: 'O que significam as "30 xícaras" da cafeteira elétrica, quantas canecas cabem na jarra e qual capacidade escolher para o tamanho da sua casa.',
+    categoria: 'Guia',
+    secao: 'cafeteira-eletrica',
+    publicado: '2026-10-25',
+    atualizado: '2026-10-25',
+    imagem: '/images/produtos/electrolux-ecm10.webp',
+    resumo: 'Xícaras de 40 ml, canecas e a capacidade certa para a sua casa.',
+    minutos: 4,
+  },
+);
+
 export const artigoPorUrl = (url) => artigos.find((a) => a.url === url);
 export const artigosDaSecao = (secao) => artigos.filter((a) => a.secao === secao);
