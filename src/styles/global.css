@@ -62,17 +62,28 @@ strong { font-weight: 700; }
 .logo b { color: var(--azul); font-weight: 800; }
 #menu ul { list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; }
 #menu li { margin: 0; }
-#menu a { display: block; padding: 8px 14px; border-radius: 999px; text-decoration: none; color: var(--texto); font-weight: 600; font-size: 1rem; }
+#menu a { display: block; padding: 8px 14px; border-radius: 999px; text-decoration: none; color: var(--texto); font-weight: 600; font-size: 1rem; white-space: nowrap; }
+@media (min-width: 921px) and (max-width: 1120px) { #menu ul { gap: 0; } #menu a { padding: 8px 9px; font-size: .95rem; } }
 #menu a:hover, #menu a[aria-current='page'] { background: var(--azul-claro); color: var(--azul); }
-.menu-btn { display: none; background: none; border: 0; padding: 10px; cursor: pointer; }
+.menu-btn { display: none; background: none; border: 0; padding: 10px; cursor: pointer; order: 3; }
+/* Ordem no cabeçalho: logo, menu, lupa (e o botão do menu no celular). */
+#menu { order: 1; margin-left: auto; }
+.busca-btn { order: 2; display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; margin-left: 6px; border-radius: 999px; color: var(--texto); }
+.busca-btn:hover { background: var(--azul-claro); color: var(--azul); }
 .menu-btn span { display: block; width: 24px; height: 2px; background: var(--texto); margin: 5px 0; border-radius: 2px; }
 @media (max-width: 920px) {
   .menu-btn { display: block; }
+  .busca-btn { margin-left: auto; }
   #menu { display: none; position: absolute; top: 68px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--borda); box-shadow: var(--sombra); }
   #menu.aberto { display: block; }
   #menu ul { flex-direction: column; padding: 8px 16px 16px; }
   #menu a { padding: 12px 14px; font-size: 1.1rem; }
 }
+
+/* Campo de busca (home e 404) */
+.busca-form { display: flex; gap: 8px; max-width: 560px; margin: 0 0 1.4rem; }
+.busca-form input { flex: 1; min-width: 0; padding: 14px 18px; font: inherit; font-size: 1.05rem; border: 2px solid var(--borda); border-radius: 12px; background: #fff; color: var(--texto); }
+.busca-form input:focus { outline: none; border-color: var(--azul); }
 
 /* Botões */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 22px; border-radius: 12px; font-weight: 700; font-size: 1.05rem; text-decoration: none; border: 0; cursor: pointer; background: var(--azul); color: #fff; line-height: 1.2; transition: transform .15s, box-shadow .15s; }

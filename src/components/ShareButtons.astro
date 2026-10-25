@@ -14,7 +14,7 @@ const redes = [
   { nome: 'Pinterest', cor: '#E60023', href: `https://pinterest.com/pin/create/button/?url=${u}&description=${t}`, d: 'M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.8 0 1.2.6 1.2 1.4 0 .8-.5 2.1-.8 3.2-.2 1 .5 1.8 1.5 1.8 1.8 0 3.1-1.9 3.1-4.6 0-2.4-1.7-4.1-4.2-4.1-2.9 0-4.5 2.1-4.5 4.4 0 .9.3 1.8.8 2.3l.1.4-.3 1.1c0 .2-.2.3-.4.2-1.3-.6-2.1-2.5-2.1-4 0-3.3 2.4-6.3 6.9-6.3 3.6 0 6.4 2.6 6.4 6 0 3.6-2.3 6.5-5.4 6.5-1 0-2-.5-2.4-1.2l-.6 2.5c-.2.9-.9 2.1-1.3 2.8A10 10 0 1 0 12 2Z' },
 ];
 ---
-<div class="share" aria-label="Compartilhar">
+<div class="share" aria-label="Compartilhar" data-pagefind-ignore>
   <span class="share-tit">Compartilhe:</span>
   {redes.map((r) => (
     <a href={r.href} target="_blank" rel="noopener nofollow" style={`--c:${r.cor}`} aria-label={`Compartilhar no ${r.nome}`} title={r.nome}>

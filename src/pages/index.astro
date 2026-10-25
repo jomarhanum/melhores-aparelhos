@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import BuscaForm from '../components/BuscaForm.astro';
 import { site } from '../data/site';
 import { artigos } from '../data/artigos.mjs';
 import { categorias, grupos } from '../data/categorias.mjs';
@@ -17,6 +18,7 @@ const guias = artigos.filter((a) => a.categoria === 'Guia');
         <p class="kicker">Reviews independentes · 2026</p>
         <h1>Escolha o aparelho certo sem cair em propaganda</h1>
         <p class="subtitulo">Comparativos detalhados, prós e contras sinceros e guias de compra em linguagem simples. Você lê em poucos minutos e compra com segurança.</p>
+        <BuscaForm />
         <div class="hero-botoes">
           {grupos.map((g) => <a class="btn" href={g.url}>{g.nome} →</a>)}
         </div>

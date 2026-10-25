@@ -1,11 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import BuscaForm from '../components/BuscaForm.astro';
 ---
 <Base title="Página não encontrada | Melhores Aparelhos" description="A página que você procura não existe ou mudou de endereço." noindex>
   <section class="leitura pagina" style="text-align:center; padding-top:80px;">
     <p style="font-size:4rem; margin:0;">🔍</p>
     <h1>Ops! Página não encontrada</h1>
-    <p>O endereço pode ter mudado ou a página foi removida.</p>
+    <p>O endereço pode ter mudado ou a página foi removida. Tente buscar o que procurava:</p>
+    <div style="display:flex; justify-content:center;"><BuscaForm /></div>
     <p><a class="btn" href="/">Voltar para a Home</a></p>
     <p><a href="/melhor-ar-condicionado-portatil/">Ver o melhor ar-condicionado portátil de 2026</a></p>
   </section>

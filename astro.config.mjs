@@ -158,7 +158,7 @@ export default defineConfig({
   build: { format: 'directory', inlineStylesheets: 'always' },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/404'),
+      filter: (page) => !page.includes('/404') && !page.includes('/busca/'),
       serialize(item) {
         const cfg = paginas[new URL(item.url).pathname];
         if (cfg) Object.assign(item, cfg);

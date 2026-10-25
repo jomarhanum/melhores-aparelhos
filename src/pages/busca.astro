@@ -1,0 +1,63 @@
+---
+// Busca no site com Pagefind. O índice é gerado no build (pagefind --site dist) e carregado só nesta página.
+import Base from '../layouts/Base.astro';
+---
+<Base title="Buscar no Melhores Aparelhos" description="Busque comparativos, guias e modelos de ar-condicionado, ventilador, geladeira, air fryer, forno e máquina de lavar." noindex>
+  <section class="wrap busca-pagina">
+    <h1>Buscar no site</h1>
+    <p class="subtitulo">Digite um aparelho, uma marca, um modelo ou uma dúvida. Exemplos: <a href="/busca/?q=inverter">inverter</a>, <a href="/busca/?q=Electrolux">Electrolux</a>, <a href="/busca/?q=consumo de energia">consumo de energia</a>, <a href="/busca/?q=silencioso">silencioso</a>.</p>
+    <div id="busca"></div>
+    <noscript><p>A busca precisa de JavaScript. Veja <a href="/guias/">todos os guias</a> ou volte para a <a href="/">home</a>.</p></noscript>
+  </section>
+
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const ui = new PagefindUI({
+        element: '#busca',
+        showSubResults: true,
+        showImages: true,
+        resetStyles: false,
+        pageSize: 10,
+        // Páginas longas (os comparativos) não são penalizadas: aparecem antes dos guias curtos.
+        ranking: { pageLength: 0.1 },
+        translations: {
+          placeholder: 'Busque um aparelho, marca ou dúvida',
+          zero_results: 'Nenhum resultado para [SEARCH_TERM]. Tente outra palavra, como o tipo de aparelho ou a marca.',
+          many_results: '[COUNT] resultados para [SEARCH_TERM]',
+          one_result: '1 resultado para [SEARCH_TERM]',
+          load_more: 'Ver mais resultados',
+          clear_search: 'Limpar',
+        },
+      });
+      const q = new URLSearchParams(location.search).get('q');
+      if (q) ui.triggerSearch(q);
+      // Mantém o termo no endereço, para dar para compartilhar ou voltar à busca.
+      document.querySelector('#busca')?.addEventListener('input', (e) => {
+        const v = e.target.value?.trim();
+        history.replaceState(null, '', v ? `/busca/?q=${encodeURIComponent(v)}` : '/busca/');
+      });
+      if (!q) document.querySelector('#busca input')?.focus();
+    });
+  </script>
+</Base>
+
+<style is:global>
+  .busca-pagina { padding-top: 32px; padding-bottom: 48px; min-height: 60vh; }
+  #busca {
+    --pagefind-ui-primary: var(--azul);
+    --pagefind-ui-text: var(--texto);
+    --pagefind-ui-background: #fff;
+    --pagefind-ui-border: var(--borda);
+    --pagefind-ui-tag: var(--azul-claro);
+    --pagefind-ui-border-radius: 12px;
+    --pagefind-ui-image-border-radius: 10px;
+    --pagefind-ui-image-box-ratio: 1 / 1;
+    --pagefind-ui-font: inherit;
+    --pagefind-ui-scale: 1;
+    max-width: 860px;
+  }
+  #busca .pagefind-ui__result-link { color: var(--azul); }
+  #busca mark { background: #fff3a0; color: inherit; }
+</style>
