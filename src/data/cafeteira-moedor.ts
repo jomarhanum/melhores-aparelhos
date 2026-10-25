@@ -284,7 +284,7 @@ const dados: CafeteiraMoedorDados[] = [
       criticas: ['Há relatos de unidade com defeito na bomba e de peça faltando', 'O manual impresso é fraco'],
       observacao: 'Tem dezenas de avaliações na Amazon, com nota 4,6.',
     },
-    amazonUrl: '',
+    amazonUrl: 'https://link.amazon/B0gaMTBJJ',
     mercadoLivreUrl: 'https://meli.la/1kYgPMq',
   },
   {
