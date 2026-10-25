@@ -373,7 +373,7 @@ const dados: CafeteiraMoedorDados[] = [
       criticas: ['Há relatos de moedor que parou com meses de uso', 'Reclamações sobre a assistência técnica', 'Há relato de dosagem difícil de regular'],
       observacao: 'Tem dezenas de avaliações na Amazon, com nota 4,5.',
     },
-    amazonUrl: '',
+    amazonUrl: 'https://link.amazon/B0boslkW4',
     mercadoLivreUrl: 'https://meli.la/26wY6m8',
   },
   {
