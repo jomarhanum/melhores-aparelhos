@@ -63,8 +63,8 @@ const dados: CafeteiraMoedorDados[] = [
       criticas: ['Há relatos de itens faltando na caixa, como colher medidora e fita de dureza da água', 'O café que não é espresso sai fraco para alguns', 'Alguns esperavam um espresso mais encorpado'],
       observacao: 'Tem mais de mil avaliações na Amazon, com nota 4,5, num anúncio dividido com a Série 1200.',
     },
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B0848Qdej',
+    mercadoLivreUrl: 'https://meli.la/1P4dUDm',
   },
   {
     slug: 'philips-walita-ep1220',
@@ -107,8 +107,8 @@ const dados: CafeteiraMoedorDados[] = [
       criticas: ['No começo, o café pode sair aguado até acertar a moagem', 'Há relatos de itens faltando na embalagem'],
       observacao: 'Tem mais de mil avaliações na Amazon, com nota 4,5, num anúncio dividido com a Série 2300.',
     },
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B0cauXbwb',
+    mercadoLivreUrl: 'https://meli.la/1hfhcJj',
   },
   {
     slug: 'delonghi-magnifica-s',
@@ -150,8 +150,8 @@ const dados: CafeteiraMoedorDados[] = [
       criticas: ['Há relato de moedor que quebrou em 4 meses', 'Alguns acham o café fraco mesmo no ajuste mais forte', 'Há relatos de defeito repetido depois da garantia'],
       observacao: 'É um dos modelos com mais avaliações na Amazon, com nota 4,4.',
     },
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B09u4jJBE',
+    mercadoLivreUrl: 'https://meli.la/1J3uSbp',
   },
   {
     slug: 'philips-walita-ep4441',
@@ -194,8 +194,8 @@ const dados: CafeteiraMoedorDados[] = [
       criticas: ['Alguns tiveram dificuldade para acertar o café mais forte no começo', 'Há relatos de unidades com defeito no moedor ou com erro ao ligar'],
       observacao: 'Tem cerca de cem avaliações na Amazon, com nota 4,5.',
     },
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B0ah09Drn',
+    mercadoLivreUrl: 'https://meli.la/173zAgJ',
   },
   {
     slug: 'oster-xpert-perfect-brew',
@@ -239,8 +239,8 @@ const dados: CafeteiraMoedorDados[] = [
       criticas: ['Alguns não conseguiram acertar a extração e o café saiu fraco', 'O vaporizador não espuma como o esperado, para alguns', 'Há relato de defeito em poucos meses'],
       observacao: 'Tem centenas de avaliações na Amazon, somando as versões, com nota 4,6.',
     },
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B074POEDY',
+    mercadoLivreUrl: 'https://meli.la/1gY8VSi',
   },
   {
     slug: 'spidem-trevi',
@@ -285,7 +285,7 @@ const dados: CafeteiraMoedorDados[] = [
       observacao: 'Tem dezenas de avaliações na Amazon, com nota 4,6.',
     },
     amazonUrl: '',
-    mercadoLivreUrl: '',
+    mercadoLivreUrl: 'https://meli.la/1kYgPMq',
   },
   {
     slug: 'philips-walita-ep5547',
@@ -329,8 +329,8 @@ const dados: CafeteiraMoedorDados[] = [
       criticas: ['Há relatos de máquinas que chegaram riscadas ou com defeito', 'Quem gosta de café muito forte achou a moagem mais fina insuficiente', 'Alguns acharam o resultado abaixo do preço'],
       observacao: 'Tem pouco mais de cem avaliações na Amazon, com nota 4,5.',
     },
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B0f9FTm1f',
+    mercadoLivreUrl: 'https://meli.la/1u84ZHg',
   },
   {
     slug: 'tramontina-express-pro',
@@ -374,7 +374,7 @@ const dados: CafeteiraMoedorDados[] = [
       observacao: 'Tem dezenas de avaliações na Amazon, com nota 4,5.',
     },
     amazonUrl: '',
-    mercadoLivreUrl: '',
+    mercadoLivreUrl: 'https://meli.la/26wY6m8',
   },
   {
     slug: 'krups-coffee-crush',
@@ -418,8 +418,8 @@ const dados: CafeteiraMoedorDados[] = [
       criticas: ['As luzes dos botões são fracas e difíceis de ver', 'Uma compradora achou a temperatura baixa e devolveu'],
       observacao: 'Tem poucas dezenas de avaliações na Amazon, com nota entre 4,1 e 4,6, conforme a versão.',
     },
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B0hkdXtz5',
+    mercadoLivreUrl: 'https://meli.la/26o9e7r',
   },
   {
     slug: 'gaggia-besana',
@@ -459,8 +459,8 @@ const dados: CafeteiraMoedorDados[] = [
       criticas: ['O reservatório de água termina rápido', 'Manual difícil de entender', 'Há relato de peça faltando e de dificuldade com o suporte'],
       observacao: 'Tem poucas dezenas de avaliações na Amazon, com nota 4,3.',
     },
-    amazonUrl: '',
-    mercadoLivreUrl: '',
+    amazonUrl: 'https://link.amazon/B00kPAdop',
+    mercadoLivreUrl: 'https://meli.la/2gmfcUw',
   },
 ];
 
