@@ -27,11 +27,13 @@ export const author = {
     { nome: 'Instagram', url: 'https://www.instagram.com/jomar.hanum' },
     { nome: 'LinkedIn', url: 'https://www.linkedin.com/in/jomar-hanum' },
     { nome: 'Facebook', url: 'https://www.facebook.com/jomar.hanum' },
+    { nome: 'X', url: 'https://x.com/jomarhanum' },
   ],
   sameAs: [
     'https://www.instagram.com/jomar.hanum',
     'https://www.linkedin.com/in/jomar-hanum',
     'https://www.facebook.com/jomar.hanum',
+    'https://x.com/jomarhanum',
     'https://jhonlinesolutions.com.br',
   ],
 };
