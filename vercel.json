@@ -68,6 +68,46 @@
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml",
       "permanent": true
+    },
+    {
+      "source": "/melhor-ar-condicionado/",
+      "destination": "/melhor-ar-condicionado-inverter/",
+      "permanent": true
+    },
+    {
+      "source": "/category/ar-condicionado/",
+      "destination": "/climatizacao/",
+      "permanent": true
+    },
+    {
+      "source": "/tag/ar-condicionado/",
+      "destination": "/climatizacao/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pagina-inicial/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/page/:n/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/author/ana-lucia/",
+      "destination": "/sobre/",
+      "permanent": true
+    },
+    {
+      "source": "/:ano(\\d{4})/:mes(\\d{2})/",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
