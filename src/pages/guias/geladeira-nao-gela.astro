@@ -1,0 +1,64 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fonte principal: tabela "Falhas e soluções" e instruções de instalação do manual de geladeiras Electrolux
+// frost free (linha IT56/TF56/DF56): controle de temperatura, sol e calor, saídas de ar, porta aberta,
+// modo demonstração, distâncias mínimas, tomada exclusiva, 2 horas antes de abastecer, out/2026.
+const faq = [
+  { q: 'Por que a geladeira liga mas não gela?', a: 'As causas mais comuns são o controle de temperatura mal ajustado, saídas de ar bloqueadas por alimentos, porta que não fecha direito, geladeira encostada na parede ou perto de fonte de calor e, em modelos digitais, o modo de demonstração de loja ativado. Se nada disso resolver, pode ser defeito no ventilador, no sistema de degelo ou falta de gás, que pedem assistência técnica.' },
+  { q: 'O freezer gela, mas a parte de baixo não. O que pode ser?', a: 'Nas frost free, o frio é produzido perto do freezer e levado ao refrigerador por saídas de ar. Se a parte de baixo não gela, verifique se há alimentos tapando essas saídas e se o controle está bem ajustado. Se continuar, o problema costuma ser na circulação de ar ou no degelo automático, e é caso de assistência técnica.' },
+  { q: 'Quanto tempo a geladeira demora para gelar depois de ligada?', a: 'O manual de geladeiras Electrolux pede para deixar a geladeira funcionando por duas horas no frio máximo antes de guardar alimentos, e para esperar pelo menos duas horas antes de ligar depois de transportar o aparelho.' },
+  { q: 'Desligar a geladeira da tomada ajuda?', a: 'Depois de queda ou oscilação de energia, o manual Electrolux orienta tirar o plugue da tomada por 5 minutos e reconectar. Isso não resolve defeito em peça, mas reinicia o sistema eletrônico.' },
+  { q: 'Como saber se a geladeira está sem gás?', a: 'Só um técnico confirma, com equipamento. A geladeira que funciona sem parar e não gela, mesmo depois de todas as verificações deste guia, é um sinal para chamar a assistência. Não tente recarregar gás por conta própria: o gás refrigerante é inflamável.' },
+  { q: 'Colocar no frio máximo resolve?', a: 'Pode ajudar se o controle estava baixo, mas o manual Electrolux recomenda evitar a graduação máxima no dia a dia: em dias frios, ela congela alimentos no refrigerador e aumenta o consumo de energia.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-geladeira/', '/guias/como-limpar-geladeira/', '/guias/geladeira-gasta-muita-energia/', '/guias/qual-tamanho-de-geladeira/']}>
+  <p>Geladeira que não gela é emergência na cozinha. Mas, antes de chamar o técnico, vale saber que <strong>boa parte dos casos tem solução simples</strong>: controle mal ajustado, saída de ar tapada, porta mal fechada ou geladeira colada na parede. Montamos o passo a passo com base na tabela de falhas e soluções do manual de geladeiras Electrolux, do mais simples ao que exige assistência.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> confira, nesta ordem, se a geladeira está <strong>ligada numa tomada própria</strong>, se o <strong>controle de temperatura</strong> está bem ajustado, se as <strong>saídas de ar</strong> estão livres, se a <strong>porta fecha</strong> direito e se há <strong>espaço em volta</strong> e nenhuma fonte de calor por perto. Se mesmo assim continuar sem gelar, chame a assistência técnica: pode ser ventilador, degelo ou gás.</p>
+  </div>
+
+  <h2 id="verificacoes">10 verificações antes de chamar o técnico</h2>
+  <ol>
+    <li><strong>Plugue e tomada.</strong> Veja se o plugue está bem encaixado e se a tomada funciona (teste com outro aparelho). A geladeira deve ficar numa <strong>tomada exclusiva</strong>, sem extensão nem T (benjamim), que podem sobrecarregar a rede.</li>
+    <li><strong>Queda de energia.</strong> Depois de queda ou oscilação de energia, tire o plugue da tomada por <strong>5 minutos</strong> e reconecte, como orienta o manual.</li>
+    <li><strong>Controle de temperatura.</strong> Confira se ele não foi mexido para a posição mais quente. Ajuste para a posição indicada no manual.</li>
+    <li><strong>Saídas de ar.</strong> Alimentos encostados nas saídas de ar impedem o frio de circular. Afaste os potes e não lote as prateleiras.</li>
+    <li><strong>Porta.</strong> Veja se ela fecha por completo: objetos no topo da geladeira ou alimentos mal posicionados podem impedir. Confira se a borracha está inteira e limpa.</li>
+    <li><strong>Tempo de porta aberta.</strong> Porta aberta por muito tempo, ou muitas vezes seguidas, faz a temperatura subir. Abra só o necessário.</li>
+    <li><strong>Calor e sol.</strong> Geladeira ao lado de fogão, forno ou sob sol direto trabalha mais e gela menos. Mude o lugar, se possível.</li>
+    <li><strong>Espaço em volta.</strong> O manual pede no mínimo <strong>15 cm em cima, 15 cm atrás e 10 cm de cada lado</strong>. Colada na parede, ela não consegue soltar o calor.</li>
+    <li><strong>Ligada há pouco tempo?</strong> Depois de instalar ou limpar, deixe a geladeira funcionando por <strong>2 horas</strong> antes de guardar alimentos, e abasteça aos poucos se os alimentos não estiverem gelados. Depois de transporte, espere pelo menos 2 horas antes de ligar.</li>
+    <li><strong>Modo demonstração.</strong> Em modelos digitais, se o painel e as luzes funcionam mas a geladeira não gela, ela pode estar no modo de demonstração de loja. Em geladeiras Electrolux, um LED "demo" fica aceso; o manual orienta tirar o plugue, esperar 10 segundos e ligar de novo.</li>
+  </ol>
+
+  <h2 id="parte-de-baixo">Freezer gela, mas a parte de baixo não</h2>
+  <p>Nas geladeiras <strong>frost free</strong>, o frio é gerado perto do freezer e um ventilador o leva até o refrigerador por saídas de ar. Por isso, quando o freezer gela e a parte de baixo não, o problema quase sempre está nesse caminho do ar:</p>
+  <ul>
+    <li><strong>Saídas de ar tapadas</strong> por alimentos ou gelo: afaste os alimentos e, se houver gelo acumulado, faça o degelo.</li>
+    <li><strong>Controle de circulação de ar</strong> mal ajustado, em modelos que têm esse controle: confira no manual.</li>
+    <li><strong>Ventilador ou degelo automático com defeito</strong>: se o ventilador não gira ou o gelo volta a acumular no fundo do freezer, chame a assistência.</li>
+  </ul>
+
+  <h2 id="tecnico">Quando chamar a assistência técnica</h2>
+  <ul>
+    <li>A geladeira continua sem gelar depois de todas as verificações acima.</li>
+    <li>O motor (compressor) liga e desliga várias vezes seguidas sem a geladeira funcionar; o manual associa isso a tensão muito alta ou muito baixa na tomada, caso em que pode ser necessário um estabilizador.</li>
+    <li>O motor funciona sem parar e mesmo assim não gela.</li>
+    <li>O gelo volta a se acumular no fundo do freezer de uma frost free.</li>
+    <li>Barulho anormal, cheiro de queimado ou a geladeira não liga de jeito nenhum.</li>
+  </ul>
+  <p>Se a geladeira estiver na garantia, procure a <strong>assistência autorizada da marca</strong>: conserto feito por terceiros pode fazer você perder a garantia. E nunca tente recarregar gás por conta própria: o gás refrigerante das geladeiras atuais é inflamável.</p>
+
+  <h2 id="enquanto">Enquanto o conserto não chega</h2>
+  <ul>
+    <li>Mantenha as portas fechadas: geladeiras costumam segurar o frio por algumas horas, como indica o manual de cada modelo.</li>
+    <li>Passe perecíveis, como carnes e laticínios, para uma caixa térmica com gelo.</li>
+    <li>Na dúvida sobre o estado de um alimento que esquentou, descarte.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Se o conserto não compensar, veja as <a href="/melhor-geladeira/">10 melhores geladeiras de 2026</a>, com consumo oficial do Inmetro. E para evitar problemas, mantenha a geladeira limpa: veja <a href="/guias/como-limpar-geladeira/">como limpar a geladeira</a>.</p>
+</Artigo>

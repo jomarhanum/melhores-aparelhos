@@ -2,9 +2,10 @@
 import Artigo from '../../layouts/Artigo.astro';
 
 // Fontes: orientações oficiais da Brastemp (produtos permitidos e proibidos, parte de trás, degelo da frost free)
-// e da Electrolux (frequência semanal e mensal, ordem da limpeza, borrachas, inox), out/2026.
+// e da Electrolux (frequência semanal e mensal, ordem da limpeza, borrachas, inox; manual IT56: solução de
+// bicarbonato para o interior, sem cloro nem alcalinos), out/2026.
 const faq = [
-  { q: 'Qual o melhor produto para limpar a geladeira por dentro?', a: 'Água morna com detergente ou sabão neutro, aplicada com esponja macia ou pano. É o que a Brastemp e a Electrolux indicam. Depois, enxágue com pano úmido e seque com pano limpo.' },
+  { q: 'Qual o melhor produto para limpar a geladeira por dentro?', a: 'Água morna com detergente ou sabão neutro, aplicada com esponja macia ou pano. É o que a Brastemp e a Electrolux indicam; o manual de geladeiras Electrolux também aceita água com bicarbonato de sódio (1 colher de sopa por litro). Depois, enxágue com pano úmido e seque com pano limpo.' },
   { q: 'Posso limpar a geladeira com álcool?', a: 'A Brastemp diz para nunca usar materiais tóxicos como amoníaco, álcool e removedores, nem abrasivos como sapólio e pastas. Eles podem danificar o plástico interno e deixar cheiro nos alimentos.' },
   { q: 'De quanto em quanto tempo limpar a geladeira?', a: 'A Electrolux recomenda uma verificação rápida toda semana, para tirar itens vencidos e limpar pequenos derramamentos, e uma limpeza completa pelo menos uma vez por mês.' },
   { q: 'Precisa desligar a geladeira frost free para limpar?', a: 'Para a limpeza completa, sim: desligue da tomada por segurança. Mas a frost free não precisa de degelo; só faça o degelo manual se houver gelo acumulado por dentro, como orienta a Brastemp.' },
@@ -64,7 +65,7 @@ const faq = [
     <li><strong>Seque bem</strong> antes de religar: umidade parada ajuda o cheiro a voltar.</li>
     <li><strong>Guarde os alimentos em potes fechados</strong>, principalmente peixe, cebola, alho e queijos.</li>
   </ol>
-  <p>Algumas geladeiras têm filtro próprio para odores, como o TasteGuard de modelos Electrolux; se a sua tiver, troque o filtro no prazo do manual. Um pote aberto com bicarbonato de sódio é uma dica caseira popular para absorver cheiro, mas não substitui a limpeza.</p>
+  <p>Contra o cheiro, uma alternativa ao detergente é a solução que o manual de geladeiras Electrolux indica para o interior: <strong>1 colher de sopa de bicarbonato de sódio para 1 litro de água</strong>, aplicada com pano. Algumas geladeiras também têm filtro próprio para odores, como o TasteGuard de modelos Electrolux; se a sua tiver, troque o filtro no prazo do manual.</p>
 
   <h2 id="pode-nao-pode">O que pode e o que não pode usar</h2>
   <div class="tabela-wrap">
@@ -73,7 +74,8 @@ const faq = [
       <tbody>
         <tr><td>Água morna</td><td>Álcool, amoníaco e removedores</td></tr>
         <tr><td>Detergente ou sabão neutro</td><td>Sapólio, pastas e outros abrasivos</td></tr>
-        <tr><td>Esponja macia e pano de microfibra</td><td>Palha de aço e escovas</td></tr>
+        <tr><td>Água com bicarbonato de sódio (1 colher de sopa por litro), indicada no manual Electrolux</td><td>Produtos alcalinos e à base de cloro</td></tr>
+        <tr><td>Esponja macia e pano de microfibra</td><td>Palha de aço, escovas e espátulas de metal</td></tr>
         <tr><td>Produto próprio para inox (por fora)</td><td>Faca ou objeto pontudo para tirar gelo</td></tr>
         <tr><td>Aspirador ou espanador (atrás)</td><td>Água jogada direto na parte de trás ou nos componentes elétricos</td></tr>
       </tbody>

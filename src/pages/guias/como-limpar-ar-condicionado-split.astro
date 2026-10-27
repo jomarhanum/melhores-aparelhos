@@ -1,0 +1,62 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fontes: Samsung (filtros de 2 em 2 semanas, secar longe do sol, sem acetona, benzeno ou álcool) e LG (água morna
+// com detergente neutro, secar antes de recolocar, sem produtos químicos, limpeza profissional ao menos 1 vez por ano), out/2026.
+const faq = [
+  { q: 'De quanto em quanto tempo limpar o filtro do ar-condicionado split?', a: 'A Samsung recomenda limpar os filtros de 2 em 2 semanas. A LG fala em limpar uma vez por mês nos períodos de uso frequente e trocar ou limpar a cada 1 a 3 meses. Em casas com pets, poeira ou pessoas alérgicas, limpe com mais frequência.' },
+  { q: 'Posso lavar o filtro do ar-condicionado com água?', a: 'Sim. Os filtros de tela das evaporadoras podem ser lavados em água corrente; a LG indica água morna com detergente neutro e escova macia. Deixe secar completamente, longe do sol direto, antes de recolocar.' },
+  { q: 'Posso limpar o ar-condicionado com álcool?', a: 'Não. A Samsung diz para não usar acetona, benzeno ou álcool nas superfícies da unidade, e a LG alerta que produtos químicos podem corroer componentes como serpentinas e aletas.' },
+  { q: 'Precisa de técnico para limpar o ar-condicionado?', a: 'Os filtros e a parte de fora você mesmo limpa. A limpeza interna, das serpentinas e da unidade externa, deve ser feita por profissional, pelo menos uma vez por ano, segundo a LG.' },
+  { q: 'Por que o ar-condicionado está com cheiro ruim?', a: 'Filtro sujo e umidade acumulada na unidade interna favorecem mofo e bactérias. Limpe os filtros; se o cheiro continuar, é hora da higienização completa feita por técnico.' },
+  { q: 'Filtro sujo aumenta a conta de luz?', a: 'Sim. Filtro entupido dificulta a passagem do ar, o aparelho trabalha mais para gelar o ambiente e gasta mais energia. A LG cita conta de luz mais alta entre os sinais de que o aparelho precisa de limpeza.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-inverter/', '/guias/instalacao-ar-condicionado-split/', '/guias/selo-procel-e-consumo-ar-condicionado/', '/guias/ar-condicionado-inverter-vale-a-pena/']}>
+  <p>Ar-condicionado sujo gela menos, gasta mais energia e pode espalhar <strong>poeira, mofo e cheiro ruim</strong> pelo quarto. A parte que mais suja, os filtros, você mesmo limpa em 10 minutos. Veja o passo a passo com base nas orientações da Samsung e da LG, e o que deve ficar com o técnico.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> desligue o aparelho e tire da tomada, abra a tampa da unidade interna, retire os filtros e lave em <strong>água corrente</strong>, com água morna, detergente neutro e escova macia. Deixe <strong>secar por completo, longe do sol</strong>, e recoloque. Faça isso <strong>a cada 2 semanas a 1 mês</strong>. Não use álcool, acetona nem produtos químicos. A limpeza interna das serpentinas é com <strong>técnico, pelo menos uma vez por ano</strong>.</p>
+  </div>
+
+  <h2 id="filtros">Como limpar os filtros do ar-condicionado split</h2>
+  <ol>
+    <li><strong>Desligue o ar-condicionado e tire da tomada</strong> (ou desligue o disjuntor).</li>
+    <li><strong>Abra a tampa frontal</strong> da unidade interna, levantando pelas laterais. O jeito de abrir muda de marca para marca: veja o manual.</li>
+    <li><strong>Retire os filtros</strong> de tela, puxando com cuidado.</li>
+    <li>Se tiver muita poeira, passe o <strong>aspirador de pó</strong> antes.</li>
+    <li><strong>Lave em água corrente</strong>, com água morna e um pouco de detergente neutro, esfregando com <strong>escova macia</strong>.</li>
+    <li><strong>Deixe secar completamente</strong> à sombra, num lugar ventilado. Sol direto pode deformar o filtro, e filtro úmido não deve voltar ao aparelho.</li>
+    <li><strong>Recoloque os filtros</strong> bem encaixados e feche a tampa. Se o filtro estiver mal colocado, a tampa pode não fechar direito.</li>
+  </ol>
+  <p>Alguns aparelhos têm filtros especiais, como os de carvão ativado ou antibacterianos, que não são laváveis e devem ser trocados no prazo do manual. Em modelos Samsung, o código <strong>CF</strong> no visor avisa que é hora de limpar os filtros.</p>
+
+  <h2 id="unidade-interna">Como limpar a unidade interna por fora</h2>
+  <p>Passe um <strong>pano macio levemente úmido</strong> na carcaça e no painel. Não jogue água, não use álcool, acetona nem benzeno, e nunca enfie objetos nas aletas.</p>
+
+  <h2 id="externa">E a unidade externa (condensadora)?</h2>
+  <p>Mantenha a área em volta <strong>livre de folhas, sujeira e objetos</strong>, para o ar circular. A limpeza da serpentina da condensadora, assim como a da evaporadora, é tarefa para técnico: envolve desmontar partes e há risco de amassar as aletas ou atingir a parte elétrica.</p>
+
+  <h2 id="tecnico">Higienização completa com técnico</h2>
+  <p>A LG recomenda contratar um profissional <strong>pelo menos uma vez por ano</strong> para limpar as serpentinas. Em uso intenso, como no verão em cidades quentes, faz sentido antecipar. Sinais de que está na hora:</p>
+  <ul>
+    <li>O aparelho gela menos do que antes.</li>
+    <li>Cheiro ruim ou de mofo ao ligar.</li>
+    <li>Barulhos incomuns.</li>
+    <li>Conta de luz mais alta sem mudança no uso.</li>
+    <li>Fluxo de ar fraco, mesmo com os filtros limpos.</li>
+  </ul>
+  <p>Se o aparelho estiver na garantia, prefira a assistência ou o instalador credenciado pela marca. Veja também o guia de <a href="/guias/instalacao-ar-condicionado-split/">instalação de ar-condicionado split</a>.</p>
+
+  <h2 id="nao-faca">O que não fazer</h2>
+  <ul>
+    <li>Usar álcool, acetona, benzeno ou produtos químicos de limpeza.</li>
+    <li>Secar o filtro no sol ou com secador de cabelo quente.</li>
+    <li>Ligar o aparelho sem os filtros.</li>
+    <li>Recolocar o filtro ainda úmido.</li>
+    <li>Jogar água direto na unidade interna.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Aparelho velho, barulhento e gastando muito? Veja os <a href="/melhor-ar-condicionado-inverter/">10 melhores ar-condicionados inverter de 2026</a> e confira <a href="/guias/ar-condicionado-inverter-vale-a-pena/">quanto o inverter economiza</a>.</p>
+</Artigo>

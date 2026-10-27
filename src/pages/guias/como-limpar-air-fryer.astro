@@ -1,0 +1,75 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fonte: orientações da Electrolux para limpeza de air fryer (após cada uso, produtos proibidos, resistência,
+// frequência semanal e mensal), out/2026. Lava-louças: só se o manual do modelo permitir.
+const faq = [
+  { q: 'Como limpar a air fryer por dentro?', a: 'Com a air fryer desligada da tomada e fria, retire o cesto e lave-o com água morna, detergente neutro e o lado macio da esponja. Depois, vire o aparelho de cabeça para baixo e limpe a resistência e o teto da cavidade com pano ou escova macia e um pouco de detergente neutro, sem encharcar.' },
+  { q: 'O cesto da air fryer pode ir na lava-louças?', a: 'Depende do modelo: muitos cestos são compatíveis, e o manual informa. Mesmo quando pode, a Electrolux recomenda lavar à mão com esponja macia para o antiaderente durar mais.' },
+  { q: 'Como tirar gordura grudada da air fryer?', a: 'Deixe o cesto de molho em água morna com detergente neutro por alguns minutos e depois lave com o lado macio da esponja. Nunca use palha de aço, saponáceo, limpa-forno ou desengordurante forte, que estragam o antiaderente.' },
+  { q: 'Como limpar a resistência da air fryer?', a: 'Com o aparelho desligado e frio, vire a air fryer de cabeça para baixo e limpe a resistência com pano ou escova macia levemente úmidos, com um pouco de detergente neutro. Não jogue água nem mergulhe o corpo do aparelho.' },
+  { q: 'De quanto em quanto tempo limpar a air fryer?', a: 'O cesto e a cuba, depois de cada uso. A parte de fora e as saídas de ar, toda semana. A resistência e a cavidade interna, uma limpeza mais caprichada uma vez por mês, segundo a Electrolux.' },
+  { q: 'Por que a air fryer está soltando fumaça branca?', a: 'Geralmente é gordura acumulada no cesto ou na resistência queimando. Faça a limpeza completa, incluindo a resistência, e evite alimentos muito gordurosos sem forrar o cesto.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-air-fryer/', '/guias/air-fryer-vale-a-pena/', '/guias/qual-tamanho-de-air-fryer/', '/guias/air-fryer-gasta-muita-energia/']}>
+  <p>A air fryer é prática no dia a dia, mas gordura velha no cesto e na resistência vira <strong>fumaça branca, cheiro de queimado e antiaderente descascando</strong>. A boa notícia: limpar leva poucos minutos, desde que você use o produto certo e não estrague o revestimento. Veja o passo a passo com base nas orientações da Electrolux.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> com a air fryer <strong>desligada e fria</strong>, lave o cesto e a cuba <strong>depois de cada uso</strong> com água morna, detergente neutro e o <strong>lado macio da esponja</strong>. Uma vez por mês, limpe a <strong>resistência</strong> com pano macio, com o aparelho virado. Nunca use palha de aço, saponáceo, limpa-forno nem objetos pontudos, e nunca mergulhe o corpo da air fryer na água.</p>
+  </div>
+
+  <h2 id="depois-de-usar">Depois de cada uso: cesto e cuba</h2>
+  <ol>
+    <li><strong>Desligue da tomada e espere esfriar</strong> por completo.</li>
+    <li>Tire o excesso de gordura com papel-toalha.</li>
+    <li>Lave o <strong>cesto removível e a cuba</strong> com água morna, detergente neutro e o <strong>lado macio (amarelo) da esponja</strong>.</li>
+    <li>Se a gordura grudou, deixe de molho em água morna com detergente por alguns minutos antes de lavar.</li>
+    <li>Enxágue, seque bem e encaixe de novo.</li>
+  </ol>
+  <p><strong>Lava-louças:</strong> muitos modelos têm cesto e cuba compatíveis; o manual informa. Mesmo assim, lavar à mão com esponja macia faz o antiaderente durar mais.</p>
+
+  <h2 id="por-dentro">Como limpar a air fryer por dentro e a resistência</h2>
+  <p>A resistência fica no teto da cavidade, acima do cesto. É ali que a gordura respingada acumula e queima, causando fumaça e cheiro.</p>
+  <ol>
+    <li>Com a air fryer <strong>desligada da tomada e fria</strong>, retire o cesto.</li>
+    <li><strong>Vire o aparelho de cabeça para baixo</strong> sobre um pano, para enxergar a resistência (a serpentina).</li>
+    <li>Limpe a resistência e o teto da cavidade com <strong>pano macio ou escova macia</strong>, levemente úmidos com água e um pouco de detergente neutro.</li>
+    <li>Passe um pano só úmido para tirar o detergente e deixe secar bem antes de usar.</li>
+  </ol>
+  <p><strong>Importante:</strong> nunca jogue água direto e nunca mergulhe o corpo da air fryer, onde estão a resistência e a parte elétrica.</p>
+
+  <h2 id="por-fora">Como limpar por fora</h2>
+  <p>Passe um pano macio levemente úmido para tirar marcas de dedo e poeira, e limpe as saídas de ar da parte de trás. Seque com pano seco.</p>
+
+  <h2 id="nao-use">O que não usar na air fryer</h2>
+  <ul>
+    <li>Palha de aço e o lado verde da esponja.</li>
+    <li>Desengordurantes corrosivos e limpa-forno.</li>
+    <li>Saponáceos abrasivos, como sapólio.</li>
+    <li>Objetos pontudos, como faca ou espeto, para raspar o cesto.</li>
+  </ul>
+  <p>Todos eles riscam ou corroem o antiaderente. Antiaderente riscado faz a comida grudar mais e encurta a vida útil do cesto.</p>
+
+  <h2 id="frequencia">Com que frequência limpar</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>O quê</th><th>Frequência</th></tr></thead>
+      <tbody>
+        <tr><td>Cesto e cuba</td><td>Depois de cada uso</td></tr>
+        <tr><td>Parte de fora e saídas de ar</td><td>Toda semana</td></tr>
+        <tr><td>Resistência e cavidade interna</td><td>Uma limpeza caprichada por mês</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="dicas">Dicas para sujar menos</h2>
+  <ul>
+    <li>Use papel próprio para air fryer ou forma de silicone em alimentos muito gordurosos ou com molho.</li>
+    <li>Não use spray de óleo em excesso: ele forma uma crosta difícil de tirar.</li>
+    <li>Não lote o cesto: além de assar pior, espalha mais gordura.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Antiaderente descascado ou air fryer muito velha? Veja as <a href="/melhor-air-fryer/">10 melhores air fryers de 2026</a>, incluindo modelos com peças que vão à lava-louças.</p>
+</Artigo>

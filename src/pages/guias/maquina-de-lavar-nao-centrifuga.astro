@@ -1,0 +1,61 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fonte principal: página de suporte da Samsung "O que fazer se a sua máquina de lavar não está a centrifugar"
+// (carga desequilibrada, sobrecarga, filtro, mangueira, velocidade do ciclo, motor), out/2026.
+const faq = [
+  { q: 'Por que a máquina de lavar não centrifuga?', a: 'As causas mais comuns são carga desequilibrada (roupa toda de um lado ou uma peça pesada sozinha), excesso de roupa, filtro entupido e mangueira de saída dobrada ou bloqueada. Em todos esses casos a água não sai direito ou a máquina trava a centrifugação para se proteger.' },
+  { q: 'A máquina lava mas não centrifuga. O que fazer primeiro?', a: 'Abra a máquina e redistribua a roupa, tirando o excesso se estiver muito cheia. Depois limpe o filtro e confira se a mangueira de saída não está dobrada. Então rode só o programa de centrifugação.' },
+  { q: 'Lavar só uma toalha ou um tapete atrapalha a centrifugação?', a: 'Sim. Uma peça pesada sozinha desequilibra o cesto. A Samsung dá o exemplo de não misturar camisas de algodão com uma única toalha grande; junte peças de peso parecido.' },
+  { q: 'Como limpar o filtro da máquina de lavar?', a: 'Com a máquina desligada, retire o filtro (no agitador ou na borda do cesto nas de abertura superior, ou atrás de uma tampinha embaixo, na frente, nas frontais). Nas frontais, coloque uma bandeja para a água que sai. Tire fiapos, moedas e tecidos, lave e recoloque bem firme.' },
+  { q: 'Quando chamar a assistência técnica?', a: 'Se o cesto não gira nem vazio, se aparece código de erro de motor ou se o problema continua depois de redistribuir a roupa, limpar o filtro e conferir a mangueira. Pode ser bomba, motor, correia ou placa.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-maquina-de-lavar/', '/guias/como-limpar-maquina-de-lavar/', '/guias/maquina-de-lavar-frontal-ou-superior/', '/guias/quantos-kg-maquina-de-lavar/']}>
+  <p>A máquina lavou, mas a roupa saiu encharcada? Na maioria das vezes, a causa é simples e você resolve em minutos, sem técnico: <strong>roupa desequilibrada, excesso de carga, filtro entupido ou mangueira dobrada</strong>. Veja as verificações na ordem certa, com base no guia de solução de problemas da Samsung, e os sinais de que é caso de assistência.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> 1) <strong>redistribua a roupa</strong> e tire o excesso; 2) <strong>limpe o filtro</strong>; 3) confira se a <strong>mangueira de saída</strong> não está dobrada ou entupida; 4) veja se o <strong>programa</strong> escolhido tem centrifugação; 5) desligue da tomada por alguns segundos e tente de novo. Se o cesto não gira nem vazio, chame a assistência.</p>
+  </div>
+
+  <h2 id="causas">Causas e o que fazer</h2>
+
+  <h3>1. Carga desequilibrada</h3>
+  <p>É a causa mais comum. Quando a roupa fica toda de um lado, ou quando há uma peça muito pesada sozinha, a máquina interrompe a centrifugação para não balançar e se danificar. O sinal típico é o ciclo que <strong>para, tenta de novo e fica parado</strong> por muito tempo.</p>
+  <p><strong>O que fazer:</strong> abra a máquina, solte as peças emboladas e espalhe a roupa por igual. Evite misturar uma única toalha grande com peças leves; junte peças de peso parecido. Tênis devem ir num saco de lavar, junto com outras roupas.</p>
+
+  <h3>2. Excesso de roupa</h3>
+  <p>A Samsung resume: a sobrecarga impede uma centrifugação eficaz. <strong>O que fazer:</strong> tire algumas peças volumosas e rode a centrifugação de novo com carga menor.</p>
+
+  <h3>3. Filtro entupido</h3>
+  <p>Fiapos, moedas, grampos e pedaços de tecido entopem o filtro, a água não escoa e a máquina não passa para a centrifugação. <strong>O que fazer:</strong> com a máquina desligada, retire o filtro, limpe e recoloque bem firme.</p>
+  <ul>
+    <li><strong>Abertura superior:</strong> o filtro costuma ficar no agitador ou na borda do cesto.</li>
+    <li><strong>Frontal:</strong> fica atrás de uma tampinha embaixo, na frente. Coloque uma bandeja e uma toalha antes de abrir, porque sai água.</li>
+  </ul>
+  <p>Passo a passo completo em <a href="/guias/como-limpar-maquina-de-lavar/">como limpar a máquina de lavar</a>.</p>
+
+  <h3>4. Mangueira de saída dobrada ou entupida</h3>
+  <p>Uma mangueira de drenagem bloqueada, dobrada ou amassada atrás da máquina impede a água de sair. <strong>O que fazer:</strong> afaste a máquina da parede e confira a mangueira inteira. Ela também não deve ficar enfiada fundo demais no ralo ou no tanque, porque isso pode fazer a água voltar por sifonagem. Se ela despeja numa pia, veja se o encaixe não está entupido de gordura.</p>
+
+  <h3>5. Programa sem centrifugação ou com centrifugação fraca</h3>
+  <p>Programas para roupas delicadas, lã ou "molho" centrifugam pouco ou nada, e cada programa tem uma velocidade máxima. <strong>O que fazer:</strong> confira o programa escolhido e, se quiser a roupa mais seca, rode o programa de centrifugação ou use um ciclo para algodão.</p>
+
+  <h3>6. Tampa ou porta mal fechada</h3>
+  <p>Por segurança, a máquina não centrifuga com a tampa ou a porta aberta. Feche bem e confira se não há roupa presa na vedação.</p>
+
+  <h3>7. Erro eletrônico</h3>
+  <p>Depois de queda de energia ou se aparecer um código de erro, desligue a máquina da tomada, espere uns 30 segundos, ligue de novo e comece um programa novo. Anote o código para informar à assistência, se precisar.</p>
+
+  <h2 id="tecnico">Quando é caso de assistência técnica</h2>
+  <ul>
+    <li>O cesto <strong>não gira nem vazio</strong>, num ciclo curto sem roupa.</li>
+    <li>A água não escoa mesmo com o filtro limpo e a mangueira desobstruída: pode ser a bomba.</li>
+    <li>Aparece código de erro do motor ou o problema volta sempre.</li>
+    <li>Barulho de motor funcionando sem o cesto girar: pode ser correia ou motor.</li>
+  </ul>
+  <p>Na garantia, use a assistência autorizada da marca. Para evitar o problema, limpe o filtro com frequência e não sobrecarregue a máquina.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Se o conserto não compensar, veja as <a href="/melhor-maquina-de-lavar/">10 melhores máquinas de lavar de 2026</a>, com água e energia por ciclo segundo o Inmetro.</p>
+</Artigo>

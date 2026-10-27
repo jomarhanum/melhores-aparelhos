@@ -1,0 +1,68 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fonte: manuais de fornos elétricos Fischer (de embutir e de bancada), seção "Limpeza e manutenção": desligar da
+// tomada, resistências frias com pano macio, produtos proibidos (inclui vinagre e soda), vidro da porta, inox, out/2026.
+const faq = [
+  { q: 'Como limpar o forno elétrico por dentro?', a: 'Com o forno desligado da tomada e frio, retire a grade e a bandeja e lave na pia com água morna, detergente neutro e esponja macia. Limpe o interior com pano macio umedecido em água morna e detergente neutro, depois passe pano só úmido e seque. As resistências, frias, só com pano macio.' },
+  { q: 'Posso limpar o forno elétrico com vinagre ou bicarbonato?', a: 'Vinagre, não: os manuais de fornos Fischer listam vinagre e soda entre os produtos que danificam o forno, junto com álcool, solventes, removedores, sapólio e esponja de aço. Fique com água morna e detergente neutro, ou com o produto que o manual do seu modelo indicar.' },
+  { q: 'Como limpar a gordura queimada nas resistências?', a: 'Com o forno frio e desligado, passe um pano macio nas resistências. O manual Fischer pede para não usar o forno com gordura, açúcar ou chocolate grudados nelas, porque soltam vapores amarelados que mancham o acabamento.' },
+  { q: 'Como limpar o vidro da porta do forno?', a: 'Espere o vidro esfriar (pano úmido em vidro quente pode trincar) e limpe com água morna, pano macio e detergente neutro. Não use abrasivos nem raspadores de metal, que arranham e podem quebrar o vidro.' },
+  { q: 'Como evitar que o forno suje tanto?', a: 'Cubra assados gordurosos com papel-alumínio, como sugere o manual Fischer, e não deixe resíduos de sal dentro do forno, que corroem a cavidade. Limpe pequenos respingos logo depois que o forno esfriar.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-forno-eletrico-de-bancada/', '/melhor-forno-eletrico-de-embutir/', '/guias/forno-eletrico-gasta-muita-energia/', '/guias/forno-eletrico-ou-air-fryer/']}>
+  <p>Gordura respingada e queimada no forno elétrico vira <strong>fumaça, cheiro de queimado e manchas amareladas</strong> no acabamento. A limpeza é simples, mas muita receita caseira estraga o forno: os manuais proíbem até o vinagre. Veja o passo a passo com base nos manuais de fornos Fischer, de embutir e de bancada.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> desligue o forno da tomada e <strong>espere esfriar</strong>. Lave grade e bandeja na pia, limpe o interior com <strong>água morna e detergente neutro</strong> usando pano macio e limpe as <strong>resistências frias só com pano macio</strong>. Nunca use álcool, solventes, vinagre, soda, sapólio nem esponja de aço.</p>
+  </div>
+
+  <h2 id="por-dentro">Como limpar o forno elétrico por dentro: passo a passo</h2>
+  <ol>
+    <li><strong>Desligue o forno da tomada</strong>, puxando pelo plugue e não pelo fio, e espere esfriar por completo.</li>
+    <li><strong>Retire a grade e a bandeja</strong> e lave na pia com água morna, detergente neutro e esponja macia.</li>
+    <li><strong>Limpe o interior</strong> com pano macio umedecido em água morna com detergente neutro.</li>
+    <li><strong>Limpe as resistências</strong>, frias, apenas com pano macio, tirando gordura, açúcar ou chocolate grudados.</li>
+    <li><strong>Passe um pano só úmido</strong> para tirar o detergente e <strong>seque bem</strong>. Não deixe resíduo de sal dentro do forno: ele corrói a cavidade.</li>
+    <li>Recoloque a grade e a bandeja. Não guarde alimentos nem recipientes dentro do forno.</li>
+  </ol>
+
+  <h2 id="resistencias">Por que limpar as resistências</h2>
+  <p>O manual Fischer pede para <strong>não usar o forno com gordura, açúcar ou chocolate em contato com as resistências</strong>: eles soltam vapores amarelados que mancham as partes externas e decorativas do forno. A limpeza é sempre com o forno frio e desligado, com pano macio.</p>
+
+  <h2 id="vidro">Como limpar o vidro da porta</h2>
+  <ul>
+    <li>Espere o vidro esfriar: <strong>pano úmido em vidro quente</strong> pode trincar o vidro.</li>
+    <li>Use água morna, pano macio e detergente neutro.</li>
+    <li>Não use produtos abrasivos nem raspadores de metal, que arranham e podem provocar a quebra do vidro.</li>
+  </ul>
+
+  <h2 id="por-fora">Como limpar por fora</h2>
+  <ul>
+    <li><strong>Corpo externo:</strong> só detergente ou sabão neutro com pano macio; depois, pano limpo para tirar o resíduo e seque com papel-toalha ou pano seco.</li>
+    <li><strong>Painel:</strong> só pano úmido, sem excesso de água, para não danificar os controles.</li>
+    <li><strong>Inox:</strong> produto específico para inox ou pano úmido com detergente neutro; seque bem. Produtos com cloro, como água sanitária, podem oxidar o inox.</li>
+  </ul>
+
+  <h2 id="nao-use">O que nunca usar no forno elétrico</h2>
+  <p>Os manuais Fischer listam produtos que <strong>danificam o forno</strong>:</p>
+  <ul>
+    <li>Álcool, querosene, gasolina, thinner e solventes.</li>
+    <li>Detergentes com amoníaco e removedores.</li>
+    <li><strong>Vinagre e soda.</strong></li>
+    <li>Abrasivos como sapólio, esponjas e lã de aço.</li>
+    <li>Qualquer produto que solte vapores químicos corrosivos.</li>
+    <li>Máquina de limpeza a vapor.</li>
+  </ul>
+
+  <h2 id="dicas">Dicas para sujar menos</h2>
+  <ul>
+    <li>Cubra carnes e assados gordurosos com papel-alumínio, como sugere o manual Fischer, para evitar respingos.</li>
+    <li>Limpe respingos pequenos assim que o forno esfriar, antes que queimem de novo no próximo uso.</li>
+    <li>Use a bandeja de resíduos na posição indicada no manual, nos fornos que têm.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Hora de trocar? Veja os <a href="/melhor-forno-eletrico-de-bancada/">10 melhores fornos elétricos de bancada</a> e os <a href="/melhor-forno-eletrico-de-embutir/">melhores fornos de embutir</a> de 2026.</p>
+</Artigo>
