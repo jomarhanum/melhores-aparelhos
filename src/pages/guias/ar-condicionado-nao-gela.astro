@@ -1,0 +1,63 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fontes: suporte Samsung (modo frio, ambiente fechado, obstruções nas unidades, capacidade, filtro de 2 em 2 semanas)
+// e LG (testar no frio a 18 °C por 30 minutos; modos que reduzem o resfriamento; tensão instável; manual: filtro a cada 2 semanas), out/2026.
+const faq = [
+  { q: 'Por que o ar-condicionado liga mas não gela?', a: 'As causas mais comuns são o modo errado (ventilar, desumidificar ou economia em vez de frio), filtro sujo, portas e janelas abertas, unidade externa obstruída ou aparelho com BTUs abaixo do necessário para o cômodo. Se nada disso resolver, pode ser falta de gás, sensor ou compressor, que pedem técnico.' },
+  { q: 'Como testar se o ar-condicionado está gelando?', a: 'A LG sugere ligar no modo refrigeração com 18 °C e deixar funcionar por pelo menos 30 minutos, com portas e janelas fechadas. Se o ar continuar saindo morno, siga as verificações deste guia.' },
+  { q: 'Filtro sujo faz o ar parar de gelar?', a: 'Sim. A Samsung explica que o filtro muito sujo reduz a quantidade de ar que o aparelho consegue captar, e o resfriamento cai. A recomendação é limpar os filtros a cada 2 semanas ou quando aparecer o código CF no visor.' },
+  { q: 'Ar-condicionado sem gás: como saber?', a: 'Só um técnico confirma, medindo a pressão do sistema. O sinal é o aparelho que funciona no modo frio, com filtro limpo e unidade externa desobstruída, e mesmo assim não gela. Falta de gás normalmente indica vazamento, que precisa ser consertado antes da recarga.' },
+  { q: 'Meu ar-condicionado é pequeno para o quarto?', a: 'Pode ser. Um aparelho com capacidade menor que a do cômodo demora a gelar ou não chega à temperatura. Confira na nossa calculadora de BTUs quantos o seu ambiente precisa.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-inverter/', '/guias/como-limpar-ar-condicionado-split/', '/guias/quantos-btus-preciso/', '/guias/ar-condicionado-pingando-agua/']}>
+  <p>Ar-condicionado ligado e o quarto continua quente? Antes de pagar uma visita técnica, vale saber que <strong>muitos casos se resolvem no controle remoto ou com um filtro limpo</strong>. Montamos as verificações na ordem certa, com base nas orientações de suporte da Samsung e da LG, e os sinais de que o problema exige técnico.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> confira se o aparelho está no <strong>modo frio</strong> (e não em ventilar, desumidificar ou economia), teste a <strong>18 °C por 30 minutos</strong>, <strong>limpe os filtros</strong>, feche portas e janelas, libere a <strong>unidade externa</strong> e confira se a <strong>capacidade em BTUs</strong> é suficiente para o cômodo. Se continuar sem gelar, pode ser gás, sensor ou compressor: chame o técnico.</p>
+  </div>
+
+  <h2 id="verificacoes">7 verificações antes de chamar o técnico</h2>
+
+  <h3>1. Modo e temperatura no controle</h3>
+  <p>Parece óbvio, mas é a causa mais comum. Confira se o aparelho está no <strong>modo frio (Cool)</strong>. Os modos <strong>ventilar, desumidificar (Dry), automático, IA ou economia</strong> podem reduzir ou suspender o resfriamento. A LG sugere testar no modo refrigeração com <strong>18 °C por pelo menos 30 minutos</strong>.</p>
+
+  <h3>2. Filtros sujos</h3>
+  <p>Filtro entupido de poeira reduz a quantidade de ar que passa pelo aparelho, e o resfriamento cai. A Samsung e o manual da LG recomendam limpar os filtros <strong>a cada 2 semanas</strong>. Em aparelhos Samsung, o código <strong>CF</strong> no visor avisa. Passo a passo em <a href="/guias/como-limpar-ar-condicionado-split/">como limpar o ar-condicionado split</a>.</p>
+
+  <h3>3. Portas e janelas abertas</h3>
+  <p>A Samsung lembra que o cômodo precisa estar bem fechado. Com porta aberta para o resto da casa ou janela entreaberta, o aparelho tenta gelar um espaço muito maior do que foi dimensionado.</p>
+
+  <h3>4. Obstruções nas unidades</h3>
+  <p>Cortina, móvel ou objeto na frente da unidade interna, ou caixas e folhas em volta da unidade externa, impedem o aparelho de puxar e soltar o ar. Libere a frente da unidade interna e deixe a unidade externa com espaço livre em volta.</p>
+
+  <h3>5. Unidade externa no sol forte</h3>
+  <p>A unidade externa precisa soltar o calor do ambiente. Sob sol direto o dia inteiro ou sem ventilação, ela trabalha pior. Se a instalação permitir, um toldo que faça sombra sem bloquear a saída de ar ajuda; mudar a unidade de lugar é serviço para o instalador.</p>
+
+  <h3>6. BTUs abaixo do necessário</h3>
+  <p>Um aparelho pequeno para o cômodo demora a gelar ou nunca chega à temperatura, principalmente em quarto com sol da tarde, muita gente ou muitos aparelhos ligados. Confira na <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</p>
+
+  <h3>7. Queda ou oscilação de energia</h3>
+  <p>A LG lembra que tensão elétrica instável pode causar pouco resfriamento ou desligamentos. Depois de uma queda de energia, desligue o aparelho, espere alguns minutos e ligue de novo.</p>
+
+  <h2 id="tecnico">Quando chamar o técnico</h2>
+  <ul>
+    <li>Modo frio, filtro limpo e unidades desobstruídas, e mesmo assim o ar sai morno.</li>
+    <li>A unidade externa não liga (o ventilador dela não gira) com o aparelho no modo frio.</li>
+    <li>Gelo se formando na unidade interna ou nos canos.</li>
+    <li>Código de erro no visor que não some depois de religar.</li>
+    <li>O aparelho perdeu força aos poucos ao longo das semanas: pode ser vazamento de gás.</li>
+  </ul>
+  <p>Falta de gás quase sempre significa vazamento: só recarregar, sem consertar, faz o problema voltar. Na garantia, use a assistência autorizada ou o instalador credenciado.</p>
+
+  <h2 id="prevenir">Como evitar</h2>
+  <ul>
+    <li>Limpe os filtros a cada 2 semanas a 1 mês.</li>
+    <li>Faça a higienização completa com técnico pelo menos uma vez por ano.</li>
+    <li>Feche cortinas no sol da tarde e mantenha o cômodo fechado.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Se o conserto não compensar, veja os <a href="/melhor-ar-condicionado-inverter/">10 melhores ar-condicionados inverter de 2026</a>. Para saber o tamanho certo, use a <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</p>
+</Artigo>

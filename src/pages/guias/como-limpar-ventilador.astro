@@ -1,0 +1,72 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fontes: manuais de ventiladores Mondial (desconectado; pano com água e sabão neutro), Britânia (desligado; pano
+// levemente úmido; sem abrasivos) e Venti-Delta (pano úmido com sabão neutro nas peças plásticas; nada molhado no motor), out/2026.
+const faq = [
+  { q: 'Pode lavar o ventilador com água?', a: 'Só as peças plásticas separadas do motor: a grade e a hélice, depois de retiradas, podem ser limpas com água e sabão neutro e secas por completo antes de montar. O motor, a base com os botões e o fio nunca: neles, só pano levemente úmido, com o aparelho fora da tomada.' },
+  { q: 'Como limpar o ventilador sem desmontar?', a: 'Com o ventilador fora da tomada, passe um pano levemente úmido com água e sabão neutro pela grade, pelos vãos e pela carcaça. Para a poeira entre as pás, use pincel macio ou o bico do aspirador. Para a limpeza completa, porém, vale tirar a grade e a hélice.' },
+  { q: 'Qual produto usar para limpar o ventilador?', a: 'Água com sabão ou detergente neutro, como indicam os manuais da Mondial e da Venti-Delta. Evite produtos abrasivos e solventes, que mancham e ressecam o plástico.' },
+  { q: 'De quanto em quanto tempo limpar o ventilador?', a: 'No período de uso diário, uma limpeza leve das pás e da grade a cada 2 a 4 semanas evita o acúmulo de poeira. Uma limpeza completa, desmontando, no começo e no fim do verão.' },
+  { q: 'Como limpar ventilador de teto?', a: 'Desligue o disjuntor ou o interruptor, use uma escada firme e passe um pano levemente úmido em cada pá, do centro para a ponta, sem forçar para não entortar. Não deixe água escorrer para o motor.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ventilador-de-coluna/', '/melhor-ventilador-de-teto/', '/guias/ventilador-de-coluna-gasta-muita-energia/', '/guias/ventilador-de-teto-ou-de-coluna/']}>
+  <p>Ventilador sujo espalha poeira pela casa, faz mais barulho e venta menos, porque a sujeira pesa nas pás. Limpar é rápido, mas há uma regra que não muda: <strong>água só nas peças plásticas separadas do motor</strong>. Veja o passo a passo para ventiladores de coluna, de mesa e de teto, com base nos manuais da Mondial, da Britânia e da Venti-Delta.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> <strong>tire da tomada</strong>, retire a grade da frente e a hélice, limpe as duas com <strong>água e sabão neutro</strong> e seque bem. No motor e na base, só <strong>pano levemente úmido</strong>. Não use produtos abrasivos nem solventes. No ventilador de teto, desligue o disjuntor e limpe as pás com pano úmido, do centro para a ponta.</p>
+  </div>
+
+  <h2 id="coluna-mesa">Como limpar ventilador de coluna ou de mesa</h2>
+  <ol>
+    <li><strong>Tire o ventilador da tomada.</strong> Os manuais pedem o aparelho desconectado para qualquer limpeza.</li>
+    <li><strong>Retire a grade da frente.</strong> Em geral ela sai soltando as presilhas ou o anel em volta da grade; o jeito exato está no manual do seu modelo.</li>
+    <li><strong>Retire a hélice</strong>, soltando a tampa ou porca do centro. Atenção ao sentido de giro, que muda de marca para marca.</li>
+    <li><strong>Limpe a grade e a hélice</strong> com esponja macia ou pano e <strong>água com sabão neutro</strong>. Separadas do motor, elas podem ir para a pia.</li>
+    <li><strong>Seque por completo</strong> antes de montar de novo.</li>
+    <li><strong>Limpe o motor, a grade de trás e a base</strong> só com pano levemente úmido com água e sabão neutro, sem deixar escorrer água para dentro.</li>
+    <li><strong>Monte</strong> a hélice, depois a grade, confira se tudo está firme e só então ligue na tomada.</li>
+  </ol>
+
+  <h2 id="sem-desmontar">Limpeza rápida, sem desmontar</h2>
+  <p>Entre uma limpeza completa e outra, com o ventilador fora da tomada:</p>
+  <ul>
+    <li>Passe o <strong>bico do aspirador</strong> ou um pincel macio pela grade para tirar a poeira solta.</li>
+    <li>Passe um pano levemente úmido com sabão neutro na grade e na carcaça.</li>
+    <li>Seque com pano seco.</li>
+  </ul>
+
+  <h2 id="teto">Como limpar ventilador de teto</h2>
+  <ol>
+    <li><strong>Desligue o disjuntor</strong> do circuito (ou, no mínimo, o interruptor e o controle) e espere as pás pararem.</li>
+    <li>Use uma <strong>escada firme</strong>; nunca suba em cadeira de rodinhas.</li>
+    <li>Passe um pano seco ou espanador para tirar a poeira solta. Um truque para não espalhar poeira é envolver a pá com uma fronha velha e puxar.</li>
+    <li>Limpe cada pá com <strong>pano levemente úmido</strong> com água e sabão neutro, <strong>do centro para a ponta</strong>, sem forçar a pá para baixo.</li>
+    <li>Seque com pano seco. Não deixe água escorrer para o motor nem para a luminária.</li>
+    <li>Para a luminária de vidro, desligue tudo, espere esfriar, retire o vidro com cuidado e lave na pia.</li>
+  </ol>
+
+  <h2 id="nao-faca">O que não fazer</h2>
+  <ul>
+    <li>Molhar o motor, a base com botões ou o fio.</li>
+    <li>Usar produtos abrasivos (como sapólio) ou solventes, que mancham e ressecam o plástico.</li>
+    <li>Ligar o ventilador com peças ainda molhadas ou mal encaixadas.</li>
+    <li>Entortar as pás do ventilador de teto ao limpar: pá torta faz o ventilador balançar.</li>
+  </ul>
+
+  <h2 id="frequencia">Com que frequência limpar</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Tipo</th><th>Limpeza leve</th><th>Limpeza completa</th></tr></thead>
+      <tbody>
+        <tr><td>Coluna e mesa</td><td>A cada 2 a 4 semanas no período de uso</td><td>No começo e no fim do verão</td></tr>
+        <tr><td>Teto</td><td>A cada 2 a 4 semanas no período de uso</td><td>Pás e luminária, algumas vezes por ano</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Na casa com mais poeira, pets ou pessoas alérgicas, limpe com mais frequência.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Ventilador barulhento, fraco ou quebrado? Veja os <a href="/melhor-ventilador-de-coluna/">10 melhores ventiladores de coluna</a> e os <a href="/melhor-ventilador-de-teto/">melhores ventiladores de teto</a> de 2026.</p>
+</Artigo>

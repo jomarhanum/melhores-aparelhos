@@ -1,0 +1,62 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fontes: manuais LG Brasil (instalação nivelada para evitar vazamento; mangueira de drenagem bem ligada; filtro a cada
+// 2 semanas) e páginas de suporte LG (mangueira entupida, dobrada ou caída; bomba de drenagem é do instalador;
+// gás baixo causa vazamento e pouco frio), out/2026.
+const faq = [
+  { q: 'Por que o ar-condicionado está pingando água dentro do quarto?', a: 'As causas mais comuns são dreno entupido ou mangueira de drenagem dobrada, aparelho instalado fora do nível e filtro muito sujo, que faz a serpentina congelar e soltar água de uma vez ao degelar. Também pode ser bomba de drenagem com defeito ou falta de gás.' },
+  { q: 'É normal o ar-condicionado pingar água?', a: 'Na unidade externa, ou na saída da mangueira do dreno, sim: o aparelho tira umidade do ar e essa água precisa sair. Dentro do quarto, pela unidade interna, não é normal.' },
+  { q: 'Filtro sujo faz o ar-condicionado pingar?', a: 'Pode fazer. Com o filtro entupido, passa pouco ar pela serpentina, que pode congelar; quando o gelo derrete, a água transborda da bandeja. Limpe os filtros a cada 2 semanas, como recomenda o manual da LG.' },
+  { q: 'Posso desentupir o dreno do ar-condicionado sozinho?', a: 'Você pode conferir a parte visível da mangueira e se ela não está dobrada ou com a ponta submersa. Abrir a unidade interna e desentupir a bandeja e o dreno é serviço para técnico.' },
+  { q: 'Ar-condicionado pingando e gelando pouco: o que é?', a: 'Pode ser filtro muito sujo ou falta de gás. Comece limpando os filtros; se o problema continuar, chame o técnico, porque falta de gás indica vazamento.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-inverter/', '/guias/como-limpar-ar-condicionado-split/', '/guias/ar-condicionado-nao-gela/', '/guias/instalacao-ar-condicionado-split/']}>
+  <p>Ar-condicionado pingando água dentro do quarto molha a parede, o piso e os móveis, e pode estragar o próprio aparelho. A boa notícia é que a causa costuma estar em poucos pontos: <strong>dreno, nivelamento ou filtro</strong>. Veja o que conferir, com base nos manuais e nas páginas de suporte da LG, e o que é serviço para técnico.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> 1) <strong>limpe os filtros</strong>; 2) confira se a <strong>mangueira do dreno</strong> não está dobrada, entupida ou com a ponta dentro d'água; 3) veja se a <strong>unidade interna está nivelada</strong>. Se continuar pingando, chame o técnico para limpar a bandeja e o dreno ou verificar o gás. Água pingando na unidade externa ou na saída do dreno é normal.</p>
+  </div>
+
+  <h2 id="normal">Primeiro: de onde sai a água?</h2>
+  <p>Ao resfriar, o ar-condicionado tira umidade do ar. Essa água escorre por uma bandeja e sai por uma mangueira, o dreno, até a área externa ou um ralo. Por isso:</p>
+  <ul>
+    <li><strong>Água pingando na unidade externa ou na ponta da mangueira do dreno:</strong> normal.</li>
+    <li><strong>Água pingando da unidade interna, dentro do cômodo:</strong> não é normal. Siga as verificações abaixo.</li>
+  </ul>
+
+  <h2 id="causas">Causas e o que fazer</h2>
+
+  <h3>1. Filtro muito sujo</h3>
+  <p>Filtro entupido reduz o fluxo de ar. A serpentina fica gelada demais, pode congelar e, quando o gelo derrete, solta mais água do que a bandeja comporta. <strong>O que fazer:</strong> limpe os filtros. O manual da LG recomenda fazer isso a cada 2 semanas. Veja <a href="/guias/como-limpar-ar-condicionado-split/">como limpar o ar-condicionado split</a>.</p>
+
+  <h3>2. Mangueira do dreno dobrada, entupida ou sem caimento</h3>
+  <p>A LG cita a mangueira de drenagem mal instalada, entupida ou torcida como causa de vazamento. Mangueira longa demais, deitada na horizontal, pode fazer barriga e segurar a água. <strong>O que fazer:</strong> confira a parte visível da mangueira: ela deve descer sempre, sem dobras, e a ponta não pode ficar dentro d'água. Se o entupimento estiver dentro da unidade, é serviço técnico.</p>
+
+  <h3>3. Unidade interna fora do nível</h3>
+  <p>Os manuais da LG Brasil alertam que o aparelho instalado fora do nível pode causar vibração e vazamento de água: a bandeja escorre para o lado errado e transborda. <strong>O que fazer:</strong> se a unidade está visivelmente torta, chame o instalador para corrigir.</p>
+
+  <h3>4. Bomba de drenagem com defeito</h3>
+  <p>Quando não há como a água descer por gravidade, o instalador coloca uma bomba de drenagem. A LG lembra que essa bomba é um produto à parte, comprado e instalado pelo instalador. <strong>O que fazer:</strong> se o seu aparelho tem bomba e ela parou, procure o instalador.</p>
+
+  <h3>5. Falta de gás</h3>
+  <p>A LG cita o gás baixo como causa de resfriamento fraco e vazamento de água. <strong>O que fazer:</strong> chame o técnico: falta de gás indica vazamento, que precisa ser consertado antes da recarga.</p>
+
+  <h2 id="enquanto">Enquanto o técnico não vem</h2>
+  <ul>
+    <li>Desligue o aparelho para não molhar a parede e o piso.</li>
+    <li>Proteja móveis e tomadas abaixo da unidade interna.</li>
+    <li>Não use o aparelho com água escorrendo perto de tomadas ou da parte elétrica.</li>
+  </ul>
+
+  <h2 id="prevenir">Como evitar</h2>
+  <ul>
+    <li>Limpe os filtros a cada 2 semanas a 1 mês.</li>
+    <li>Faça a higienização completa com técnico pelo menos uma vez por ano: ela inclui a bandeja e o dreno.</li>
+    <li>Na instalação, exija caimento correto do dreno e a unidade nivelada. Veja o guia de <a href="/guias/instalacao-ar-condicionado-split/">instalação de ar-condicionado split</a>.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Aparelho velho e dando problema? Veja os <a href="/melhor-ar-condicionado-inverter/">10 melhores ar-condicionados inverter de 2026</a>.</p>
+</Artigo>

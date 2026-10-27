@@ -1,0 +1,56 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fontes: FAQ da Brastemp sobre ruídos normais (estalos do gelo, compressor, fluido refrigerante, borracha da porta;
+// pés niveladores) e tabela de falhas do manual Electrolux frost free (encostada na parede: 15 cm de folga;
+// desnivelada; ruído de circulação de ar é normal na frost free), out/2026.
+const faq = [
+  { q: 'É normal a geladeira fazer barulho?', a: 'Sim, alguns barulhos são normais. A Brastemp cita estalos causados pela movimentação do gelo, a vibração do compressor, o som do fluido refrigerante circulando e o ruído da borracha ao fechar a porta. Nas frost free, o som do ar circulando também é normal.' },
+  { q: 'Por que a geladeira faz barulho de estalo?', a: 'Estalos de vez em quando são normais: vêm do gelo se movendo no freezer e da dilatação dos materiais com a mudança de temperatura, principalmente no degelo automático. Estalos constantes e altos, com a geladeira gelando pouco, pedem técnico.' },
+  { q: 'Geladeira fazendo barulho de turbina ou zumbido alto: o que fazer?', a: 'Primeiro confira se ela está nivelada e afastada da parede (o manual Electrolux pede 15 cm de folga). Se o barulho continuar, for novo e constante, pode ser o ventilador ou o compressor, e é caso de assistência.' },
+  { q: 'Barulho de algo raspando dentro da geladeira é normal?', a: 'Não. Pode ser o ventilador encostando em gelo acumulado no freezer. Faça o degelo e, se o barulho voltar, chame a assistência, porque o gelo acumulado numa frost free indica problema no degelo automático.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-geladeira/', '/guias/geladeira-nao-gela/', '/guias/como-limpar-geladeira/', '/guias/geladeira-gasta-muita-energia/']}>
+  <p>Geladeira faz barulho, e boa parte deles é normal: é o som do motor, do gás circulando e do gelo se acomodando. O problema é saber quando o barulho é só o funcionamento e quando é sinal de defeito. Veja os ruídos normais segundo a Brastemp, o que conferir pelo manual da Electrolux e quando chamar o técnico.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> <strong>estalos</strong> de vez em quando, <strong>zumbido do compressor</strong>, som de <strong>gás circulando</strong> e de <strong>ar circulando</strong> (nas frost free) são normais. Barulho exagerado costuma vir de geladeira <strong>desnivelada</strong> ou <strong>encostada na parede</strong>. Barulho novo, constante, metálico ou de algo raspando, ainda mais com a geladeira gelando pouco, é caso de assistência.</p>
+  </div>
+
+  <h2 id="normais">Barulhos normais</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Barulho</th><th>O que é</th></tr></thead>
+      <tbody>
+        <tr><td>Estalos</td><td>Movimentação do gelo no freezer e dilatação dos materiais com a mudança de temperatura</td></tr>
+        <tr><td>Zumbido ou vibração contínua</td><td>O compressor, o motor da geladeira, funcionando</td></tr>
+        <tr><td>Borbulhar ou chiado de líquido</td><td>O fluido refrigerante circulando pelo sistema</td></tr>
+        <tr><td>Som de vento</td><td>Ventilador levando o ar frio nas geladeiras frost free</td></tr>
+        <tr><td>Som ao fechar a porta</td><td>A borracha de vedação se acomodando, como um balão esvaziando</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>À noite, com a casa em silêncio, esses sons parecem mais altos, mas continuam normais.</p>
+
+  <h2 id="verificar">O que conferir quando o barulho está alto</h2>
+  <ol>
+    <li><strong>Nivelamento:</strong> ajuste os pés niveladores até a geladeira ficar firme no chão, sem balançar. A Brastemp explica que isso evita ruídos exagerados e ajuda a porta a fechar direito.</li>
+    <li><strong>Distância da parede:</strong> geladeira encostada na parede vibra e passa o barulho para ela. O manual Electrolux manda deixar <strong>15 cm de folga</strong>.</li>
+    <li><strong>Objetos em cima ou encostados:</strong> potes, garrafas e eletrodomésticos sobre a geladeira ou encostados nas laterais vibram junto.</li>
+    <li><strong>Itens soltos dentro:</strong> garrafas encostadas umas nas outras ou prateleiras mal encaixadas fazem ruído com a vibração do motor.</li>
+    <li><strong>Gelo acumulado no freezer:</strong> se aparecer gelo onde não deveria, numa frost free, o ventilador pode encostar nele.</li>
+  </ol>
+
+  <h2 id="tecnico">Quando o barulho indica defeito</h2>
+  <ul>
+    <li><strong>Algo raspando ou batendo</strong> sem parar: pode ser o ventilador pegando em gelo ou peça solta.</li>
+    <li><strong>Barulho metálico ou estalos repetidos e altos</strong> no compressor.</li>
+    <li><strong>Barulho novo e constante</strong> que não existia antes.</li>
+    <li>Qualquer barulho estranho junto com <strong>geladeira gelando pouco</strong>, vazando água ou com cheiro de queimado.</li>
+  </ul>
+  <p>Nesses casos, procure a assistência autorizada da marca, principalmente se a geladeira estiver na garantia. Se além do barulho ela não estiver gelando, veja também <a href="/guias/geladeira-nao-gela/">geladeira não gela: o que fazer</a>.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Geladeira velha e barulhenta pode estar gastando muito também. Compare o consumo oficial das <a href="/melhor-geladeira/">10 melhores geladeiras de 2026</a>.</p>
+</Artigo>

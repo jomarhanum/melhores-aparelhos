@@ -1,0 +1,58 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fonte: guia de organização da Brastemp (porta, gaveta superior, gavetas de baixo, prateleiras, freezer,
+// despensa, regra "primeiro a entrar, primeiro a sair"); circulação de ar: manual Electrolux, out/2026.
+const faq = [
+  { q: 'Qual a parte mais fria da geladeira?', a: 'Depende do modelo, mas em geral as áreas mais perto da saída de ar frio e a gaveta logo abaixo do freezer são as mais frias, e as gavetas de baixo e a porta são as menos frias. Por isso a Brastemp indica laticínios e frios na gaveta de cima e frutas e verduras nas gavetas de baixo.' },
+  { q: 'Pode guardar ovos e leite na porta da geladeira?', a: 'A Brastemp diz que não: ovos e leite devem ficar nas prateleiras internas, porque a porta sofre mais variação de temperatura a cada abertura. Na porta, guarde água, condimentos, molhos e manteiga.' },
+  { q: 'O que não precisa ir para a geladeira?', a: 'Segundo a Brastemp, café, alho, banana, pão, batata, cebola, tomate e mel podem ficar na despensa.' },
+  { q: 'Pode colocar comida quente na geladeira?', a: 'O ideal é esperar esfriar um pouco, sem deixar muito tempo fora, e guardar em pote fechado. Comida muito quente aquece o interior, faz a geladeira trabalhar mais e pode prejudicar os alimentos ao lado.' },
+  { q: 'Como evitar desperdício na geladeira?', a: 'Use a regra "primeiro a entrar, primeiro a sair", citada pela Brastemp: coloque as compras novas atrás e as antigas na frente, para serem consumidas primeiro. Etiquete o que vai para o freezer com a data.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-geladeira/', '/guias/como-limpar-geladeira/', '/guias/qual-tamanho-de-geladeira/', '/guias/geladeira-nao-gela/']}>
+  <p>A geladeira não tem a mesma temperatura em todos os pontos: a porta esquenta a cada abertura, as gavetas de baixo são menos frias e a área perto do freezer é a mais gelada. Guardar cada alimento no lugar certo faz a comida durar mais e evita desperdício. Veja o mapa da geladeira com base nas orientações da Brastemp.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> <strong>porta</strong> para água, condimentos, molhos e manteiga; <strong>prateleira de cima</strong> para sobras prontas e ovos; <strong>prateleiras do meio</strong> para leite, doces e conservas; <strong>gaveta logo abaixo do freezer</strong> para laticínios, frios e bebidas; <strong>gavetas de baixo</strong> para frutas e verduras. Use potes fechados, não lote e aplique a regra "primeiro a entrar, primeiro a sair".</p>
+  </div>
+
+  <h2 id="mapa">Onde guardar cada alimento</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Lugar</th><th>O que guardar</th></tr></thead>
+      <tbody>
+        <tr><td>Porta</td><td>Água, condimentos, molhos para salada e manteiga, que aguentam a variação de temperatura</td></tr>
+        <tr><td>Prateleira de cima</td><td>Sobras prontas para consumo, ovos e manteiga</td></tr>
+        <tr><td>Prateleiras do meio</td><td>Leite, conservas em pote, doces e enlatados (sempre fora da lata, depois de aberta)</td></tr>
+        <tr><td>Gaveta logo abaixo do freezer</td><td>Queijos, iogurtes, frios, carnes para consumo rápido e bebidas</td></tr>
+        <tr><td>Gavetas de baixo</td><td>Frutas e verduras, a área menos fria</td></tr>
+        <tr><td>Freezer</td><td>Carnes, queijos, leite e ervas que não serão usados logo, em porções e com data</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Os modelos mudam a posição das gavetas: confira o manual da sua geladeira, que costuma indicar as áreas mais frias.</p>
+
+  <h2 id="porta">Ovos e leite na porta? Não</h2>
+  <p>É o erro mais comum. Cada vez que a porta abre, os itens dela recebem ar quente. A Brastemp indica guardar <strong>ovos e leite nas prateleiras internas</strong>, onde a temperatura é mais estável, e deixar a porta para o que aguenta variação.</p>
+
+  <h2 id="verduras">Frutas e verduras</h2>
+  <p>As gavetas de baixo foram feitas para elas. Para folhas, a Brastemp sugere <strong>lavar, secar e guardar em saco plástico com papel-toalha</strong>, que segura a umidade e evita que murchem ou apodreçam rápido.</p>
+
+  <h2 id="despensa">O que pode ficar fora da geladeira</h2>
+  <p>Segundo a Brastemp, café, alho, banana, pão, batata, cebola, tomate e mel podem ficar na despensa. Tirar esses itens libera espaço e melhora a circulação do ar frio.</p>
+
+  <h2 id="regras">Regras que fazem diferença</h2>
+  <ul>
+    <li><strong>Primeiro a entrar, primeiro a sair:</strong> compras novas atrás, antigas na frente.</li>
+    <li><strong>Potes fechados:</strong> evitam cheiro, ressecamento e contaminação entre alimentos.</li>
+    <li><strong>Não lote:</strong> o ar frio precisa circular. O manual Electrolux lembra que alimentos encostados nas saídas de ar atrapalham o resfriamento.</li>
+    <li><strong>Lata aberta não vai para a geladeira:</strong> passe o conteúdo para um pote.</li>
+    <li><strong>Descongele na geladeira</strong>, não na pia, deixando o alimento de um dia para o outro.</li>
+    <li><strong>Freezer com etiqueta:</strong> porções menores e a data de armazenamento; descarte o que estiver velho ou sem identificação.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Aproveite a organização para fazer a limpeza: veja <a href="/guias/como-limpar-geladeira/">como limpar a geladeira por dentro e por fora</a>. E se a sua não comporta mais a família, confira <a href="/guias/qual-tamanho-de-geladeira/">qual tamanho de geladeira comprar</a>.</p>
+</Artigo>
