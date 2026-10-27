@@ -1,0 +1,61 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Referências: 23 °C é a temperatura mais citada no Brasil para uso doméstico; as estimativas de aumento de consumo
+// por grau a menos variam conforme a fonte (cerca de 3% a 8%), por isso o texto apresenta a faixa e não um número único.
+// Teste de diagnóstico a 18 °C: suporte LG (só para conferir se o aparelho gela). Out/2026.
+const faq = [
+  { q: 'Qual a temperatura ideal do ar-condicionado?', a: 'A referência mais citada no Brasil é 23 °C, e muitas recomendações ficam entre 23 °C e 25 °C. É uma faixa confortável para a maioria das pessoas e evita o consumo alto das temperaturas mais baixas.' },
+  { q: 'Qual a temperatura ideal do ar-condicionado para dormir?', a: 'Para dormir, uma faixa de 24 °C a 25 °C costuma ser suficiente, porque o corpo esfria durante o sono. O modo dormir (sleep), presente em muitos aparelhos, sobe a temperatura aos poucos durante a noite.' },
+  { q: 'Colocar o ar-condicionado em 18 °C gela mais rápido?', a: 'Não. O aparelho resfria na mesma velocidade; ele só continua trabalhando até chegar aos 18 °C, gastando mais. Escolha a temperatura que você quer e deixe o aparelho chegar lá.' },
+  { q: 'Quanto economiza aumentar 1 grau no ar-condicionado?', a: 'Cada grau a menos aumenta o consumo. As estimativas divulgadas variam, em geral de cerca de 3% a 8% por grau, conforme a fonte e o aparelho. Em qualquer caso, 23 °C a 25 °C gastam bem menos que 18 °C a 20 °C.' },
+  { q: 'Ar-condicionado inverter deve ficar ligado o tempo todo?', a: 'O inverter é mais eficiente quando mantém uma temperatura estável, sem liga-desliga constante. Para períodos curtos fora do cômodo, costuma compensar deixar ligado numa temperatura confortável; para muitas horas fora, desligue.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-inverter/', '/guias/selo-procel-e-consumo-ar-condicionado/', '/guias/ar-condicionado-inverter-vale-a-pena/', '/guias/ar-condicionado-nao-gela/']}>
+  <p>Deixar o ar-condicionado em 18 °C não gela o quarto mais rápido, só deixa a conta de luz mais alta. A temperatura certa é a que dá conforto sem fazer o aparelho trabalhar além do necessário. Veja a faixa recomendada para o dia, para dormir e os ajustes que mais pesam no consumo.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> a referência mais citada no Brasil é <strong>23 °C</strong>, e a faixa de <strong>23 °C a 25 °C</strong> atende a maioria das pessoas. Para dormir, <strong>24 °C a 25 °C</strong> com o modo dormir. Cada grau a menos aumenta o consumo, e colocar em 18 °C <strong>não gela mais rápido</strong>.</p>
+  </div>
+
+  <h2 id="tabela">Temperatura recomendada por situação</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Situação</th><th>Temperatura</th></tr></thead>
+      <tbody>
+        <tr><td>Uso no dia a dia</td><td>23 °C a 25 °C</td></tr>
+        <tr><td>Para dormir</td><td>24 °C a 25 °C, com modo dormir</td></tr>
+        <tr><td>Dias muito quentes</td><td>Comece em 23 °C e suba quando o cômodo esfriar</td></tr>
+        <tr><td>Quarto de bebê ou idoso</td><td>Evite temperaturas muito baixas e o jato direto na pessoa</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="18-graus">Por que 18 °C não gela mais rápido</h2>
+  <p>O ar-condicionado resfria o cômodo na mesma velocidade, seja qual for a temperatura escolhida. O que muda é <strong>até quando ele trabalha</strong>: em 18 °C, ele continua no esforço máximo muito depois de o quarto já estar agradável, gastando energia à toa. Escolha a temperatura que você quer de verdade.</p>
+  <p>A exceção é o teste de funcionamento: a LG sugere ligar a <strong>18 °C por 30 minutos</strong> só para conferir se o aparelho está gelando. Depois do teste, volte para a faixa de conforto.</p>
+
+  <h2 id="consumo">Quanto cada grau pesa na conta</h2>
+  <p>Quanto maior a diferença entre a temperatura de fora e a escolhida, mais o aparelho trabalha. Por isso, <strong>cada grau a menos aumenta o consumo</strong>. As estimativas divulgadas variam, em geral de cerca de <strong>3% a 8% por grau</strong>, conforme a fonte e o aparelho. Na prática, ficar em 24 °C em vez de 20 °C já faz diferença visível na conta. Para calcular o gasto do seu aparelho, veja <a href="/guias/selo-procel-e-consumo-ar-condicionado/">como ler a etiqueta e calcular o consumo</a>.</p>
+
+  <h2 id="dormir">Para dormir</h2>
+  <ul>
+    <li>Use <strong>24 °C a 25 °C</strong>: o corpo esfria durante o sono e você não acorda com frio.</li>
+    <li>Ative o <strong>modo dormir (sleep)</strong>, que sobe a temperatura aos poucos durante a noite.</li>
+    <li>Programe o <strong>timer</strong> para desligar de madrugada, se o clima permitir.</li>
+    <li>Direcione as aletas para cima: o ar frio desce sozinho, sem bater direto na cama.</li>
+  </ul>
+
+  <h2 id="economizar">Dicas que economizam mais que baixar a temperatura</h2>
+  <ul>
+    <li><strong>Feche portas e janelas</strong> e as cortinas no sol da tarde.</li>
+    <li><strong>Limpe os filtros</strong> a cada 2 semanas a 1 mês. Veja <a href="/guias/como-limpar-ar-condicionado-split/">como limpar o ar-condicionado split</a>.</li>
+    <li>Use um <strong>ventilador junto</strong>: com o ar circulando, dá para deixar o ar-condicionado 1 ou 2 graus mais alto com o mesmo conforto.</li>
+    <li>Confira se o aparelho tem os <strong>BTUs certos</strong> para o cômodo. Use a <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</li>
+    <li>Na troca, prefira um <strong>inverter</strong>, que mantém a temperatura sem liga-desliga.</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Aparelho antigo gastando muito? Veja os <a href="/melhor-ar-condicionado-inverter/">10 melhores ar-condicionados inverter de 2026</a> e quanto o <a href="/guias/ar-condicionado-inverter-vale-a-pena/">inverter economiza</a>.</p>
+</Artigo>

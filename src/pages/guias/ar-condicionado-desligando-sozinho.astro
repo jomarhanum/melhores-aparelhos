@@ -1,0 +1,56 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fontes: suporte Samsung (filtro sujo reduz a entrada de ar; códigos de erro no visor; CF é lembrete de filtro) e LG
+// (verificar o modo de operação; filtro a cada 2 semanas; tensão instável pode causar desligamento), out/2026.
+const faq = [
+  { q: 'Por que o ar-condicionado desliga sozinho?', a: 'A causa mais comum é o timer ou o modo dormir ativado sem querer. Depois vêm o modo econômico, o filtro sujo, a unidade externa sem ventilação e oscilações de energia. Se aparece um código de erro, anote: ele indica a causa.' },
+  { q: 'O ar-condicionado desliga quando chega na temperatura. É normal?', a: 'Nos aparelhos convencionais, sim: o compressor desliga ao atingir a temperatura escolhida e religa quando o cômodo esquenta, enquanto o ventilador pode continuar. No inverter, o compressor reduz a velocidade em vez de desligar. O que não é normal é o aparelho inteiro desligar.' },
+  { q: 'Como desativar o timer do ar-condicionado?', a: 'Na maioria dos controles, aperte o botão Timer até o horário sumir do visor, ou use a opção de cancelar. O manual do seu aparelho mostra o caminho exato.' },
+  { q: 'Ar-condicionado liga e desliga toda hora: o que é?', a: 'Pode ser filtro sujo, unidade externa sem ventilação (sol forte, objetos em volta) ou proteção contra superaquecimento. Limpe os filtros e libere a unidade externa; se continuar, chame o técnico.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-inverter/', '/guias/ar-condicionado-nao-gela/', '/guias/como-limpar-ar-condicionado-split/', '/guias/temperatura-ideal-ar-condicionado/']}>
+  <p>Ar-condicionado desligando sozinho no meio da noite ou ligando e desligando toda hora? Na maioria das vezes, a explicação está no controle remoto ou num filtro sujo. Veja as causas na ordem certa, com base no suporte da Samsung e da LG, e quando o desligamento indica defeito.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> confira primeiro o <strong>timer</strong> e o <strong>modo dormir</strong> no controle, depois o <strong>modo econômico</strong>. Limpe os <strong>filtros</strong>, libere a <strong>unidade externa</strong> e veja se o visor mostra algum <strong>código de erro</strong>. Se o aparelho inteiro continuar desligando, chame o técnico.</p>
+  </div>
+
+  <h2 id="normal">Primeiro: é o aparelho todo ou só o compressor?</h2>
+  <p>Nos aparelhos <strong>convencionais</strong>, o compressor desliga quando o cômodo chega à temperatura escolhida e religa quando esquenta. O ventilador pode continuar soprando. Isso é normal. Nos <strong>inverter</strong>, o compressor só reduz a velocidade. O que não é normal é o <strong>aparelho inteiro</strong> desligar, com o visor apagado.</p>
+
+  <h2 id="causas">Causas e o que fazer</h2>
+
+  <h3>1. Timer programado</h3>
+  <p>É a causa mais comum: o timer foi ativado sem querer ou ficou programado de outra noite. <strong>O que fazer:</strong> confira o visor e o controle; aperte o botão Timer até a programação sumir.</p>
+
+  <h3>2. Modo dormir ou econômico</h3>
+  <p>Alguns modos dormir desligam o aparelho depois de algumas horas, e modos econômicos limitam o funcionamento. A LG orienta verificar o modo de operação quando o aparelho liga e desliga. <strong>O que fazer:</strong> desative esses modos e teste no modo frio comum.</p>
+
+  <h3>3. Filtro sujo</h3>
+  <p>Com o filtro entupido, o aparelho não consegue puxar ar suficiente, como explica a Samsung, e pode se proteger desligando. <strong>O que fazer:</strong> limpe os filtros. Veja <a href="/guias/como-limpar-ar-condicionado-split/">como limpar o ar-condicionado split</a>.</p>
+
+  <h3>4. Unidade externa sem ventilação</h3>
+  <p>Unidade externa no sol forte o dia todo, cercada de objetos ou com folhas na grade não consegue soltar o calor e pode desligar por proteção. <strong>O que fazer:</strong> libere a área em volta.</p>
+
+  <h3>5. Energia instável</h3>
+  <p>A LG lembra que tensão elétrica instável pode causar desligamentos. Disjuntor que cai também desliga tudo. <strong>O que fazer:</strong> se o disjuntor cai com frequência, chame um eletricista: pode ser circuito subdimensionado.</p>
+
+  <h3>6. Código de erro</h3>
+  <p>Se o visor mostra letras e números ao desligar, anote. Na Samsung, por exemplo, o código <strong>CF</strong> é só o lembrete de limpar o filtro; outros códigos indicam falhas e estão na tabela do manual.</p>
+
+  <h3>7. Pilhas fracas no controle</h3>
+  <p>Controle com pilha fraca pode mandar comandos errados. <strong>O que fazer:</strong> troque as pilhas e teste.</p>
+
+  <h2 id="tecnico">Quando chamar o técnico</h2>
+  <ul>
+    <li>O aparelho continua desligando depois de conferir timer, modos, filtro e unidade externa.</li>
+    <li>Aparece um código de erro de falha no visor.</li>
+    <li>O desligamento vem junto com barulho estranho, cheiro de queimado ou falta de frio.</li>
+  </ul>
+  <p>Na garantia, prefira a assistência autorizada ou o instalador credenciado.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Ajuste também a temperatura certa para economizar: veja a <a href="/guias/temperatura-ideal-ar-condicionado/">temperatura ideal do ar-condicionado</a>. E se o aparelho não gela, veja <a href="/guias/ar-condicionado-nao-gela/">ar-condicionado não gela</a>.</p>
+</Artigo>

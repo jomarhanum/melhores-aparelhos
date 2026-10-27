@@ -1,0 +1,66 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Referências: freezer a -18 °C (manual Electrolux: "temperaturas abaixo de -18 °C"); refrigerador até cerca de 4 °C
+// (recomendação de segurança alimentar da FDA, EUA: 4,4 °C ou menos; faixa de 3 °C a 5 °C citada por fabricantes);
+// manual Electrolux: evitar a graduação máxima em dias frios, 2 horas antes de abastecer. Out/2026.
+const faq = [
+  { q: 'Qual a temperatura ideal da geladeira?', a: 'O refrigerador deve ficar em torno de 3 °C a 5 °C, de preferência até 4 °C, que é a referência de segurança alimentar da FDA, a agência americana. O freezer deve ficar a -18 °C ou menos.' },
+  { q: 'Qual a temperatura ideal do freezer?', a: '-18 °C ou menos. É a temperatura que o manual de geladeiras Electrolux indica para o compartimento congelador e a referência usada para conservar alimentos congelados por longos períodos.' },
+  { q: 'Qual número colocar no termostato da geladeira?', a: 'Depende do modelo: em muitos, os números indicam a intensidade do frio, e não a temperatura em graus, e o sentido muda entre marcas. Siga a posição recomendada no manual, em geral a intermediária, e ajuste aos poucos.' },
+  { q: 'Devo mudar a temperatura da geladeira no verão?', a: 'Pode ser necessário um pouco mais de frio em dias muito quentes, principalmente se a geladeira fica cheia ou a porta abre muito. Mas o manual Electrolux recomenda evitar a graduação máxima no dia a dia: em dias frios, ela pode congelar alimentos no refrigerador e aumenta o consumo.' },
+  { q: 'Como medir a temperatura da geladeira?', a: 'Coloque um termômetro de cozinha dentro de um copo com água no meio da geladeira e leia depois de algumas horas, sem abrir a porta nesse intervalo. A água mostra a temperatura real dos alimentos melhor que o ar.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-geladeira/', '/guias/como-organizar-geladeira/', '/guias/geladeira-nao-gela/', '/guias/geladeira-gasta-muita-energia/']}>
+  <p>A temperatura da geladeira decide quanto tempo a comida dura e quanto você paga de energia. Fria de menos, os alimentos estragam rápido; fria demais, a geladeira gasta mais e congela o que não devia. Veja as temperaturas de referência para o refrigerador e o freezer, como ajustar o termostato e como medir em casa.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> <strong>refrigerador entre 3 °C e 5 °C</strong>, de preferência <strong>até 4 °C</strong>; <strong>freezer a -18 °C</strong> ou menos. No termostato, comece pela posição indicada no manual e ajuste aos poucos. Evite a posição máxima no dia a dia: ela congela alimentos e aumenta a conta.</p>
+  </div>
+
+  <h2 id="tabela">Temperatura ideal de cada parte</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Compartimento</th><th>Temperatura de referência</th></tr></thead>
+      <tbody>
+        <tr><td>Refrigerador</td><td>3 °C a 5 °C (de preferência até 4 °C)</td></tr>
+        <tr><td>Freezer</td><td>-18 °C ou menos</td></tr>
+        <tr><td>Gaveta de frutas e verduras</td><td>A área menos fria da geladeira, feita para eles</td></tr>
+        <tr><td>Porta</td><td>A que mais varia: só para o que aguenta, como água e condimentos</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A referência de 4 °C para o refrigerador vem da recomendação de segurança alimentar da FDA, a agência americana. Os -18 °C do freezer são os que o manual de geladeiras Electrolux indica para o compartimento congelador.</p>
+
+  <h2 id="termostato">Como ajustar o termostato</h2>
+  <ul>
+    <li><strong>Números não são graus:</strong> em muitas geladeiras, o seletor vai de 1 a 7 (ou MIN a MAX) e indica a intensidade do frio. O sentido muda de marca para marca: confira no manual.</li>
+    <li><strong>Comece pela posição recomendada</strong>, em geral a intermediária, e mude uma posição por vez.</li>
+    <li><strong>Espere</strong>: depois de mexer, a temperatura leva horas para estabilizar.</li>
+    <li><strong>Evite a posição máxima</strong> no dia a dia. O manual Electrolux alerta que, em dias frios, ela pode congelar alimentos no refrigerador e aumenta o consumo de energia.</li>
+    <li><strong>Modelos digitais</strong> mostram a temperatura no painel; use os valores de referência acima.</li>
+  </ul>
+
+  <h2 id="medir">Como medir a temperatura em casa</h2>
+  <ol>
+    <li>Coloque um termômetro de cozinha dentro de um <strong>copo com água</strong>.</li>
+    <li>Deixe na prateleira do meio e <strong>não abra a porta</strong> por algumas horas.</li>
+    <li>Leia a temperatura: a água mostra a temperatura real dos alimentos, mais estável que a do ar.</li>
+    <li>Se estiver acima de 5 °C, aumente o frio uma posição e meça de novo no dia seguinte.</li>
+  </ol>
+
+  <h2 id="fatores">O que faz a temperatura subir</h2>
+  <ul>
+    <li>Porta aberta muitas vezes ou por muito tempo.</li>
+    <li>Geladeira lotada, com alimentos tapando as saídas de ar.</li>
+    <li>Comida quente guardada sem esfriar.</li>
+    <li>Borracha da porta gasta ou suja, que deixa o frio escapar.</li>
+    <li>Geladeira ao lado do fogão ou sob sol direto.</li>
+    <li>Depois de abastecer: o manual Electrolux pede 2 horas de funcionamento antes de guardar alimentos numa geladeira recém-ligada.</li>
+  </ul>
+  <p>Se mesmo com o ajuste certo a geladeira não chega à temperatura, veja <a href="/guias/geladeira-nao-gela/">geladeira não gela: o que fazer</a>.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Organize os alimentos no lugar certo para aproveitar cada zona de frio: veja <a href="/guias/como-organizar-geladeira/">como organizar a geladeira</a>. E compare o consumo oficial das <a href="/melhor-geladeira/">10 melhores geladeiras de 2026</a>.</p>
+</Artigo>

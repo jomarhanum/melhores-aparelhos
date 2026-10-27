@@ -1,0 +1,55 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fontes: FAQ Brastemp (bandeja atrás, sobre o compressor, onde a água do degelo evapora; se transbordar: conferir
+// saídas de ar, portas e pés niveladores; frost free: desligar por 48 horas; degelo manual: quando o gelo chegar a
+// 2 cm ou a cada 3 meses) e manual Electrolux (coletor de água atrás, não remover; geladeira levemente inclinada
+// para trás), out/2026.
+const faq = [
+  { q: 'Por que tem água embaixo da geladeira?', a: 'As causas mais comuns são a bandeja de degelo atrás da geladeira transbordando, o dreno de degelo entupido, porta que não fecha direito e geladeira desnivelada. Em modelos com dispenser ou máquina de gelo, a mangueira de água também pode vazar.' },
+  { q: 'É normal ter água atrás da geladeira?', a: 'Na bandeja que fica sobre o compressor, sim. A Brastemp explica que a água do degelo cai nessa bandeja e evapora com o funcionamento normal. O problema é quando ela transborda e a água chega ao chão.' },
+  { q: 'Por que tem água dentro da geladeira, embaixo das gavetas?', a: 'Geralmente é o dreno de degelo entupido por resto de alimento ou gelo: a água que deveria escorrer para a bandeja de trás fica presa dentro do refrigerador. Limpar o dreno com cuidado costuma resolver; se o gelo volta a se formar, chame a assistência.' },
+  { q: 'Desligar a geladeira resolve o vazamento?', a: 'Em frost free, a Brastemp sugere desligar por 48 horas, religar e observar, depois de conferir saídas de ar, portas e nivelamento. Isso derrete o gelo acumulado que pode estar desviando a água. Se o vazamento voltar, chame a assistência autorizada.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-geladeira/', '/guias/geladeira-nao-gela/', '/guias/como-limpar-geladeira/', '/guias/geladeira-fazendo-barulho/']}>
+  <p>Poça d'água embaixo da geladeira ou água acumulada embaixo das gavetas? Antes de pensar em defeito grave, saiba que a geladeira lida com água o tempo todo: o gelo que se forma por dentro derrete no degelo e é levado até uma bandeja, onde evapora. Quando algo no caminho falha, a água aparece onde não devia. Veja as causas e o que fazer, com base na Brastemp e no manual Electrolux.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> confira se a <strong>porta fecha</strong> bem, se a geladeira está <strong>nivelada</strong> (levemente inclinada para trás), se há alimentos <strong>tapando as saídas de ar</strong> e se o <strong>dreno de degelo</strong> não está entupido. Em frost free, a Brastemp sugere <strong>desligar por 48 horas</strong> e observar. Se continuar, chame a assistência.</p>
+  </div>
+
+  <h2 id="caminho">Como a água deveria sair</h2>
+  <p>Nas geladeiras com degelo automático, o gelo que se forma por dentro derrete periodicamente. Essa água escorre por um <strong>dreno</strong> até uma <strong>bandeja atrás da geladeira</strong>, sobre o compressor, onde evapora com o calor do motor. A Brastemp explica que ter água nessa bandeja é normal, e o manual Electrolux orienta <strong>não remover o coletor</strong>.</p>
+
+  <h2 id="causas">Causas e o que fazer</h2>
+
+  <h3>1. Dreno de degelo entupido (água dentro, embaixo das gavetas)</h3>
+  <p>Resto de alimento ou gelo pode entupir o canal de degelo, que costuma ficar no fundo do refrigerador, atrás ou acima da gaveta de verduras. A água fica presa e escorre para dentro. <strong>O que fazer:</strong> com a geladeira desligada, retire a gaveta, limpe a área e desobstrua o furo do dreno com cuidado, usando água morna, sem objetos pontudos que possam furar a parede interna. Se não achar o dreno ou o gelo voltar, chame a assistência.</p>
+
+  <h3>2. Porta que não fecha direito</h3>
+  <p>Com a porta encostada ou a borracha gasta, entra ar quente e úmido, que vira gelo e depois água em excesso. <strong>O que fazer:</strong> confira se não há alimento impedindo a porta de fechar e se a borracha está inteira e limpa.</p>
+
+  <h3>3. Geladeira desnivelada</h3>
+  <p>O manual Electrolux indica que a geladeira deve ficar <strong>levemente inclinada para trás</strong>, o que ajuda a porta a fechar sozinha. Inclinada para a frente, a água pode escorrer para o lado errado. <strong>O que fazer:</strong> ajuste os pés niveladores.</p>
+
+  <h3>4. Saídas de ar tapadas e gelo acumulado</h3>
+  <p>A Brastemp explica que uma quantidade anormal de gelo pode fazer a bandeja transbordar. Alimentos encostados nas saídas de ar contribuem para isso. <strong>O que fazer (frost free):</strong> libere as saídas de ar, confira portas e nivelamento e, se continuar, <strong>desligue a geladeira por 48 horas</strong>, religue e observe, como orienta a Brastemp.</p>
+
+  <h3>5. Degelo atrasado (geladeiras sem frost free)</h3>
+  <p>Nas geladeiras de degelo manual, o gelo grosso derrete de uma vez e a água sobra. A Brastemp orienta fazer o degelo quando a camada de gelo chegar a <strong>2 cm, ou pelo menos a cada 3 meses</strong>.</p>
+
+  <h3>6. Mangueira de água (modelos com dispenser ou máquina de gelo)</h3>
+  <p>Se a sua geladeira é ligada na rede de água, confira a mangueira e as conexões atrás dela. Vazamento de água limpa e constante costuma vir daí.</p>
+
+  <h2 id="tecnico">Quando chamar a assistência</h2>
+  <ul>
+    <li>O vazamento continua depois das verificações e das 48 horas desligada.</li>
+    <li>Gelo volta a se acumular no fundo do freezer de uma frost free.</li>
+    <li>Água junto com a geladeira gelando pouco: veja também <a href="/guias/geladeira-nao-gela/">geladeira não gela</a>.</li>
+  </ul>
+  <p>Na garantia, prefira a assistência autorizada da marca.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Aproveite para fazer a limpeza completa: veja <a href="/guias/como-limpar-geladeira/">como limpar a geladeira</a>. Se for hora de trocar, compare as <a href="/melhor-geladeira/">10 melhores geladeiras de 2026</a>.</p>
+</Artigo>

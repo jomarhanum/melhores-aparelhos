@@ -1,0 +1,62 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fonte: páginas de suporte da Samsung sobre vazamento em máquinas de lavar (borracha da porta, mangueira de drenagem
+// solta ou mal instalada, dispenser entupido e pressão alta da água, sabão inadequado com excesso de espuma,
+// nivelamento) e a página de não centrifugar (filtro), out/2026.
+const faq = [
+  { q: 'Por que a máquina de lavar está vazando água por baixo?', a: 'As causas mais comuns são a mangueira de entrada ou de saída mal encaixada, a tampa do filtro mal fechada nas frontais, excesso de espuma por sabão demais ou inadequado e máquina desnivelada. Se a água embaixo é limpa, suspeite da mangueira de entrada; se é suja ou com sabão, da saída, do filtro ou da espuma.' },
+  { q: 'Máquina de lavar vazando pela frente: o que é?', a: 'Nas frontais, a Samsung aponta a borracha da porta danificada ou com sujeira, e roupa presa na porta. Também pode ser o dispenser de sabão entupido ou transbordando, que fica na frente.' },
+  { q: 'Excesso de sabão faz a máquina vazar?', a: 'Pode fazer. Espuma demais transborda pelo dispenser e pela porta, principalmente nas frontais, que usam pouca água. Use a dose indicada e, nas frontais, sabão próprio para lavadoras de abertura frontal.' },
+  { q: 'Quando chamar o técnico?', a: 'Se o vazamento continua depois de conferir mangueiras, filtro, dispenser, sabão e nivelamento, ou se a água sai de dentro da máquina, por baixo do cesto. Pode ser bomba, mangueira interna ou o tanque.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-maquina-de-lavar/', '/guias/maquina-de-lavar-nao-centrifuga/', '/guias/como-limpar-maquina-de-lavar/', '/guias/maquina-de-lavar-frontal-ou-superior/']}>
+  <p>Água no chão da lavanderia depois da lavagem? Na maioria das vezes, o vazamento vem de algo do lado de fora da máquina, que você mesmo confere: <strong>mangueira, filtro, dispenser, sabão ou nivelamento</strong>. Veja onde olhar, com base nas páginas de suporte da Samsung, e quando é caso de técnico.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> desligue da tomada e feche a torneira. Confira as <strong>mangueiras de entrada e de saída</strong>, a <strong>tampa do filtro</strong> (nas frontais), a <strong>borracha da porta</strong>, o <strong>dispenser de sabão</strong>, a <strong>dose e o tipo de sabão</strong> e o <strong>nivelamento</strong>. Se a água sai de dentro da máquina, chame o técnico.</p>
+  </div>
+
+  <h2 id="pista">A pista: de onde vem a água</h2>
+  <ul>
+    <li><strong>Água limpa</strong>, mesmo com a máquina parada: provavelmente a mangueira de entrada ou a torneira.</li>
+    <li><strong>Água com sabão ou suja</strong>, durante a lavagem ou o enxágue: mangueira de saída, filtro, dispenser, espuma ou porta.</li>
+    <li><strong>Pela frente</strong> (frontais): borracha da porta, dispenser ou tampa do filtro.</li>
+    <li><strong>Por baixo do cesto</strong>, sem origem visível: peça interna, caso de técnico.</li>
+  </ul>
+
+  <h2 id="causas">Causas e o que fazer</h2>
+
+  <h3>1. Mangueira de entrada solta ou com vedação gasta</h3>
+  <p>A conexão na torneira e na máquina precisa estar firme e com a borrachinha de vedação no lugar. <strong>O que fazer:</strong> feche a torneira, desrosqueie, confira a vedação e reaperte à mão, sem forçar a rosca.</p>
+
+  <h3>2. Mangueira de saída solta, mal instalada ou danificada</h3>
+  <p>A Samsung cita a mangueira de drenagem solta ou mal instalada como causa de água no chão. <strong>O que fazer:</strong> confira se ela está firme no tanque ou no ralo, sem dobras, rachaduras ou furos.</p>
+
+  <h3>3. Tampa do filtro mal fechada (frontais)</h3>
+  <p>Depois de limpar o filtro, a tampinha da frente precisa ser rosqueada até o fim. <strong>O que fazer:</strong> com uma bandeja embaixo, abra, confira a vedação e feche bem.</p>
+
+  <h3>4. Borracha da porta (frontais)</h3>
+  <p>A Samsung aponta a borracha da porta danificada ou com sujeira, e roupa presa na porta, como causas de vazamento pela frente. <strong>O que fazer:</strong> limpe a borracha e o vidro com pano úmido e confira se não há rasgo. Borracha rasgada precisa ser trocada.</p>
+
+  <h3>5. Dispenser entupido</h3>
+  <p>Sabão e amaciante endurecidos entopem o dispenser, e a água transborda na lavagem ou no enxágue. A Samsung também cita a pressão de água muito alta como causa. <strong>O que fazer:</strong> retire e lave o dispenser. Veja <a href="/guias/como-limpar-maquina-de-lavar/">como limpar a máquina de lavar</a>.</p>
+
+  <h3>6. Sabão demais ou inadequado</h3>
+  <p>Espuma em excesso transborda. A Samsung lembra que as frontais usam pouca água e precisam de <strong>sabão próprio para lavadoras de alta eficiência (frontais)</strong>. <strong>O que fazer:</strong> use a dose da embalagem e o sabão certo para o seu tipo de máquina.</p>
+
+  <h3>7. Máquina desnivelada</h3>
+  <p>Desnivelada, a máquina balança e pode vazar, como alerta a Samsung. <strong>O que fazer:</strong> ajuste os pés até ela ficar firme, sem balançar.</p>
+
+  <h2 id="tecnico">Quando chamar o técnico</h2>
+  <ul>
+    <li>A água sai de dentro da máquina, por baixo do cesto ou do tanque.</li>
+    <li>O vazamento continua depois de todas as verificações.</li>
+    <li>Água perto de fios ou da tomada: desligue tudo e não use a máquina.</li>
+  </ul>
+  <p>Faça um ciclo de teste depois de cada ajuste. Na garantia, use a assistência autorizada da marca.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Se a máquina também não centrifuga, veja <a href="/guias/maquina-de-lavar-nao-centrifuga/">máquina de lavar não centrifuga</a>. Se for hora de trocar, compare as <a href="/melhor-maquina-de-lavar/">10 melhores máquinas de lavar de 2026</a>.</p>
+</Artigo>

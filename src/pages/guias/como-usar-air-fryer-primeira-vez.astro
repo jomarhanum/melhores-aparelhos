@@ -1,0 +1,59 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fontes: manuais de air fryers Britânia (cura do antiaderente antes do primeiro uso; não deixar o produto ligado vazio
+// por muito tempo) e orientações de limpeza da Electrolux (lavar cesto e cuba com detergente neutro e esponja macia), out/2026.
+const faq = [
+  { q: 'Precisa lavar a air fryer antes de usar pela primeira vez?', a: 'Sim. Retire embalagens, plásticos e adesivos e lave o cesto e a cuba com água morna, detergente neutro e o lado macio da esponja. Seque bem antes de encaixar.' },
+  { q: 'O que é a cura da air fryer?', a: 'É um preparo do antiaderente antes do primeiro uso, indicado em manuais como os da Britânia: em geral, passar uma camada fina de óleo no cesto e aquecer por alguns minutos. O procedimento exato muda de modelo para modelo, então siga o manual do seu.' },
+  { q: 'É normal a air fryer soltar cheiro no primeiro uso?', a: 'Um cheiro leve nos primeiros usos é comum, por causa de resíduos de fabricação aquecendo pela primeira vez. Deixe o ambiente ventilado. Se o cheiro for forte e não passar depois de alguns usos, ou houver fumaça escura, desligue e procure a assistência.' },
+  { q: 'Posso ligar a air fryer vazia?', a: 'Só pelo tempo indicado no manual para o primeiro uso ou para preaquecer. O manual da Britânia alerta que deixar o produto ligado vazio por muito tempo pode danificar o antiaderente.' },
+  { q: 'Precisa preaquecer a air fryer?', a: 'Muitas receitas ficam mais crocantes com 3 a 5 minutos de preaquecimento. Alguns modelos têm função própria; veja o manual e não deixe a air fryer vazia além disso.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-air-fryer/', '/guias/como-limpar-air-fryer/', '/guias/air-fryer-vale-a-pena/', '/guias/qual-tamanho-de-air-fryer/']}>
+  <p>Air fryer nova na cozinha? Antes da primeira batata frita, alguns cuidados fazem o antiaderente durar mais e evitam o cheiro de plástico queimado. Veja o passo a passo do primeiro uso, a "cura" que muitos manuais pedem e as dicas para acertar o ponto desde a primeira receita.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> tire todas as embalagens e adesivos, <strong>lave o cesto e a cuba</strong> com detergente neutro e seque bem. Faça a <strong>cura do antiaderente</strong> se o manual pedir (em geral, uma camada fina de óleo e alguns minutos de aquecimento), com o <strong>ambiente ventilado</strong>. Não deixe a air fryer ligada vazia por muito tempo.</p>
+  </div>
+
+  <h2 id="passo-a-passo">Primeiro uso: passo a passo</h2>
+  <ol>
+    <li><strong>Desembale tudo</strong>: retire plásticos, papelões e adesivos de dentro e de fora, inclusive do cesto.</li>
+    <li><strong>Leia o manual</strong>: ele traz a cura do antiaderente, os tempos de preaquecimento e o que vai ou não à lava-louças.</li>
+    <li><strong>Lave o cesto e a cuba</strong> com água morna, detergente neutro e o lado macio da esponja. Seque bem.</li>
+    <li><strong>Passe um pano úmido</strong> por fora e por dentro da cavidade, sem molhar a resistência.</li>
+    <li><strong>Instale num lugar firme</strong>, longe da parede e de armários, com espaço para o ar quente sair por trás e por cima.</li>
+    <li><strong>Faça a cura</strong>, se o manual indicar (veja abaixo).</li>
+    <li>Deixe esfriar, lave de novo o cesto se o manual pedir e pronto: pode cozinhar.</li>
+  </ol>
+
+  <h2 id="cura">A cura do antiaderente</h2>
+  <p>Manuais como os da Britânia pedem a <strong>cura do antiaderente antes do primeiro uso</strong>, para aumentar a durabilidade do revestimento. Em geral, ela consiste em:</p>
+  <ol>
+    <li>Passar uma <strong>camada fina de óleo</strong> no cesto, com papel-toalha.</li>
+    <li>Ligar a air fryer por <strong>alguns minutos</strong>, na temperatura que o manual indicar.</li>
+    <li>Deixar esfriar e retirar o excesso de óleo com papel-toalha.</li>
+  </ol>
+  <p>O procedimento exato muda de modelo para modelo: siga o manual do seu. O mesmo manual da Britânia alerta que <strong>não é recomendável deixar o produto ligado vazio por muito tempo</strong>, porque isso pode danificar o antiaderente. Feita uma vez, a cura não precisa ser repetida.</p>
+
+  <h2 id="cheiro">Cheiro no primeiro uso</h2>
+  <p>Um <strong>cheiro leve</strong> nos primeiros usos é comum: são resíduos de fabricação aquecendo pela primeira vez. Abra a janela ou ligue o exaustor. Se o cheiro for forte, durar vários usos ou vier com fumaça escura, desligue da tomada e procure a assistência.</p>
+
+  <h2 id="primeira-receita">Dicas para a primeira receita</h2>
+  <ul>
+    <li><strong>Preaqueça</strong> por 3 a 5 minutos para alimentos crocantes, se o manual permitir.</li>
+    <li><strong>Não lote o cesto</strong>: o ar quente precisa circular. Camada única dá o melhor resultado.</li>
+    <li><strong>Chacoalhe o cesto</strong> na metade do tempo, principalmente batatas e legumes.</li>
+    <li><strong>Pouco óleo</strong>: um fio ou spray leve basta; excesso forma crosta no cesto.</li>
+    <li><strong>Comece por algo simples</strong>, como batata congelada ou pão de queijo, seguindo a embalagem e conferindo antes do fim do tempo.</li>
+    <li><strong>Nunca coloque o alimento direto na cuba</strong>, sem o cesto, e não tampe as saídas de ar.</li>
+  </ul>
+
+  <h2 id="depois">Depois de usar</h2>
+  <p>Espere esfriar, tire da tomada e lave o cesto e a cuba com detergente neutro e esponja macia. Passo a passo completo, incluindo a resistência, em <a href="/guias/como-limpar-air-fryer/">como limpar a air fryer</a>.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Ainda vai comprar a sua? Veja as <a href="/melhor-air-fryer/">10 melhores air fryers de 2026</a> e <a href="/guias/qual-tamanho-de-air-fryer/">qual tamanho escolher</a>.</p>
+</Artigo>
