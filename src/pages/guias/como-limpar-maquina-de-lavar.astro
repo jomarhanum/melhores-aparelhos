@@ -1,0 +1,156 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+import { amazonLink, mercadoLivreLink } from '../../data/tipos';
+
+// Fontes: orientações oficiais da Brastemp (limpeza do cesto com água sanitária, filtro, dispenser,
+// vinagre e bicarbonato) e da Samsung (ciclo de limpeza do tambor, borracha da porta), out/2026.
+// Produtos: '' = ainda sem link de afiliado (botão leva à busca na loja); null = esconde o botão.
+const produtos = [
+  {
+    nome: 'Limpa Máquina de Lavar Roupas Electrolux',
+    tipo: 'Líquido em sachê de 200 ml',
+    texto: 'Feito pela fabricante para limpar o cesto e o tambor. Serve para máquinas de abertura superior e frontais, com cesto de plástico ou inox.',
+    busca: 'limpa maquina de lavar roupas Electrolux',
+    amazonUrl: '',
+    mercadoLivreUrl: '',
+  },
+  {
+    nome: 'Esfrebom Limpa Máquina (Bettanin)',
+    tipo: 'Pó, sem cloro',
+    texto: 'À base de percarbonato de sódio, que libera oxigênio ativo. Opção para quem prefere não usar cloro.',
+    busca: 'Esfrebom limpa maquina de lavar Bettanin',
+    amazonUrl: '',
+    mercadoLivreUrl: '',
+  },
+  {
+    nome: 'Limpa Máquina de Lavar Roupas Mon Bijou',
+    tipo: 'Pó, sachê de 80 g',
+    texto: 'Sachê de dose única, fácil de achar em supermercado.',
+    busca: 'Mon Bijou limpa maquina de lavar roupas',
+    amazonUrl: '',
+    mercadoLivreUrl: '',
+  },
+];
+
+const faq = [
+  { q: 'De quanto em quanto tempo limpar a máquina de lavar?', a: 'O filtro de fiapos, a cada lavagem ou pelo menos uma vez por semana. O cesto, uma vez por mês ou a cada 45 dias, segundo a Brastemp; nas frontais da Samsung, o ciclo de limpeza do tambor é indicado pelo menos uma vez por mês ou a cada 40 lavagens. Siga sempre o manual do seu modelo.' },
+  { q: 'Como higienizar a máquina de lavar com água sanitária?', a: 'Com a máquina vazia, coloque 500 ml de água sanitária direto no cesto, escolha o nível de água mais alto, o ciclo mais longo com agitação turbo e enxágue único, e deixe o ciclo terminar. É o procedimento da Brastemp para máquinas de abertura superior sem função de autolimpeza.' },
+  { q: 'Posso limpar a máquina de lavar com vinagre e bicarbonato?', a: 'A Brastemp não recomenda: segundo a marca, receitas caseiras como vinagre e bicarbonato não têm segurança comprovada e podem desgastar os materiais. Misturados, os dois ainda se neutralizam, porque um é ácido e o outro é básico.' },
+  { q: 'Qual o melhor produto para limpar a máquina de lavar?', a: 'Primeiro, o que o manual indica: muitas máquinas pedem só água sanitária ou têm um ciclo de limpeza que dispensa produto. Para quem prefere um produto específico, existem limpa-máquinas como o da Electrolux, que serve para máquinas de abertura superior e frontais, e opções sem cloro, à base de percarbonato.' },
+  { q: 'A minha máquina tem função de limpeza do cesto. Preciso de produto?', a: 'Em muitos casos, não. A Samsung informa que o ciclo de limpeza do tambor funciona sem produto, e a Brastemp diz que o Ciclo Limpeza de Cesto das frontais usa alta temperatura e dispensa químicos. Nunca rode esses ciclos com roupa dentro nem com sabão de lavar roupa.' },
+  { q: 'Por que a máquina de lavar está com cheiro ruim?', a: 'Geralmente é resíduo de sabão e amaciante, fiapos no filtro e umidade presa, principalmente na borracha da porta das frontais. Limpe o filtro e o dispenser, faça o ciclo de limpeza do cesto e deixe a tampa ou a porta entreaberta depois de usar.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-maquina-de-lavar/', '/guias/maquina-de-lavar-frontal-ou-superior/', '/guias/maquina-de-lavar-gasta-muita-agua-e-energia/', '/guias/quantos-kg-maquina-de-lavar/']}>
+  <p>A máquina de lavar limpa as roupas, mas não se limpa sozinha. Resto de sabão, amaciante, fiapos e umidade se acumulam no cesto, no filtro e no dispenser, e o resultado aparece rápido: <strong>cheiro ruim, manchas cinzas nas roupas e fiapos grudados</strong>. A boa notícia é que a limpeza é simples e leva poucos minutos de trabalho seu.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> limpe o <strong>filtro de fiapos</strong> a cada lavagem ou toda semana, lave o <strong>dispenser</strong> uma vez por mês e faça a <strong>limpeza do cesto</strong> uma vez por mês ou a cada 45 dias: nas máquinas de abertura superior, com 500 ml de água sanitária no nível de água mais alto; nas frontais, com o ciclo de limpeza do tambor. Não use vinagre nem bicarbonato.</p>
+  </div>
+
+  <h2 id="antes">Antes de começar</h2>
+  <ul>
+    <li><strong>Leia o manual do seu modelo.</strong> Ele diz onde fica o filtro, se a máquina tem ciclo de limpeza e qual produto usar. As orientações abaixo seguem o que a Brastemp e a Samsung publicam, mas cada máquina tem detalhes próprios.</li>
+    <li><strong>Desligue da tomada</strong> antes de mexer no filtro e no dispenser.</li>
+    <li><strong>Deixe a máquina vazia</strong> no ciclo de limpeza: roupa com água sanitária desbota e mancha.</li>
+  </ul>
+
+  <h2 id="superior">Como limpar máquina de lavar de abertura superior</h2>
+  <p>É o procedimento da Brastemp para máquinas de abertura superior que não têm função de autolimpeza:</p>
+  <ol>
+    <li>Confira se não ficou nenhuma peça de roupa no cesto.</li>
+    <li>Coloque <strong>500 ml de água sanitária</strong> direto no cesto.</li>
+    <li>Escolha o <strong>nível de água mais alto</strong> (em muitas máquinas, o nível "Edredom").</li>
+    <li>Selecione o <strong>ciclo mais longo</strong>, com <strong>agitação turbo</strong> e <strong>enxágue único</strong>.</li>
+    <li>Deixe o ciclo terminar e, no fim, abra a tampa para secar.</li>
+  </ol>
+  <p>Repita <strong>uma vez por mês ou a cada 45 dias</strong>. Se a sua máquina tiver um programa de limpeza do cesto, use-o do jeito que o manual indica.</p>
+
+  <h2 id="frontal">Como limpar máquina de lavar frontal (e lava e seca)</h2>
+  <p>As frontais costumam ter um <strong>ciclo próprio de limpeza do tambor</strong>, com nomes como "Limpeza do Cesto" ou "Eco Drum Clean". Ele usa água quente e, segundo a Samsung e a Brastemp, funciona <strong>sem produto</strong>.</p>
+  <ol>
+    <li>Esvazie o tambor por completo.</li>
+    <li>Ligue o ciclo de limpeza do tambor e deixe terminar. Não use sabão de lavar roupa nesse ciclo.</li>
+    <li>Para sujeira forte, a Samsung permite adicionar água sanitária líquida no compartimento de lavagem principal, até a marca MAX.</li>
+    <li>Limpe a borracha da porta (veja abaixo) e deixe a porta aberta até secar.</li>
+  </ol>
+  <p>A Samsung recomenda esse ciclo <strong>pelo menos uma vez por mês ou a cada 40 lavagens</strong>; em vários modelos, uma luz no painel avisa quando é hora.</p>
+
+  <h2 id="filtro">Como limpar o filtro de fiapos</h2>
+  <p>O filtro segura fiapos, cabelos e pelos que soltam das roupas. Entupido, ele deixa fiapos nas peças e atrapalha a drenagem.</p>
+  <ul>
+    <li><strong>Abertura superior:</strong> o filtro costuma ficar no agitador ou na borda do cesto. Retire, jogue os fiapos no lixo, lave em água corrente e escove se precisar.</li>
+    <li><strong>Frontal:</strong> o filtro fica atrás de uma tampinha embaixo, na frente da máquina. Com a máquina desligada, coloque uma toalha e um recipiente raso, porque sai água. Desrosqueie devagar, limpe e recoloque bem firme.</li>
+  </ul>
+  <p>Faça isso <strong>a cada lavagem ou pelo menos uma vez por semana</strong>, e sempre depois de lavar panos de chão, toalhas novas ou roupas de lã, que soltam mais fiapos.</p>
+
+  <h2 id="dispenser">Como limpar o dispenser de sabão e amaciante</h2>
+  <ol>
+    <li>Retire os compartimentos com cuidado (o manual mostra como destravar).</li>
+    <li>Lave em água corrente ou morna, com uma esponja ou escovinha macia, até sair todo o resto de sabão e amaciante.</li>
+    <li>Limpe também o encaixe onde o dispenser fica, que acumula sujeira e mofo.</li>
+    <li>Recoloque depois de secar.</li>
+  </ol>
+
+  <h2 id="borracha">Como limpar a borracha da porta (frontais)</h2>
+  <p>A borracha da porta é onde mais aparece mofo nas frontais, porque segura água. Puxe a borracha para trás, procure manchas, objetos esquecidos e sujeira, e limpe com pano úmido e <strong>detergente neutro</strong>. Evite produtos abrasivos e não jogue água direto na máquina. Depois de cada lavagem, <strong>deixe a porta aberta</strong> até secar por dentro.</p>
+
+  <h2 id="por-fora">Como limpar por fora</h2>
+  <p>Use um pano macio úmido; para sujeira mais forte, água morna com um pouco de detergente neutro. Seque com pano seco e não deixe cair água no painel. Nada de produtos abrasivos, que riscam o acabamento.</p>
+
+  <h2 id="frequencia">Com que frequência limpar cada parte</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Parte</th><th>Frequência</th><th>Como</th></tr></thead>
+      <tbody>
+        <tr><td>Filtro de fiapos</td><td>A cada lavagem ou toda semana</td><td>Água corrente e escova</td></tr>
+        <tr><td>Dispenser</td><td>Uma vez por mês</td><td>Água morna e esponja macia</td></tr>
+        <tr><td>Cesto (abertura superior)</td><td>A cada 30 a 45 dias</td><td>500 ml de água sanitária, nível máximo, ciclo longo</td></tr>
+        <tr><td>Tambor (frontal)</td><td>Uma vez por mês ou a cada 40 lavagens</td><td>Ciclo de limpeza do tambor, sem roupa</td></tr>
+        <tr><td>Borracha da porta (frontal)</td><td>Uma vez por mês, junto com o tambor; secar depois de cada uso</td><td>Pano úmido e detergente neutro</td></tr>
+        <tr><td>Parte de fora</td><td>Quando sujar</td><td>Pano úmido e detergente neutro</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="vinagre">Vinagre e bicarbonato funcionam?</h2>
+  <p>É a receita caseira mais compartilhada, mas a <strong>Brastemp não recomenda</strong>: segundo a marca, vinagre e bicarbonato não têm segurança comprovada para a máquina e podem desgastar os materiais com o tempo. E a mistura dos dois tem um problema de química básica: o vinagre é ácido e o bicarbonato é básico, então um neutraliza o outro e sobra pouca ação de limpeza. Fique com o que o manual indica.</p>
+
+  <h2 id="produtos">Produtos para limpar a máquina de lavar</h2>
+  <p>Antes de comprar qualquer coisa, veja o manual: <strong>muitas máquinas pedem só água sanitária</strong>, e as que têm ciclo de limpeza do tambor costumam dispensar produto. Para quem prefere um produto feito para isso, estas são opções vendidas no Brasil:</p>
+  <div class="produtos-limpeza">
+    {produtos.map((p) => (
+      <div class="pl">
+        <p class="pl-nome">{p.nome}</p>
+        <p class="pl-tipo">{p.tipo}</p>
+        <p>{p.texto}</p>
+        <div class="pl-botoes">
+          {amazonLink(p) && <a class="btn btn-amazon btn-sm" href={amazonLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon">Ver na Amazon</a>}
+          {mercadoLivreLink(p) && <a class="btn btn-ml btn-sm" href={mercadoLivreLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre">Ver no Mercado Livre</a>}
+        </div>
+      </div>
+    ))}
+  </div>
+  <p>Também existem <strong>pastilhas efervescentes</strong> limpa-máquina, vendidas em kits. Em qualquer caso, siga a dose e o ciclo da embalagem e não misture produtos diferentes, principalmente água sanitária com outros limpadores.</p>
+
+  <h2 id="sinais">Sinais de que a máquina precisa de limpeza</h2>
+  <ul>
+    <li>Cheiro de mofo ou de "guardado" nas roupas lavadas.</li>
+    <li>Manchas cinzas ou pontinhos escuros nas peças.</li>
+    <li>Fiapos e pelos grudados na roupa.</li>
+    <li>Resto de sabão ou amaciante no dispenser.</li>
+    <li>Água demorando a escoar (pode ser o filtro entupido).</li>
+  </ul>
+
+  <h2>Próximos passos</h2>
+  <p>Hora de trocar de máquina? Veja as <a href="/melhor-maquina-de-lavar/">10 melhores máquinas de lavar de 2026</a> e compare <a href="/guias/maquina-de-lavar-frontal-ou-superior/">frontal ou de abertura superior</a>.</p>
+</Artigo>
+
+<style>
+  .produtos-limpeza { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 1rem 0 1.4rem; }
+  .pl { border: 1px solid var(--borda); border-radius: 14px; padding: 16px 18px; background: #fff; display: flex; flex-direction: column; }
+  .pl p { margin: 0 0 .6rem; font-size: 1rem; }
+  .pl .pl-nome { font-weight: 800; font-size: 1.05rem; }
+  .pl .pl-tipo { color: var(--azul); font-weight: 600; font-size: .92rem; }
+  .pl-botoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+</style>

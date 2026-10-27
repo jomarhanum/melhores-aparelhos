@@ -36,10 +36,12 @@ export interface Produto {
   mercadoLivreUrl: string | null;
 }
 
-export const amazonLink = (p: Produto): string | null =>
-  p.amazonUrl === null ? null : p.amazonUrl || `https://www.amazon.com.br/s?k=${encodeURIComponent(p.busca)}`;
+// Sem link próprio, o botão leva à busca da Amazon com a tag de Associado (a busca também gera comissão).
+export const AMAZON_TAG = 'jhos08-20';
+export const amazonLink = (p: Pick<Produto, 'amazonUrl' | 'busca'>): string | null =>
+  p.amazonUrl === null ? null : p.amazonUrl || `https://www.amazon.com.br/s?k=${encodeURIComponent(p.busca)}&tag=${AMAZON_TAG}`;
 
-export const mercadoLivreLink = (p: Produto): string | null =>
+export const mercadoLivreLink = (p: Pick<Produto, 'mercadoLivreUrl' | 'busca'>): string | null =>
   p.mercadoLivreUrl === null
     ? null
     : p.mercadoLivreUrl ||

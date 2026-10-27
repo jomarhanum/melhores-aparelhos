@@ -591,7 +591,7 @@ artigos.push(
     categoria: 'Comparativo',
     secao: 'maquina-lavar',
     publicado: '2026-10-24',
-    atualizado: '2026-10-24',
+    atualizado: '2026-10-27',
     imagem: '/images/produtos/panasonic-na-f150b1t.webp',
     resumo: 'Panasonic, Electrolux, Samsung e Brastemp lado a lado, com água e energia por ciclo.',
     minutos: 14,
@@ -634,6 +634,19 @@ artigos.push(
     imagem: '/images/produtos/panasonic-na-f140b1w.webp',
     resumo: 'Litros e kWh por lavagem segundo o Inmetro, e a conta em reais.',
     minutos: 6,
+  },
+  {
+    url: '/guias/como-limpar-maquina-de-lavar/',
+    titulo: 'Como Limpar Máquina de Lavar: Passo a Passo e Produtos',
+    h1: 'Como limpar a máquina de lavar: passo a passo',
+    descricao: 'Como limpar máquina de lavar de abertura superior e frontal: cesto com água sanitária, filtro, dispenser, borracha, frequência e se vinagre funciona.',
+    categoria: 'Guia',
+    secao: 'maquina-lavar',
+    publicado: '2026-10-27',
+    atualizado: '2026-10-27',
+    imagem: '/images/produtos/electrolux-led13.webp',
+    resumo: 'Cesto, filtro, dispenser e borracha: o passo a passo dos fabricantes e com que frequência limpar.',
+    minutos: 7,
   },
 );
 
