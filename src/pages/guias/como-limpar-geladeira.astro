@@ -1,0 +1,98 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fontes: orientações oficiais da Brastemp (produtos permitidos e proibidos, parte de trás, degelo da frost free)
+// e da Electrolux (frequência semanal e mensal, ordem da limpeza, borrachas, inox), out/2026.
+const faq = [
+  { q: 'Qual o melhor produto para limpar a geladeira por dentro?', a: 'Água morna com detergente ou sabão neutro, aplicada com esponja macia ou pano. É o que a Brastemp e a Electrolux indicam. Depois, enxágue com pano úmido e seque com pano limpo.' },
+  { q: 'Posso limpar a geladeira com álcool?', a: 'A Brastemp diz para nunca usar materiais tóxicos como amoníaco, álcool e removedores, nem abrasivos como sapólio e pastas. Eles podem danificar o plástico interno e deixar cheiro nos alimentos.' },
+  { q: 'De quanto em quanto tempo limpar a geladeira?', a: 'A Electrolux recomenda uma verificação rápida toda semana, para tirar itens vencidos e limpar pequenos derramamentos, e uma limpeza completa pelo menos uma vez por mês.' },
+  { q: 'Precisa desligar a geladeira frost free para limpar?', a: 'Para a limpeza completa, sim: desligue da tomada por segurança. Mas a frost free não precisa de degelo; só faça o degelo manual se houver gelo acumulado por dentro, como orienta a Brastemp.' },
+  { q: 'Como tirar o mau cheiro da geladeira?', a: 'Primeiro, ache a causa: alimento estragado, líquido derramado embaixo das gavetas ou resto de comida na borracha da porta. Depois, limpe tudo com água morna e detergente neutro, seque bem e guarde os alimentos em potes fechados.' },
+  { q: 'Como limpar a parte de trás da geladeira?', a: 'Com a geladeira desligada, use só aspirador de pó ou espanador, como orienta a Brastemp. Poeira acumulada atrás atrapalha a saída de calor.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-geladeira/', '/guias/geladeira-gasta-muita-energia/', '/guias/qual-tamanho-de-geladeira/', '/guias/geladeira-duplex-inverse-french-door-ou-side-by-side/']}>
+  <p>Geladeira suja não é só questão de aparência: líquido derramado, alimento esquecido e borracha encardida viram <strong>mau cheiro</strong> e foco de bactérias, e podem passar gosto para a comida. A limpeza é simples, mas o produto errado pode manchar o plástico interno ou ressecar a borracha da porta. Veja o jeito certo, segundo os fabricantes.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> desligue da tomada, retire os alimentos e as peças removíveis e limpe tudo com <strong>água morna e detergente neutro</strong>, usando esponja macia. Enxágue com pano úmido e seque. Não use álcool, amoníaco, sapólio nem palha de aço. Faça uma <strong>conferida rápida toda semana</strong> e a <strong>limpeza completa uma vez por mês</strong>.</p>
+  </div>
+
+  <h2 id="antes">Antes de começar</h2>
+  <ul>
+    <li><strong>Desligue a geladeira da tomada</strong>, por segurança.</li>
+    <li>Guarde os perecíveis num <strong>recipiente térmico</strong> ou caixa de isopor enquanto limpa.</li>
+    <li>Aproveite para <strong>jogar fora o que venceu</strong> ou estragou.</li>
+    <li>Separe: esponja macia, panos limpos, água morna e detergente neutro.</li>
+  </ul>
+
+  <h2 id="por-dentro">Como limpar a geladeira por dentro: passo a passo</h2>
+  <ol>
+    <li><strong>Retire prateleiras, gavetas e compartimentos da porta.</strong> Prateleiras de vidro geladas devem esperar alguns minutos fora antes de ir para a água morna, para não trincar com a diferença de temperatura.</li>
+    <li><strong>Lave as peças removíveis na pia</strong>, uma a uma, com água corrente e detergente neutro. Enxágue e deixe secar.</li>
+    <li><strong>Limpe o interior de cima para baixo</strong>, com pano ou esponja macia umedecidos em água morna com detergente neutro. A Electrolux indica essa ordem para que a sujeira não caia nas partes já limpas.</li>
+    <li><strong>Capriche nos cantos, no fundo das gavetas e nos trilhos</strong>, onde líquido derramado costuma se acumular.</li>
+    <li><strong>Passe um pano só com água</strong> para tirar o detergente e <strong>seque tudo</strong> com pano limpo.</li>
+    <li><strong>Monte de novo e religue.</strong> Espere alguns minutos para a temperatura começar a baixar antes de guardar os alimentos.</li>
+  </ol>
+
+  <h2 id="freezer">Como limpar o freezer</h2>
+  <p><strong>Frost free:</strong> não precisa de degelo. Limpe o freezer junto com o resto da geladeira, do mesmo jeito. Se aparecer gelo acumulado por dentro, a Brastemp orienta fazer o degelo manual antes da limpeza.</p>
+  <p><strong>Degelo manual ou cycle defrost:</strong> o freezer precisa ser descongelado de tempos em tempos, quando a camada de gelo começa a engrossar.</p>
+  <ol>
+    <li>Desligue da tomada (ou use o botão de degelo, se o seu modelo tiver; veja o manual).</li>
+    <li>Retire os alimentos e deixe a porta aberta, com panos ou uma bandeja para recolher a água.</li>
+    <li>Espere o gelo soltar sozinho. <strong>Nunca use faca ou objeto pontudo</strong> para arrancar o gelo: dá para furar a parede interna e a tubulação.</li>
+    <li>Seque toda a água, limpe com água morna e detergente neutro, seque de novo e religue.</li>
+  </ol>
+
+  <h2 id="borracha">Como limpar a borracha da porta</h2>
+  <p>A borracha de vedação junta resto de comida e sujeira nas dobras, e a Electrolux recomenda atenção especial a ela. Limpe com pano macio umedecido em água morna e detergente neutro, passando por dentro das dobras, e seque bem. Borracha limpa veda melhor: a porta fecha direito e a geladeira gasta menos energia.</p>
+
+  <h2 id="por-fora">Como limpar a geladeira por fora</h2>
+  <ul>
+    <li><strong>Porta e laterais:</strong> pano macio com água morna e detergente neutro; seque em seguida.</li>
+    <li><strong>Inox ou inox look:</strong> pano de microfibra macio e produto próprio para inox, como recomenda a Electrolux. Nada de palha de aço, que risca.</li>
+    <li><strong>Parte de trás:</strong> com a geladeira desligada, use <strong>só aspirador de pó ou espanador</strong>, como orienta a Brastemp. Poeira acumulada atrapalha a saída de calor e aumenta o consumo.</li>
+  </ul>
+
+  <h2 id="mau-cheiro">Como tirar o mau cheiro da geladeira</h2>
+  <ol>
+    <li><strong>Ache a causa:</strong> alimento estragado, líquido derramado embaixo das gavetas ou sujeira na borracha da porta.</li>
+    <li><strong>Faça a limpeza completa</strong> com água morna e detergente neutro, incluindo gavetas e borracha.</li>
+    <li><strong>Seque bem</strong> antes de religar: umidade parada ajuda o cheiro a voltar.</li>
+    <li><strong>Guarde os alimentos em potes fechados</strong>, principalmente peixe, cebola, alho e queijos.</li>
+  </ol>
+  <p>Algumas geladeiras têm filtro próprio para odores, como o TasteGuard de modelos Electrolux; se a sua tiver, troque o filtro no prazo do manual. Um pote aberto com bicarbonato de sódio é uma dica caseira popular para absorver cheiro, mas não substitui a limpeza.</p>
+
+  <h2 id="pode-nao-pode">O que pode e o que não pode usar</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Pode</th><th>Não pode</th></tr></thead>
+      <tbody>
+        <tr><td>Água morna</td><td>Álcool, amoníaco e removedores</td></tr>
+        <tr><td>Detergente ou sabão neutro</td><td>Sapólio, pastas e outros abrasivos</td></tr>
+        <tr><td>Esponja macia e pano de microfibra</td><td>Palha de aço e escovas</td></tr>
+        <tr><td>Produto próprio para inox (por fora)</td><td>Faca ou objeto pontudo para tirar gelo</td></tr>
+        <tr><td>Aspirador ou espanador (atrás)</td><td>Água jogada direto na parte de trás ou nos componentes elétricos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="frequencia">Com que frequência limpar</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>O quê</th><th>Frequência</th></tr></thead>
+      <tbody>
+        <tr><td>Conferir validade e limpar respingos</td><td>Toda semana</td></tr>
+        <tr><td>Limpeza completa por dentro, com borrachas</td><td>Uma vez por mês</td></tr>
+        <tr><td>Parte de trás (poeira)</td><td>De tempos em tempos, com a geladeira desligada</td></tr>
+        <tr><td>Degelo do freezer (sem frost free)</td><td>Quando a camada de gelo começar a engrossar</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Próximos passos</h2>
+  <p>A geladeira está velha, barulhenta ou gastando muito? Veja as <a href="/melhor-geladeira/">10 melhores geladeiras de 2026</a>, com consumo oficial do Inmetro, e confira <a href="/guias/geladeira-gasta-muita-energia/">quanto a sua gasta por mês</a>.</p>
+</Artigo>

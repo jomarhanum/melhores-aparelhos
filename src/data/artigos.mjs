@@ -479,7 +479,7 @@ artigos.push(
     categoria: 'Comparativo',
     secao: 'geladeira',
     publicado: '2026-10-24',
-    atualizado: '2026-10-24',
+    atualizado: '2026-10-27',
     imagem: '/images/produtos/electrolux-it70s.webp',
     resumo: 'Duplex, inverse, French Door e side by side lado a lado, com o consumo oficial do Inmetro.',
     minutos: 15,
@@ -522,6 +522,19 @@ artigos.push(
     imagem: '/images/produtos/lg-gc-b569.webp',
     resumo: 'Consumo oficial, conta em reais e os dois padrões da etiqueta do Inmetro.',
     minutos: 7,
+  },
+  {
+    url: '/guias/como-limpar-geladeira/',
+    titulo: 'Como Limpar Geladeira por Dentro e por Fora: Passo a Passo',
+    h1: 'Como limpar a geladeira por dentro e por fora',
+    descricao: 'Como limpar geladeira por dentro e por fora: o que pode e não pode usar, freezer, borracha da porta, mau cheiro e com que frequência limpar.',
+    categoria: 'Guia',
+    secao: 'geladeira',
+    publicado: '2026-10-27',
+    atualizado: '2026-10-27',
+    imagem: '/images/produtos/electrolux-tf38.webp',
+    resumo: 'Passo a passo dos fabricantes, freezer, borracha, mau cheiro e o que não usar.',
+    minutos: 6,
   },
 );
 
