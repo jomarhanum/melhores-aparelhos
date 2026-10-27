@@ -1,0 +1,81 @@
+---
+import Artigo from '../../layouts/Artigo.astro';
+
+// Fontes: suporte LG (cheiro de mofo vem de umidade e mofo no trocador de calor ou de filtro sujo; deixar no modo
+// ventilar por cerca de 30 minutos antes de desligar; manter a secagem automática ligada; filtro a cada 2 semanas no
+// verão, secar à sombra), suporte Samsung (a maioria dos casos é filtro sujo; odores do ambiente, da área da mangueira
+// de dreno e de produtos de limpeza; ventilar por 3 a 4 horas depois de muito tempo parado) e manual LG Brasil
+// (cheiro de queimado: desligar e desconectar da tomada ou desarmar o disjuntor), out/2026.
+const faq = [
+  { q: 'Por que o ar-condicionado está com cheiro ruim?', a: 'Na maioria das vezes, é filtro sujo ou umidade e mofo acumulados na serpentina (o trocador de calor) da unidade interna, segundo a LG e a Samsung. Odores do próprio ambiente, puxados pelo aparelho, e água parada no dreno também causam mau cheiro.' },
+  { q: 'Ar-condicionado com cheiro de mofo: o que fazer?', a: 'Limpe os filtros e, depois de usar no modo frio, deixe o aparelho no modo ventilar por cerca de 30 minutos antes de desligar, como orienta a LG, para secar a umidade interna. Se o seu modelo tem secagem automática, mantenha ligada. Se o cheiro continuar, é hora da higienização completa por um técnico.' },
+  { q: 'Ar-condicionado com cheiro de queimado é perigoso?', a: 'Pode ser. O manual LG orienta parar o aparelho e desconectá-lo da tomada ou desarmar o disjuntor se houver cheiro de queimado. Não religue e chame a assistência técnica.' },
+  { q: 'De quanto em quanto tempo limpar o filtro do ar-condicionado?', a: 'A LG recomenda limpar o filtro a cada 2 semanas em períodos de uso intenso, como no verão. A higienização completa da serpentina e do dreno é feita por técnico, em geral uma vez por ano ou quando o cheiro volta mesmo com o filtro limpo.' },
+  { q: 'Posso usar desinfetante ou spray perfumado no ar-condicionado?', a: 'Evite. Perfume só disfarça o cheiro, e a Samsung lembra que odores de produtos de limpeza e aromatizantes usados perto do aparelho também são puxados por ele. Produtos químicos na serpentina devem ser aplicados pelo técnico.' },
+];
+---
+<Artigo faq={faq} relacionados={['/melhor-ar-condicionado-inverter/', '/guias/como-limpar-ar-condicionado-split/', '/guias/ar-condicionado-pingando-agua/', '/guias/ar-condicionado-desligando-sozinho/']}>
+  <p>Ligou o ar-condicionado e veio aquele cheiro de mofo, de pano molhado ou de chulé? O problema é comum e, na maioria das vezes, tem solução simples: o aparelho tira a umidade do ar, e essa umidade, junto com a poeira, vira ambiente perfeito para fungos e bactérias. Veja as causas, com base no suporte da LG e da Samsung, o que você mesmo resolve e quando chamar o técnico.</p>
+
+  <div class="destaque-box">
+    <p><strong>Resumo:</strong> <strong>limpe os filtros</strong> (a causa mais comum, segundo a Samsung) e, depois de usar no frio, deixe o aparelho no <strong>modo ventilar por cerca de 30 minutos</strong> antes de desligar, como orienta a LG. Ative a <strong>secagem automática</strong>, se o seu tiver. Se o cheiro continuar, chame um técnico para a <strong>higienização completa</strong>. Cheiro de <strong>queimado</strong>: desligue da tomada na hora.</p>
+  </div>
+
+  <h2 id="tipos">Que cheiro é esse?</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Cheiro</th><th>Causa provável</th><th>O que fazer</th></tr></thead>
+      <tbody>
+        <tr><td>Mofo, pano molhado, chulé</td><td>Umidade e fungos no filtro, na serpentina ou na bandeja</td><td>Limpar filtros, secar no modo ventilar; se continuar, higienização</td></tr>
+        <tr><td>Esgoto ou ralo</td><td>Odor vindo pela mangueira de dreno ou água parada na bandeja</td><td>Conferir onde o dreno termina; técnico para limpar bandeja e dreno</td></tr>
+        <tr><td>Cigarro, comida, perfume</td><td>Odores do ambiente puxados e retidos no filtro</td><td>Limpar filtros e eliminar a fonte do cheiro</td></tr>
+        <tr><td>Queimado ou plástico derretido</td><td>Possível problema elétrico</td><td>Desligar da tomada ou do disjuntor e chamar a assistência</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="causas">Causas e o que fazer</h2>
+
+  <h3>1. Filtro sujo</h3>
+  <p>A Samsung aponta o filtro sujo como a causa da <strong>maioria dos casos</strong> de mau cheiro. Poeira úmida acumulada no filtro cria mofo e retém odores. <strong>O que fazer:</strong> com o aparelho desligado da tomada, retire os filtros, lave com água e deixe <strong>secar à sombra</strong>, em lugar ventilado. A LG avisa que o sol direto pode deformar o filtro. Faça isso a cada 2 semanas no verão. Passo a passo em <a href="/guias/como-limpar-ar-condicionado-split/">como limpar o ar-condicionado split</a>.</p>
+
+  <h3>2. Umidade e mofo na serpentina</h3>
+  <p>Ao gelar, o aparelho condensa a umidade do ar na serpentina (o trocador de calor). A LG explica que, se ela fica molhada depois que o aparelho desliga, segura odores e favorece o mofo, o que dá o cheiro de <strong>pano molhado</strong>. <strong>O que fazer:</strong></p>
+  <ul>
+    <li>Depois de usar no frio, passe para o <strong>modo ventilar por cerca de 30 minutos</strong> antes de desligar, como orienta a LG.</li>
+    <li>Se o seu modelo tem <strong>secagem automática</strong> (auto clean, auto dry ou nome parecido), mantenha ativada: ela seca o interior sozinha depois que você desliga.</li>
+    <li>Se o aparelho ficou <strong>muito tempo parado</strong>, a Samsung sugere deixar só no modo ventilar por <strong>3 a 4 horas</strong> antes de voltar a gelar.</li>
+  </ul>
+
+  <h3>3. Bandeja e dreno com água parada</h3>
+  <p>A água condensada cai numa bandeja e sai pela mangueira de dreno. Se a bandeja ou o dreno ficam sujos ou entupidos, a água parada cria mofo e bactérias. Sinal típico: além do cheiro, o aparelho <a href="/guias/ar-condicionado-pingando-agua/">pinga água</a>. <strong>O que fazer:</strong> a limpeza da bandeja e do dreno é trabalho para técnico, porque exige abrir a unidade interna.</p>
+
+  <h3>4. Cheiro que vem pela mangueira de dreno</h3>
+  <p>A Samsung cita um caso curioso: quando a mangueira de dreno termina perto de lixeira, sapateira ou cesto de roupa suja, o cheiro desse lugar pode subir até o aparelho. O mesmo vale para dreno ligado ao esgoto sem proteção. <strong>O que fazer:</strong> confira onde o dreno termina e, se for o caso, peça ao instalador para corrigir a saída.</p>
+
+  <h3>5. Odores do próprio ambiente</h3>
+  <p>O aparelho puxa o ar do cômodo, e com ele os cheiros de cigarro, comida, aromatizantes e produtos de limpeza, como lembra a Samsung. O filtro retém parte disso e devolve depois. <strong>O que fazer:</strong> elimine a fonte, ventile o cômodo e limpe os filtros. Confira também se não há mofo em paredes ou móveis perto do aparelho.</p>
+
+  <h3>6. Cheiro de queimado</h3>
+  <p>Cheiro de queimado ou de plástico derretido não é sujeira. O manual LG orienta <strong>parar o aparelho e desconectá-lo da tomada ou desarmar o disjuntor</strong>. Não religue e chame a assistência técnica.</p>
+
+  <h2 id="nao-fazer">O que não fazer</h2>
+  <ul>
+    <li><strong>Spray perfumado</strong> ou desinfetante comum na saída de ar: só disfarça o cheiro e pode deixar resíduo.</li>
+    <li><strong>Jato de água</strong> direto na unidade interna ou no painel eletrônico.</li>
+    <li><strong>Produtos químicos</strong> na serpentina por conta própria: a higienização com produto específico é com o técnico.</li>
+    <li><strong>Secar o filtro no sol</strong>: segundo a LG, ele pode deformar.</li>
+  </ul>
+
+  <h2 id="tecnico">Quando chamar o técnico</h2>
+  <ul>
+    <li>O cheiro continua depois de limpar os filtros e secar o aparelho no modo ventilar. A LG recomenda limpeza profissional dos componentes internos nesse caso.</li>
+    <li>Há cheiro de esgoto, água pingando ou sinais de dreno entupido.</li>
+    <li>Qualquer cheiro de queimado.</li>
+    <li>O aparelho passou mais de um ano sem higienização completa.</li>
+  </ul>
+  <p>Na garantia, prefira a assistência autorizada da marca.</p>
+
+  <h2>Próximos passos</h2>
+  <p>Mantenha os filtros em dia com o passo a passo de <a href="/guias/como-limpar-ar-condicionado-split/">como limpar o ar-condicionado split</a> e use a <a href="/guias/temperatura-ideal-ar-condicionado/">temperatura ideal</a> para economizar. Se for hora de trocar, compare os <a href="/melhor-ar-condicionado-inverter/">10 melhores ar-condicionados inverter de 2026</a>.</p>
+</Artigo>

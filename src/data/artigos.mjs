@@ -295,6 +295,19 @@ artigos.push(
     resumo: 'Timer, modo dormir, filtro e unidade externa: o que conferir primeiro.',
     minutos: 5,
   },
+  {
+    url: '/guias/ar-condicionado-com-cheiro-ruim/',
+    titulo: 'Ar-Condicionado com Cheiro Ruim? Causas e Como Tirar o Mofo',
+    h1: 'Ar-condicionado com cheiro ruim: causas e o que fazer',
+    descricao: 'Ar-condicionado com cheiro de mofo, de esgoto ou de queimado? Veja as causas segundo a LG e a Samsung, o que você mesmo resolve e quando chamar o técnico.',
+    categoria: 'Guia',
+    secao: 'ar-inverter',
+    publicado: '2026-10-27',
+    atualizado: '2026-10-27',
+    imagem: '/images/produtos/hisense-hi-efficiency-12000-qf.webp',
+    resumo: 'Filtro, serpentina úmida e dreno: de onde vem o cheiro e como tirar.',
+    minutos: 5,
+  },
 );
 
 // ---------- Forno elétrico de embutir ----------
