@@ -2,13 +2,22 @@
 import Artigo from '../layouts/Artigo.astro';
 import ProdutoMini from '../components/ProdutoMini.astro';
 import { produtos } from '../data/produtos';
+import { AMAZON_TAG } from '../data/tipos';
 import { site, author } from '../data/site';
 
+// Fontes: fichas oficiais nos anúncios das lojas (out/2026) e busca na Amazon por portáteis quente e frio (nov/2026):
+// só cinco modelos à venda com ciclo quente e frio de verdade (Philco, EOS, Rheem, KaBuM! smart AC700 e Hulter).
+// KaBuM! smart AC700: 12.000 BTUs, 4 em 1, gás R32, a partir de 48 dB, 28,9 kg, controle por app, 127 V ou 220 V
+// (ficha da Amazon; a KaBuM não publica ficha completa). Custos com R$ 0,90/kWh, a mesma convenção do guia de consumo.
 const faq = [
-  { q: 'Ar-condicionado portátil quente e frio esquenta bem?', a: 'Esquenta bem cômodos pequenos e médios. Ele funciona como bomba de calor, que costuma ser mais eficiente que um aquecedor elétrico de resistência. Em frio intenso, porém, o rendimento cai.' },
-  { q: 'No modo aquecer precisa da mangueira na janela?', a: 'Sim. No aquecimento, o aparelho joga o ar frio para fora pela mesma mangueira. Sem ela, o frio volta para dentro e o aquecimento não funciona direito. Em vários modelos também é preciso cuidar da drenagem no modo aquecer.' },
-  { q: 'Vale mais a pena que um aquecedor?', a: 'Se você também precisa de frio no verão, sim: um único aparelho resolve as duas estações. Se o objetivo é só aquecer, um aquecedor elétrico é mais barato de comprar, embora costume gastar mais energia para o mesmo calor.' },
-  { q: 'Qual o melhor portátil quente e frio de 2026?', a: 'Pelo nosso ranking, o Philco PAC12000QF5 é a melhor escolha pelo custo-benefício e pela autoevaporação. Para ambientes maiores e mais economia, o EOS Slim Inverter de 14.000 BTUs é o mais completo.' },
+  { q: 'Qual o melhor ar-condicionado portátil quente e frio de 2026?', a: 'Pelo nosso ranking, o Philco PAC12000QF5 é a melhor escolha pelo custo-benefício e pela autoevaporação, que dispensa esvaziar água. Para cômodos maiores e menor consumo, o EOS Slim Inverter EAP14IQF, de 14.000 BTUs, é o mais completo.' },
+  { q: 'Ar-condicionado portátil quente e frio esquenta bem?', a: 'Esquenta bem cômodos pequenos e médios dentro da faixa de m² do aparelho. Ele funciona como bomba de calor, que costuma ser mais eficiente que um aquecedor elétrico de resistência. Em frio muito intenso, porém, o rendimento de qualquer bomba de calor cai.' },
+  { q: 'No modo aquecer precisa da mangueira na janela?', a: 'Sim. No aquecimento, o aparelho joga o ar frio para fora pela mesma mangueira. Sem ela, o frio volta para dentro e o aquecimento não funciona. Em vários modelos também é preciso ligar o dreno no modo aquecer.' },
+  { q: 'Quanto gasta um portátil quente e frio no inverno?', a: 'No pior cenário, com o compressor ligado direto, um modelo de 1.200 W usado 8 horas por dia consome cerca de 288 kWh por mês, ou cerca de R$ 259 com tarifa de R$ 0,90 por kWh. Na prática gasta menos, porque o compressor desliga quando o cômodo chega à temperatura.' },
+  { q: 'Vale mais a pena que um aquecedor?', a: 'Se você também precisa de frio no verão, sim: um único aparelho resolve as duas estações e, como bomba de calor, entrega mais calor por kWh. Se o objetivo é só aquecer, um aquecedor elétrico custa bem menos para comprar.' },
+  { q: 'Climatizador quente e frio é a mesma coisa?', a: 'Não. O climatizador resfria evaporando água, sem compressor, e no modo quente costuma usar uma resistência, como um aquecedor comum. Ele não substitui um ar-condicionado: refresca menos e aumenta a umidade do ar.' },
+  { q: 'Qual o tamanho certo de portátil quente e frio?', a: 'Pelas fichas dos fabricantes, os modelos de 12.000 BTUs atendem cômodos de até 15 a 18 m², e o de 14.000 BTUs, até cerca de 18 m². Para salas maiores, um split quente e frio é a escolha mais eficiente.' },
+  { q: 'Existe portátil quente e frio bivolt?', a: 'Entre os modelos à venda, não. Philco, EOS e KaBuM vendem versões 127 V e 220 V separadas, e o Rheem quente e frio é só 220 V. Confira a tomada antes de comprar.' },
 ];
 
 const quentes = produtos.filter((p) => p.ciclo === 'Quente e frio');
@@ -19,48 +28,114 @@ const jsonLd = [{
   name: 'Melhores ar-condicionados portáteis quente e frio de 2026',
   itemListElement: quentes.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${pageUrl}#mini-${p.slug}`, name: p.nome })),
 }];
+const buscaAmazon = (q: string) => `https://www.amazon.com.br/s?k=${encodeURIComponent(q)}&tag=${AMAZON_TAG}`;
 ---
-<Artigo faq={faq} jsonLd={jsonLd} relacionados={['/melhor-ar-condicionado-portatil/', '/melhor-ar-condicionado-portatil-silencioso/', '/guias/ar-condicionado-portatil-gasta-muita-energia/', '/guias/como-funciona-ar-condicionado-portatil/']}>
-  <p>Mora no Sul, na Serra ou em qualquer lugar onde o inverno é de verdade? Um ar-condicionado portátil <strong>quente e frio</strong> resolve o calor do verão e o frio do inverno com um único aparelho, sem obra. Dos 10 modelos do nosso <a href="/melhor-ar-condicionado-portatil/">ranking geral</a>, três têm aquecimento.</p>
+<Artigo faq={faq} jsonLd={jsonLd} relacionados={['/melhor-ar-condicionado-portatil/', '/guias/como-instalar-ar-condicionado-portatil/', '/guias/ar-condicionado-portatil-gasta-muita-energia/', '/guias/climatizador-ou-ar-condicionado-portatil/']}>
+  <p>Mora no Sul, na Serra ou em qualquer lugar onde o inverno é de verdade? Um ar-condicionado portátil <strong>quente e frio</strong> resolve o calor do verão e o frio do inverno com um único aparelho, sem obra e sem unidade externa. O problema é que há poucos modelos assim no Brasil, e muita coisa vendida como "portátil quente e frio" é climatizador ou aquecedor. Aqui você vê os que realmente aquecem, quanto gastam no inverno e como escolher.</p>
 
   <div class="destaque-box">
-    <p><strong>Resposta rápida:</strong> o melhor custo-benefício é o <a href="#mini-philco-pac12000qf5">Philco PAC12000QF5</a>. Para cômodos maiores e menor consumo, escolha o <a href="#mini-eos-eap14iqf">EOS Slim Inverter EAP14IQF</a>. Para tomada 220 V e quem valoriza autolimpeza, o <a href="#mini-rheem-rb1hp12k220">Rheem RB1HP12K220</a>.</p>
+    <p><strong>Resposta rápida:</strong> o melhor custo-benefício é o <a href="#mini-philco-pac12000qf5">Philco PAC12000QF5</a>, com autoevaporação. Para cômodos maiores e menor consumo, escolha o <a href="#mini-eos-eap14iqf">EOS Slim Inverter EAP14IQF</a>, o único inverter da lista. Para tomada 220 V e quem valoriza autolimpeza, o <a href="#mini-rheem-rb1hp12k220">Rheem RB1HP12K220</a>.</p>
   </div>
 
-  <h2 id="comparativo">Comparativo rápido</h2>
+  <h2 id="comparativo">Comparativo dos portáteis quente e frio</h2>
   <div class="tabela-wrap">
     <table>
-      <thead><tr><th>Modelo</th><th>BTUs</th><th>Inverter</th><th>Ruído</th><th>Voltagem</th><th>Água</th></tr></thead>
+      <thead><tr><th>Modelo</th><th>BTUs</th><th>Área</th><th>Potência</th><th>Inverter</th><th>Ruído</th><th>Voltagem</th><th>Água</th><th>Peso</th></tr></thead>
       <tbody>
-        <tr><td><a href="#mini-philco-pac12000qf5">Philco PAC12000QF5</a></td><td>12.000</td><td>Não</td><td>até 51 dB</td><td>127 V ou 220 V</td><td>Autoevaporação</td></tr>
-        <tr><td><a href="#mini-eos-eap14iqf">EOS Slim EAP14IQF</a></td><td>14.000</td><td>Sim</td><td>até 50 dB</td><td>127 V ou 220 V</td><td>Dreno contínuo</td></tr>
-        <tr><td><a href="#mini-rheem-rb1hp12k220">Rheem RB1HP12K220</a></td><td>12.000</td><td>Não</td><td>49 a 51 dB</td><td>220 V</td><td>Tubo de drenagem</td></tr>
+        <tr><td><a href="#mini-philco-pac12000qf5">Philco PAC12000QF5</a></td><td>12.000</td><td>até 15 m²</td><td>1.200 W</td><td>Não</td><td>até 51 dB</td><td>127 V ou 220 V</td><td>Autoevaporação</td><td>25 kg</td></tr>
+        <tr><td><a href="#mini-eos-eap14iqf">EOS Slim EAP14IQF</a></td><td>14.000</td><td>até 18 m²</td><td>1.100 W</td><td>Sim</td><td>até 50 dB</td><td>127 V ou 220 V</td><td>Dreno contínuo</td><td>26,8 kg</td></tr>
+        <tr><td><a href="#mini-rheem-rb1hp12k220">Rheem RB1HP12K220</a></td><td>12.000</td><td>até 18 m²</td><td>não informada</td><td>Não</td><td>49 a 51 dB</td><td>220 V</td><td>Tubo de drenagem</td><td>27 kg</td></tr>
       </tbody>
     </table>
   </div>
+  <p>Área e potência segundo os fabricantes. Nenhum é bivolt: escolha na loja a versão da sua tomada.</p>
 
   <h2 id="ranking">Os 3 melhores portáteis quente e frio</h2>
 
-  <ProdutoMini tipo="Ar-condicionado portátil" slug="philco-pac12000qf5" posicao={1} titulo="Philco PAC12000QF5: melhor custo-benefício" destaque="Entrega quente e frio com custo próximo ao de muitos modelos só frio. O grande diferencial é a autoevaporação: quase nunca é preciso esvaziar água. Compradores elogiam o vento bem gelado; as críticas mais comuns são o duto curto e o encaixe na janela pouco firme." specs={[['Capacidade', '12.000 BTUs'], ['Potência', '1.200 W'], ['Eficiência', 'Nível A'], ['Peso', '25 kg']]} />
+  <ProdutoMini tipo="Ar-condicionado portátil" slug="philco-pac12000qf5" posicao={1} titulo="Philco PAC12000QF5: melhor custo-benefício" destaque="Entrega quente e frio com custo próximo ao de muitos modelos só frio. O grande diferencial é a autoevaporação: quase nunca é preciso esvaziar água. É o quente e frio com mais avaliações na Amazon. Compradores elogiam o vento bem gelado; as críticas mais comuns são o duto curto e o encaixe na janela pouco firme." specs={[['Capacidade', '12.000 BTUs'], ['Potência', '1.200 W'], ['Eficiência', 'Nível A'], ['Peso', '25 kg']]} />
 
-  <ProdutoMini tipo="Ar-condicionado portátil" slug="eos-eap14iqf" posicao={2} titulo="EOS Slim Inverter EAP14IQF: o mais completo" destaque="É o único quente e frio da lista com tecnologia inverter, o que reduz o consumo no uso diário. Com 14.000 BTUs, atende cômodos de até 18 m², e o ruído máximo de 50 dB é o mais baixo da lista. Atenção ao kit de janela, que tem cerca de 1 m." specs={[['Capacidade', '14.000 BTUs'], ['Potência', '1.100 W'], ['Inverter', 'Sim'], ['Peso', '26,8 kg']]} />
+  <ProdutoMini tipo="Ar-condicionado portátil" slug="eos-eap14iqf" posicao={2} titulo="EOS Slim Inverter EAP14IQF: o mais completo" destaque="É o único quente e frio da lista com tecnologia inverter, que ajusta a velocidade do compressor em vez de ligar e desligar e reduz o consumo no uso diário. Com 14.000 BTUs, atende cômodos de até 18 m², e o ruído máximo de 50 dB é o mais baixo da lista. Atenção ao kit de janela, que tem cerca de 1 m." specs={[['Capacidade', '14.000 BTUs'], ['Potência', '1.100 W'], ['Inverter', 'Sim'], ['Peso', '26,8 kg']]} />
 
   <ProdutoMini tipo="Ar-condicionado portátil" slug="rheem-rb1hp12k220" posicao={3} titulo="Rheem RB1HP12K220: autolimpeza e kit completo" destaque="Tem sistema de autolimpeza antibacteriana e vem com kit de instalação completo: duto, régua de janela de 100 cm e tubo de drenagem. É só 220 V, e compradores citam consumo de energia alto e barulho." specs={[['Capacidade', '12.000 BTUs'], ['Ruído', '49 a 51 dB'], ['Voltagem', '220 V'], ['Peso', '27 kg']]} />
 
+  <h2 id="outros">Outros portáteis quente e frio à venda</h2>
+  <p>Numa busca na Amazon em novembro de 2026, só mais dois portáteis com ciclo quente e frio de verdade apareceram. Ficaram fora do ranking porque ainda têm poucas avaliações ou ficha técnica incompleta:</p>
+  <ul>
+    <li><strong>KaBuM! smart AC700 (12.000 BTUs):</strong> 4 em 1 (aquece, refrigera, ventila e desumidifica), gás R32, ruído a partir de 48 dB, 28,9 kg e controle pelo app, em 127 V ou 220 V. Lançamento com só duas avaliações até agora, ambas positivas, uma delas preocupada com o consumo de energia. <a href={buscaAmazon('KaBuM smart AC700 quente e frio')} target="_blank" rel="sponsored nofollow noopener">Ver na Amazon</a>.</li>
+    <li><strong>Hulter HT9ACP-12K (12.000 BTUs):</strong> quente e frio com Wi-Fi, ainda sem avaliações nem preço estável na Amazon.</li>
+  </ul>
+
+  <h2 id="tamanho">Quantos BTUs escolher</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Tamanho do cômodo</th><th>Portátil indicado</th></tr></thead>
+      <tbody>
+        <tr><td>Quarto de até 15 m²</td><td>12.000 BTUs</td></tr>
+        <tr><td>Quarto grande ou sala de até 18 m²</td><td>12.000 BTUs com folga ou 14.000 BTUs</td></tr>
+        <tr><td>Sala acima de 18 m² ou integrada</td><td>Prefira um split quente e frio</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Faixas segundo as fichas dos fabricantes. O portátil perde parte da eficiência porque a mangueira e a fresta da janela trocam ar com a rua, por isso vale escolher com folga, principalmente para aquecer em cidades frias. Faça a conta para o seu cômodo na <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</p>
+
   <h2 id="como-aquece">Como o portátil aquece?</h2>
-  <p>O modo aquecer inverte o caminho do gás refrigerante: a parte que esfriava o ar passa a esquentá-lo, e o frio é jogado para fora pela mangueira. Esse sistema, chamado de <strong>bomba de calor</strong>, transfere calor em vez de gerá-lo com uma resistência, por isso costuma ser mais eficiente que um aquecedor elétrico comum. Saiba mais em <a href="/guias/como-funciona-ar-condicionado-portatil/">como funciona o ar-condicionado portátil</a>.</p>
+  <p>O modo aquecer inverte o caminho do gás refrigerante: a parte que esfriava o ar do cômodo passa a esquentá-lo, e o frio é jogado para fora pela mangueira. Esse sistema, chamado de <strong>bomba de calor</strong>, transfere calor em vez de gerá-lo com uma resistência, por isso entrega mais calor para cada kWh do que um aquecedor elétrico comum. A limitação: quanto mais frio o ar que o aparelho usa, menor o rendimento. Saiba mais em <a href="/guias/como-funciona-ar-condicionado-portatil/">como funciona o ar-condicionado portátil</a>.</p>
+
+  <h2 id="consumo">Quanto gasta no inverno</h2>
+  <p>Conta do pior cenário, com o compressor ligado direto, 8 horas por dia durante 30 dias e tarifa ilustrativa de R$ 0,90 por kWh:</p>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Modelo</th><th>Potência</th><th>Consumo no mês</th><th>Custo no mês</th></tr></thead>
+      <tbody>
+        <tr><td>Philco PAC12000QF5</td><td>1.200 W</td><td>até 288 kWh</td><td>até cerca de R$ 259</td></tr>
+        <tr><td>EOS Slim EAP14IQF</td><td>1.100 W</td><td>até 264 kWh</td><td>até cerca de R$ 238</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Na prática, o gasto costuma ser menor: o compressor desliga (ou, no inverter, desacelera) quando o cômodo chega à temperatura. A Rheem não informa a potência do modelo quente e frio. Veja a conta completa e como reduzir em <a href="/guias/ar-condicionado-portatil-gasta-muita-energia/">ar-condicionado portátil gasta muita energia?</a></p>
+
+  <h2 id="alternativas">Portátil quente e frio, aquecedor ou split?</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>Portátil quente e frio</th><th>Aquecedor elétrico</th><th>Split quente e frio</th></tr></thead>
+      <tbody>
+        <tr><td>Esfria no verão</td><td>Sim</td><td>Não</td><td>Sim</td></tr>
+        <tr><td>Eficiência no aquecimento</td><td>Boa (bomba de calor)</td><td>Menor (resistência)</td><td>A melhor (bomba de calor, inverter)</td></tr>
+        <tr><td>Instalação</td><td>Só a mangueira na janela</td><td>Nenhuma</td><td>Obra e instalador</td></tr>
+        <tr><td>Muda de cômodo</td><td>Sim, com rodinhas</td><td>Sim</td><td>Não</td></tr>
+        <tr><td>Barulho</td><td>Alto, compressor dentro do cômodo</td><td>Baixo</td><td>Baixo, compressor do lado de fora</td></tr>
+        <tr><td>Preço de compra</td><td>Médio</td><td>Baixo</td><td>Médio a alto, mais instalação</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Resumo: o portátil quente e frio é a melhor escolha para quem <strong>não pode instalar um split</strong> (aluguel, condomínio, fachada) e quer frio e calor no mesmo aparelho. Se pode fazer a instalação, um split quente e frio gasta menos e faz menos barulho: veja os <a href="/melhor-ar-condicionado-inverter/">melhores ar-condicionados inverter</a>, vários deles quente e frio.</p>
+
+  <h2 id="climatizador">Cuidado: climatizador "quente e frio" não é ar-condicionado</h2>
+  <p>Na busca por "portátil quente e frio" aparecem muitos <strong>climatizadores</strong> bem mais baratos, com reservatório de água de 5 a 20 litros. Eles não têm compressor: resfriam evaporando água, o que refresca pouco e aumenta a umidade do ar, e no modo quente em geral usam uma resistência, como um aquecedor comum. Servem para refrescar em clima seco, mas não substituem um ar-condicionado. Entenda a diferença em <a href="/guias/climatizador-ou-ar-condicionado-portatil/">climatizador ou ar-condicionado portátil</a>.</p>
+
+  <h2 id="como-escolher">Como escolher</h2>
+  <ul>
+    <li><strong>Confira se é ar-condicionado de verdade:</strong> procure "BTUs" e mangueira de exaustão na ficha. Litros de reservatório indicam climatizador.</li>
+    <li><strong>BTUs pelo tamanho do cômodo</strong>, com folga se o inverno for rigoroso.</li>
+    <li><strong>Voltagem:</strong> nenhum é bivolt, e o Rheem quente e frio é só 220 V.</li>
+    <li><strong>Inverter</strong> gasta menos no uso diário, mas só o EOS tem entre os quente e frio.</li>
+    <li><strong>Água:</strong> autoevaporação (Philco) dá menos trabalho; dreno contínuo (EOS e Rheem) pede uma saída para a mangueira.</li>
+    <li><strong>Janela:</strong> confira se o kit serve na sua. Os kits de cerca de 1 m são feitos para janelas de correr.</li>
+    <li><strong>Assistência técnica na sua cidade</strong>, principalmente nas marcas menores.</li>
+  </ul>
 
   <h2 id="dicas">Dicas para usar no inverno</h2>
   <ul>
-    <li><strong>A mangueira continua obrigatória</strong> no modo aquecer.</li>
-    <li><strong>Cuide da drenagem:</strong> em vários modelos o aquecimento exige o dreno conectado.</li>
-    <li><strong>Vede bem a janela:</strong> no inverno, a fresta deixa entrar o ar frio da rua.</li>
+    <li><strong>A mangueira continua obrigatória</strong> no modo aquecer: é por ela que sai o ar frio. Veja <a href="/guias/como-instalar-ar-condicionado-portatil/">como instalar o ar-condicionado portátil</a>.</li>
+    <li><strong>Cuide da drenagem:</strong> em vários modelos o aquecimento exige o dreno conectado, como relatam compradores do Rheem.</li>
+    <li><strong>Vede bem a janela:</strong> no inverno, a fresta em volta da régua deixa entrar o ar frio da rua.</li>
     <li><strong>Use entre 20 °C e 22 °C:</strong> é confortável e evita consumo alto.</li>
-    <li><strong>Frio muito intenso reduz o rendimento</strong> de qualquer bomba de calor.</li>
+    <li><strong>Feche portas e cortinas</strong> à noite para segurar o calor.</li>
+    <li><strong>Limpe o filtro</strong> antes de começar a temporada. Passo a passo em <a href="/guias/como-limpar-ar-condicionado-portatil/">como limpar o ar-condicionado portátil</a>.</li>
   </ul>
 
   <h2>Quente e frio ou só frio?</h2>
-  <p>Se o inverno na sua cidade é ameno, um modelo só frio costuma custar menos e você ainda tem mais opções, como o <a href="/melhor-ar-condicionado-portatil/#electrolux-sp12f">Electrolux SP12F</a> com Wi-Fi. Se você passa frio alguns meses do ano, o quente e frio evita comprar um aquecedor separado. Compare todos os modelos no <a href="/melhor-ar-condicionado-portatil/">ranking completo</a> e confira <a href="/guias/ar-condicionado-portatil-gasta-muita-energia/">quanto cada um gasta de energia</a>.</p>
+  <p>Se o inverno na sua cidade é ameno, um modelo só frio costuma custar menos e você tem mais opções, como o <a href="/melhor-ar-condicionado-portatil/#electrolux-sp12f">Electrolux SP12F</a> com Wi-Fi ou os <a href="/melhor-ar-condicionado-portatil-silencioso/">portáteis mais silenciosos</a>. Se você passa frio alguns meses do ano, o quente e frio evita comprar um aquecedor separado. Compare todos os modelos no <a href="/melhor-ar-condicionado-portatil/">ranking completo de portáteis</a>.</p>
   <p class="nota">Ranking e notas: opinião editorial de {author.name}, com base nas especificações oficiais e no resumo de avaliações de compradores.</p>
 </Artigo>
 
