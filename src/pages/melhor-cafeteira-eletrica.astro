@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { cafeteirasEletricas as cafeteiras } from '../data/cafeteira-eletrica';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -212,6 +213,7 @@ const jsonLd = [
       <p>Para a maioria das famílias, a <strong>{cafeteiras[0].nome}</strong> é a melhor compra: grande, programável e com ajuste de intensidade. Para gastar pouco, vá de <strong>Mondial Dolce Arome C-30-18X</strong>. Quem quer timer num tamanho menor fica bem com a <strong>Electrolux ECM25</strong>, e quem cansou de quebrar jarra de vidro deve olhar a <strong>Oster OCAF650</strong>, com jarra de inox.</p>
       <p>Também está equipando a cozinha? Veja as <a href="/melhor-cafeteira-de-capsula/">melhores cafeteiras de cápsula</a> e as <a href="/melhor-air-fryer/">melhores air fryers</a>.</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>

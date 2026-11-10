@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { colunas } from '../data/coluna';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -209,6 +210,7 @@ const jsonLd = [
       <p>Para a maioria das casas, o <strong>{colunas[0].nome}</strong> é a melhor compra: forte, firme e com altura até 1,50 m. Para ventilar bem gastando menos, vá de <strong>Mallory Delfos TS+</strong>. Para salas grandes, o <strong>Arno Xtreme Force Breeze VB52</strong> é o que mais move ar, e quem quer controle remoto e timer deve olhar o <strong>Mallory Max Control</strong>.</p>
       <p>Prefere ventilar o cômodo todo sem ocupar o chão? Veja os <a href="/melhor-ventilador-de-teto/">melhores ventiladores de teto</a>. Precisa de frio de verdade? Veja os <a href="/melhor-ar-condicionado-inverter/">ar-condicionados inverter</a> e os <a href="/melhor-ar-condicionado-portatil/">portáteis</a>.</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>

@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { produtos, fotoProduto } from '../data/produtos';
 import { site, author } from '../data/site';
 
@@ -351,6 +352,7 @@ const jsonLd = [
     <p>Se você quer uma resposta direta: <strong>o {top3[0].nome}</strong> é a melhor compra para a maioria das pessoas. Tem Wi-Fi, eficiência nível A e entrega ótimo custo-benefício. Quem vai usar no quarto e tem sono leve deve olhar o <strong>{top3[1].nome}</strong>. E se você precisa de calor no inverno, o <strong>{produtos[3].nome}</strong> entrega quente e frio com ótimo custo-benefício.</p>
     <p>Gostou do comparativo? Compartilhe com quem está sofrendo com o calor. 😉</p>
 
+    <GuiasDaCategoria />
     <ShareButtons title={title} />
     <AuthorBox />
     </section>

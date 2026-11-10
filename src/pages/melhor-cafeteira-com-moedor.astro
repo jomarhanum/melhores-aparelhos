@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { cafeteirasMoedor as cafeteiras } from '../data/cafeteira-moedor';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -210,6 +211,7 @@ const jsonLd = [
       <p>Para a maioria das casas, a <strong>{cafeteiras[0].nome}</strong> é a melhor compra: mói na hora, faz cappuccino sozinha e é fácil de limpar. Quem só toma espresso economiza com a <strong>Philips Walita Série 1200</strong>, que tem o mesmo moedor. Para quem quer aprender a tirar espresso como barista, a <strong>Oster Xpert Perfect Brew</strong> tem moedor de 30 níveis, e quem tem pouco espaço deve olhar a <strong>Spidem Trevi</strong>.</p>
       <p>Prefere café coado? Veja as <a href="/melhor-cafeteira-eletrica/">melhores cafeteiras elétricas</a>.</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>

@@ -9,6 +9,8 @@ Blog de reviews (Astro, estático) — https://melhoresaparelhos.com.br
 - `node scripts/otimizar-produtos.mjs <pasta>` — converte fotos de produto para WebP em `public/images/produtos/`
 - `npm run indexnow` — depois do build e do deploy, avisa Bing/Yandex (IndexNow) das páginas novas ou alteradas (compara o `lastmod` do sitemap com `indexnow-estado.json`). `-- --todas` reenvia tudo.
 
+- `node scripts/virar-ano.mjs 2026 2027` — mostra onde o ano "de vitrine" (títulos, H1, descrições) seria trocado; com `--gravar`, troca e atualiza a data dos comparativos. Rodar na última semana de dezembro.
+
 > Para uma página contar como "alterada", atualize a data `atualizado` dela em `src/data/artigos.mjs` (ou em `astro.config.mjs`, nas páginas fixas).
 
 ## Estrutura
@@ -21,6 +23,13 @@ Blog de reviews (Astro, estático) — https://melhoresaparelhos.com.br
 | Produtos — ar inverter | `src/data/inverter.ts` |
 | Domínio | `src/data/url.mjs` |
 | E-mail, autor, menu | `src/data/site.ts` |
+
+## Guias em Markdown (publicação automática)
+Arquivos em `src/content/guias/<slug>.md` viram `/guias/<slug>/` com o layout `Artigo` e entram sozinhos no registro de artigos
+(sitemap, `/guias/`, "Leia também", llms.txt e o bloco "Guias de …" no fim de cada hub). Não precisam de entrada em `artigos.mjs`.
+Frontmatter: um campo por linha, valor em JSON (`titulo`, `h1`, `descricao`, `secao` = id de `categorias.mjs`, `publicado`,
+`atualizado`, `imagem`, `resumo`, `faq` e, opcional, `relacionados`). `> **Resumo:** ...` vira a caixa de destaque.
+O workflow do n8n **[MA] Guia diário** escreve esses arquivos com a pauta da Data Table `ma_pautas` e faz o commit na `main`.
 
 ## Links de afiliado
 Preencha `amazonUrl` e `mercadoLivreUrl` de cada produto no arquivo da categoria. Vazios = o botão leva para a busca do modelo na loja.

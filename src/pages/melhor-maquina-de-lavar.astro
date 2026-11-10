@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { maquinas } from '../data/maquina';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -218,6 +219,7 @@ const jsonLd = [
       <p>Para a maioria das famílias, a <strong>{maquinas[0].nome}</strong> é a melhor compra: grande, silenciosa e econômica em água. Para gastar menos, vá de <strong>Electrolux LED13</strong>. Quem quer economizar água ao máximo deve olhar a <strong>Panasonic NA-F140B1W</strong>, e quem não tem varal, a lava e seca <strong>Samsung WD11M</strong>.</p>
       <p>Também está equipando a casa? Veja as <a href="/melhor-geladeira/">melhores geladeiras</a> e os <a href="/melhor-ar-condicionado-inverter/">melhores ar-condicionados inverter</a>.</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>

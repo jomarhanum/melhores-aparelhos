@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { ventiladores } from '../data/ventilador';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -221,6 +222,7 @@ const jsonLd = [
       <p>Para a maioria das casas, o <strong>{ventiladores[0].nome}</strong> é a melhor compra: completo, bivolt e com controle remoto. Para gastar o mínimo de energia, vá de <strong>Ventisol Aires Inverter</strong>. Quem quer o clássico mais avaliado tem no <strong>Ventisol Fênix Inverter</strong> controle remoto e só 30 W, e quem quer um ventilador decorativo, com 4 pás e 3 tulipas, deve olhar o <strong>Venti-Delta New Zeta</strong>.</p>
       <p>Precisa de mais frio? Veja os <a href="/melhor-ar-condicionado-inverter/">melhores ar-condicionados inverter</a> e os <a href="/melhor-ar-condicionado-portatil/">portáteis</a>.</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>

@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { inverters } from '../data/inverter';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -285,6 +286,7 @@ const jsonLd = [
       <p>Para quartos de até 12 m², o <strong>{inverters[0].nome}</strong> é a melhor compra: econômico, conectado e com 10 anos de garantia no compressor. Para cômodos maiores, o <strong>{inverters[1].nome}</strong> é o 12.000 BTUs mais completo. Quem não suporta vento direto deve ir de <strong>Samsung WindFree AI</strong>, e quem precisa de aquecimento tem no <strong>Hisense Hi-Efficiency</strong> o melhor custo-benefício.</p>
       <p>Gostou do comparativo? Compartilhe com quem está pensando em comprar um ar-condicionado. 😉</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>

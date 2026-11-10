@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { airfryers } from '../data/airfryer';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -214,6 +215,7 @@ const jsonLd = [
       <p>Para a maioria das famílias, a <strong>{airfryers[0].nome}</strong> é a melhor compra: grande, silenciosa, com janela e fácil de limpar. Para gastar menos, vá de <strong>Mondial Grand Family AFN-50</strong>. Casais ficam bem servidos com a <strong>Electrolux EAF30</strong>, e quem quer substituir o forninho deve olhar a <strong>Philco Oven de 12 litros</strong>.</p>
       <p>Também está equipando a cozinha? Veja os <a href="/melhor-forno-eletrico-de-bancada/">melhores fornos elétricos de bancada</a> e as <a href="/melhor-geladeira/">melhores geladeiras</a>.</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>

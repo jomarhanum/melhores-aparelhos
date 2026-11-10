@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { cafeteiras } from '../data/cafeteira';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -219,6 +220,7 @@ const jsonLd = [
       <p>Para a maioria das casas, a <strong>{cafeteiras[0].nome}</strong> é a melhor compra: faz de tudo, ajusta a temperatura e usa cápsulas fáceis de achar. Para gastar menos na máquina e nas cápsulas, vá de <strong>TRES LOV</strong>. Quem toma espresso puro fica bem servido com a <strong>Nespresso Essenza Mini</strong>, e quem não abre mão do cappuccino com leite fresco deve olhar a <strong>Nespresso Lattissima One</strong>.</p>
       <p>Também está equipando a cozinha? Veja as <a href="/melhor-air-fryer/">melhores air fryers</a> e os <a href="/melhor-forno-eletrico-de-bancada/">melhores fornos elétricos de bancada</a>.</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>

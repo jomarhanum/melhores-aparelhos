@@ -1,5 +1,7 @@
 // Registro central dos artigos: alimenta a página de guias, a home, os "Leia também" e o sitemap.
 // Ao publicar ou atualizar um artigo, ajuste "atualizado" (AAAA-MM-DD).
+// Guias em Markdown (src/content/guias/*.md, publicados pelo n8n) entram sozinhos no fim do arquivo.
+import { guiasMarkdown } from './guias-md.mjs';
 
 /** @typedef {{ url: string, titulo: string, h1: string, descricao: string, categoria: 'Comparativo' | 'Review' | 'Guia', secao: string, publicado: string, atualizado: string, imagem: string, resumo: string, minutos: number }} Artigo */
 
@@ -1051,6 +1053,12 @@ artigos.push(
     minutos: 5,
   },
 );
+
+// Guias em Markdown: registrados automaticamente. Um slug repetido quebraria a rota, então o build para.
+for (const g of guiasMarkdown()) {
+  if (artigos.some((a) => a.url === g.url)) throw new Error(`Guia em Markdown com URL já usada: ${g.url}`);
+  artigos.push(g);
+}
 
 export const artigoPorUrl = (url) => artigos.find((a) => a.url === url);
 export const artigosDaSecao = (secao) => artigos.filter((a) => a.secao === secao);

@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { geladeiras } from '../data/geladeira';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -214,6 +215,7 @@ const jsonLd = [
       <p>Já tem geladeira? Veja <a href="/guias/como-limpar-geladeira/">como limpar a geladeira por dentro e por fora</a>, do jeito que os fabricantes recomendam, e o que fazer quando a <a href="/guias/geladeira-nao-gela/">geladeira não gela</a> ou está <a href="/guias/geladeira-fazendo-barulho/">fazendo barulho</a>. Para os alimentos durarem mais, veja <a href="/guias/como-organizar-geladeira/">como organizar a geladeira</a> e a <a href="/guias/temperatura-ideal-geladeira/">temperatura ideal da geladeira</a>. Água no chão? Veja <a href="/guias/geladeira-vazando-agua/">geladeira vazando água</a>.</p>
       <p>Também está montando a cozinha? Veja os <a href="/melhor-forno-eletrico-de-embutir/">melhores fornos elétricos de embutir</a> e os <a href="/melhor-forno-eletrico-de-bancada/">de bancada</a>.</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>

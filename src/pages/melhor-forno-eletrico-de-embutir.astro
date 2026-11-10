@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { fornos } from '../data/forno';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -238,6 +239,7 @@ const jsonLd = [
       <p>Para a maioria das famílias, o <strong>{fornos[0].nome}</strong> é a melhor compra: grande, com convecção, air fryer e painel touch. Quem precisa de espaço máximo deve ir de <strong>Brastemp BOC84AR</strong>. Em cozinhas pequenas, o <strong>Fischer Infinity 50L com air fryer</strong> é o compacto mais completo, e o <strong>Consul COB47BE</strong> é o mais equilibrado para quem quer simplicidade.</p>
       <p>Gostou do comparativo? Compartilhe com quem está montando a cozinha. 😉</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>

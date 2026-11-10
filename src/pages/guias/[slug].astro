@@ -1,0 +1,25 @@
+---
+// Guias escritos em Markdown (src/content/guias/*.md). As páginas .astro desta pasta têm prioridade.
+import { getCollection, render } from 'astro:content';
+import Artigo from '../../layouts/Artigo.astro';
+
+export async function getStaticPaths() {
+  const guias = await getCollection('guias');
+  return guias.map((g) => ({ params: { slug: g.id }, props: { g } }));
+}
+
+const { g } = Astro.props;
+const { Content } = await render(g);
+---
+<Artigo faq={g.data.faq} relacionados={g.data.relacionados}>
+  <div class="artigo-md">
+    <Content />
+  </div>
+</Artigo>
+
+<style is:global>
+  /* "> **Resumo:** ..." no Markdown vira a caixa de destaque usada nos guias escritos à mão. */
+  .artigo-md blockquote { background: var(--azul-claro); border: 1px solid #bcd7f3; border-radius: var(--raio); padding: 20px 24px; margin: 1.8rem 0; }
+  .artigo-md blockquote > :last-child { margin-bottom: 0; }
+  .artigo-md table { display: block; overflow-x: auto; }
+</style>

@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { bancadas } from '../data/bancada';
 import { fotoProduto } from '../data/tipos';
 import { site, author } from '../data/site';
@@ -232,6 +233,7 @@ const jsonLd = [
       <p>Para a maioria das famílias, o <strong>{bancadas[0].nome}</strong> é a melhor compra: grande, com dourador e timer longo. Quem faz bolos e pães deve olhar o <strong>Oster de 45 litros com convecção</strong>, e quem quer gastar menos tem no <strong>Philco PFE52P</strong> o melhor equilíbrio. Para lanches rápidos, o mini <strong>Mondial Pratic Cook</strong> resolve.</p>
       <p>Tem cozinha planejada? Veja também os <a href="/melhor-forno-eletrico-de-embutir/">melhores fornos elétricos de embutir</a>.</p>
 
+      <GuiasDaCategoria />
       <ShareButtons title={title} />
       <AuthorBox />
     </section>
