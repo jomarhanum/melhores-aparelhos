@@ -74,7 +74,7 @@ Mantenha uma distância livre ao redor da saída de ar traseira do aparelho; con
 
 Ao notar cheiro persistente de queimado, ruídos incomuns ou fumaça escura, desligue o aparelho da tomada imediatamente. Mantenha a gaveta fechada até a estrutura esfriar por completo. Caso perceba avarias na fiação, no termostato ou na resistência, procure a assistência técnica autorizada para o conserto.
 
-Para conservar a cuba sem resíduos prejudiciais, veja [como limpar a air fryer](/guias/como-limpar-air-fryer/) de forma correta após as refeições. Caso o aparelho seja novo, consulte [como usar a air fryer pela primeira vez](/guias/como-usar-air-fryer-primeira-vez/) para realizar a queima inicial do antiaderente. Para comparar as diferenças de preparo com outros eletrodomésticos, leia nosso comparativo entre [forno elétrico ou air fryer](/guias/forno-eletrico-ou-air-fryer/).
+Para conservar a cuba sem resíduos prejudiciais, veja [como limpar a air fryer](/guias/como-limpar-air-fryer/) de forma correta após as refeições. Caso o aparelho seja novo, consulte [como usar a air fryer pela primeira vez](/guias/como-usar-air-fryer-primeira-vez/) para tirar o cheiro de fábrica antes da primeira receita. Para comparar as diferenças de preparo com outros eletrodomésticos, leia nosso comparativo entre [forno elétrico ou air fryer](/guias/forno-eletrico-ou-air-fryer/).
 
 ## Próximos passos
 
