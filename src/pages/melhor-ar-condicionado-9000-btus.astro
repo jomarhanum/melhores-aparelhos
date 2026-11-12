@@ -9,6 +9,10 @@ const faq = [
   { q: '9.000 BTUs gela bem?', a: 'Gela bem quando o cômodo está dentro da faixa recomendada. Em quartos maiores ou muito ensolarados, o aparelho trabalha no limite e gasta mais. Nesse caso, prefira 12.000 BTUs.' },
   { q: 'Qual o melhor ar-condicionado 9.000 BTUs de 2026?', a: 'O Midea AI Ecomaster é o melhor do nosso ranking: Wi-Fi, comando de voz, consumo anual de 276,3 kWh e 10 anos de garantia no compressor. O Elgin Eco III é o mais em conta.' },
   { q: 'Existe 9.000 BTUs quente e frio?', a: 'Sim. Na nossa lista, dois são quente e frio: o Elgin Eco III, o mais em conta, e o Electrolux Color Adapt, com tripla filtragem.' },
+  { q: 'Ar-condicionado 9.000 BTUs é 110 V ou 220 V?', a: 'Os três modelos do nosso ranking são 220 V. Se a sua casa só tem 127 V no ponto, será preciso puxar um circuito 220 V até o local. Peça esse serviço ao eletricista junto com a instalação.' },
+  { q: 'Quanto gasta um ar-condicionado de 9.000 BTUs por mês?', a: 'Depende das horas de uso e da sua tarifa. Pela etiqueta, o Midea AI Ecomaster consome 276,3 kWh por ano no padrão de teste do Inmetro, cerca de 23 kWh por mês. Usado todas as noites no verão, o gasto real tende a ser maior. Veja a conta passo a passo na página.' },
+  { q: 'Qual o tamanho da evaporadora de um 9.000 BTUs?', a: 'Entre cerca de 72 e 85 cm de largura nos modelos da lista: 72,3 cm no Midea, 77,5 cm no Elgin e 85,3 cm no Electrolux. Confira o espaço na parede antes de comprar, principalmente acima de portas e janelas.' },
+  { q: 'Dá para instalar 9.000 BTUs em quarto de 15 m²?', a: 'Só em condições favoráveis: uma pessoa, sem sol forte na parede ou na janela e sem muitos aparelhos ligados. Com sol da tarde ou duas pessoas, um 12.000 BTUs vai trabalhar com folga e gastar menos para manter a temperatura.' },
 ];
 
 const de9 = inverters.filter((p) => p.btu === 9000);
@@ -24,12 +28,13 @@ const destaques: Record<string, string> = {
   'elgin-eco-iii-9000-qf': 'O mais em conta: inverter quente e frio com Wi-Fi compatível com Alexa e Google Assistente, gás R-32 e selo Procel A.',
   'electrolux-color-adapt-9000-qf': 'O quente e frio: aquece o quarto no inverno, tem tripla filtragem, anticorrosão e Wi-Fi com comando de voz.',
 };
+const largura = (p: (typeof de9)[number]) => p.evaporadora?.split(' ')[0] ? `${p.evaporadora.split(' ')[0]} cm` : '—';
 ---
 <Artigo faq={faq} jsonLd={jsonLd} relacionados={['/melhor-ar-condicionado-inverter/', '/melhor-ar-condicionado-12000-btus/', '/guias/quantos-btus-preciso/', '/guias/selo-procel-e-consumo-ar-condicionado/']}>
-  <p>Para a maioria dos quartos, o ar-condicionado de <strong>9.000 BTUs</strong> é a medida certa: gela bem, ocupa pouco espaço e gasta menos que os modelos maiores. Estes são os melhores modelos inverter dessa capacidade no nosso <a href="/melhor-ar-condicionado-inverter/">ranking de 2026</a>.</p>
+  <p>Para a maioria dos quartos, o ar-condicionado de <strong>9.000 BTUs</strong> é a medida certa: gela bem, ocupa pouco espaço e gasta menos que os modelos maiores. Estes são os melhores modelos inverter dessa capacidade no nosso <a href="/melhor-ar-condicionado-inverter/">ranking de 2026</a>, com a conta de quanto gastam, as medidas e o que muda entre eles.</p>
 
   <div class="destaque-box">
-    <p><strong>Resposta rápida:</strong> o melhor é o <a href="#mini-midea-ai-ecomaster-9000">Midea AI Ecomaster</a>; o mais em conta, o <a href="#mini-elgin-eco-iii-9000-qf">Elgin Eco III</a>, que também aquece; e, com tripla filtragem, o <a href="#mini-electrolux-color-adapt-9000-qf">Electrolux Color Adapt quente e frio</a>.</p>
+    <p><strong>Resposta rápida:</strong> o melhor é o <a href="#mini-midea-ai-ecomaster-9000">Midea AI Ecomaster</a>; o mais em conta, o <a href="#mini-elgin-eco-iii-9000-qf">Elgin Eco III</a>, que também aquece; e, com tripla filtragem, o <a href="#mini-electrolux-color-adapt-9000-qf">Electrolux Color Adapt quente e frio</a>. Os três são inverter, usam gás R-32 e funcionam em 220 V.</p>
   </div>
 
   <h2 id="m2">9.000 BTUs serve para quantos m²?</h2>
@@ -43,21 +48,75 @@ const destaques: Record<string, string> = {
       </tbody>
     </table>
   </div>
-  <p>Passou disso? Veja os <a href="/melhor-ar-condicionado-12000-btus/">melhores de 12.000 BTUs</a> ou calcule na <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</p>
+  <p>O que mais pesa na conta, além da área: <strong>sol direto</strong> na parede ou na janela, <strong>pé-direito alto</strong>, <strong>andar de cobertura</strong> e aparelhos que esquentam, como computador e TV grande. Passou da faixa? Veja os <a href="/melhor-ar-condicionado-12000-btus/">melhores de 12.000 BTUs</a> ou calcule na <a href="/guias/quantos-btus-preciso/">calculadora de BTUs</a>.</p>
 
   <h2 id="ranking">Os melhores ar-condicionados de 9.000 BTUs</h2>
   {de9.map((p, i) => (
     <ProdutoMini tipo="Ar-condicionado split inverter" slug={p.slug} posicao={i + 1} destaque={destaques[p.slug]} specs={[['Ciclo', p.ciclo], ['Eficiência', p.eficiencia.split(' (')[0]], ['Consumo', p.consumo ?? 'confira a etiqueta'], ['Wi-Fi', p.wifi.startsWith('Sim') ? 'Sim' : 'Não']]} />
   ))}
 
+  <h2 id="tabela">Comparativo lado a lado</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Modelo</th><th>Ciclo</th><th>Largura da evaporadora</th><th>Wi-Fi e voz</th><th>Garantia</th></tr></thead>
+      <tbody>
+        {de9.map((p) => (
+          <tr><td><a href={`#mini-${p.slug}`}>{p.marca} {p.modelo}</a></td><td>{p.ciclo}</td><td>{largura(p)}</td><td>{p.wifi.replace(/^Sim \(|\)$/g, '')}</td><td>{p.garantia?.split(' (')[0] ?? 'confira no anúncio'}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">Dados das fichas oficiais e dos anúncios. Garantia estendida do compressor costuma exigir instalação por credenciado: guarde a nota do serviço.</p>
+
+  <h2 id="como-escolher">Como escolher entre os três</h2>
+  <ul>
+    <li><strong>Inverno frio na sua cidade?</strong> Vá de quente e frio: o Elgin Eco III, se o orçamento pesa, ou o Electrolux Color Adapt, se você quer filtragem melhor para alergia.</li>
+    <li><strong>Calor o ano todo?</strong> O Midea AI Ecomaster, só frio, tem o menor consumo informado da lista e a garantia mais longa no compressor.</li>
+    <li><strong>Parede estreita?</strong> A evaporadora do Midea é a menor (72,3 cm); a do Electrolux, a maior (85,3 cm). Deixe pelo menos 15 cm livres nas laterais e acima, ou o que pedir o manual.</li>
+    <li><strong>Quer controlar pelo celular?</strong> Os três têm Wi-Fi; só o Midea conversa com a Siri, além de Alexa e Google.</li>
+  </ul>
+
+  <h2 id="consumo">Quanto gasta um 9.000 BTUs</h2>
+  <p>O número da etiqueta (em kWh por ano) serve para <strong>comparar modelos</strong>, porque todos são medidos no mesmo teste do Inmetro. O gasto da sua casa depende de quantas horas o aparelho fica ligado, da temperatura escolhida e do isolamento do quarto.</p>
+  <ol>
+    <li><strong>Consumo por mês</strong> ≈ consumo anual da etiqueta ÷ 12. No Midea: 276,3 ÷ 12 ≈ 23 kWh.</li>
+    <li><strong>Custo</strong> = kWh × tarifa da sua conta (com impostos e bandeira). Com R$ 0,90 por kWh, dá cerca de R$ 21 por mês no padrão do teste.</li>
+    <li><strong>Uso intenso</strong> (todas as noites, no auge do verão) pode passar desse valor. Para acompanhar o consumo real, use o app do aparelho: o do Midea mostra o gasto.</li>
+  </ol>
+  <p>Para gastar menos: deixe entre <strong>23 °C e 25 °C</strong>, feche portas e cortinas, limpe o filtro a cada 15 dias de uso e use o modo dormir. Mais dicas em <a href="/guias/temperatura-ideal-ar-condicionado/">temperatura ideal do ar-condicionado</a> e no guia do <a href="/guias/selo-procel-e-consumo-ar-condicionado/">selo Procel e consumo</a>.</p>
+
+  <h2 id="9000-ou-12000">9.000 ou 12.000 BTUs?</h2>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th></th><th>9.000 BTUs</th><th>12.000 BTUs</th></tr></thead>
+      <tbody>
+        <tr><td>Cômodo típico</td><td>Quarto de até 12 m²</td><td>Quarto grande ou sala de até cerca de 18 m²</td></tr>
+        <tr><td>Preço</td><td>Menor</td><td>Um pouco maior</td></tr>
+        <tr><td>Evaporadora</td><td>Mais compacta</td><td>Um pouco maior</td></tr>
+        <tr><td>Quando escolher</td><td>Quarto sem sol forte e com até 2 pessoas</td><td>Sol da tarde, cobertura ou cômodo no limite da faixa</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Na dúvida entre os dois, o inverter maior não é desperdício: ele atinge a temperatura e passa a trabalhar em rotação baixa. Já um aparelho pequeno demais fica no máximo o tempo todo e não chega a gelar. Os modelos estão nos <a href="/melhor-ar-condicionado-12000-btus/">melhores de 12.000 BTUs</a>.</p>
+
+  <h2 id="instalacao">Instalação: o que conferir antes</h2>
+  <ul>
+    <li><strong>Tomada ou circuito 220 V</strong> até o ponto da evaporadora, com disjuntor indicado no manual.</li>
+    <li><strong>Lugar para a condensadora</strong> (a unidade de fora), com ventilação e acesso para manutenção. As condensadoras da lista pesam de cerca de 17 a 20 kg; as larguras informadas vão de 67 a 74 cm.</li>
+    <li><strong>Distância entre as unidades:</strong> trechos curtos de tubulação rendem mais. Perguntar ao instalador o comprimento previsto evita custo extra.</li>
+    <li><strong>Dreno:</strong> a água precisa ter caminho até um ralo ou para fora. Ar pingando dentro do quarto costuma ser dreno mal feito: veja <a href="/guias/ar-condicionado-pingando-agua/">ar-condicionado pingando água</a>.</li>
+  </ul>
+  <p>O passo a passo e os custos estão no guia de <a href="/guias/instalacao-ar-condicionado-split/">instalação de ar-condicionado split</a>.</p>
+
   <h2>9.000 BTUs split ou portátil?</h2>
   <p>Se você não pode instalar um split (aluguel, condomínio, fachada), o portátil de 10.000 BTUs é a alternativa sem obra para quartos pequenos. Ele gasta mais e faz mais barulho, mas dispensa instalador. Veja o <a href="/melhor-ar-condicionado-portatil/#gree-aovia-gpc10ap">Gree Aovia 10.000 BTUs</a> e os <a href="/melhor-ar-condicionado-portatil/">melhores portáteis de 2026</a>.</p>
 
-  <h2>Dicas para o quarto</h2>
+  <h2 id="dicas">Dicas para o quarto</h2>
   <ul>
     <li><strong>Posição:</strong> evite a evaporadora soprando direto sobre a cama.</li>
     <li><strong>Use o modo dormir:</strong> ajusta a temperatura durante a noite e economiza.</li>
-    <li><strong>Temperatura entre 23 °C e 25 °C</strong> para dormir bem e gastar menos.</li>
+    <li><strong>Noites úmidas e abafadas:</strong> o <a href="/guias/modo-dry-ar-condicionado-para-que-serve/">modo dry</a> tira a umidade sem gelar tanto.</li>
+    <li><strong>Manutenção:</strong> filtros limpos evitam cheiro ruim e consumo alto. Veja <a href="/guias/como-limpar-ar-condicionado-split/">como limpar o ar-condicionado split</a>.</li>
   </ul>
   <p class="nota">Ranking e notas: opinião editorial de {author.name}, com base nas especificações oficiais dos fabricantes.</p>
 </Artigo>
