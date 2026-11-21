@@ -91,6 +91,18 @@ const baseLd = [
     <link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     {[...baseLd, ...jsonLd].map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
+
+    {/* Google Analytics 4: só no build de produção; sem sinais de anúncios. */}
+    {import.meta.env.PROD && <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-00Z0B9C45R"></script>}
+    {import.meta.env.PROD && (
+      <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'granted' });
+        gtag('js', new Date());
+        gtag('config', 'G-00Z0B9C45R', { allow_google_signals: false, allow_ad_personalization_signals: false });
+      </script>
+    )}
   </head>
   <body>
     <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -147,7 +159,7 @@ const baseLd = [
     </footer>
 
     <div class="cookie" id="cookie" hidden role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-      <p>Usamos cookies essenciais e de afiliados para melhorar sua experiência. Saiba mais na <a href="/politica-de-privacidade/">Política de Privacidade</a>.</p>
+      <p>Usamos cookies essenciais, de estatística (Google Analytics) e de afiliados para melhorar sua experiência. Saiba mais na <a href="/politica-de-privacidade/">Política de Privacidade</a>.</p>
       <button id="cookie-ok" class="btn btn-sm">Entendi</button>
     </div>
     <script is:inline>
