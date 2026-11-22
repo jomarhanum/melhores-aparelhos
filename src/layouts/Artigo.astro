@@ -2,6 +2,7 @@
 import Base from './Base.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import SigaMA from '../components/SigaMA.astro';
 import { site, author } from '../data/site';
 import { artigoPorUrl, artigosDaSecao } from '../data/artigos.mjs';
 import { categoriaPorId } from '../data/categorias.mjs';
@@ -99,6 +100,8 @@ const ld = [
         </div>
       </section>
     )}
+
+    <SigaMA />
 
     <section>
       <h2>Leia também</h2>

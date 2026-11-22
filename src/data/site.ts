@@ -12,6 +12,11 @@ export const site = {
   contactEmail: 'contato@jhonlinesolutions.com.br',
   developer: { name: 'JH Online Solutions', url: 'https://jhonlinesolutions.com.br' },
   ogImage: '/images/og-melhores-aparelhos-geral.jpg',
+  // Perfis do próprio site (não os do autor): rodapé, chamada no fim dos artigos e sameAs da Organization.
+  social: {
+    instagram: { usuario: '@melhoresaparelhos', url: 'https://www.instagram.com/melhoresaparelhos/' },
+    facebook: { url: 'https://www.facebook.com/61596905422487/' },
+  },
 };
 
 export const author = {

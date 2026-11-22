@@ -50,6 +50,7 @@ const baseLd = [
     url: `${site.url}/`,
     logo: { '@type': 'ImageObject', url: `${site.url}/favicon-512.png`, width: 512, height: 512 },
     founder: { '@type': 'Person', name: author.name, url: new URL(author.url, site.url).href },
+    sameAs: [site.social.instagram.url, site.social.facebook.url],
   },
 ];
 ---
@@ -137,6 +138,7 @@ const baseLd = [
         <div>
           <p class="logo logo-rodape"><span>Melhores<b>Aparelhos</b></span></p>
           <p>{site.tagline}. Conteúdo independente escrito por {author.name}.</p>
+          <p class="rodape-siga">Siga: <a href={site.social.instagram.url} target="_blank" rel="noopener">Instagram {site.social.instagram.usuario}</a> · <a href={site.social.facebook.url} target="_blank" rel="noopener">Facebook</a></p>
           <p class="aviso">Como participante dos programas de afiliados da Amazon e do Mercado Livre, podemos receber comissão por compras qualificadas, sem custo extra para você.</p>
         </div>
         <nav aria-label="Links institucionais">

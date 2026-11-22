@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import SigaMA from '../components/SigaMA.astro';
 import GuiasDaCategoria from '../components/GuiasDaCategoria.astro';
 import { colunas } from '../data/coluna';
 import { fotoProduto } from '../data/tipos';
@@ -212,6 +213,7 @@ const jsonLd = [
 
       <GuiasDaCategoria />
       <ShareButtons title={title} />
+      <SigaMA />
       <AuthorBox />
     </section>
   </div>
