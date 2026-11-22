@@ -10,6 +10,9 @@ import sharp from 'sharp';
 import { artesDoSite, renderArte } from './social';
 
 const W = 1080, H = 1920, ART_H = 1350;
+// Trilhas originais (scripts/gerar-trilhas.mjs): cada Reel usa uma, escolhida pelo slug.
+const TRILHAS = ['trilha-1', 'trilha-2', 'trilha-3'].map((t) => join(process.cwd(), 'src/assets/audio', `${t}.m4a`));
+const trilhaDe = (slug: string) => TRILHAS[[...slug].reduce((s, c) => s + c.charCodeAt(0), 0) % TRILHAS.length];
 const ffmpeg = process.env.FFMPEG || 'ffmpeg';
 
 let disponivel: boolean | undefined;
@@ -46,7 +49,7 @@ export async function renderReel(slug: string): Promise<Buffer> {
     const dur = (i: number) => (i === 0 ? 3.6 : 3.2), trans = 0.5;
     const args = ['-y', '-loglevel', 'error'];
     quadros.forEach((_, i) => args.push('-loop', '1', '-t', String(dur(i)), '-framerate', '30', '-i', join(dir, `q${i}.png`)));
-    args.push('-f', 'lavfi', '-i', 'anullsrc=r=44100:cl=stereo');
+    args.push('-i', trilhaDe(slug));
     // Encadeia as transições: [0][1]xfade -> [v1]; [v1][2]xfade -> [v2]; ...
     const filtros: string[] = quadros.map((_, i) => `[${i}:v]format=yuv420p,setsar=1[s${i}]`);
     let anterior = 's0', offset = 0;
@@ -57,9 +60,10 @@ export async function renderReel(slug: string): Promise<Buffer> {
       anterior = saida;
     }
     const total = quadros.reduce((s, _, i) => s + dur(i), 0) - trans * (quadros.length - 1);
-    args.push('-filter_complex', filtros.join(';'), '-map', '[v]', '-map', `${quadros.length}:a`,
+    filtros.push(`[${quadros.length}:a]atrim=0:${total.toFixed(2)},afade=t=out:st=${(total - 1.2).toFixed(2)}:d=1.2[a]`);
+    args.push('-filter_complex', filtros.join(';'), '-map', '[v]', '-map', '[a]',
       '-t', total.toFixed(2), '-r', '30', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-pix_fmt', 'yuv420p',
-      '-c:a', 'aac', '-b:a', '64k', '-movflags', '+faststart', join(dir, 'reel.mp4'));
+      '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', join(dir, 'reel.mp4'));
     const r = spawnSync(ffmpeg, args, { encoding: 'utf8' });
     if (r.status !== 0) throw new Error(`ffmpeg falhou (${slug}): ${r.stderr}`);
     return readFileSync(join(dir, 'reel.mp4'));
