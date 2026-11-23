@@ -12,7 +12,7 @@ await sharp(fav).resize(512, 512).png().toFile('public/favicon-512.png');
 const fundo = `<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b5cab"/><stop offset="1" stop-color="#083f78"/></linearGradient></defs>
   <rect width="1200" height="630" fill="url(#g)"/>
   <circle cx="1050" cy="90" r="220" fill="#ffffff" opacity=".06"/>`;
-const fotoAutor = (lado) => sharp('public/images/autor-jomar-hanum-160.jpg').resize(lado, lado)
+const fotoAutor = (lado) => sharp('public/images/autor-jomar-hanum-2026b-160.jpg').resize(lado, lado)
   .composite([{ input: Buffer.from(`<svg width="${lado}" height="${lado}"><circle cx="${lado / 2}" cy="${lado / 2}" r="${lado / 2}"/></svg>`), blend: 'dest-in' }])
   .png().toBuffer();
 

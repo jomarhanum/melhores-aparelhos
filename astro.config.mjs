@@ -162,7 +162,7 @@ const fotosDoHub = {
   '/melhor-ar-condicionado-inverter/': inverters.map(([s, n]) => [s, `Ar-condicionado split inverter ${n}`]),
 };
 const img = (path, caption) => ({ url: `${SITE_URL}${path}`, caption });
-const fotoAutor = img('/images/autor-jomar-hanum-400.jpg', 'Jomar Hanum, editor-chefe do Melhores Aparelhos');
+const fotoAutor = img('/images/autor-jomar-hanum-2026b-400.jpg', 'Jomar Hanum, editor-chefe do Melhores Aparelhos');
 const ultimaAtualizacao = artigos.map((a) => a.atualizado).sort().at(-1);
 
 // Páginas fixas: prioridade, frequência, data da última alteração real e imagens.
