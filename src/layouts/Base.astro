@@ -30,6 +30,9 @@ const {
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImage = new URL(image, site.url).href;
 const path = Astro.url.pathname;
+// Faixa da Black Friday 2026: só em comparativos e reviews, até o fim da Cyber Monday (30/11, 23h59 de Brasília).
+const fimBlackFriday = new Date('2026-12-01T00:00:00-03:00');
+const faixaBF = (path.startsWith('/melhor-') || path.startsWith('/review/')) && new Date() < fimBlackFriday;
 
 const baseLd = [
   {
@@ -144,6 +147,15 @@ const baseLd = [
         </nav>
       </div>
     </header>
+
+    {faixaBF && (
+      <aside class="faixa-bf" data-fim={fimBlackFriday.getTime()} aria-label="Black Friday">
+        <div class="wrap">
+          <p><strong>Black Friday até 30/11:</strong> os preços dos modelos desta lista mudam várias vezes por dia. Antes de comprar, compare Amazon e Mercado Livre, desconfie de "desconto" sobre preço que subiu na semana e confira a voltagem.</p>
+        </div>
+      </aside>
+    )}
+    {faixaBF && <script is:inline>(function(){var f=document.querySelector('.faixa-bf');if(f&&Date.now()>=+f.dataset.fim)f.remove();})();</script>}
 
     <main id="conteudo" data-pagefind-body={noindex ? undefined : ''}>
       <slot />
