@@ -1,7 +1,7 @@
 ---
-titulo: "Forno Elétrico Não Esquenta: O Que Fazer Antes do Técnico"
+titulo: "Forno Elétrico Não Esquenta? 4 Causas e o Que Verificar"
 h1: "Forno elétrico não esquenta: o que verificar antes do técnico"
-descricao: "Seu forno elétrico não esquenta? Veja verificações práticas na tomada, timer, termostato e resistências antes de chamar a assistência técnica."
+descricao: "Antes de chamar o técnico, confira as 4 causas mais comuns: tomada e disjuntor, timer e termostato, resistência queimada e vedação da porta. Com tabela de diagnóstico."
 secao: "forno-bancada"
 publicado: "2026-11-15"
 atualizado: "2026-11-15"

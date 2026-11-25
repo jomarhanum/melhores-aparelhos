@@ -1,7 +1,7 @@
 ---
-titulo: "Cafeteira de Cápsula Não Sai Café: 6 Causas e Como Resolver"
+titulo: "Cafeteira de Cápsula Não Sai Café? 5 Causas e Como Resolver"
 h1: "Cafeteira de cápsula não sai café: causas e soluções"
-descricao: "Sua cafeteira de cápsula não sai café ou só pinga? Veja as principais causas desse problema, como desentupir o bico e quando procurar uma assistência."
+descricao: "A bomba faz barulho mas não sai café, ou só pinga? Veja as 5 causas, como desentupir a agulha e tirar o ar da bomba em casa, e quando ir à assistência."
 secao: "cafeteira-capsula"
 publicado: "2026-11-16"
 atualizado: "2026-11-16"

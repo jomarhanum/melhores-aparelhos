@@ -1,7 +1,7 @@
 ---
-titulo: "Ventilador Fazendo Barulho: Causas e Como Resolver"
+titulo: "Ventilador Fazendo Barulho? 5 Causas e Como Resolver"
 h1: "Ventilador fazendo barulho: causas comuns e como resolver"
-descricao: "Seu ventilador fazendo barulho incomoda o sono? Veja as principais causas de estalos, rangidos e vibrações e aprenda como resolver em casa com segurança."
+descricao: "Estalo, rangido ou vibração? Veja o que cada barulho indica e resolva em casa as 5 causas mais comuns, da grade solta à hélice raspando. Passo a passo."
 secao: "ventilador-coluna"
 publicado: "2026-11-17"
 atualizado: "2026-11-17"
