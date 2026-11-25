@@ -102,6 +102,22 @@ const baseLd = [
         gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'granted' });
         gtag('js', new Date());
         gtag('config', 'G-00Z0B9C45R', { allow_google_signals: false, allow_ad_personalization_signals: false });
+        // Clique em link de afiliado (rel="sponsored"): evento clique_afiliado com loja, produto, posição e local do botão.
+        function cliqueAfiliado(e) {
+          if (e.type === 'auxclick' && e.button !== 1) return;
+          var a = e.target.closest && e.target.closest('a[rel~="sponsored"]');
+          if (!a) return;
+          var h = a.hostname, d = a.dataset;
+          gtag('event', 'clique_afiliado', {
+            loja: d.loja || (h.indexOf('amazon') >= 0 ? 'amazon' : h.indexOf('mercadoli') >= 0 ? 'mercadolivre' : h),
+            produto: d.produto || a.textContent.trim().slice(0, 80),
+            posicao: d.posicao ? Number(d.posicao) : undefined,
+            local: a.closest('.botoes-fim') ? 'card_fim' : a.closest('.produto') ? 'card_topo' : a.closest('.mini') ? 'card_mini' : 'texto',
+            transport_type: 'beacon'
+          });
+        }
+        document.addEventListener('click', cliqueAfiliado, true);
+        document.addEventListener('auxclick', cliqueAfiliado, true);
       </script>
     )}
   </head>

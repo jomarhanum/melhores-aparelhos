@@ -26,10 +26,10 @@ const specs = p.ficha;
       <p class="ideal"><strong>Ideal para:</strong> {p.idealPara}</p>
       {reviewUrl && <p><a href={reviewUrl}><strong>Leia o review completo do {p.marca} {p.modelo} →</strong></a></p>}
       <div class="botoes">
-        {amazonLink(p) && <a class="btn btn-amazon" href={amazonLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>
+        {amazonLink(p) && <a class="btn btn-amazon" href={amazonLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug} data-posicao={p.rank}>
           Ver preço na Amazon
         </a>}
-        {mercadoLivreLink(p) && <a class="btn btn-ml" href={mercadoLivreLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>
+        {mercadoLivreLink(p) && <a class="btn btn-ml" href={mercadoLivreLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug} data-posicao={p.rank}>
           Ver no Mercado Livre
         </a>}
       </div>
@@ -96,8 +96,8 @@ const specs = p.ficha;
   )}
 
   <div class="botoes botoes-fim">
-    {amazonLink(p) && <a class="btn btn-amazon" href={amazonLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug}>Comprar na Amazon</a>}
-    {mercadoLivreLink(p) && <a class="btn btn-ml" href={mercadoLivreLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug}>Comprar no Mercado Livre</a>}
+    {amazonLink(p) && <a class="btn btn-amazon" href={amazonLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="amazon" data-produto={p.slug} data-posicao={p.rank}>Comprar na Amazon</a>}
+    {mercadoLivreLink(p) && <a class="btn btn-ml" href={mercadoLivreLink(p)!} target="_blank" rel="sponsored nofollow noopener" data-loja="mercadolivre" data-produto={p.slug} data-posicao={p.rank}>Comprar no Mercado Livre</a>}
   </div>
 </article>
 
